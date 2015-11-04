@@ -18,4 +18,5 @@ olimex_swd_kinetis.cfg -- config file for OpenOCD
 ## Example usage
 
 > make
+
 > make write
