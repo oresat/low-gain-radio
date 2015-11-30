@@ -7,8 +7,8 @@ __process_stack_size__  = 0x0400;
 
 MEMORY
 {
-    flash : org = 0x00000000, len = 128k
-    ram : org = 0x1FFF_E000, len = 16k
+    flash : org = 0x00000410, len = 0x0001FBF0
+    ram :   org = 0x1FFFF000, len = 0x00004000
 }
 
 __ram_start__           = ORIGIN(ram);
@@ -114,12 +114,12 @@ SECTIONS
     .bss ALIGN(4) : ALIGN(4)
     {
         . = ALIGN(4);
-        PROVIDE(_bss_start = .);
+        PROVIDE(__bss_start__ = .);
         *(.bss)
         *(.bss.*)
         *(COMMON)
         . = ALIGN(4);
-        PROVIDE(_bss_end = .);
+        PROVIDE(__bss_end__ = .);
     } > ram    
 }
 
