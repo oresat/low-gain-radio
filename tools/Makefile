@@ -11,7 +11,7 @@ LDFLAGS = --specs=nosys.specs -static -nostdlib -T$(LINKER_SCRIPT)
 
 all: c3
 
-c3: crt0.o c3.o kw0x.o
+c3: crt0.o c3.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
