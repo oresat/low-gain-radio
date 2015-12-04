@@ -69,4 +69,26 @@ struct SIM_t {
 
 #define SIM (*((volatile struct SIM_t *) 0x40047000))
 
+
+struct MCG_t {
+	uint8_t C1;
+	uint8_t C2;
+	uint8_t C3;
+	uint8_t C4;
+	uint8_t C5;
+	uint8_t C6;
+	uint8_t S;
+	uint8_t _PAD0[1];
+	uint8_t SC;
+	uint8_t _PAD1[1];
+	uint8_t ATCVH;
+	uint8_t ATCVL;
+	uint8_t C7;
+	uint8_t C8;
+	uint8_t PAD3[1];
+	uint8_t C10;
+} __attribute__((packed));
+
+#define MCG (*((volatile struct MCG_t *) 0x40064000))
+
 #endif
