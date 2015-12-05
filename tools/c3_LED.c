@@ -5,10 +5,8 @@
  */
 #include "kw0x.h"
 
-int main(void) {
-
-	/* variable for delay loop */
-	int i;
+void initialize_clock(void){
+	/* simple clock configuration */
 
 	/* set PLL external reference divider (PRDIV0) to 16 */
 	MCG.C5 = 0xF;
@@ -30,6 +28,11 @@ int main(void) {
 	/* enable clock for all ports */
 	SIM.SCGC5 |= 0x3E00;
 
+	return;
+}
+
+void initialize_gpio(void){
+
 	/* modify mux to select alt 1 functionality
 	   for PTB1, PTB2, PTB17.
 	   Alt 1 functionality is just GPIO
@@ -40,14 +43,49 @@ int main(void) {
 
 	/* set data direction as output */
 	GPIOB.PDDR |= 0x20006;
-	
-	/* turn all LEDs of by pulling pins high */
-	GPIOB.PTOR = 0x20006;
+
+	return;
+}
+
+int main(void) {
+
+	/* variable for delay loop */
+	int i;
+
+	/* call initialization procedures */
+	initialize_clock();
+	initialize_gpio();
 
 	while(1) {
 		/* toggle output with toggle output register */
 		/* lights all LEDs on MCU */
-	  	GPIOB.PTOR = 0x00004;
+		GPIOB.PTOR = 0x20006;
+
+		/* delay */
+		for(i = 0; i < 1000000; ++i);
+
+		/* turn off two LEDs */
+		GPIOB.PTOR = 0x20004;
+
+		/* delay */
+		for(i = 0; i < 1000000; ++i);
+
+		/* turn off LED that was on, turn next one on */
+		GPIOB.PTOR = 0x00006;
+
+		/* delay */
+		for(i = 0; i < 1000000; ++i);
+
+		/* turn off LED that was on, turn next one on */
+		GPIOB.PTOR = 0x20004;
+
+		/* delay */
+		for(i = 0; i < 1000000; ++i);
+
+		/* turn off LED that was on, end of pattern */
+		GPIOB.PTOR = 0x20000;
+
+		/* delay */
 		for(i = 0; i < 1000000; ++i);
 	}
 	return 0;
