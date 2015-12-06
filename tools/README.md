@@ -34,11 +34,12 @@ Eventually, we will script this part away with a simple make gdb command. For no
 
 After doing a make write, to debug the code using GDB, follow the steps below. You will want multiple terminals or a terminal multiplexer to do this.
 
-1. start up openOCD in a terminal as such
+* start up openOCD in a terminal as such
 
-> openocd -f olimex_swd_kinetis.cfg
+        > openocd -f olimex_swd_kinetis.cfg
 
 You should see something like...
+
         ```
         Open On-Chip Debugger 0.9.0 (2015-05-28-12:05)
         Licensed under GNU GPL v2
@@ -57,11 +58,12 @@ You should see something like...
 
 At which point you can proceed to step 2. Note: you need to be in whatever directory that has the olimex_swd_kinetis.cfg file in order to do this.
 
-2. telnet to the openOCD server in another terminal
+* telnet to the openOCD server in another terminal
 
->telnet localhost 4444
+        > telnet localhost 4444
 
 You should see something like this:
+
         ```
         Trying 127.0.0.1...
         Connected to localhost.
@@ -85,13 +87,13 @@ You will want to halt the chip to attach gdb. Do this by entering "reset halt". 
         > 
         ```
 
-3. Attach gdb using yet another terminal
+* Attach gdb using yet another terminal
 
 You must be in the working directory of the code to do this. (e.g. if you are debugging c3.c go to the directory where that file is)
 
 Once you are in the working directory of the code you can issue the following command:
 
-> arm-none-eabi-gdb c3
+        > arm-none-eabi-gdb c3
 
 You will see something like this...
 
