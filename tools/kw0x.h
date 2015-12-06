@@ -130,6 +130,68 @@ struct SPI_t {
 #define SPI0 (*((volatile struct SPI_t *) 0x40076000))
 #define SPI1 (*((volatile struct SPI_t *) 0x40077000))
 
+/* real-time clock module registers */
+struct RTC_t {
+  	uint32_t TSR; /* time seconds register */
+  	PAD_BYTES(4);
+  	uint32_t TPR; /* time prescaler register */
+  	PAD_BYTES(4);
+  	uint32_t TAR; /* time alarm register */
+  	PAD_BYTES(4);
+  	uint32_t TCR; /* time compensation register */
+  	PAD_BYTES(4);
+  	uint32_t CR; /* control register */
+	PAD_BYTES(4);
+  	uint32_t SR; /* status register */
+  	PAD_BYTES(4);
+  	uint32_t LR; /* lock register */
+  	PAD_BYTES(4);
+  	uint32_t IER; /* interrupt enable register */
+} PACKED;
+
+#define RTC (*((volatile struct RTC_t *) 0x4003D000))
+
+/* Timer/PWM Module registers */
+struct TPM_t {
+  	uint32_t SC; /* status and control register */
+  	PAD_BYTES(4);
+  	uint32_t CNT; /* counter register */
+  	PAD_BYTES(4);
+  	uint32_t MOD; /* modulo register */
+  	PAD_BYTES(4);
+  	uint32_t C0SC; /* channel n status and control register 0 */
+  	PAD_BYTES(4);
+  	uint32_t C0V; /* channel n value register 0 */
+  	PAD_BYTES(4);
+  	uint32_t C1SC; /* channel n status and control register 1 */
+  	PAD_BYTES(4);
+  	uint32_t C1V; /* channel n value register 1 */
+  	PAD_BYTES(4);
+  	uint32_t C2SC; /* channel n status and control register 2 */
+  	PAD_BYTES(4);
+  	uint32_t C2V; /* channel n value register 2 */
+  	PAD_BYTES(4);
+  	uint32_t C3SC; /* channel n status and control register 3 */
+  	PAD_BYTES(4);
+  	uint32_t C3V; /* channel n value register 3 */
+  	PAD_BYTES(4);
+  	uint32_t C4SC; /* channel n status and control register 4 */
+  	PAD_BYTES(4);
+  	uint32_t C4V; /* channel n value register 4 */
+  	PAD_BYTES(4);
+  	uint32_t C5SC; /* channel n status and control register 5 */
+  	PAD_BYTES(4);
+  	uint32_t C5V; /* channel n value register 5 */
+  	PAD_BYTES(24);
+  	uint32_t STATUS; /* capture and compare status register */
+  	PAD_BYTES(52);
+  	uint32_t CONF; /* configuration register */
+} PACKED;
+
+#define TPM0 (*((volatile struct TPM_t *) 0x40038000))
+#define TPM1 (*((volatile struct TPM_t *) 0x40039000))
+#define TPM2 (*((volatile struct TPM_t *) 0x4003A000))
+
 #undef PASTE
 #undef _PASTE
 #undef PAD_BYTES
