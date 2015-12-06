@@ -35,6 +35,7 @@ Eventually, we will script this part away with a simple make gdb command. For no
 After doing a make write, to debug the code using GDB, follow the steps below. You will want multiple terminals or a terminal multiplexer to do this.
 
 1. start up openOCD in a terminal as such
+
 > openocd -f olimex_swd_kinetis.cfg
 
 You should see something like...
