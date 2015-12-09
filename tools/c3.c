@@ -9,21 +9,23 @@ void initialize_clock(void){
 	/* simple clock configuration */
 
 	/* set PLL external reference divider (PRDIV0) to 16 */
-	MCG.C5 = 0xF;
+	//MCG.C5 = 0xF;
 
 	/* enable MCGPLLCLK if system is in Normal Stop mode */
-	MCG.C5 = 0x40;
+	//MCG.C5 |= 0x40;
 
 	/* select PLL instead of FLL */
-	MCG.C6 = 0x40;
+	//MCG.C6 = 0x40;
+	//MCG.C6 |= 0x68;
 
 	/* set frequency range select to high frequency range for oscillator
 	   and select external reference clock
 	 */
-	MCG.C2 |= 0x14;
+	//MCG.C2 |= 0x14;
+	//MCG.C2 |= 0x10;
 
 	/* enable external oscillator */
-	OSC0.CR = 0x80;
+	//OSC0.CR = 0x80;
 
 	/* enable clock for all ports */
 	SIM.SCGC5 |= 0x3E00;
@@ -56,20 +58,29 @@ void initialize_gpio(void){
 	return;
 }
 
-void initialize_spi(void){
+int initialize_spi(void){
+	/* now let's set up the SPI interface for the transceiver */
+	/* first select the proper mux setting on each pin needed */
+	PORTC.PCR[5] |= 0x200;
+	PORTC.PCR[6] |= 0x200;
+	PORTC.PCR[7] |= 0x200;
+	PORTD.PCR[0] |= 0x200;
+	PORTE.PCR[2] |= 0x100;
+	PORTE.PCR[3] |= 0x100;
+
 	/* configure SPI0 */
-	SPI0.C1 = 0xF2;		/* enable interrupts, enable SPI system, transmit interrupt enabled
-				   active high SPI clock, first edge on clk occurs at middle of the first cycle of a data transfer
-				   enable slave select output, spi serial data transfers start with MSB
-				 */
-	SPI0.C2 = 0x10;		/* enable mode fault function, automatically select mode fault input or slave select output */
-	SPI0.BR = 0x24;		/* 12.5 kbps baud rate */
+	SPI0.C1 = 0x52;
+	SPI0.C2 = 0xD0;
+  	
+	/* poll the transmit buffer empty flag */
+	while(!(SPI0.S & (1 << 5)));
+	/* write to SPI0.DH and SPI0.DL */
+	SPI0.DH = 0xA6;		/* we want to write to register 0x26 in the transceiver, but it needs be encoded with a 1 at the MSB for a write */ 
+	SPI0.DL = 0x00;		/* clear the bits in register 0x26 of the transceiver block */
+	while(SPI0.S & (1 << 7)); /* wait for read buffer full flag */
+	volatile uint16_t mySPI = (uint16_t) SPI0.DL; /* read the lower half of the data register */
 
-	/* this code causes an unhandled exception...why? */
-	//SPI0.C3 = 0x1;		/* set bit 0 to enable FIFO mode */
-	//SPI0.C3 |= 0x8;		/* set bit 3 to make it such that writing to CI register clears interrupts */
-
-	return;
+	return 1;
 }
 
 void initialize_tpm(void){
@@ -80,21 +91,24 @@ void initialize_tpm(void){
 }
 
 int main(void) {
-
 	/* variable for delay loop */
 	int i;
 
 	/* call initialization procedures */
 	initialize_clock();
 	initialize_gpio();
-	initialize_spi();
+	int myInit = initialize_spi(); /* if this returns, we're good */
 	initialize_tpm();
 
 	while(1) {
-		/* toggle output with toggle output register */
-		/* lights all LEDs on MCU */
-	  	GPIOB.PTOR = 0x00004;
-		for(i = 0; i < 1000000; ++i);
+	  	/* if we get here, myInit should be set, and then we light some LEDs */
+	  	if(myInit){
+		  	/* toggle LED connected to PTB2 */
+	  		GPIOB.PTOR = 0x00004;
+
+			/* delay loop */
+			for(i = 0; i < 1000000; ++i);
+	  	}
 	}
 	return 0;
 }
