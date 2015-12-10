@@ -24,7 +24,27 @@ int initialize_spi(void){
 	/* write to SPI0.DH and SPI0.DL */
 	SPI0.DH = 0xA6;		/* we want to write to register 0x26 in the transceiver, but it needs be encoded with a 1 at the MSB for a write */ 
 	SPI0.DL = 0x00;		/* clear the bits in register 0x26 of the transceiver block */
-	//while(SPI0.S & (1 << 7)); /* wait for read buffer full flag */
+
+	//SPI0.DH = 0x81; //Transceiver Op Mode Register
+	//SPI0.DL = 0xC;  //change to transmitter mode
+
+	//SPI0.DH = 0x83; //Bitrate MSB register
+	//SPI0.DL = 0x68;
+
+	//SPI0.DH = 0x84; //Bitrate LSB register
+	//SPI0.DL = 0x2B;
+
+	//SPI0.DH = 0x85; //Frequency deviation MSB register
+	//SPI0.DL = 0x03;
+
+	//SPI0.DH = 0x86; //Frequency deviation LSB register
+	//SPI0.DL = 0x33;
+
+	//SPI0.DH = 0x87; //RF carrier frequency MSB
+	//SPI0.DL = 0x6D;
+
+	//SPI0.DH = 0x88; //RF carrier frequency mid byte
+	//SPI0.DL = 0x20;
 
 	/* success! */
 	return 1;
@@ -56,6 +76,9 @@ void initialize_clock(void){
 
 		/* select PLL instead of FLL */
 		MCG.C6 |= 0x40;
+
+		/* wait for PLL lock */
+		while(!(MCG.S & (1 << 6)));
 
 		/* set frequency range select to high frequency range for oscillator
 		   and select external reference clock
@@ -112,7 +135,7 @@ void initialize_tpm(void){
 
 int main(void) {
 	/* variable for delay loop */
-	int i;
+	uint32_t i;
 
 	/* call initialization procedures */
 	initialize_clock();
