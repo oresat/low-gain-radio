@@ -7,7 +7,7 @@ LINKER_SCRIPT = MKW01Z128.ld
 ARCH = arm-none-eabi
 CC = $(ARCH)-gcc
 AS = $(ARCH)-as
-CFLAGS = -Ofast -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3
+CFLAGS = -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3
 LDFLAGS = --specs=nosys.specs -static -nostdlib -T$(LINKER_SCRIPT) 
 
 all: c3
