@@ -46,8 +46,8 @@ struct TRANSCEIVER {
 	uint8_t RegRssiThresh; /* RSSI Threshold control */
 	uint8_t RegRxTimeout1; /* Timeout duration between RX request and RSSI detection */
 	uint8_t RegRxTimeout2; /* Timeout duration between RSSI detection and PayloadReady */
-	uint8_t PreambleMsb; /* Preamble length, MSB */
-	uint8_t PreambleLsb; /* Preamble length, LSB */
+	uint8_t RegPreambleMsb; /* Preamble length, MSB */
+	uint8_t RegPreambleLsb; /* Preamble length, LSB */
 	uint8_t RegSyncConfig; /* Sync Word Recognition control */
 	uint8_t RegSyncValue1; /* Sync Word byte 1 */
 	uint8_t RegSyncValue2; /* Sync Word byte 2 */

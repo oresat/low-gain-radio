@@ -7,6 +7,14 @@
 */
 #include "kw0x.h"
 
-void spi0_init(void);	/* initialization function */
-uint8_t spi0_read(void);	/* read function */
-void spi0_write(void);	/* write function */
+/* initialization function */
+void spi0_init(void);
+
+/* read function */
+void spi0_read(size_t len, uint16_t * buffer);
+
+/* write function */
+void spi0_write(size_t len, uint16_t * buffer);
+
+/* SPI transaction frame */
+void spi_transaction(size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer);

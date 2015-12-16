@@ -23,49 +23,24 @@ void spi0_init(void){
 	return;
 }
 
-uint8_t spi0_read(uint8_t addr){
-	/* need to figure out if we are in 16-bit mode or 8-bit mode
-	   if mode is 0, 8-bit mode. if mode is 1, 16-bit mode.
-	 */
-  	bool mode = SPI0.C1 & (1 << 6);
-
-	if(mode){
-	  	/* 16-bit mode */
-		SPI0.DH = addr;
-	}
-	else{
-		/* 8-bit mode */
-		SPI0.DL = addr;
-	}
-
-	/* check SPI read FIFO empty flag, wait if not set */
-	while((SPI0.S & (1 << 0)));
-
-	return SPI0.DL;
+void spi0_read(size_t len, uint16_t * buffer){
+  	uint16_t dummyBuffer[len] = {0x0};
+	spi_transaction(len, dummyBuffer, buffer);
 }
 
-void spi0_write(uint8_t addr, uint8_t data){
-	/* need to figure out if we are in 16-bit mode or 8-bit mode
-	   if mode is 0, 8-bit mode. if mode is 1, 16-bit mode.
-	 */
-  	bool mode = SPI0.C1 & (1 << 6);
+void spi0_write(size_t len, uint16_t * buffer){
+	uint16_t dummyBuffer[len];
+	spi_transaction(len, buffer, dummyBuffer);
+}
 
-	/* set MSB, needed to perform write */
-	addr = addr | (1 << 7);
-
-	/* poll the transmit buffer empty flag */
-	while(!(SPI0.S & (1 << 5)));
-
-	if(mode){
-	  	/* 16-bit mode */
-		SPI0.DH = addr;
-		SPI0.DL = data;
+void spi_transaction(size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
+	for(int i = 0; i < len; ++i){
+		while(!(SPI0.S & (1 << 5)));
+		uint8_t MSB = (sendBuffer[i] >> 8) & 0xFF;
+		uint8_t LSB = (sendBuffer[i]) & 0xFF;
+		SPI0.DH = MSB;
+		SPI0.DL = LSB;
+		while(!(SPI0.S & (1 << 7)));
+		recvBuffer[i] = (SPI0.DH << 8) | SPI0.DL;
 	}
-	else{
-		/* 8-bit mode */
-		SPI0.DL = addr;
-		SPI0.DL = data;
-	}
-
-	/* should we do some verification here? */
 }
