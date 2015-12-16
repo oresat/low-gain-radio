@@ -23,10 +23,49 @@ void spi0_init(void){
 	return;
 }
 
-void spi0_read(uint8_t addr){
+uint8_t spi0_read(uint8_t addr){
+	/* need to figure out if we are in 16-bit mode or 8-bit mode
+	   if mode is 0, 8-bit mode. if mode is 1, 16-bit mode.
+	 */
+  	bool mode = SPI0.C1 & (1 << 6);
 
+	if(mode){
+	  	/* 16-bit mode */
+		SPI0.DH = addr;
+	}
+	else{
+		/* 8-bit mode */
+		SPI0.DL = addr;
+	}
+
+	/* check SPI read FIFO empty flag, wait if not set */
+	while((SPI0.S & (1 << 0)));
+
+	return SPI0.DL;
 }
 
-void spi0_write(uint8_t addr, uint16_t data){
+void spi0_write(uint8_t addr, uint8_t data){
+	/* need to figure out if we are in 16-bit mode or 8-bit mode
+	   if mode is 0, 8-bit mode. if mode is 1, 16-bit mode.
+	 */
+  	bool mode = SPI0.C1 & (1 << 6);
 
+	/* set MSB, needed to perform write */
+	addr = addr | (1 << 7);
+
+	/* poll the transmit buffer empty flag */
+	while(!(SPI0.S & (1 << 5)));
+
+	if(mode){
+	  	/* 16-bit mode */
+		SPI0.DH = addr;
+		SPI0.DL = data;
+	}
+	else{
+		/* 8-bit mode */
+		SPI0.DL = addr;
+		SPI0.DL = data;
+	}
+
+	/* should we do some verification here? */
 }

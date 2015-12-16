@@ -8,5 +8,5 @@
 #include "kw0x.h"
 
 void spi0_init(void);	/* initialization function */
-void spi0_read(void);	/* read function */
+uint8_t spi0_read(void);	/* read function */
 void spi0_write(void);	/* write function */
