@@ -24,23 +24,45 @@ void spi0_init(void){
 }
 
 void spi0_read(size_t len, uint16_t * buffer){
+
+	/* dummy buffer for send portion of transaction */
   	uint16_t dummyBuffer[len] = {0x0};
+
+	/* start transaction */
 	spi_transaction(len, dummyBuffer, buffer);
+
 }
 
 void spi0_write(size_t len, uint16_t * buffer){
+
+	/* dummy buffer for receive portion of transaction */
 	uint16_t dummyBuffer[len];
+
+	/* start transaction */
 	spi_transaction(len, buffer, dummyBuffer);
+
 }
 
 void spi_transaction(size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
+
+	/* iterate through number of bytes for transaction */
 	for(int i = 0; i < len; ++i){
+
+		/* poll the transmit buffer empty flag */
 		while(!(SPI0.S & (1 << 5)));
+
+		/* extract the MSB and LSB */
 		uint8_t MSB = (sendBuffer[i] >> 8) & 0xFF;
 		uint8_t LSB = (sendBuffer[i]) & 0xFF;
+
+		/* send em by writing to the data registers */
 		SPI0.DH = MSB;
 		SPI0.DL = LSB;
+
+		/* poll the read buffer full flag */
 		while(!(SPI0.S & (1 << 7)));
+
+		/* grab data, concatenate into buffer */
 		recvBuffer[i] = (SPI0.DH << 8) | SPI0.DL;
 	}
 }
