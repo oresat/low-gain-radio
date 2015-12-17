@@ -135,19 +135,12 @@ struct SPI_t {
 /* real-time clock module registers */
 struct RTC_t {
   	uint32_t TSR; /* time seconds register */
-  	PAD_BYTES(4);
   	uint32_t TPR; /* time prescaler register */
-  	PAD_BYTES(4);
   	uint32_t TAR; /* time alarm register */
-  	PAD_BYTES(4);
   	uint32_t TCR; /* time compensation register */
-  	PAD_BYTES(4);
   	uint32_t CR; /* control register */
-	PAD_BYTES(4);
   	uint32_t SR; /* status register */
-  	PAD_BYTES(4);
   	uint32_t LR; /* lock register */
-  	PAD_BYTES(4);
   	uint32_t IER; /* interrupt enable register */
 } PACKED;
 
@@ -157,37 +150,23 @@ struct RTC_t {
 /* Timer/PWM Module registers */
 struct TPM_t {
   	uint32_t SC; /* status and control register */
-  	PAD_BYTES(4);
   	uint32_t CNT; /* counter register */
-  	PAD_BYTES(4);
   	uint32_t MOD; /* modulo register */
-  	PAD_BYTES(4);
   	uint32_t C0SC; /* channel n status and control register 0 */
-  	PAD_BYTES(4);
   	uint32_t C0V; /* channel n value register 0 */
-  	PAD_BYTES(4);
   	uint32_t C1SC; /* channel n status and control register 1 */
-  	PAD_BYTES(4);
   	uint32_t C1V; /* channel n value register 1 */
-  	PAD_BYTES(4);
   	uint32_t C2SC; /* channel n status and control register 2 */
-  	PAD_BYTES(4);
   	uint32_t C2V; /* channel n value register 2 */
-  	PAD_BYTES(4);
   	uint32_t C3SC; /* channel n status and control register 3 */
-  	PAD_BYTES(4);
   	uint32_t C3V; /* channel n value register 3 */
-  	PAD_BYTES(4);
   	uint32_t C4SC; /* channel n status and control register 4 */
-  	PAD_BYTES(4);
   	uint32_t C4V; /* channel n value register 4 */
-  	PAD_BYTES(4);
   	uint32_t C5SC; /* channel n status and control register 5 */
-  	PAD_BYTES(4);
   	uint32_t C5V; /* channel n value register 5 */
-  	PAD_BYTES(24);
+  	PAD_BYTES(20);
   	uint32_t STATUS; /* capture and compare status register */
-  	PAD_BYTES(52);
+  	PAD_BYTES(48);
   	uint32_t CONF; /* configuration register */
 } PACKED;
 
@@ -243,18 +222,111 @@ struct RCM_t {
 } PACKED;
 
 /* define RCM */
-#define RCM (*((volatile struct RCM_t *) 0x4007F000;
+#define RCM (*((volatile struct RCM_t *) 0x4007F000))
 
 /* Miscellaneous Control Module */
 struct MCM_t {
 	uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
 	uint32_t PLACR; /* Platform Control register */
-	PAD_BYTES(52);
+	PAD_BYTES(48);
 	uint32_t CPO; /* Compute Operation control register */
-}
+} PACKED;
 
 /* define MCM */
 #define MCM (*((volatile struct MCM_t *) 0xF000300A))
+
+/* Micro Trace Buffer registers */
+struct MTB_t {
+	uint32_t POSITION; /* Position register */
+	uint32_t MASTER; /* Master register */
+	uint32_t FLOW; /* Flow register */
+	uint32_t BASE; /* Base register */
+	PAD_BYTES(3824);
+	uint32_t MODECTRL; /* Integration Mode Control Register */
+	PAD_BYTES(156);
+	uint32_t TAGSET; /* Claim TAG Set Register */
+	uint32_t TAGCLEAR; /* Claim TAG Clear Register */
+	PAD_BYTES(8);
+	uint32_t LOCKACCESS; /* Lock Access Register */
+	uint32_t LOCKSTAT; /* Lock Status Register */
+	uint32_t AUTHSTAT; /* Authentication Status Register */
+	uint32_t DEVICEARCH; /* Device Architecture Register */
+	PAD_BYTES(8);
+	uint32_t DEVICECFG; /* Device Configuration Register */
+	uint32_t DEVICETYPID; /* Device Type Identifier Register */
+	uint32_t PERIPHID4; /* Peripheral ID register */
+	uint32_t PERIPHID5; /* Peripheral ID register */
+	uint32_t PERIPHID6; /* Peripheral ID register */
+	uint32_t PERIPHID7; /* Peripheral ID register */
+	uint32_t PERIPHID0; /* Peripheral ID register */
+	uint32_t PERIPHID1; /* Peripheral ID register */
+	uint32_t PERIPHID2; /* Peripheral ID register */
+	uint32_t PERIPHID3; /* Peripheral ID register */
+	uint32_t COMPID0; /* Component ID register */
+	uint32_t COMPID1; /* Component ID register */
+	uint32_t COMPID2; /* Component ID register */
+	uint32_t COMPID3; /* Component ID register */
+} PACKED;
+
+/* Direct Memory Access Multiplexer */
+struct DMAMUX_t {
+	uint8_t CHCFG0; /* Channel Configuration register */
+	uint8_t CHCFG1; /* Channel Configuration register */
+	uint8_t CHCFG2; /* Channel Configuration register */
+	uint8_t CHCFG3; /* Channel Configuration register */
+} PACKED;
+
+/* define DMAMUX0 */
+#define DMAMUX0 (*((volatile struct DMAMUX_t *) 0x40021000))
+
+/* Direct Memory Access Controller Module */
+struct DMA_t {
+  uint32_t SAR0; /* Source Address register */
+  uint32_t DAR0; /* Destination Address register */
+  uint32_t DSR_BCR0; /* DMA Status register / Byte count register */
+  uint32_t DCR0; /* DMA control register */
+} PACKED;
+
+/* define DMA0 - DMA3 */
+#define DMA0 (*((volatile struct DMA_t *) 0x40008100))
+#define DMA1 (*((volatile struct DMA_t *) 0x40008110))
+#define DMA2 (*((volatile struct DMA_t *) 0x40008120))
+#define DMA3 (*((volatile struct DMA_t *) 0x40008130))
+
+/* Analog to Digital Converters module */
+struct ADC_t {
+	uint32_t SC1A; /* ADC status and control registers 1 */
+	uint32_t SC1B; /* ADC status and control registers 1 */
+	uint32_t CFG1; /* ADC configuration register 1 */
+	uint32_t CFG2; /* ADC configuration register 2 */
+	uint32_t RA; /* ADC Data result register */
+	uint32_t RB; /* ADC data result register */
+	uint32_t CV1; /* Compare Value registers */
+	uint32_t CV2; /* Compare Value registers */
+	uint32_t SC2; /* Status and Control register 2 */
+	uint32_t SC3; /* Status and Control register 3 */
+	uint32_t OFS; /* ADC Offset Correction register */
+	uint32_t PG; /* ADC Plus-Side Gain register */
+	uint32_t MG; /* ADC Minus-Side Gain register */
+	uint32_t CLPD; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLPS; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLP4; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLP3; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLP2; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLP1; /* ADC Plus-Side General Calibration Value register */
+	uint32_t CLP0; /* ADC Plus-Side General Calibration Value register */
+	PAD_BYTES(4);
+	uint32_t CLMD; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLMS; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLM4; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLM3; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLM2; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLM1; /* ADC Minus-Side General Calibration Value register */
+	uint32_t CLM0; /* ADC Minus-Side General Calibration Value register */
+} PACKED;
+
+/* define ADC */
+#define ADC (*((volatile struct ADC_t *) 0x4003B000))
 
 #undef PASTE
 #undef _PASTE
