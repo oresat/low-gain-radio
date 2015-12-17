@@ -110,6 +110,7 @@ struct MCG_t {
 	uint8_t C10;
 } PACKED;
 
+/* define MCG */
 #define MCG (*((volatile struct MCG_t *) 0x40064000))
 
 /* SPI Module registers */
@@ -127,6 +128,7 @@ struct SPI_t {
   	uint8_t C3; /* control register 3 */
 } PACKED;
 
+/* define SPI modules */
 #define SPI0 (*((volatile struct SPI_t *) 0x40076000))
 #define SPI1 (*((volatile struct SPI_t *) 0x40077000))
 
@@ -149,6 +151,7 @@ struct RTC_t {
   	uint32_t IER; /* interrupt enable register */
 } PACKED;
 
+/* define RTC */
 #define RTC (*((volatile struct RTC_t *) 0x4003D000))
 
 /* Timer/PWM Module registers */
@@ -188,9 +191,70 @@ struct TPM_t {
   	uint32_t CONF; /* configuration register */
 } PACKED;
 
+/* define TPM modules */
 #define TPM0 (*((volatile struct TPM_t *) 0x40038000))
 #define TPM1 (*((volatile struct TPM_t *) 0x40039000))
 #define TPM2 (*((volatile struct TPM_t *) 0x4003A000))
+
+/* System Mode Controller registers */
+struct SMC_t {
+	uint8_t PMPROT; /* Power Mode Protection register */
+	uint8_t PMCTRL; /* Power Mode Control register */
+	uint8_t STOPCTRL; /* Stop Control Register */
+	uint8_t PMSTAT; /* Power Mode Status register */
+} PACKED;
+
+/* define SMC */
+#define SMC (*((volatile struct SMC_t *) 0x4007E000))
+
+/* Power Management Controller registers */
+struct PMC_t {
+	uint8_t LVDSC1; /* Low Voltage Detect Status and Control 1 register */
+	uint8_t LVDSC2; /* Low Voltage Detect Status and Control 2 register */
+	uint8_t REGSC; /* Regulator Status and Control register */
+} PACKED;
+
+/* define PMC */
+#define PMC (*((volatile struct PMC_t *) 0x4007D001))
+
+/* Low-Leakage Wakeup Unit */
+struct LLWU_t {
+	uint8_t PE1; /* Pin Enable 1 register */
+	uint8_t PE2; /* Pin Enable 2 register */
+	uint8_t PE3; /* Pin Enable 3 register */
+	uint8_t PE4; /* Pin Enable 4 register */
+	uint8_t ME; /* Module Enable register */
+	uint8_t F1; /* Flag 1 register */
+	uint8_t F2; /* Flag 2 register */
+	uint8_t F3; /* Flag 3 register */
+	uint8_t FILT1; /* Pin Filter 1 register */
+	uint8_t FILT2; /* Pin Filter 2 register */
+} PACKED;
+
+/* define LLWU */
+#define LLWU (*((volatile struct LLWU_t *) 0x4007C000))
+
+/* Reset Control Module registers */
+struct RCM_t {
+	uint8_t SRS0; /* System Reset Status Register 0 */
+	uint8_t SRS1; /* System Reset Status Register 1 */
+	uint8_t RPFC; /* Reset Pin Filter Control register */
+	uint8_t RPFW; /* Reset Pin Filter Width register */
+} PACKED;
+
+/* define RCM */
+#define RCM (*((volatile struct RCM_t *) 0x4007F000;
+
+/* Miscellaneous Control Module */
+struct MCM_t {
+	uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
+	uint32_t PLACR; /* Platform Control register */
+	PAD_BYTES(52);
+	uint32_t CPO; /* Compute Operation control register */
+}
+
+/* define MCM */
+#define MCM (*((volatile struct MCM_t *) 0xF000300A))
 
 #undef PASTE
 #undef _PASTE
