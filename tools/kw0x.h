@@ -281,10 +281,10 @@ struct DMAMUX_t {
 
 /* Direct Memory Access Controller Module */
 struct DMA_t {
-	uint32_t SAR0; /* Source Address register */
-	uint32_t DAR0; /* Destination Address register */
-	uint32_t DSR_BCR0; /* DMA Status register / Byte count register */
-	uint32_t DCR0; /* DMA control register */
+  uint32_t SAR0; /* Source Address register */
+  uint32_t DAR0; /* Destination Address register */
+  uint32_t DSR_BCR0; /* DMA Status register / Byte count register */
+  uint32_t DCR0; /* DMA control register */
 } PACKED;
 
 /* define DMA0 - DMA3 */
@@ -328,65 +328,54 @@ struct ADC_t {
 /* define ADC */
 #define ADC (*((volatile struct ADC_t *) 0x4003B000))
 
-/* Comparator module */
-struct CMP_t {
-	uint8_t CR0; /* Control register 0 */
-	uint8_t CR1; /* Control register 1 */
-	uint8_t FPR; /* Filter period register */
-	uint8_t SCR; /* Status and control register */
-	uint8_t DACCR; /* DAC control register */
-	uint8_t MUXCR; /* MUX control register */
-} PACKED;
+/* Definition unit tests */
+#define CHECK_DEFINITION(reg, addr) \
+	_Static_assert(&(reg) == (typeof(&(reg)))(addr), #reg " struct improperly defined")
 
-/* define CMP */
-#define CMP (*((volatile struct CMP_t *) 0x40073000))
+CHECK_DEFINITION(PORTA.ISFR, 0x400490A0);
+CHECK_DEFINITION(PORTB.ISFR, 0x4004A0A0);
+CHECK_DEFINITION(PORTC.ISFR, 0x4004B0A0);
+CHECK_DEFINITION(PORTD.ISFR, 0x4004C0A0);
+CHECK_DEFINITION(PORTE.ISFR, 0x4004D0A0);
+CHECK_DEFINITION(SIM.SRVCOP, 0x40048104);
+CHECK_DEFINITION(SMC.PMSTAT, 0x4007E003);
+CHECK_DEFINITION(PMC.REGSC,  0x4007D002);
+CHECK_DEFINITION(LLWU.FILT2, 0x4007C009);
+CHECK_DEFINITION(RCM.RPFW,   0x4007F005);
+CHECK_DEFINITION(MCM.CPO,    0xF0003040);
+//CHECK_DEFINITION(MTB.COMPID3,0xF0000FFC);
+CHECK_DEFINITION(DMAMUX0.CHCFG3,0x40021003);
+//CHECK_DEFINITION(DMA.DCR3,   0x4000813C);
+CHECK_DEFINITION(MCG.C10,    0x4006400F);
+CHECK_DEFINITION(OSC0.CR,    0x40065000);
+CHECK_DEFINITION(ADC0.CLM0,  0x4003B06C);
+//CHECK_DEFINITION(CMP0.MUXCR, 0x40073005);
+//CHECK_DEFINITION(DAC0.C2,    0x4003F023);
+CHECK_DEFINITION(TPM0.CONF,  0x40038084);
+CHECK_DEFINITION(TPM1.CONF,  0x40039084);
+CHECK_DEFINITION(TPM2.CONF,  0x4003A084);
+//CHECK_DEFINITION(PIT.TFLG1,  0x4003711C);
+//CHECK_DEFINITION(LPTMR0.CNR, 0x4004000C);
+CHECK_DEFINITION(RTC.IER,    0x4003D01C);
+CHECK_DEFINITION(SPI0.C3,    0x4007600B);
+CHECK_DEFINITION(SPI1.C3,    0x4007700B);
+//CHECK_DEFINITION(UART0.C5,   0x4006A00B);
+//CHECK_DEFINITION(UART1.C4,   0x4006B008);
+//CHECK_DEFINITION(UART2.C4,   0x4006C008);
+CHECK_DEFINITION(GPIOA.PDDR, 0x400FF014);
+CHECK_DEFINITION(GPIOB.PDDR, 0x400FF054);
+CHECK_DEFINITION(GPIOC.PDDR, 0x400FF094);
+CHECK_DEFINITION(GPIOD.PDDR, 0x400FF0D4);
+CHECK_DEFINITION(GPIOE.PDDR, 0x400FF114);
+//CHECK_DEFINITION(FGPIOA.PDDR,0xF8000014);
+//CHECK_DEFINITION(FGPIOB.PDDR,0xF8000054);
+//CHECK_DEFINITION(FGPIOC.PDDR,0xF8000094);
+//CHECK_DEFINITION(FGPIOD.PDDR,0xF80000D4);
+//CHECK_DEFINITION(FGPIOE.PDDR,0xF8000114);
+//CHECK_DEFINITION(TSI0.TSHD,  0x40045008);
 
-/* 12 bit digital to analog converter (DAC) module */
-struct DAC_t {
-	uint8_t DAT0L; /* DAC data low register */
-	uint8_t DAT0H; /* DAC data high register */
-	uint8_t DAT1L; /* DAC data low register */
-	uint8_t DAT1H; /* DAC data high register */
-	uint8_t SR; /* DAC status register */
-	uint8_t C0; /* DAC control register */
-	uint8_t C1; /* DAC control register 1 */
-	uint8_t C2; /* DAC control register 2 */
-} PACKED;
-
-/* define DAC */
-#define DAC (*((volatile struct DAC_t *) 0x4003F000))
-
-/* Periodic Interrupt Timer module */
-struct PIT_t {
-	uint32_t MCR; /* Module Control register */
-	PAD_BYTES(220);
-	uint32_t LTMR64H; /* PIT Upper Lifetime timer register */
-	uint32_t LTMR64L; /* PIT Lower Lifetime timer register */
-	PAD_BYTES(24);
-	uint32_t LDVAL0; /* Timer Load Value register */
-	uint32_t CVAL0; /* Current Timer Value register */
-	uint32_t TCTRL0; /* Timer Control register */
-	uint32_t TFLG0; /* Timer Flag register */
-	uint32_t LDVAL1; /* Timer Load Value register */
-	uint32_t CVAL1; /* Current timer value register */
-	uint32_t TCTRL1; /* Timer Control register */
-	uint32_t TFLG1; /* Timer Flag register */
-} PACKED;
-
-/* define PIT */
-#define PIT (*((volatile struct PIT_t *) 0x40037000))
-
-/* Low-Power Timer module */
-struct LPTMR_t {
-	uint32_t CSR; /* Low Power Timer Control status register */
-	uint32_t PSR; /* Low Power Timer prescale register */
-	uint32_t CMR; /* Low Power Timer compare register */
-	uint32_t CNR; /* Low Power Timer counter register */
-} PACKED;
-
-/* define LPTMR */
-#define LPTMR (*((volatile struct LPTMR_t *) 0x40040000))
-
+/* Cleanup */
+#undef CHECK_DEFINITION
 #undef PASTE
 #undef _PASTE
 #undef PAD_BYTES
