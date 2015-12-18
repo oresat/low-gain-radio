@@ -328,6 +328,65 @@ struct ADC_t {
 /* define ADC */
 #define ADC (*((volatile struct ADC_t *) 0x4003B000))
 
+/* Comparator module */
+struct CMP_t {
+	uint8_t CR0; /* Control register 0 */
+	uint8_t CR1; /* Control register 1 */
+	uint8_t FPR; /* Filter period register */
+	uint8_t SCR; /* Status and control register */
+	uint8_t DACCR; /* DAC control register */
+	uint8_t MUXCR; /* MUX control register */
+} PACKED;
+
+/* define CMP */
+#define CMP (*((volatile struct CMP_t *) 0x40073000))
+
+/* 12 bit digital to analog converter (DAC) module */
+struct DAC_t {
+	uint8_t DAT0L; /* DAC data low register */
+	uint8_t DAT0H; /* DAC data high register */
+	uint8_t DAT1L; /* DAC data low register */
+	uint8_t DAT1H; /* DAC data high register */
+	uint8_t SR; /* DAC status register */
+	uint8_t C0; /* DAC control register */
+	uint8_t C1; /* DAC control register 1 */
+	uint8_t C2; /* DAC control register 2 */
+} PACKED;
+
+/* define DAC */
+#define DAC (*((volatile struct DAC_t *) 0x4003F000))
+
+/* Periodic Interrupt Timer module */
+struct PIT_t {
+	uint32_t MCR; /* Module Control register */
+	PAD_BYTES(220);
+	uint32_t LTMR64H; /* PIT Upper Lifetime timer register */
+	uint32_t LTMR64L; /* PIT Lower Lifetime timer register */
+	PAD_BYTES(24);
+	uint32_t LDVAL0; /* Timer Load Value register */
+	uint32_t CVAL0; /* Current Timer Value register */
+	uint32_t TCTRL0; /* Timer Control register */
+	uint32_t TFLG0; /* Timer Flag register */
+	uint32_t LDVAL1; /* Timer Load Value register */
+	uint32_t CVAL1; /* Current timer value register */
+	uint32_t TCTRL1; /* Timer Control register */
+	uint32_t TFLG1; /* Timer Flag register */
+} PACKED;
+
+/* define PIT */
+#define PIT (*((volatile struct PIT_t *) 0x40037000))
+
+/* Low-Power Timer module */
+struct LPTMR_t {
+	uint32_t CSR; /* Low Power Timer Control status register */
+	uint32_t PSR; /* Low Power Timer prescale register */
+	uint32_t CMR; /* Low Power Timer compare register */
+	uint32_t CNR; /* Low Power Timer counter register */
+} PACKED;
+
+/* define LPTMR */
+#define LPTMR (*((volatile struct LPTMR_t *) 0x40040000))
+
 /* Definition unit tests */
 #define CHECK_DEFINITION(reg, addr) \
 	_Static_assert(&(reg) == (typeof(&(reg)))(addr), #reg " struct improperly defined")
