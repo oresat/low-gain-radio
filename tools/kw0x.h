@@ -268,6 +268,9 @@ struct MTB_t {
 	uint32_t COMPID3; /* Component ID register */
 } PACKED;
 
+/* define MTB */
+#define MTB (*((volatile struct MTB_t *) 0xF0000000))
+
 /* Direct Memory Access Multiplexer */
 struct DMAMUX_t {
 	uint8_t CHCFG0; /* Channel Configuration register */
@@ -281,10 +284,10 @@ struct DMAMUX_t {
 
 /* Direct Memory Access Controller Module */
 struct DMA_t {
-  uint32_t SAR0; /* Source Address register */
-  uint32_t DAR0; /* Destination Address register */
-  uint32_t DSR_BCR0; /* DMA Status register / Byte count register */
-  uint32_t DCR0; /* DMA control register */
+	uint32_t SAR; /* Source Address register */
+	uint32_t DAR; /* Destination Address register */
+	uint32_t DSR_BCR; /* DMA Status register / Byte count register */
+	uint32_t DCR; /* DMA control register */
 } PACKED;
 
 /* define DMA0 - DMA3 */
@@ -387,6 +390,42 @@ struct LPTMR_t {
 /* define LPTMR */
 #define LPTMR (*((volatile struct LPTMR_t *) 0x40040000))
 
+/* Universal asynchronous receiver/transmitter module 0 */
+struct UART0_t {
+	uint8_t BDH; /* UART Baud Rate Register High */
+	uint8_t BDL; /* UART Baud Rate Register Low */
+	uint8_t C1; /* UART Control Register 1 */
+	uint8_t C2; /* UART Control Register 2 */
+	uint8_t S1; /* UART Status Register 1 */
+	uint8_t S2; /* UART Status Register 2 */
+	uint8_t C3; /* UART Control Register 3 */
+	uint8_t D; /* UART Data Register */
+	uint8_t MA1; /* UART Match Address Registers 1 */
+	uint8_t MA2; /* UART Match Address Registers 2 */
+	uint8_t C4; /* UART Control Register 4 */
+	uint8_t C5; /* UART Control Register 5 */
+} PACKED;
+
+/* define UART0 */
+#define UART0 (*((volatile struct UART_t *) 0x4006A000))
+
+/* Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
+struct UART_t {
+	uint8_t BDH; /* UART Baud Rate Register High */
+	uint8_t BDL; /* UART Baud Rate Register Low */
+	uint8_t C1; /* UART Control Register 1 */
+	uint8_t C2; /* UART Control Register 2 */
+	uint8_t S1; /* UART Status Register 1 */
+	uint8_t S2; /* UART Status Register 2 */
+	uint8_t C3; /* UART Control Register 3 */
+	uint8_t D; /* UART Data Register */
+	uint8_t C4; /* UART Control Register 4 */
+} PACKED;
+
+/* define UART1 & 2 */
+#define UART1 (*((volatile struct UART_t *) 0x4006B000))
+#define UART2 (*((volatile struct UART_t *) 0x4006C000))
+
 /* Definition unit tests */
 #define CHECK_DEFINITION(reg, addr) \
 	_Static_assert(&(reg) == (typeof(&(reg)))(addr), #reg " struct improperly defined")
@@ -402,25 +441,25 @@ CHECK_DEFINITION(PMC.REGSC,  0x4007D002);
 CHECK_DEFINITION(LLWU.FILT2, 0x4007C009);
 CHECK_DEFINITION(RCM.RPFW,   0x4007F005);
 CHECK_DEFINITION(MCM.CPO,    0xF0003040);
-//CHECK_DEFINITION(MTB.COMPID3,0xF0000FFC);
+CHECK_DEFINITION(MTB.COMPID3,0xF0000FFC);
 CHECK_DEFINITION(DMAMUX0.CHCFG3,0x40021003);
-//CHECK_DEFINITION(DMA.DCR3,   0x4000813C);
+CHECK_DEFINITION(DMA3.DCR,   0x4000813C);
 CHECK_DEFINITION(MCG.C10,    0x4006400F);
 CHECK_DEFINITION(OSC0.CR,    0x40065000);
 CHECK_DEFINITION(ADC0.CLM0,  0x4003B06C);
-//CHECK_DEFINITION(CMP0.MUXCR, 0x40073005);
-//CHECK_DEFINITION(DAC0.C2,    0x4003F023);
+CHECK_DEFINITION(CMP.MUXCR, 0x40073005);
+CHECK_DEFINITION(DAC.C2,    0x4003F023);
 CHECK_DEFINITION(TPM0.CONF,  0x40038084);
 CHECK_DEFINITION(TPM1.CONF,  0x40039084);
 CHECK_DEFINITION(TPM2.CONF,  0x4003A084);
-//CHECK_DEFINITION(PIT.TFLG1,  0x4003711C);
-//CHECK_DEFINITION(LPTMR0.CNR, 0x4004000C);
+CHECK_DEFINITION(PIT.TFLG1,  0x4003711C);
+CHECK_DEFINITION(LPTMR.CNR, 0x4004000C);
 CHECK_DEFINITION(RTC.IER,    0x4003D01C);
 CHECK_DEFINITION(SPI0.C3,    0x4007600B);
 CHECK_DEFINITION(SPI1.C3,    0x4007700B);
-//CHECK_DEFINITION(UART0.C5,   0x4006A00B);
-//CHECK_DEFINITION(UART1.C4,   0x4006B008);
-//CHECK_DEFINITION(UART2.C4,   0x4006C008);
+CHECK_DEFINITION(UART0.C5,   0x4006A00B);
+CHECK_DEFINITION(UART1.C4,   0x4006B008);
+CHECK_DEFINITION(UART2.C4,   0x4006C008);
 CHECK_DEFINITION(GPIOA.PDDR, 0x400FF014);
 CHECK_DEFINITION(GPIOB.PDDR, 0x400FF054);
 CHECK_DEFINITION(GPIOC.PDDR, 0x400FF094);
