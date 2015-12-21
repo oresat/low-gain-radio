@@ -33,7 +33,7 @@ struct PORT {
 #define PORTE (*((volatile struct PORT *) 0x4004D000))
 
 /* GPIO Module registers */
-struct GPIO {
+struct GPIO_t {
 	uint32_t PDOR;
 	uint32_t PSOR;
 	uint32_t PCOR;
@@ -43,11 +43,28 @@ struct GPIO {
 } PACKED;
 
 /* define GPIO on ports A-E */
-#define GPIOA (*((volatile struct GPIO *) 0x400FF000))
-#define GPIOB (*((volatile struct GPIO *) 0x400FF040))
-#define GPIOC (*((volatile struct GPIO *) 0x400FF080))
-#define GPIOD (*((volatile struct GPIO *) 0x400FF0C0))
-#define GPIOE (*((volatile struct GPIO *) 0x400FF100))
+#define GPIOA (*((volatile struct GPIO_t *) 0x400FF000))
+#define GPIOB (*((volatile struct GPIO_t *) 0x400FF040))
+#define GPIOC (*((volatile struct GPIO_t *) 0x400FF080))
+#define GPIOD (*((volatile struct GPIO_t *) 0x400FF0C0))
+#define GPIOE (*((volatile struct GPIO_t *) 0x400FF100))
+
+/* Fast GPIO module */
+struct FGPIO_t {
+	uint32_t PDOR;
+	uint32_t PSOR;
+	uint32_t PCOR;
+	uint32_t PTOR;
+	uint32_t PDIR;
+	uint32_t PDDR;
+} PACKED;
+
+/* define FGPIO on ports A-E */
+#define FGPIOA (*((volatile struct FGPIO_t *) 0xF8000000))
+#define FGPIOB (*((volatile struct FGPIO_t *) 0xF8000040))
+#define FGPIOC (*((volatile struct FGPIO_t *) 0xF8000080))
+#define FGPIOD (*((volatile struct FGPIO_t *) 0xF80000C0))
+#define FGPIOE (*((volatile struct FGPIO_t *) 0xF8000100))
 
 /* Oscillator Module registers */
 struct OSC {
@@ -426,6 +443,16 @@ struct UART_t {
 #define UART1 (*((volatile struct UART_t *) 0x4006B000))
 #define UART2 (*((volatile struct UART_t *) 0x4006C000))
 
+/* Touch Sensing Input Module */
+struct TSI_t {
+	uint32_t GENCS; /* TSI General Control and Status Register */
+	uint32_t DATA; /* TSI DATA Register */
+	uint32_t TSHD; /* TSI Threshold Register */
+} PACKED;
+
+/* define TSI */
+#define TSI0 (*((volatile struct TSI_t *) 0x40045000))
+
 /* Definition unit tests */
 #define CHECK_DEFINITION(reg, addr) \
 	_Static_assert(&(reg) == (typeof(&(reg)))(addr), #reg " struct improperly defined")
@@ -465,12 +492,12 @@ CHECK_DEFINITION(GPIOB.PDDR, 0x400FF054);
 CHECK_DEFINITION(GPIOC.PDDR, 0x400FF094);
 CHECK_DEFINITION(GPIOD.PDDR, 0x400FF0D4);
 CHECK_DEFINITION(GPIOE.PDDR, 0x400FF114);
-//CHECK_DEFINITION(FGPIOA.PDDR,0xF8000014);
-//CHECK_DEFINITION(FGPIOB.PDDR,0xF8000054);
-//CHECK_DEFINITION(FGPIOC.PDDR,0xF8000094);
-//CHECK_DEFINITION(FGPIOD.PDDR,0xF80000D4);
-//CHECK_DEFINITION(FGPIOE.PDDR,0xF8000114);
-//CHECK_DEFINITION(TSI0.TSHD,  0x40045008);
+CHECK_DEFINITION(FGPIOA.PDDR,0xF8000014);
+CHECK_DEFINITION(FGPIOB.PDDR,0xF8000054);
+CHECK_DEFINITION(FGPIOC.PDDR,0xF8000094);
+CHECK_DEFINITION(FGPIOD.PDDR,0xF80000D4);
+CHECK_DEFINITION(FGPIOE.PDDR,0xF8000114);
+CHECK_DEFINITION(TSI0.TSHD,  0x40045008);
 
 /* Cleanup */
 #undef CHECK_DEFINITION
