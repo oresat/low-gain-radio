@@ -211,7 +211,7 @@ struct PMC_t {
 } PACKED;
 
 /* define PMC */
-#define PMC (*((volatile struct PMC_t *) 0x4007D001))
+#define PMC (*((volatile struct PMC_t *) 0x4007D000))
 
 /* Low-Leakage Wakeup Unit */
 struct LLWU_t {
@@ -234,6 +234,7 @@ struct LLWU_t {
 struct RCM_t {
 	uint8_t SRS0; /* System Reset Status Register 0 */
 	uint8_t SRS1; /* System Reset Status Register 1 */
+	PAD_BYTES(2);
 	uint8_t RPFC; /* Reset Pin Filter Control register */
 	uint8_t RPFW; /* Reset Pin Filter Width register */
 } PACKED;
@@ -367,6 +368,7 @@ struct DAC_t {
 	uint8_t DAT0H; /* DAC data high register */
 	uint8_t DAT1L; /* DAC data low register */
 	uint8_t DAT1H; /* DAC data high register */
+	PAD_BYTES(28);
 	uint8_t SR; /* DAC status register */
 	uint8_t C0; /* DAC control register */
 	uint8_t C1; /* DAC control register 1 */
@@ -424,7 +426,7 @@ struct UART0_t {
 } PACKED;
 
 /* define UART0 */
-#define UART0 (*((volatile struct UART_t *) 0x4006A000))
+#define UART0 (*((volatile struct UART0_t *) 0x4006A000))
 
 /* Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
 struct UART_t {
@@ -473,7 +475,7 @@ CHECK_DEFINITION(DMAMUX0.CHCFG3,0x40021003);
 CHECK_DEFINITION(DMA3.DCR,   0x4000813C);
 CHECK_DEFINITION(MCG.C10,    0x4006400F);
 CHECK_DEFINITION(OSC0.CR,    0x40065000);
-CHECK_DEFINITION(ADC0.CLM0,  0x4003B06C);
+CHECK_DEFINITION(ADC.CLM0,  0x4003B06C);
 CHECK_DEFINITION(CMP.MUXCR, 0x40073005);
 CHECK_DEFINITION(DAC.C2,    0x4003F023);
 CHECK_DEFINITION(TPM0.CONF,  0x40038084);
