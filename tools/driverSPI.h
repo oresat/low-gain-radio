@@ -7,6 +7,24 @@
 */
 #include "kw0x.h"
 
+/* struct for pin selection */
+struct pin {
+	struct PORT * port; /* port module */
+	uint8_t pin; /* pin on port module */
+	uint8_t alt; /* mux control value */
+};
+
+/* struct for specifying config */
+struct spi_config {
+	struct SPI_t SPI; /* SPI module */
+	struct pin SCK; /* clock */
+	struct pin SS; /* slave select */
+	struct pin MOSI; /* master out, slave in */
+	struct pin MISO; /* master in, slave out */
+	bool CPOL; /* clock polarity */
+	bool CPHA; /* clock phase */
+};
+
 /* initialization function */
 void spi0_init(void);
 
