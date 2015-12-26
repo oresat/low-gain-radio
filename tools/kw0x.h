@@ -6,6 +6,8 @@
 #ifndef _KW0X_H_
 #define _KW0X_H_
 #include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
 
 /* macros for padding */
 #define  PASTE(a, b) _PASTE(a, b)
