@@ -26,13 +26,13 @@ struct spi_config {
 };
 
 /* initialization function */
-void spi_init(void);
+void spi_init(struct spi_config config);
 
 /* read function */
-void spi_read(size_t len, uint16_t * buffer);
+void spi_read(struct SPI_t SPI, size_t len, uint16_t * buffer);
 
 /* write function */
 void spi_write(size_t len, uint16_t * buffer);
 
 /* SPI transaction frame */
-void spi_transaction(size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer);
+void spi_transaction(struct SPI_t SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer);
