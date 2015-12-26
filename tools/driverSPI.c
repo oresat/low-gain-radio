@@ -5,7 +5,7 @@
 */
 #include "driverSPI0.h"
 
-void spi0_init(struct spi_config config){
+void spi_init(struct spi_config config){
 	/* 	TODO: how do I figure out that this is the correct pin
 		and what the proper value to write to the register is ?
 	*/
@@ -21,7 +21,7 @@ void spi0_init(struct spi_config config){
 	config.SPI.C2 = (13 << 4);
 }
 
-void spi0_read(struct SPI_t SPI, size_t len, uint16_t * buffer){
+void spi_read(struct SPI_t SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for send portion of transaction */
   	uint16_t dummyBuffer[len] = {0x0};
@@ -31,7 +31,7 @@ void spi0_read(struct SPI_t SPI, size_t len, uint16_t * buffer){
 
 }
 
-void spi0_write(struct SPI_t SPI, size_t len, uint16_t * buffer){
+void spi_write(struct SPI_t SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for receive portion of transaction */
 	uint16_t dummyBuffer[len];
