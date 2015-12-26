@@ -11,10 +11,10 @@ void spi0_init(struct spi_config config){
 	*/
 
 	/* select desired pin functionality */
-	config.SCK.port[config.SCK.pin] |= (config.SCK.alt << 8);
-	config.SS.port[config.SS.pin] |= (config.SS.alt << 8);
-	config.MOSI.port[config.MOSI.pin] |= (config.MOSI.alt << 8);
-	config.MISO.port[config.MISO.pin] |= (config.MISO.alt << 8);
+	config.SCK.port.PCR[config.SCK.pin] |= (config.SCK.alt << 8);
+	config.SS.port.PCR[config.SS.pin] |= (config.SS.alt << 8);
+	config.MOSI.port.PCR[config.MOSI.pin] |= (config.MOSI.alt << 8);
+	config.MISO.port.PCR[config.MISO.pin] |= (config.MISO.alt << 8);
 
 	/* apply SPI configuration */
 	config.SPI.C1 = (5 << 4) | (config.CPOL << 3) | (config.CPHA << 2) | (1 << 1);
