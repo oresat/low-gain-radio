@@ -28,7 +28,7 @@ struct PORT {
 	_WO uint32_t GPCLR;
 	_WO uint32_t GPCHR;
 	PAD_BYTES(24);
-	_RW uint32_t ISFR;  // W1C?
+	_RW uint32_t ISFR;  /* write 1 to clear */
 } PACKED;
 
 /* define ports A-E */
@@ -40,12 +40,12 @@ struct PORT {
 
 /* GPIO Module registers */
 struct GPIO_t {
-	uint32_t PDOR;
-	uint32_t PSOR;
-	uint32_t PCOR;
-	uint32_t PTOR;
-	uint32_t PDIR;
-	uint32_t PDDR;
+	_RW uint32_t PDOR;
+	_WO uint32_t PSOR;
+	_WO uint32_t PCOR;
+	_W0 uint32_t PTOR;
+	_RO uint32_t PDIR;
+	_RW uint32_t PDDR;
 } PACKED;
 
 /* define GPIO on ports A-E */
@@ -57,12 +57,12 @@ struct GPIO_t {
 
 /* Fast GPIO module */
 struct FGPIO_t {
-	uint32_t PDOR;
-	uint32_t PSOR;
-	uint32_t PCOR;
-	uint32_t PTOR;
-	uint32_t PDIR;
-	uint32_t PDDR;
+	_RW uint32_t PDOR;
+	_WO uint32_t PSOR;
+	_WO uint32_t PCOR;
+	_WO uint32_t PTOR;
+	_RO uint32_t PDIR;
+	_RW uint32_t PDDR;
 } PACKED;
 
 /* define FGPIO on ports A-E */
@@ -74,7 +74,7 @@ struct FGPIO_t {
 
 /* Oscillator Module registers */
 struct OSC {
-	uint8_t CR;
+	_RW uint8_t CR;
 } PACKED;
 
 /* define OSC0 */
@@ -82,32 +82,32 @@ struct OSC {
 
 /* System Integration Module registers */
 struct SIM_t {
-	uint32_t SOPT1;
+	_RW uint32_t SOPT1;
 	PAD_BYTES(4096);
-	uint32_t SOPT2;
+	_RW uint32_t SOPT2;
 	PAD_BYTES(4);
-	uint32_t SOPT4;
-	uint32_t SOPT5;
+	_RW uint32_t SOPT4;
+	_RW uint32_t SOPT5;
 	PAD_BYTES(4);
-	uint32_t SOPT7;
+	_RW uint32_t SOPT7;
 	PAD_BYTES(8);
-	uint32_t SDID;
+	_RO uint32_t SDID;
 	PAD_BYTES(12);
-	uint32_t SCGC4;
-	uint32_t SCGC5;
-	uint32_t SCGC6;
-	uint32_t SCGC7;
-	uint32_t CLKDIV1;
+	_RW uint32_t SCGC4;
+	_RW uint32_t SCGC5;
+	_RW uint32_t SCGC6;
+	_RW uint32_t SCGC7;
+	_RW uint32_t CLKDIV1;
 	PAD_BYTES(4);
-	uint32_t FCFG1;
-	uint32_t FCFG2;
+	_RW uint32_t FCFG1;
+	_RO uint32_t FCFG2;
 	PAD_BYTES(4);
-	uint32_t UIDMH;
-	uint32_t UIDML;
-	uint32_t UIDL;
+	_RO uint32_t UIDMH;
+	_RO uint32_t UIDML;
+	_RO uint32_t UIDL;
 	PAD_BYTES(156);
-	uint32_t COPC;
-	uint32_t SRVCOP;
+	_RW uint32_t COPC;
+	_WO uint32_t SRVCOP;
 } PACKED;
 
 /* define SIM */
@@ -115,22 +115,22 @@ struct SIM_t {
 
 /* Multi-purpose clock generator registers */
 struct MCG_t {
-	uint8_t C1;
-	uint8_t C2;
-	uint8_t C3;
-	uint8_t C4;
-	uint8_t C5;
-	uint8_t C6;
-	uint8_t S;
+	_RW uint8_t C1;
+	_RW uint8_t C2;
+	_RW uint8_t C3;
+	_RW uint8_t C4;
+	_RW uint8_t C5;
+	_RW uint8_t C6;
+	_RO uint8_t S;
 	PAD_BYTES(1);
-	uint8_t SC;
+	_RW uint8_t SC;
 	PAD_BYTES(1);
-	uint8_t ATCVH;
-	uint8_t ATCVL;
-	uint8_t C7;
-	uint8_t C8;
+	_RW uint8_t ATCVH;
+	_RW uint8_t ATCVL;
+	_RW uint8_t C7;
+	_RW uint8_t C8;
 	PAD_BYTES(1);
-	uint8_t C10;
+	_RW uint8_t C10;
 } PACKED;
 
 /* define MCG */
@@ -157,14 +157,14 @@ struct SPI_t {
 
 /* real-time clock module registers */
 struct RTC_t {
-	uint32_t TSR; /* time seconds register */
-	uint32_t TPR; /* time prescaler register */
-	uint32_t TAR; /* time alarm register */
-	uint32_t TCR; /* time compensation register */
-	uint32_t CR; /* control register */
-	uint32_t SR; /* status register */
-	uint32_t LR; /* lock register */
-	uint32_t IER; /* interrupt enable register */
+	_RW uint32_t TSR; /* time seconds register */
+	_RW uint32_t TPR; /* time prescaler register */
+	_RW uint32_t TAR; /* time alarm register */
+	_RW uint32_t TCR; /* time compensation register */
+	_RW uint32_t CR; /* control register */
+	_RW uint32_t SR; /* status register */
+	_RW uint32_t LR; /* lock register */
+	_RW uint32_t IER; /* interrupt enable register */
 } PACKED;
 
 /* define RTC */
@@ -172,25 +172,25 @@ struct RTC_t {
 
 /* Timer/PWM Module registers */
 struct TPM_t {
-	uint32_t SC; /* status and control register */
-	uint32_t CNT; /* counter register */
-	uint32_t MOD; /* modulo register */
-	uint32_t C0SC; /* channel n status and control register 0 */
-	uint32_t C0V; /* channel n value register 0 */
-	uint32_t C1SC; /* channel n status and control register 1 */
-	uint32_t C1V; /* channel n value register 1 */
-	uint32_t C2SC; /* channel n status and control register 2 */
-	uint32_t C2V; /* channel n value register 2 */
-	uint32_t C3SC; /* channel n status and control register 3 */
-	uint32_t C3V; /* channel n value register 3 */
-	uint32_t C4SC; /* channel n status and control register 4 */
-	uint32_t C4V; /* channel n value register 4 */
-	uint32_t C5SC; /* channel n status and control register 5 */
-	uint32_t C5V; /* channel n value register 5 */
+	_RW uint32_t SC; /* status and control register */
+	_RW uint32_t CNT; /* counter register */
+	_RW uint32_t MOD; /* modulo register */
+	_RW uint32_t C0SC; /* channel n status and control register 0 */
+	_RW uint32_t C0V; /* channel n value register 0 */
+	_RW uint32_t C1SC; /* channel n status and control register 1 */
+	_RW uint32_t C1V; /* channel n value register 1 */
+	_RW uint32_t C2SC; /* channel n status and control register 2 */
+	_RW uint32_t C2V; /* channel n value register 2 */
+	_RW uint32_t C3SC; /* channel n status and control register 3 */
+	_RW uint32_t C3V; /* channel n value register 3 */
+	_RW uint32_t C4SC; /* channel n status and control register 4 */
+	_RW uint32_t C4V; /* channel n value register 4 */
+	_RW uint32_t C5SC; /* channel n status and control register 5 */
+	_RW uint32_t C5V; /* channel n value register 5 */
 	PAD_BYTES(20);
-	uint32_t STATUS; /* capture and compare status register */
+	_RW uint32_t STATUS; /* capture and compare status register */
 	PAD_BYTES(48);
-	uint32_t CONF; /* configuration register */
+	_RW uint32_t CONF; /* configuration register */
 } PACKED;
 
 /* define TPM modules */
@@ -200,10 +200,10 @@ struct TPM_t {
 
 /* System Mode Controller registers */
 struct SMC_t {
-	uint8_t PMPROT; /* Power Mode Protection register */
-	uint8_t PMCTRL; /* Power Mode Control register */
-	uint8_t STOPCTRL; /* Stop Control Register */
-	uint8_t PMSTAT; /* Power Mode Status register */
+	_RW uint8_t PMPROT; /* Power Mode Protection register */
+	_RW uint8_t PMCTRL; /* Power Mode Control register */
+	_RW uint8_t STOPCTRL; /* Stop Control Register */
+	_RO uint8_t PMSTAT; /* Power Mode Status register */
 } PACKED;
 
 /* define SMC */
@@ -211,9 +211,9 @@ struct SMC_t {
 
 /* Power Management Controller registers */
 struct PMC_t {
-	uint8_t LVDSC1; /* Low Voltage Detect Status and Control 1 register */
-	uint8_t LVDSC2; /* Low Voltage Detect Status and Control 2 register */
-	uint8_t REGSC; /* Regulator Status and Control register */
+	_RW uint8_t LVDSC1; /* Low Voltage Detect Status and Control 1 register */
+	_RW uint8_t LVDSC2; /* Low Voltage Detect Status and Control 2 register */
+	_RW uint8_t REGSC; /* Regulator Status and Control register */
 } PACKED;
 
 /* define PMC */
@@ -221,16 +221,16 @@ struct PMC_t {
 
 /* Low-Leakage Wakeup Unit */
 struct LLWU_t {
-	uint8_t PE1; /* Pin Enable 1 register */
-	uint8_t PE2; /* Pin Enable 2 register */
-	uint8_t PE3; /* Pin Enable 3 register */
-	uint8_t PE4; /* Pin Enable 4 register */
-	uint8_t ME; /* Module Enable register */
-	uint8_t F1; /* Flag 1 register */
-	uint8_t F2; /* Flag 2 register */
-	uint8_t F3; /* Flag 3 register */
-	uint8_t FILT1; /* Pin Filter 1 register */
-	uint8_t FILT2; /* Pin Filter 2 register */
+	_RW uint8_t PE1; /* Pin Enable 1 register */
+	_RW uint8_t PE2; /* Pin Enable 2 register */
+	_RW uint8_t PE3; /* Pin Enable 3 register */
+	_RW uint8_t PE4; /* Pin Enable 4 register */
+	_RW uint8_t ME; /* Module Enable register */
+	_RW uint8_t F1; /* Flag 1 register */
+	_RW uint8_t F2; /* Flag 2 register */
+	_RO uint8_t F3; /* Flag 3 register */
+	_RW uint8_t FILT1; /* Pin Filter 1 register */
+	_RW uint8_t FILT2; /* Pin Filter 2 register */
 } PACKED;
 
 /* define LLWU */
@@ -238,11 +238,11 @@ struct LLWU_t {
 
 /* Reset Control Module registers */
 struct RCM_t {
-	uint8_t SRS0; /* System Reset Status Register 0 */
-	uint8_t SRS1; /* System Reset Status Register 1 */
+	_RO uint8_t SRS0; /* System Reset Status Register 0 */
+	_RO uint8_t SRS1; /* System Reset Status Register 1 */
 	PAD_BYTES(2);
-	uint8_t RPFC; /* Reset Pin Filter Control register */
-	uint8_t RPFW; /* Reset Pin Filter Width register */
+	_RW uint8_t RPFC; /* Reset Pin Filter Control register */
+	_RW uint8_t RPFW; /* Reset Pin Filter Width register */
 } PACKED;
 
 /* define RCM */
@@ -250,46 +250,48 @@ struct RCM_t {
 
 /* Miscellaneous Control Module */
 struct MCM_t {
-	uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
-	uint32_t PLACR; /* Platform Control register */
+	PAD_BYTES(2);
+	_RO uint16_t PLASC; /* Crossbat switch (AXBS) slave configuration */
+	_RO uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
+	_RW uint32_t PLACR; /* Platform Control register */
 	PAD_BYTES(48);
-	uint32_t CPO; /* Compute Operation control register */
+	_RW uint32_t CPO; /* Compute Operation control register */
 } PACKED;
 
 /* define MCM */
-#define MCM (*((volatile struct MCM_t *) 0xF000300A))
+#define MCM (*((volatile struct MCM_t *) 0xF0003000))
 
 /* Micro Trace Buffer registers */
 struct MTB_t {
-	uint32_t POSITION; /* Position register */
-	uint32_t MASTER; /* Master register */
-	uint32_t FLOW; /* Flow register */
-	uint32_t BASE; /* Base register */
+	_RW uint32_t POSITION; /* Position register */
+	_RW uint32_t MASTER; /* Master register */
+	_RW uint32_t FLOW; /* Flow register */
+	_RO uint32_t BASE; /* Base register */
 	PAD_BYTES(3824);
-	uint32_t MODECTRL; /* Integration Mode Control Register */
+	_RO uint32_t MODECTRL; /* Integration Mode Control Register */
 	PAD_BYTES(156);
-	uint32_t TAGSET; /* Claim TAG Set Register */
-	uint32_t TAGCLEAR; /* Claim TAG Clear Register */
+	_RO uint32_t TAGSET; /* Claim TAG Set Register */
+	_RO uint32_t TAGCLEAR; /* Claim TAG Clear Register */
 	PAD_BYTES(8);
-	uint32_t LOCKACCESS; /* Lock Access Register */
-	uint32_t LOCKSTAT; /* Lock Status Register */
-	uint32_t AUTHSTAT; /* Authentication Status Register */
-	uint32_t DEVICEARCH; /* Device Architecture Register */
+	_RO uint32_t LOCKACCESS; /* Lock Access Register */
+	_RO uint32_t LOCKSTAT; /* Lock Status Register */
+	_RO uint32_t AUTHSTAT; /* Authentication Status Register */
+	_RO uint32_t DEVICEARCH; /* Device Architecture Register */
 	PAD_BYTES(8);
-	uint32_t DEVICECFG; /* Device Configuration Register */
-	uint32_t DEVICETYPID; /* Device Type Identifier Register */
-	uint32_t PERIPHID4; /* Peripheral ID register */
-	uint32_t PERIPHID5; /* Peripheral ID register */
-	uint32_t PERIPHID6; /* Peripheral ID register */
-	uint32_t PERIPHID7; /* Peripheral ID register */
-	uint32_t PERIPHID0; /* Peripheral ID register */
-	uint32_t PERIPHID1; /* Peripheral ID register */
-	uint32_t PERIPHID2; /* Peripheral ID register */
-	uint32_t PERIPHID3; /* Peripheral ID register */
-	uint32_t COMPID0; /* Component ID register */
-	uint32_t COMPID1; /* Component ID register */
-	uint32_t COMPID2; /* Component ID register */
-	uint32_t COMPID3; /* Component ID register */
+	_RO uint32_t DEVICECFG; /* Device Configuration Register */
+	_RO uint32_t DEVICETYPID; /* Device Type Identifier Register */
+	_RO uint32_t PERIPHID4; /* Peripheral ID register */
+	_RO uint32_t PERIPHID5; /* Peripheral ID register */
+	_RO uint32_t PERIPHID6; /* Peripheral ID register */
+	_RO uint32_t PERIPHID7; /* Peripheral ID register */
+	_RO uint32_t PERIPHID0; /* Peripheral ID register */
+	_RO uint32_t PERIPHID1; /* Peripheral ID register */
+	_RO uint32_t PERIPHID2; /* Peripheral ID register */
+	_RO uint32_t PERIPHID3; /* Peripheral ID register */
+	_RO uint32_t COMPID0; /* Component ID register */
+	_RO uint32_t COMPID1; /* Component ID register */
+	_RO uint32_t COMPID2; /* Component ID register */
+	_RO uint32_t COMPID3; /* Component ID register */
 } PACKED;
 
 /* define MTB */
@@ -297,10 +299,10 @@ struct MTB_t {
 
 /* Direct Memory Access Multiplexer */
 struct DMAMUX_t {
-	uint8_t CHCFG0; /* Channel Configuration register */
-	uint8_t CHCFG1; /* Channel Configuration register */
-	uint8_t CHCFG2; /* Channel Configuration register */
-	uint8_t CHCFG3; /* Channel Configuration register */
+	_RW uint8_t CHCFG0; /* Channel Configuration register */
+	_RW uint8_t CHCFG1; /* Channel Configuration register */
+	_RW uint8_t CHCFG2; /* Channel Configuration register */
+	_RW uint8_t CHCFG3; /* Channel Configuration register */
 } PACKED;
 
 /* define DMAMUX0 */
@@ -308,10 +310,10 @@ struct DMAMUX_t {
 
 /* Direct Memory Access Controller Module */
 struct DMA_t {
-	uint32_t SAR; /* Source Address register */
-	uint32_t DAR; /* Destination Address register */
-	uint32_t DSR_BCR; /* DMA Status register / Byte count register */
-	uint32_t DCR; /* DMA control register */
+	_RW uint32_t SAR; /* Source Address register */
+	_RW uint32_t DAR; /* Destination Address register */
+	_RW uint32_t DSR_BCR; /* DMA Status register / Byte count register */
+	_RW uint32_t DCR; /* DMA control register */
 } PACKED;
 
 /* define DMA0 - DMA3 */
@@ -322,34 +324,34 @@ struct DMA_t {
 
 /* Analog to Digital Converters module */
 struct ADC_t {
-	uint32_t SC1A; /* ADC status and control registers 1 */
-	uint32_t SC1B; /* ADC status and control registers 1 */
-	uint32_t CFG1; /* ADC configuration register 1 */
-	uint32_t CFG2; /* ADC configuration register 2 */
-	uint32_t RA; /* ADC Data result register */
-	uint32_t RB; /* ADC data result register */
-	uint32_t CV1; /* Compare Value registers */
-	uint32_t CV2; /* Compare Value registers */
-	uint32_t SC2; /* Status and Control register 2 */
-	uint32_t SC3; /* Status and Control register 3 */
-	uint32_t OFS; /* ADC Offset Correction register */
-	uint32_t PG; /* ADC Plus-Side Gain register */
-	uint32_t MG; /* ADC Minus-Side Gain register */
-	uint32_t CLPD; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLPS; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLP4; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLP3; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLP2; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLP1; /* ADC Plus-Side General Calibration Value register */
-	uint32_t CLP0; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t SC1A; /* ADC status and control registers 1 */
+	_RW uint32_t SC1B; /* ADC status and control registers 1 */
+	_RW uint32_t CFG1; /* ADC configuration register 1 */
+	_RW uint32_t CFG2; /* ADC configuration register 2 */
+	_RO uint32_t RA; /* ADC Data result register */
+	_RO uint32_t RB; /* ADC data result register */
+	_RW uint32_t CV1; /* Compare Value registers */
+	_RW uint32_t CV2; /* Compare Value registers */
+	_RW uint32_t SC2; /* Status and Control register 2 */
+	_RW uint32_t SC3; /* Status and Control register 3 */
+	_RW uint32_t OFS; /* ADC Offset Correction register */
+	_RW uint32_t PG; /* ADC Plus-Side Gain register */
+	_RW uint32_t MG; /* ADC Minus-Side Gain register */
+	_RW uint32_t CLPD; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLPS; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLP4; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLP3; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLP2; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLP1; /* ADC Plus-Side General Calibration Value register */
+	_RW uint32_t CLP0; /* ADC Plus-Side General Calibration Value register */
 	PAD_BYTES(4);
-	uint32_t CLMD; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLMS; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLM4; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLM3; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLM2; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLM1; /* ADC Minus-Side General Calibration Value register */
-	uint32_t CLM0; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLMD; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLMS; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLM4; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLM3; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLM2; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLM1; /* ADC Minus-Side General Calibration Value register */
+	_RW uint32_t CLM0; /* ADC Minus-Side General Calibration Value register */
 } PACKED;
 
 /* define ADC */
