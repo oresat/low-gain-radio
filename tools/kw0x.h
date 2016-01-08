@@ -2,7 +2,7 @@
   Register definitions for the MKW01Z128 Freescale MCU
 
   Programmed by Theo Hill (mostly) & William Harrington
- */
+*/
 #ifndef _KW0X_H_
 #define _KW0X_H_
 #include <stdint.h>
@@ -17,6 +17,7 @@
 
 #define PACKED __attribute__((packed))
 
+/* macros for denoting R/W, Read-Only, and Write-Only registers */
 #define _RW
 #define _RO const
 #define _WO
@@ -137,17 +138,17 @@ struct MCG_t {
 
 /* SPI Module registers */
 struct SPI_t {
-	uint8_t S; /* status register */
-	uint8_t BR; /* baud rate register */
-	uint8_t C2; /* control register 2 */
-	uint8_t C1; /* control register 1 */
-	uint8_t ML; /* match low */
-	uint8_t MH; /* match high */
-	uint8_t DL; /* data low */
-	uint8_t DH; /* data high */
+	_R0 uint8_t S; /* status register */
+	_RW uint8_t BR; /* baud rate register */
+	_RW uint8_t C2; /* control register 2 */
+	_RW uint8_t C1; /* control register 1 */
+	_RW uint8_t ML; /* match low */
+	_RW uint8_t MH; /* match high */
+	_RW uint8_t DL; /* data low */
+	_RW uint8_t DH; /* data high */
 	PAD_BYTES(2); /* padding for excess gap between DH & CI */
-	uint8_t CI; /* clear interrupt */
-	uint8_t C3; /* control register 3 */
+	_RW uint8_t CI; /* clear interrupt */
+	_RW uint8_t C3; /* control register 3 */
 } PACKED;
 
 /* define SPI modules */
