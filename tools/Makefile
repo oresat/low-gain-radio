@@ -24,7 +24,7 @@ c3: crt0.o c3.o
 	$(ARCH)-objcopy -O ihex $^ $@
 
 write: c3.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset" -c "exit"
+	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
 gdb: c3
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
