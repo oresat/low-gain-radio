@@ -7,7 +7,6 @@
 #define _KW0X_H_
 #include <stdint.h>
 #include <stddef.h>
-#include <stdbool.h>
 
 /* macros for padding */
 #define  PASTE(a, b) _PASTE(a, b)
@@ -134,17 +133,17 @@ struct MCG_t {
 
 /* SPI Module registers */
 struct SPI_t {
-  	uint8_t S; /* status register */
-  	uint8_t BR; /* baud rate register */
-  	uint8_t C2; /* control register 2 */
-  	uint8_t C1; /* control register 1 */
-  	uint8_t ML; /* match low */
-  	uint8_t MH; /* match high */
-  	uint8_t DL; /* data low */
-  	uint8_t DH; /* data high */
-  	PAD_BYTES(2); /* padding for excess gap between DH & CI */
-  	uint8_t CI; /* clear interrupt */
-  	uint8_t C3; /* control register 3 */
+	uint8_t S; /* status register */
+	uint8_t BR; /* baud rate register */
+	uint8_t C2; /* control register 2 */
+	uint8_t C1; /* control register 1 */
+	uint8_t ML; /* match low */
+	uint8_t MH; /* match high */
+	uint8_t DL; /* data low */
+	uint8_t DH; /* data high */
+	PAD_BYTES(2); /* padding for excess gap between DH & CI */
+	uint8_t CI; /* clear interrupt */
+	uint8_t C3; /* control register 3 */
 } PACKED;
 
 /* define SPI modules */
@@ -153,14 +152,14 @@ struct SPI_t {
 
 /* real-time clock module registers */
 struct RTC_t {
-  	uint32_t TSR; /* time seconds register */
-  	uint32_t TPR; /* time prescaler register */
-  	uint32_t TAR; /* time alarm register */
-  	uint32_t TCR; /* time compensation register */
-  	uint32_t CR; /* control register */
-  	uint32_t SR; /* status register */
-  	uint32_t LR; /* lock register */
-  	uint32_t IER; /* interrupt enable register */
+	uint32_t TSR; /* time seconds register */
+	uint32_t TPR; /* time prescaler register */
+	uint32_t TAR; /* time alarm register */
+	uint32_t TCR; /* time compensation register */
+	uint32_t CR; /* control register */
+	uint32_t SR; /* status register */
+	uint32_t LR; /* lock register */
+	uint32_t IER; /* interrupt enable register */
 } PACKED;
 
 /* define RTC */
@@ -168,25 +167,25 @@ struct RTC_t {
 
 /* Timer/PWM Module registers */
 struct TPM_t {
-  	uint32_t SC; /* status and control register */
-  	uint32_t CNT; /* counter register */
-  	uint32_t MOD; /* modulo register */
-  	uint32_t C0SC; /* channel n status and control register 0 */
-  	uint32_t C0V; /* channel n value register 0 */
-  	uint32_t C1SC; /* channel n status and control register 1 */
-  	uint32_t C1V; /* channel n value register 1 */
-  	uint32_t C2SC; /* channel n status and control register 2 */
-  	uint32_t C2V; /* channel n value register 2 */
-  	uint32_t C3SC; /* channel n status and control register 3 */
-  	uint32_t C3V; /* channel n value register 3 */
-  	uint32_t C4SC; /* channel n status and control register 4 */
-  	uint32_t C4V; /* channel n value register 4 */
-  	uint32_t C5SC; /* channel n status and control register 5 */
-  	uint32_t C5V; /* channel n value register 5 */
-  	PAD_BYTES(20);
-  	uint32_t STATUS; /* capture and compare status register */
-  	PAD_BYTES(48);
-  	uint32_t CONF; /* configuration register */
+	uint32_t SC; /* status and control register */
+	uint32_t CNT; /* counter register */
+	uint32_t MOD; /* modulo register */
+	uint32_t C0SC; /* channel n status and control register 0 */
+	uint32_t C0V; /* channel n value register 0 */
+	uint32_t C1SC; /* channel n status and control register 1 */
+	uint32_t C1V; /* channel n value register 1 */
+	uint32_t C2SC; /* channel n status and control register 2 */
+	uint32_t C2V; /* channel n value register 2 */
+	uint32_t C3SC; /* channel n status and control register 3 */
+	uint32_t C3V; /* channel n value register 3 */
+	uint32_t C4SC; /* channel n status and control register 4 */
+	uint32_t C4V; /* channel n value register 4 */
+	uint32_t C5SC; /* channel n status and control register 5 */
+	uint32_t C5V; /* channel n value register 5 */
+	PAD_BYTES(20);
+	uint32_t STATUS; /* capture and compare status register */
+	PAD_BYTES(48);
+	uint32_t CONF; /* configuration register */
 } PACKED;
 
 /* define TPM modules */
