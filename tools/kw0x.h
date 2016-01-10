@@ -39,12 +39,12 @@ struct PORT {
 
 /* GPIO Module registers */
 struct GPIO_t {
-	uint32_t PDOR;
-	uint32_t PSOR;
-	uint32_t PCOR;
-	uint32_t PTOR;
-	uint32_t PDIR;
-	uint32_t PDDR;
+	_RW uint32_t PDOR;
+	_WO uint32_t PSOR;
+	_WO uint32_t PCOR;
+	_WO uint32_t PTOR;
+	_RO uint32_t PDIR;
+	_RW uint32_t PDDR;
 } PACKED;
 
 /* define GPIO on ports A-E */
@@ -54,22 +54,12 @@ struct GPIO_t {
 #define GPIOD (*((volatile struct GPIO_t *) 0x400FF0C0))
 #define GPIOE (*((volatile struct GPIO_t *) 0x400FF100))
 
-/* Fast GPIO module */
-struct FGPIO_t {
-	uint32_t PDOR;
-	uint32_t PSOR;
-	uint32_t PCOR;
-	uint32_t PTOR;
-	uint32_t PDIR;
-	uint32_t PDDR;
-} PACKED;
-
 /* define FGPIO on ports A-E */
-#define FGPIOA (*((volatile struct FGPIO_t *) 0xF8000000))
-#define FGPIOB (*((volatile struct FGPIO_t *) 0xF8000040))
-#define FGPIOC (*((volatile struct FGPIO_t *) 0xF8000080))
-#define FGPIOD (*((volatile struct FGPIO_t *) 0xF80000C0))
-#define FGPIOE (*((volatile struct FGPIO_t *) 0xF8000100))
+#define FGPIOA (*((volatile struct GPIO_t *) 0xF8000000))
+#define FGPIOB (*((volatile struct GPIO_t *) 0xF8000040))
+#define FGPIOC (*((volatile struct GPIO_t *) 0xF8000080))
+#define FGPIOD (*((volatile struct GPIO_t *) 0xF80000C0))
+#define FGPIOE (*((volatile struct GPIO_t *) 0xF8000100))
 
 /* Oscillator Module registers */
 struct OSC {
@@ -137,17 +127,17 @@ struct MCG_t {
 
 /* SPI Module registers */
 struct SPI_t {
-	uint8_t S; /* status register */
-	uint8_t BR; /* baud rate register */
-	uint8_t C2; /* control register 2 */
-	uint8_t C1; /* control register 1 */
-	uint8_t ML; /* match low */
-	uint8_t MH; /* match high */
-	uint8_t DL; /* data low */
-	uint8_t DH; /* data high */
+	_RO uint8_t S; /* status register */
+	_RW uint8_t BR; /* baud rate register */
+	_RW uint8_t C2; /* control register 2 */
+	_RW uint8_t C1; /* control register 1 */
+	_RW uint8_t ML; /* match low */
+	_RW uint8_t MH; /* match high */
+	_RW uint8_t DL; /* data low */
+	_RW uint8_t DH; /* data high */
 	PAD_BYTES(2); /* padding for excess gap between DH & CI */
-	uint8_t CI; /* clear interrupt */
-	uint8_t C3; /* control register 3 */
+	_RW uint8_t CI; /* clear interrupt */
+	_RW uint8_t C3; /* control register 3 */
 } PACKED;
 
 /* define SPI modules */
@@ -156,14 +146,14 @@ struct SPI_t {
 
 /* real-time clock module registers */
 struct RTC_t {
-	uint32_t TSR; /* time seconds register */
-	uint32_t TPR; /* time prescaler register */
-	uint32_t TAR; /* time alarm register */
-	uint32_t TCR; /* time compensation register */
-	uint32_t CR; /* control register */
-	uint32_t SR; /* status register */
-	uint32_t LR; /* lock register */
-	uint32_t IER; /* interrupt enable register */
+	_RW uint32_t TSR; /* time seconds register */
+	_RW uint32_t TPR; /* time prescaler register */
+	_RW uint32_t TAR; /* time alarm register */
+	_RW uint32_t TCR; /* time compensation register */
+	_RW uint32_t CR; /* control register */
+	_RW uint32_t SR; /* status register */
+	_RW uint32_t LR; /* lock register */
+	_RW uint32_t IER; /* interrupt enable register */
 } PACKED;
 
 /* define RTC */
@@ -171,25 +161,25 @@ struct RTC_t {
 
 /* Timer/PWM Module registers */
 struct TPM_t {
-	uint32_t SC; /* status and control register */
-	uint32_t CNT; /* counter register */
-	uint32_t MOD; /* modulo register */
-	uint32_t C0SC; /* channel n status and control register 0 */
-	uint32_t C0V; /* channel n value register 0 */
-	uint32_t C1SC; /* channel n status and control register 1 */
-	uint32_t C1V; /* channel n value register 1 */
-	uint32_t C2SC; /* channel n status and control register 2 */
-	uint32_t C2V; /* channel n value register 2 */
-	uint32_t C3SC; /* channel n status and control register 3 */
-	uint32_t C3V; /* channel n value register 3 */
-	uint32_t C4SC; /* channel n status and control register 4 */
-	uint32_t C4V; /* channel n value register 4 */
-	uint32_t C5SC; /* channel n status and control register 5 */
-	uint32_t C5V; /* channel n value register 5 */
+	_RW uint32_t SC; /* status and control register */
+	_RW uint32_t CNT; /* counter register */
+	_RW uint32_t MOD; /* modulo register */
+	_RW uint32_t C0SC; /* channel n status and control register 0 */
+	_RW uint32_t C0V; /* channel n value register 0 */
+	_RW uint32_t C1SC; /* channel n status and control register 1 */
+	_RW uint32_t C1V; /* channel n value register 1 */
+	_RW uint32_t C2SC; /* channel n status and control register 2 */
+	_RW uint32_t C2V; /* channel n value register 2 */
+	_RW uint32_t C3SC; /* channel n status and control register 3 */
+	_RW uint32_t C3V; /* channel n value register 3 */
+	_RW uint32_t C4SC; /* channel n status and control register 4 */
+	_RW uint32_t C4V; /* channel n value register 4 */
+	_RW uint32_t C5SC; /* channel n status and control register 5 */
+	_RW uint32_t C5V; /* channel n value register 5 */
 	PAD_BYTES(20);
-	uint32_t STATUS; /* capture and compare status register */
+	_RW uint32_t STATUS; /* capture and compare status register */
 	PAD_BYTES(48);
-	uint32_t CONF; /* configuration register */
+	_RW uint32_t CONF; /* configuration register */
 } PACKED;
 
 /* define TPM modules */
@@ -385,19 +375,19 @@ struct DAC_t {
 
 /* Periodic Interrupt Timer module */
 struct PIT_t {
-	uint32_t MCR; /* Module Control register */
+	_RW uint32_t MCR; /* Module Control register */
 	PAD_BYTES(220);
-	uint32_t LTMR64H; /* PIT Upper Lifetime timer register */
-	uint32_t LTMR64L; /* PIT Lower Lifetime timer register */
+	_RO uint32_t LTMR64H; /* PIT Upper Lifetime timer register */
+	_RO uint32_t LTMR64L; /* PIT Lower Lifetime timer register */
 	PAD_BYTES(24);
-	uint32_t LDVAL0; /* Timer Load Value register */
-	uint32_t CVAL0; /* Current Timer Value register */
-	uint32_t TCTRL0; /* Timer Control register */
-	uint32_t TFLG0; /* Timer Flag register */
-	uint32_t LDVAL1; /* Timer Load Value register */
-	uint32_t CVAL1; /* Current timer value register */
-	uint32_t TCTRL1; /* Timer Control register */
-	uint32_t TFLG1; /* Timer Flag register */
+	_RW uint32_t LDVAL0; /* Timer Load Value register */
+	_RO uint32_t CVAL0; /* Current Timer Value register */
+	_RW uint32_t TCTRL0; /* Timer Control register */
+	_RW uint32_t TFLG0; /* Timer Flag register */
+	_RW uint32_t LDVAL1; /* Timer Load Value register */
+	_RO uint32_t CVAL1; /* Current timer value register */
+	_RW uint32_t TCTRL1; /* Timer Control register */
+	_RW uint32_t TFLG1; /* Timer Flag register */
 } PACKED;
 
 /* define PIT */
@@ -405,10 +395,10 @@ struct PIT_t {
 
 /* Low-Power Timer module */
 struct LPTMR_t {
-	uint32_t CSR; /* Low Power Timer Control status register */
-	uint32_t PSR; /* Low Power Timer prescale register */
-	uint32_t CMR; /* Low Power Timer compare register */
-	uint32_t CNR; /* Low Power Timer counter register */
+	_RW uint32_t CSR; /* Low Power Timer Control status register */
+	_RW uint32_t PSR; /* Low Power Timer prescale register */
+	_RW uint32_t CMR; /* Low Power Timer compare register */
+	_RO uint32_t CNR; /* Low Power Timer counter register */
 } PACKED;
 
 /* define LPTMR */
@@ -416,18 +406,18 @@ struct LPTMR_t {
 
 /* Universal asynchronous receiver/transmitter module 0 */
 struct UART0_t {
-	uint8_t BDH; /* UART Baud Rate Register High */
-	uint8_t BDL; /* UART Baud Rate Register Low */
-	uint8_t C1; /* UART Control Register 1 */
-	uint8_t C2; /* UART Control Register 2 */
-	uint8_t S1; /* UART Status Register 1 */
-	uint8_t S2; /* UART Status Register 2 */
-	uint8_t C3; /* UART Control Register 3 */
-	uint8_t D; /* UART Data Register */
-	uint8_t MA1; /* UART Match Address Registers 1 */
-	uint8_t MA2; /* UART Match Address Registers 2 */
-	uint8_t C4; /* UART Control Register 4 */
-	uint8_t C5; /* UART Control Register 5 */
+	_RW uint8_t BDH; /* UART Baud Rate Register High */
+	_RW uint8_t BDL; /* UART Baud Rate Register Low */
+	_RW uint8_t C1; /* UART Control Register 1 */
+	_RW uint8_t C2; /* UART Control Register 2 */
+	_RW uint8_t S1; /* UART Status Register 1 */
+	_RW uint8_t S2; /* UART Status Register 2 */
+	_RW uint8_t C3; /* UART Control Register 3 */
+	_RW uint8_t D; /* UART Data Register */
+	_RW uint8_t MA1; /* UART Match Address Registers 1 */
+	_RW uint8_t MA2; /* UART Match Address Registers 2 */
+	_RW uint8_t C4; /* UART Control Register 4 */
+	_RW uint8_t C5; /* UART Control Register 5 */
 } PACKED;
 
 /* define UART0 */
@@ -435,15 +425,15 @@ struct UART0_t {
 
 /* Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
 struct UART_t {
-	uint8_t BDH; /* UART Baud Rate Register High */
-	uint8_t BDL; /* UART Baud Rate Register Low */
-	uint8_t C1; /* UART Control Register 1 */
-	uint8_t C2; /* UART Control Register 2 */
-	uint8_t S1; /* UART Status Register 1 */
-	uint8_t S2; /* UART Status Register 2 */
-	uint8_t C3; /* UART Control Register 3 */
-	uint8_t D; /* UART Data Register */
-	uint8_t C4; /* UART Control Register 4 */
+	_RW uint8_t BDH; /* UART Baud Rate Register High */
+	_RW uint8_t BDL; /* UART Baud Rate Register Low */
+	_RW uint8_t C1; /* UART Control Register 1 */
+	_RW uint8_t C2; /* UART Control Register 2 */
+	_RO uint8_t S1; /* UART Status Register 1 */
+	_RW uint8_t S2; /* UART Status Register 2 */
+	_RW uint8_t C3; /* UART Control Register 3 */
+	_RW uint8_t D; /* UART Data Register */
+	_RW uint8_t C4; /* UART Control Register 4 */
 } PACKED;
 
 /* define UART1 & 2 */
@@ -452,9 +442,9 @@ struct UART_t {
 
 /* Touch Sensing Input Module */
 struct TSI_t {
-	uint32_t GENCS; /* TSI General Control and Status Register */
-	uint32_t DATA; /* TSI DATA Register */
-	uint32_t TSHD; /* TSI Threshold Register */
+	_RW uint32_t GENCS; /* TSI General Control and Status Register */
+	_RW uint32_t DATA; /* TSI DATA Register */
+	_RW uint32_t TSHD; /* TSI Threshold Register */
 } PACKED;
 
 /* define TSI */
