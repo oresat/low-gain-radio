@@ -240,7 +240,7 @@ struct RCM_t {
 
 /* Miscellaneous Control Module */
 struct MCM_t {
-	PAD_BYTES(2);
+	PAD_BYTES(8);
 	_RO uint16_t PLASC; /* Crossbat switch (AXBS) slave configuration */
 	_RO uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
 	_RW uint32_t PLACR; /* Platform Control register */
