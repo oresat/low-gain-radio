@@ -3,11 +3,12 @@
  * MKW01Z128 memory setup.
  */
 __main_stack_size__     = 0x0400;
-__process_stack_size__  = 0x0400;
 
 MEMORY
 {
-    flash : org = 0x00000000, len = 0x0001FFFF
+    vects : org = 0x00000000, len = 0x00000100
+    fcfg :  org = 0x00000400, len = 0x00000010
+    flash : org = 0x00000410, len = 0x0001FBF0
     ram :   org = 0x1FFFF000, len = 0x00004000
 }
 
@@ -25,7 +26,12 @@ SECTIONS
     startup : ALIGN(16) SUBALIGN(16)
     {
         KEEP(*(vectors))
-    } > flash
+    } > vects
+
+    flash_config : ALIGN(4) SUBALIGN(4)
+    {
+        KEEP(*(flashconfig))
+    } > fcfg
 
     constructors : ALIGN(4) SUBALIGN(4)
     {
@@ -92,12 +98,6 @@ SECTIONS
         . += __main_stack_size__;
         . = ALIGN(8);
         __main_stack_end__ = .;
-        __process_stack_base__ = .;
-        __main_thread_stack_base__ = .;
-        . += __process_stack_size__;
-        . = ALIGN(8);
-        __process_stack_end__ = .;
-        __main_thread_stack_end__ = .;
     } > ram
 
     .data ALIGN(4) : ALIGN(4)
@@ -120,7 +120,7 @@ SECTIONS
         *(COMMON)
         . = ALIGN(4);
         PROVIDE(__bss_end__ = .);
-    } > ram    
+    } > ram
 }
 
 PROVIDE(end = .);
