@@ -1,6 +1,6 @@
 # Tools
 
-Tool chain for programming MKW01Z128
+This folder contains resources for the toolchain we are using for programming the Freescale/NXP MKW01Z128 microcontroller. For an in-depth explanation on the toolchain, [please see this wiki page](https://github.com/wrh2/sputnik/wiki/MKW01Z128-toolchain).
 
 ## Dependencies
 
