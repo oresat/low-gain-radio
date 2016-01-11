@@ -89,7 +89,6 @@ __attribute__ ((section("vectors"))) vectors_t _vectors = {
 	}
 };
 
-
 __attribute__ ((naked)) void _unhandled_exception(void) {
 	while(1);
 }
@@ -141,11 +140,29 @@ void VectorB4(void) __attribute__((weak, alias("_unhandled_exception")));
 void VectorB8(void) __attribute__((weak, alias("_unhandled_exception")));
 void VectorBC(void) __attribute__((weak, alias("_unhandled_exception")));
 
+struct flash_config_t {
+	uint64_t backdoor;
+	uint32_t protection;
+	uint8_t  fsec;
+	uint8_t  fopt;
+	uint8_t  reserved1;
+	uint8_t  reserved2;
+} __attribute__((packed));
+
+typedef struct flash_config_t flash_config_t;
+__attribute__((section("flashconfig")))  flash_config_t _flash_config = {
+	.backdoor = 0xFFFFFFFFFFFFFFFF,
+	.protection = 0xFFFFFFFF,
+	.fsec = 0xFE,
+	.fopt = 0xFF,
+	.reserved1 = 0xFF,
+	.reserved2 = 0xFF,
+} ;
+
+
 
 typedef void (*funcp_t)(void);
 typedef funcp_t * funcpp_t;
-
-#define SYMVAL(sym) (uint32_t)(((uint8_t *)&(sym)) - ((uint8_t *)0))
 
 /*
  * Area fill code, it is a macro because here functions cannot be called
@@ -160,8 +177,6 @@ typedef funcp_t * funcpp_t;
 
 extern uint32_t __main_stack_base__;
 extern uint32_t __main_stack_end__;
-extern uint32_t __process_stack_base__;
-extern uint32_t __process_stack_end__;
 extern uint32_t _textdata;
 extern uint32_t _data;
 extern uint32_t _edata;
@@ -174,18 +189,11 @@ extern funcp_t __fini_array_end;
 extern void main(void);
 
 __attribute__((naked)) void ResetHandler(void) {
-	uint32_t psp, reg;
-
-	/* Process Stack initialization, it is allocated starting from the
-	   symbol __process_stack_end__ and its lower limit is the symbol
-	   __process_stack_base__.*/
+	/* Disable interrupts */
 	asm volatile ("cpsid   i");
-	psp = SYMVAL(__process_stack_end__);
-	asm volatile ("msr     PSP, %0" : : "r" (psp));
 
 	/* CPU mode initialization.*/
-	reg = 0x2;
-
+	uint32_t reg = 0x0;
 	asm volatile ("msr     CONTROL, %0" : : "r" (reg));
 	asm volatile ("isb");
 
