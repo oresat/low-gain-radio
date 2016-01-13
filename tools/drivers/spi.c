@@ -8,70 +8,66 @@
 
 
 struct pin_assign {
+	struct spi * spi;
 	struct pin;
 	int alt;
 }
 
 static const struct pin_assign PCS0 [] = {
-	//SPI0
-	{.pin = {PORTE, 16}, .alt = 2},
-	{.pin = {PORTD, 0},  .alt = 2},
-	//SPI1
-	{.pin = {PORTD, 4},  .alt = 2},
+	{spi=&SPI0, .pin={PORTE, 16}, .alt=2},
+	{spi=&SPI0, .pin={PORTD, 0},  .alt=2},
+	{spi=&SPI1, .pin={PORTD, 4},  .alt=2},
 	{}
 }
 
 static const struct pin_assign SCK [] = {
-	//SPI0
-	{.pin = {PORTE, 17}, .alt = 2},
-	{.pin = {PORTC, 5},  .alt = 2},
-	//SPI1
-	{.pin = {PORTD, 5},  .alt = 2},
-	{.pin = {PORTE, 2},  .alt = 2},
+	{spi=&SPI0, .pin={PORTE, 17}, .alt=2},
+	{spi=&SPI0, .pin={PORTC, 5},  .alt=2},
+	{spi=&SPI1, .pin={PORTD, 5},  .alt=2},
+	{spi=&SPI1, .pin={PORTE, 2},  .alt=2},
 	{}
 }
 
 static const struct pin_assign MISO [] = {
-	//SPI0
-	{.pin = {PORTE, 18},  .alt = 5},
-	{.pin = {PORTE, 19},  .alt = 2},
-	{.pin = {PORTC, 7},   .alt = 2},
-	{.pin = {PORTC, 6},   .alt = 5},
-	//SPI1
-	{.pin = {PORTB, 17},  .alt = 2},
-	{.pin = {PORTE, 3},   .alt = 2},
-	{.pin = {PORTE, 1},   .alt = 5},
-	{.pin = {PORTD, 7},   .alt = 2},
-	{.pin = {PORTD, 6},   .alt = 5},
+	{spi=&SPI0, .pin={PORTE, 18}, .alt=5},
+	{spi=&SPI0, .pin={PORTE, 19}, .alt=2},
+	{spi=&SPI0, .pin={PORTC, 7},  .alt=2},
+	{spi=&SPI0, .pin={PORTC, 6},  .alt=5},
+	{spi=&SPI1, .pin={PORTB, 17}, .alt=2},
+	{spi=&SPI1, .pin={PORTE, 3},  .alt=2},
+	{spi=&SPI1, .pin={PORTE, 1},  .alt=5},
+	{spi=&SPI1, .pin={PORTD, 7},  .alt=2},
+	{spi=&SPI1, .pin={PORTD, 6},  .alt=5},
 	{}
 }
 
 static const struct pin_assign MOSI [] = {
-	//SPI0
-	{.pin = {PORTE, 18}, .alt = 2},
-	{.pin = {PORTE, 19}, .alt = 5},
-	{.pin = {PORTC, 7},  .alt = 5},
-	{.pin = {PORTC, 6},  .alt = 2},
-	//SPI1
-	{.pin = {PORTB, 17}, .alt = 5},
-	{.pin = {PORTE, 3},  .alt = 5},
-	{.pin = {PORTE, 1},  .alt = 2},
-	{.pin = {PORTD, 7},  .alt = 5},
-	{.pin = {PORTD, 6},  .alt = 2},
+	{spi=&SPI0, .pin={PORTE, 18}, .alt=2},
+	{spi=&SPI0, .pin={PORTE, 19}, .alt=5},
+	{spi=&SPI0, .pin={PORTC, 7},  .alt=5},
+	{spi=&SPI0, .pin={PORTC, 6},  .alt=2},
+	{spi=&SPI1, .pin={PORTB, 17}, .alt=5},
+	{spi=&SPI1, .pin={PORTE, 3},  .alt=5},
+	{spi=&SPI1, .pin={PORTE, 1},  .alt=2},
+	{spi=&SPI1, .pin={PORTD, 7},  .alt=5},
+	{spi=&SPI1, .pin={PORTD, 6},  .alt=2},
 	{}
 }
 
 
-static void set_pin_alt(const struct pin_assign list[], struct * pin) {
-	for(int i = 0, list[i].pin.port != NULL, ++i) {
+static void set_pin_alt(const struct pin_assign list[], struct spi * SPI, struct * pin) {
+	for(int i = 0, list[i].spi != NULL, ++i) {
+		if(SPI != list[i].spi)
+			continue;
 		if(pin->port != list[i].pin.port)
 			continue;
 		if(pin->pin != list[i].pin.pin)
 			continue;
 
 		pin->port.PCR[pin->pin] |= list[i].alt << 8;
-		break;
+		return;
 	}
+	assert(0);
 }
 
 void spi_init(struct spi * SPI, const struct spi_config * config){
@@ -80,10 +76,10 @@ void spi_init(struct spi * SPI, const struct spi_config * config){
 	*/
 
 	/* select desired pin functionality */
-	set_pin_alt(SCK, config->SCK);
-	set_pin_alt(PCS0, config->SS);
-	set_pin_alt(MOSI, config->MOSI);
-	set_pin_alt(MISO, config->MISO);
+	set_pin_alt(SCK,  SPI, config->SCK);
+	set_pin_alt(PCS0, SPI, config->SS);
+	set_pin_alt(MOSI, SPI, config->MOSI);
+	set_pin_alt(MISO, SPI, config->MISO);
 
 	/* apply SPI configuration */
 	SPI->C1 = (5 << 4) | (config.CPOL << 3) | (config.CPHA << 2) | (1 << 1);

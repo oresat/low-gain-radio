@@ -24,7 +24,7 @@ struct spi_config {
 };
 
 /* initialization function */
-void spi_init(struct spi * SPI, struct spi_config config);
+void spi_init(struct spi * SPI, struct spi_config * config);
 
 /* read function */
 void spi_read(struct spi * SPI, size_t len, uint16_t * buffer);
