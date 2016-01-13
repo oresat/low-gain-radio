@@ -23,7 +23,7 @@
 #define _WO
 
 /* Chapter 7: Port control and interrupts module registers */
-struct PORT {
+struct port {
 	_RW uint32_t PCR[32];
 	_WO uint32_t GPCLR;
 	_WO uint32_t GPCHR;
@@ -32,7 +32,7 @@ struct PORT {
 } PACKED;
 
 /* Chapter 8: System Integration Module registers */
-struct SIM_t {
+struct sim {
 	_RW uint32_t SOPT1;
 	PAD_BYTES(4096);
 	_RW uint32_t SOPT2;
@@ -62,7 +62,7 @@ struct SIM_t {
 } PACKED;
 
 /* Chapter 9: System Mode Controller registers */
-struct SMC_t {
+struct smc {
 	_RW uint8_t PMPROT; /* Power Mode Protection register */
 	_RW uint8_t PMCTRL; /* Power Mode Control register */
 	_RW uint8_t STOPCTRL; /* Stop Control Register */
@@ -70,14 +70,14 @@ struct SMC_t {
 } PACKED;
 
 /* Chapter 10: Power Management Controller registers */
-struct PMC_t {
+struct pmc {
 	_RW uint8_t LVDSC1; /* Low Voltage Detect Status and Control 1 register */
 	_RW uint8_t LVDSC2; /* Low Voltage Detect Status and Control 2 register */
 	_RW uint8_t REGSC; /* Regulator Status and Control register */
 } PACKED;
 
 /* Chapter 11: Low-Leakage Wakeup Unit */
-struct LLWU_t {
+struct llwu {
 	_RW uint8_t PE1; /* Pin Enable 1 register */
 	_RW uint8_t PE2; /* Pin Enable 2 register */
 	_RW uint8_t PE3; /* Pin Enable 3 register */
@@ -91,7 +91,7 @@ struct LLWU_t {
 } PACKED;
 
 /* Chapter 12: Reset Control Module registers */
-struct RCM_t {
+struct rcm {
 	_RO uint8_t SRS0; /* System Reset Status Register 0 */
 	_RO uint8_t SRS1; /* System Reset Status Register 1 */
 	PAD_BYTES(2);
@@ -100,7 +100,7 @@ struct RCM_t {
 } PACKED;
 
 /* Chapter 14: Miscellaneous Control Module */
-struct MCM_t {
+struct mcm {
 	PAD_BYTES(8);
 	_RO uint16_t PLASC; /* Crossbat switch (AXBS) slave configuration */
 	_RO uint16_t PLAMC; /* Crossbar switch (AXBS) master configuration */
@@ -110,7 +110,7 @@ struct MCM_t {
 } PACKED;
 
 /* Chapter 15: Micro Trace Buffer registers */
-struct MTB_t {
+struct mtb {
 	_RW uint32_t POSITION; /* Position register */
 	_RW uint32_t MASTER; /* Master register */
 	_RW uint32_t FLOW; /* Flow register */
@@ -143,7 +143,7 @@ struct MTB_t {
 } PACKED;
 
 /* Chapter 18: Direct Memory Access Multiplexer */
-struct DMAMUX_t {
+struct dmamux {
 	_RW uint8_t CHCFG0; /* Channel Configuration register */
 	_RW uint8_t CHCFG1; /* Channel Configuration register */
 	_RW uint8_t CHCFG2; /* Channel Configuration register */
@@ -151,7 +151,7 @@ struct DMAMUX_t {
 } PACKED;
 
 /* Chapter 19: Direct Memory Access Controller Module */
-struct DMA_t {
+struct dma {
 	_RW uint32_t SAR; /* Source Address register */
 	_RW uint32_t DAR; /* Destination Address register */
 	_RW uint32_t DSR_BCR; /* DMA Status register / Byte count register */
@@ -159,7 +159,7 @@ struct DMA_t {
 } PACKED;
 
 /* Chapter 20: Multi-purpose clock generator registers */
-struct MCG_t {
+struct mcg {
 	_RW uint8_t C1;
 	_RW uint8_t C2;
 	_RW uint8_t C3;
@@ -179,12 +179,12 @@ struct MCG_t {
 } PACKED;
 
 /* Chapter 21: Oscillator Module registers */
-struct OSC {
+struct osc {
 	_RW uint8_t CR;
 } PACKED;
 
 /* Chapter 24: Analog to Digital Converters module */
-struct ADC_t {
+struct adc {
 	_RW uint32_t SC1A; /* ADC status and control registers 1 */
 	_RW uint32_t SC1B; /* ADC status and control registers 1 */
 	_RW uint32_t CFG1; /* ADC configuration register 1 */
@@ -216,7 +216,7 @@ struct ADC_t {
 } PACKED;
 
 /* Chapter 25: Comparator module */
-struct CMP_t {
+struct cmp {
 	uint8_t CR0; /* Control register 0 */
 	uint8_t CR1; /* Control register 1 */
 	uint8_t FPR; /* Filter period register */
@@ -226,7 +226,7 @@ struct CMP_t {
 } PACKED;
 
 /* Chapter 26: 12 bit digital to analog converter (DAC) module */
-struct DAC_t {
+struct dac {
 	uint8_t DAT0L; /* DAC data low register */
 	uint8_t DAT0H; /* DAC data high register */
 	uint8_t DAT1L; /* DAC data low register */
@@ -239,7 +239,7 @@ struct DAC_t {
 } PACKED;
 
 /* Chapter 27: Timer/PWM Module registers */
-struct TPM_t {
+struct tpm {
 	_RW uint32_t SC; /* status and control register */
 	_RW uint32_t CNT; /* counter register */
 	_RW uint32_t MOD; /* modulo register */
@@ -262,7 +262,7 @@ struct TPM_t {
 } PACKED;
 
 /* Chapter 28: Periodic Interrupt Timer module */
-struct PIT_t {
+struct pit {
 	_RW uint32_t MCR; /* Module Control register */
 	PAD_BYTES(220);
 	_RO uint32_t LTMR64H; /* PIT Upper Lifetime timer register */
@@ -279,7 +279,7 @@ struct PIT_t {
 } PACKED;
 
 /* Chapter 29: Low-Power Timer module */
-struct LPTMR_t {
+struct lptmr {
 	_RW uint32_t CSR; /* Low Power Timer Control status register */
 	_RW uint32_t PSR; /* Low Power Timer prescale register */
 	_RW uint32_t CMR; /* Low Power Timer compare register */
@@ -287,7 +287,7 @@ struct LPTMR_t {
 } PACKED;
 
 /* Chapter 30: real-time clock module registers */
-struct RTC_t {
+struct rtc {
 	_RW uint32_t TSR; /* time seconds register */
 	_RW uint32_t TPR; /* time prescaler register */
 	_RW uint32_t TAR; /* time alarm register */
@@ -299,7 +299,7 @@ struct RTC_t {
 } PACKED;
 
 /* Chapter 31: SPI Module registers */
-struct SPI_t {
+struct spi {
 	_RO uint8_t S; /* status register */
 	_RW uint8_t BR; /* baud rate register */
 	_RW uint8_t C2; /* control register 2 */
@@ -314,7 +314,7 @@ struct SPI_t {
 } PACKED;
 
 /* Chapter 32: Universal asynchronous receiver/transmitter module 0 */
-struct UART0_t {
+struct uart0 {
 	_RW uint8_t BDH; /* UART Baud Rate Register High */
 	_RW uint8_t BDL; /* UART Baud Rate Register Low */
 	_RW uint8_t C1; /* UART Control Register 1 */
@@ -330,7 +330,7 @@ struct UART0_t {
 } PACKED;
 
 /* Chapter 33: Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
-struct UART_t {
+struct uart {
 	_RW uint8_t BDH; /* UART Baud Rate Register High */
 	_RW uint8_t BDL; /* UART Baud Rate Register Low */
 	_RW uint8_t C1; /* UART Control Register 1 */
@@ -343,7 +343,7 @@ struct UART_t {
 } PACKED;
 
 /* Chapter 34: GPIO Module registers */
-struct GPIO_t {
+struct gpio {
 	_RW uint32_t PDOR;
 	_WO uint32_t PSOR;
 	_WO uint32_t PCOR;
@@ -353,58 +353,58 @@ struct GPIO_t {
 } PACKED;
 
 /* Chapter 35: Touch Sensing Input Module */
-struct TSI_t {
+struct tsi {
 	_RW uint32_t GENCS; /* TSI General Control and Status Register */
 	_RW uint32_t DATA; /* TSI DATA Register */
 	_RW uint32_t TSHD; /* TSI Threshold Register */
 } PACKED;
 
 /* Peripheral module instances */
-#define PORTA  (*((volatile struct PORT *) 0x40049000))
-#define PORTB  (*((volatile struct PORT *) 0x4004A000))
-#define PORTC  (*((volatile struct PORT *) 0x4004B000))
-#define PORTD  (*((volatile struct PORT *) 0x4004C000))
-#define PORTE  (*((volatile struct PORT *) 0x4004D000))
-#define SIM    (*((volatile struct SIM_t *) 0x40047000))
-#define SMC    (*((volatile struct SMC_t *) 0x4007E000))
-#define PMC    (*((volatile struct PMC_t *) 0x4007D000))
-#define LLWU   (*((volatile struct LLWU_t *) 0x4007C000))
-#define RCM    (*((volatile struct RCM_t *) 0x4007F000))
-#define MCM    (*((volatile struct MCM_t *) 0xF0003000))
-#define MTB    (*((volatile struct MTB_t *) 0xF0000000))
-#define DMAMUX0 (*((volatile struct DMAMUX_t *) 0x40021000))
-#define DMA0   (*((volatile struct DMA_t *) 0x40008100))
-#define DMA1   (*((volatile struct DMA_t *) 0x40008110))
-#define DMA2   (*((volatile struct DMA_t *) 0x40008120))
-#define DMA3   (*((volatile struct DMA_t *) 0x40008130))
-#define MCG    (*((volatile struct MCG_t *) 0x40064000))
-#define OSC0   (*((volatile struct OSC *) 0x40065000))
+#define PORTA  (*((volatile struct port *) 0x40049000))
+#define PORTB  (*((volatile struct port *) 0x4004A000))
+#define PORTC  (*((volatile struct port *) 0x4004B000))
+#define PORTD  (*((volatile struct port *) 0x4004C000))
+#define PORTE  (*((volatile struct port *) 0x4004D000))
+#define SIM    (*((volatile struct sim *)  0x40047000))
+#define SMC    (*((volatile struct smc *)  0x4007E000))
+#define PMC    (*((volatile struct pmc *)  0x4007D000))
+#define LLWU   (*((volatile struct llwu *) 0x4007C000))
+#define RCM    (*((volatile struct rcm *)  0x4007F000))
+#define MCM    (*((volatile struct mcm *)  0xF0003000))
+#define MTB    (*((volatile struct mtb *)  0xF0000000))
+#define DMAMUX0 (*((volatile struct dmamux *) 0x40021000))
+#define DMA0   (*((volatile struct dma *)  0x40008100))
+#define DMA1   (*((volatile struct dma *)  0x40008110))
+#define DMA2   (*((volatile struct dma *)  0x40008120))
+#define DMA3   (*((volatile struct dma *)  0x40008130))
+#define MCG    (*((volatile struct mcg *)  0x40064000))
+#define OSC0   (*((volatile struct osc *)  0x40065000))
 #define FTFA   (*((volatile struct ftfa *) 0x40020000))
-#define ADC    (*((volatile struct ADC_t *) 0x4003B000))
-#define CMP    (*((volatile struct CMP_t *) 0x40073000))
-#define DAC    (*((volatile struct DAC_t *) 0x4003F000))
-#define TPM0   (*((volatile struct TPM_t *) 0x40038000))
-#define TPM1   (*((volatile struct TPM_t *) 0x40039000))
-#define TPM2   (*((volatile struct TPM_t *) 0x4003A000))
-#define PIT    (*((volatile struct PIT_t *) 0x40037000))
-#define LPTMR  (*((volatile struct LPTMR_t *) 0x40040000))
-#define RTC    (*((volatile struct RTC_t *) 0x4003D000))
-#define SPI0   (*((volatile struct SPI_t *) 0x40076000))
-#define SPI1   (*((volatile struct SPI_t *) 0x40077000))
-#define UART0  (*((volatile struct UART0_t *) 0x4006A000))
-#define UART1  (*((volatile struct UART_t *) 0x4006B000))
-#define UART2  (*((volatile struct UART_t *) 0x4006C000))
-#define GPIOA  (*((volatile struct GPIO_t *) 0x400FF000))
-#define GPIOB  (*((volatile struct GPIO_t *) 0x400FF040))
-#define GPIOC  (*((volatile struct GPIO_t *) 0x400FF080))
-#define GPIOD  (*((volatile struct GPIO_t *) 0x400FF0C0))
-#define GPIOE  (*((volatile struct GPIO_t *) 0x400FF100))
-#define FGPIOA (*((volatile struct GPIO_t *) 0xF8000000))
-#define FGPIOB (*((volatile struct GPIO_t *) 0xF8000040))
-#define FGPIOC (*((volatile struct GPIO_t *) 0xF8000080))
-#define FGPIOD (*((volatile struct GPIO_t *) 0xF80000C0))
-#define FGPIOE (*((volatile struct GPIO_t *) 0xF8000100))
-#define TSI0   (*((volatile struct TSI_t *) 0x40045000))
+#define ADC    (*((volatile struct adc *)  0x4003B000))
+#define CMP    (*((volatile struct cmp *)  0x40073000))
+#define DAC    (*((volatile struct dac *)  0x4003F000))
+#define TPM0   (*((volatile struct tpm *)  0x40038000))
+#define TPM1   (*((volatile struct tpm *)  0x40039000))
+#define TPM2   (*((volatile struct tpm *)  0x4003A000))
+#define PIT    (*((volatile struct pit *)  0x40037000))
+#define LPTMR  (*((volatile struct lptmr *)0x40040000))
+#define RTC    (*((volatile struct rtc *)  0x4003D000))
+#define SPI0   (*((volatile struct spi *)  0x40076000))
+#define SPI1   (*((volatile struct spi *)  0x40077000))
+#define UART0  (*((volatile struct uart0 *)0x4006A000))
+#define UART1  (*((volatile struct uart *) 0x4006B000))
+#define UART2  (*((volatile struct uart *) 0x4006C000))
+#define GPIOA  (*((volatile struct gpio *) 0x400FF000))
+#define GPIOB  (*((volatile struct gpio *) 0x400FF040))
+#define GPIOC  (*((volatile struct gpio *) 0x400FF080))
+#define GPIOD  (*((volatile struct gpio *) 0x400FF0C0))
+#define GPIOE  (*((volatile struct gpio *) 0x400FF100))
+#define FGPIOA (*((volatile struct gpio *) 0xF8000000))
+#define FGPIOB (*((volatile struct gpio *) 0xF8000040))
+#define FGPIOC (*((volatile struct gpio *) 0xF8000080))
+#define FGPIOD (*((volatile struct gpio *) 0xF80000C0))
+#define FGPIOE (*((volatile struct gpio *) 0xF8000100))
+#define TSI0   (*((volatile struct tsi *)  0x40045000))
 
 /* Definition unit tests */
 #define IS_LAST_MEMBER(block, reg) \
