@@ -25,10 +25,10 @@ This folder contains resources for the toolchain we are using for programming th
 ## Example usage
 
 * To compile
-    > make
+        > make
 * To compile and write to the flash on the MCU
-    > make write
+        > make write
 * To compile, write to the flash on the MCU, and start up a gdb session
-    > make gdb
+        > make gdb
 * To clean up
-    > make clean
+        > make clean
