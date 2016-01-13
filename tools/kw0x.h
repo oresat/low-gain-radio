@@ -183,6 +183,30 @@ struct osc {
 	_RW uint8_t CR;
 } PACKED;
 
+/* Chapter 23: Flash Memory Module */
+struct ftfa {
+	_RW uint8_t FSTAT;
+	_RW uint8_t FCNFG;
+	_RO uint8_t FSEC;
+	_RO uint8_t FOPT;
+	_RW uint8_t FCCOB3;
+	_RW uint8_t FCCOB2;
+	_RW uint8_t FCCOB1;
+	_RW uint8_t FCCOB0;
+	_RW uint8_t FCCOB7;
+	_RW uint8_t FCCOB6;
+	_RW uint8_t FCCOB5;
+	_RW uint8_t FCCOB4;
+	_RW uint8_t FCCOBB;
+	_RW uint8_t FCCOBA;
+	_RW uint8_t FCCOB9;
+	_RW uint8_t FCCOB8;
+	_RW uint8_t FPROT3;
+	_RW uint8_t FPROT2;
+	_RW uint8_t FPROT1;
+	_RW uint8_t FPROT0;
+} PACKED;
+
 /* Chapter 24: Analog to Digital Converters module */
 struct adc {
 	_RW uint32_t SC1A; /* ADC status and control registers 1 */
