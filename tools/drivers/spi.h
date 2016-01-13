@@ -5,11 +5,14 @@
 
 	Programmed by William Harrington, Theo Hill
 */
+#include <stdbool.h>
+#include <stdint.h>
+
 #include "kw0x.h"
 
 /* struct for pin selection */
 struct pin {
-	struct PORT * port; /* port module */
+	volatile struct port * port; /* port module */
 	uint8_t pin; /* pin on port module */
 };
 
@@ -24,7 +27,7 @@ struct spi_config {
 };
 
 /* initialization function */
-void spi_init(struct spi * SPI, struct spi_config * config);
+void spi_init(struct spi * SPI, const struct spi_config * config);
 
 /* read function */
 void spi_read(struct spi * SPI, size_t len, uint16_t * buffer);

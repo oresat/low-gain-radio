@@ -7,12 +7,13 @@ LINKER_SCRIPT = toolchain/MKW01Z128.ld
 ARCH = arm-none-eabi
 CC = $(ARCH)-gcc
 AS = $(ARCH)-as
+CPPFLAGS = -I. -Idrivers
 CFLAGS = -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3 -std=gnu11
 LDFLAGS = --specs=nosys.specs -static -nostartfiles -T$(LINKER_SCRIPT)
 
 all: c3
 
-c3: crt0.o c3.o
+c3: crt0.o c3.o drivers/spi.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
