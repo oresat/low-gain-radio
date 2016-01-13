@@ -22,31 +22,16 @@
 #define _RO const
 #define _WO
 
-/* Port control and interrupts module registers */
+/* Chapter 7: Port control and interrupts module registers */
 struct PORT {
 	_RW uint32_t PCR[32];
 	_WO uint32_t GPCLR;
 	_WO uint32_t GPCHR;
 	PAD_BYTES(24);
-	_RW uint32_t ISFR;  // W1C?
+	_RW uint32_t ISFR;
 } PACKED;
 
-/* GPIO Module registers */
-struct GPIO_t {
-	_RW uint32_t PDOR;
-	_WO uint32_t PSOR;
-	_WO uint32_t PCOR;
-	_WO uint32_t PTOR;
-	_RO uint32_t PDIR;
-	_RW uint32_t PDDR;
-} PACKED;
-
-/* Oscillator Module registers */
-struct OSC {
-	_RW uint8_t CR;
-} PACKED;
-
-/* System Integration Module registers */
+/* Chapter 8: System Integration Module registers */
 struct SIM_t {
 	_RW uint32_t SOPT1;
 	PAD_BYTES(4096);
@@ -76,77 +61,7 @@ struct SIM_t {
 	_WO uint32_t SRVCOP;
 } PACKED;
 
-/* Multi-purpose clock generator registers */
-struct MCG_t {
-	_RW uint8_t C1;
-	_RW uint8_t C2;
-	_RW uint8_t C3;
-	_RW uint8_t C4;
-	_RW uint8_t C5;
-	_RW uint8_t C6;
-	_RO uint8_t S;
-	PAD_BYTES(1);
-	_RW uint8_t SC;
-	PAD_BYTES(1);
-	_RW uint8_t ATCVH;
-	_RW uint8_t ATCVL;
-	_RW uint8_t C7;
-	_RW uint8_t C8;
-	PAD_BYTES(1);
-	_RW uint8_t C10;
-} PACKED;
-
-/* SPI Module registers */
-struct SPI_t {
-	_RO uint8_t S; /* status register */
-	_RW uint8_t BR; /* baud rate register */
-	_RW uint8_t C2; /* control register 2 */
-	_RW uint8_t C1; /* control register 1 */
-	_RW uint8_t ML; /* match low */
-	_RW uint8_t MH; /* match high */
-	_RW uint8_t DL; /* data low */
-	_RW uint8_t DH; /* data high */
-	PAD_BYTES(2); /* padding for excess gap between DH & CI */
-	_RW uint8_t CI; /* clear interrupt */
-	_RW uint8_t C3; /* control register 3 */
-} PACKED;
-
-/* real-time clock module registers */
-struct RTC_t {
-	_RW uint32_t TSR; /* time seconds register */
-	_RW uint32_t TPR; /* time prescaler register */
-	_RW uint32_t TAR; /* time alarm register */
-	_RW uint32_t TCR; /* time compensation register */
-	_RW uint32_t CR; /* control register */
-	_RW uint32_t SR; /* status register */
-	_RW uint32_t LR; /* lock register */
-	_RW uint32_t IER; /* interrupt enable register */
-} PACKED;
-
-/* Timer/PWM Module registers */
-struct TPM_t {
-	_RW uint32_t SC; /* status and control register */
-	_RW uint32_t CNT; /* counter register */
-	_RW uint32_t MOD; /* modulo register */
-	_RW uint32_t C0SC; /* channel n status and control register 0 */
-	_RW uint32_t C0V; /* channel n value register 0 */
-	_RW uint32_t C1SC; /* channel n status and control register 1 */
-	_RW uint32_t C1V; /* channel n value register 1 */
-	_RW uint32_t C2SC; /* channel n status and control register 2 */
-	_RW uint32_t C2V; /* channel n value register 2 */
-	_RW uint32_t C3SC; /* channel n status and control register 3 */
-	_RW uint32_t C3V; /* channel n value register 3 */
-	_RW uint32_t C4SC; /* channel n status and control register 4 */
-	_RW uint32_t C4V; /* channel n value register 4 */
-	_RW uint32_t C5SC; /* channel n status and control register 5 */
-	_RW uint32_t C5V; /* channel n value register 5 */
-	PAD_BYTES(20);
-	_RW uint32_t STATUS; /* capture and compare status register */
-	PAD_BYTES(48);
-	_RW uint32_t CONF; /* configuration register */
-} PACKED;
-
-/* System Mode Controller registers */
+/* Chapter 9: System Mode Controller registers */
 struct SMC_t {
 	_RW uint8_t PMPROT; /* Power Mode Protection register */
 	_RW uint8_t PMCTRL; /* Power Mode Control register */
@@ -154,14 +69,14 @@ struct SMC_t {
 	_RO uint8_t PMSTAT; /* Power Mode Status register */
 } PACKED;
 
-/* Power Management Controller registers */
+/* Chapter 10: Power Management Controller registers */
 struct PMC_t {
 	_RW uint8_t LVDSC1; /* Low Voltage Detect Status and Control 1 register */
 	_RW uint8_t LVDSC2; /* Low Voltage Detect Status and Control 2 register */
 	_RW uint8_t REGSC; /* Regulator Status and Control register */
 } PACKED;
 
-/* Low-Leakage Wakeup Unit */
+/* Chapter 11: Low-Leakage Wakeup Unit */
 struct LLWU_t {
 	_RW uint8_t PE1; /* Pin Enable 1 register */
 	_RW uint8_t PE2; /* Pin Enable 2 register */
@@ -175,7 +90,7 @@ struct LLWU_t {
 	_RW uint8_t FILT2; /* Pin Filter 2 register */
 } PACKED;
 
-/* Reset Control Module registers */
+/* Chapter 12: Reset Control Module registers */
 struct RCM_t {
 	_RO uint8_t SRS0; /* System Reset Status Register 0 */
 	_RO uint8_t SRS1; /* System Reset Status Register 1 */
@@ -184,7 +99,7 @@ struct RCM_t {
 	_RW uint8_t RPFW; /* Reset Pin Filter Width register */
 } PACKED;
 
-/* Miscellaneous Control Module */
+/* Chapter 14: Miscellaneous Control Module */
 struct MCM_t {
 	PAD_BYTES(8);
 	_RO uint16_t PLASC; /* Crossbat switch (AXBS) slave configuration */
@@ -194,7 +109,7 @@ struct MCM_t {
 	_RW uint32_t CPO; /* Compute Operation control register */
 } PACKED;
 
-/* Micro Trace Buffer registers */
+/* Chapter 15: Micro Trace Buffer registers */
 struct MTB_t {
 	_RW uint32_t POSITION; /* Position register */
 	_RW uint32_t MASTER; /* Master register */
@@ -227,7 +142,7 @@ struct MTB_t {
 	_RO uint32_t COMPID3; /* Component ID register */
 } PACKED;
 
-/* Direct Memory Access Multiplexer */
+/* Chapter 18: Direct Memory Access Multiplexer */
 struct DMAMUX_t {
 	_RW uint8_t CHCFG0; /* Channel Configuration register */
 	_RW uint8_t CHCFG1; /* Channel Configuration register */
@@ -235,7 +150,7 @@ struct DMAMUX_t {
 	_RW uint8_t CHCFG3; /* Channel Configuration register */
 } PACKED;
 
-/* Direct Memory Access Controller Module */
+/* Chapter 19: Direct Memory Access Controller Module */
 struct DMA_t {
 	_RW uint32_t SAR; /* Source Address register */
 	_RW uint32_t DAR; /* Destination Address register */
@@ -243,7 +158,32 @@ struct DMA_t {
 	_RW uint32_t DCR; /* DMA control register */
 } PACKED;
 
-/* Analog to Digital Converters module */
+/* Chapter 20: Multi-purpose clock generator registers */
+struct MCG_t {
+	_RW uint8_t C1;
+	_RW uint8_t C2;
+	_RW uint8_t C3;
+	_RW uint8_t C4;
+	_RW uint8_t C5;
+	_RW uint8_t C6;
+	_RO uint8_t S;
+	PAD_BYTES(1);
+	_RW uint8_t SC;
+	PAD_BYTES(1);
+	_RW uint8_t ATCVH;
+	_RW uint8_t ATCVL;
+	_RW uint8_t C7;
+	_RW uint8_t C8;
+	PAD_BYTES(1);
+	_RW uint8_t C10;
+} PACKED;
+
+/* Chapter 21: Oscillator Module registers */
+struct OSC {
+	_RW uint8_t CR;
+} PACKED;
+
+/* Chapter 24: Analog to Digital Converters module */
 struct ADC_t {
 	_RW uint32_t SC1A; /* ADC status and control registers 1 */
 	_RW uint32_t SC1B; /* ADC status and control registers 1 */
@@ -275,7 +215,7 @@ struct ADC_t {
 	_RW uint32_t CLM0; /* ADC Minus-Side General Calibration Value register */
 } PACKED;
 
-/* Comparator module */
+/* Chapter 25: Comparator module */
 struct CMP_t {
 	uint8_t CR0; /* Control register 0 */
 	uint8_t CR1; /* Control register 1 */
@@ -285,7 +225,7 @@ struct CMP_t {
 	uint8_t MUXCR; /* MUX control register */
 } PACKED;
 
-/* 12 bit digital to analog converter (DAC) module */
+/* Chapter 26: 12 bit digital to analog converter (DAC) module */
 struct DAC_t {
 	uint8_t DAT0L; /* DAC data low register */
 	uint8_t DAT0H; /* DAC data high register */
@@ -298,7 +238,30 @@ struct DAC_t {
 	uint8_t C2; /* DAC control register 2 */
 } PACKED;
 
-/* Periodic Interrupt Timer module */
+/* Chapter 27: Timer/PWM Module registers */
+struct TPM_t {
+	_RW uint32_t SC; /* status and control register */
+	_RW uint32_t CNT; /* counter register */
+	_RW uint32_t MOD; /* modulo register */
+	_RW uint32_t C0SC; /* channel n status and control register 0 */
+	_RW uint32_t C0V; /* channel n value register 0 */
+	_RW uint32_t C1SC; /* channel n status and control register 1 */
+	_RW uint32_t C1V; /* channel n value register 1 */
+	_RW uint32_t C2SC; /* channel n status and control register 2 */
+	_RW uint32_t C2V; /* channel n value register 2 */
+	_RW uint32_t C3SC; /* channel n status and control register 3 */
+	_RW uint32_t C3V; /* channel n value register 3 */
+	_RW uint32_t C4SC; /* channel n status and control register 4 */
+	_RW uint32_t C4V; /* channel n value register 4 */
+	_RW uint32_t C5SC; /* channel n status and control register 5 */
+	_RW uint32_t C5V; /* channel n value register 5 */
+	PAD_BYTES(20);
+	_RW uint32_t STATUS; /* capture and compare status register */
+	PAD_BYTES(48);
+	_RW uint32_t CONF; /* configuration register */
+} PACKED;
+
+/* Chapter 28: Periodic Interrupt Timer module */
 struct PIT_t {
 	_RW uint32_t MCR; /* Module Control register */
 	PAD_BYTES(220);
@@ -315,7 +278,7 @@ struct PIT_t {
 	_RW uint32_t TFLG1; /* Timer Flag register */
 } PACKED;
 
-/* Low-Power Timer module */
+/* Chapter 29: Low-Power Timer module */
 struct LPTMR_t {
 	_RW uint32_t CSR; /* Low Power Timer Control status register */
 	_RW uint32_t PSR; /* Low Power Timer prescale register */
@@ -323,7 +286,34 @@ struct LPTMR_t {
 	_RO uint32_t CNR; /* Low Power Timer counter register */
 } PACKED;
 
-/* Universal asynchronous receiver/transmitter module 0 */
+/* Chapter 30: real-time clock module registers */
+struct RTC_t {
+	_RW uint32_t TSR; /* time seconds register */
+	_RW uint32_t TPR; /* time prescaler register */
+	_RW uint32_t TAR; /* time alarm register */
+	_RW uint32_t TCR; /* time compensation register */
+	_RW uint32_t CR; /* control register */
+	_RW uint32_t SR; /* status register */
+	_RW uint32_t LR; /* lock register */
+	_RW uint32_t IER; /* interrupt enable register */
+} PACKED;
+
+/* Chapter 31: SPI Module registers */
+struct SPI_t {
+	_RO uint8_t S; /* status register */
+	_RW uint8_t BR; /* baud rate register */
+	_RW uint8_t C2; /* control register 2 */
+	_RW uint8_t C1; /* control register 1 */
+	_RW uint8_t ML; /* match low */
+	_RW uint8_t MH; /* match high */
+	_RW uint8_t DL; /* data low */
+	_RW uint8_t DH; /* data high */
+	PAD_BYTES(2); /* padding for excess gap between DH & CI */
+	_RW uint8_t CI; /* clear interrupt */
+	_RW uint8_t C3; /* control register 3 */
+} PACKED;
+
+/* Chapter 32: Universal asynchronous receiver/transmitter module 0 */
 struct UART0_t {
 	_RW uint8_t BDH; /* UART Baud Rate Register High */
 	_RW uint8_t BDL; /* UART Baud Rate Register Low */
@@ -339,7 +329,7 @@ struct UART0_t {
 	_RW uint8_t C5; /* UART Control Register 5 */
 } PACKED;
 
-/* Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
+/* Chapter 33: Universal Asynchronous Receiver/Transmitter Modules 1 & 2 */
 struct UART_t {
 	_RW uint8_t BDH; /* UART Baud Rate Register High */
 	_RW uint8_t BDL; /* UART Baud Rate Register Low */
@@ -352,7 +342,17 @@ struct UART_t {
 	_RW uint8_t C4; /* UART Control Register 4 */
 } PACKED;
 
-/* Touch Sensing Input Module */
+/* Chapter 34: GPIO Module registers */
+struct GPIO_t {
+	_RW uint32_t PDOR;
+	_WO uint32_t PSOR;
+	_WO uint32_t PCOR;
+	_WO uint32_t PTOR;
+	_RO uint32_t PDIR;
+	_RW uint32_t PDDR;
+} PACKED;
+
+/* Chapter 35: Touch Sensing Input Module */
 struct TSI_t {
 	_RW uint32_t GENCS; /* TSI General Control and Status Register */
 	_RW uint32_t DATA; /* TSI DATA Register */
