@@ -241,25 +241,25 @@ struct adc {
 
 /* Chapter 25: Comparator module */
 struct cmp {
-	uint8_t CR0; /* Control register 0 */
-	uint8_t CR1; /* Control register 1 */
-	uint8_t FPR; /* Filter period register */
-	uint8_t SCR; /* Status and control register */
-	uint8_t DACCR; /* DAC control register */
-	uint8_t MUXCR; /* MUX control register */
+	_RW uint8_t CR0; /* Control register 0 */
+	_RW uint8_t CR1; /* Control register 1 */
+	_RW uint8_t FPR; /* Filter period register */
+	_RW uint8_t SCR; /* Status and control register */
+	_RW uint8_t DACCR; /* DAC control register */
+	_RW uint8_t MUXCR; /* MUX control register */
 } PACKED;
 
 /* Chapter 26: 12 bit digital to analog converter (DAC) module */
 struct dac {
-	uint8_t DAT0L; /* DAC data low register */
-	uint8_t DAT0H; /* DAC data high register */
-	uint8_t DAT1L; /* DAC data low register */
-	uint8_t DAT1H; /* DAC data high register */
+	_RW uint8_t DAT0L; /* DAC data low register */
+	_RW uint8_t DAT0H; /* DAC data high register */
+	_RW uint8_t DAT1L; /* DAC data low register */
+	_RW uint8_t DAT1H; /* DAC data high register */
 	PAD_BYTES(28);
-	uint8_t SR; /* DAC status register */
-	uint8_t C0; /* DAC control register */
-	uint8_t C1; /* DAC control register 1 */
-	uint8_t C2; /* DAC control register 2 */
+	_RW uint8_t SR; /* DAC status register */
+	_RW uint8_t C0; /* DAC control register */
+	_RW uint8_t C1; /* DAC control register 1 */
+	_RW uint8_t C2; /* DAC control register 2 */
 } PACKED;
 
 /* Chapter 27: Timer/PWM Module registers */
