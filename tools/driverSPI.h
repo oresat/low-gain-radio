@@ -11,7 +11,6 @@
 struct pin {
 	struct PORT * port; /* port module */
 	uint8_t pin; /* pin on port module */
-	uint8_t alt; /* mux control value */
 };
 
 /* struct for specifying config */
