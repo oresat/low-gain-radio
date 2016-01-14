@@ -132,9 +132,19 @@ int main(void) {
 	//initialize_tpm();
 
 	//asm volatile ("cpsie   i");
+
+	/* reg for LNA settings, should be 0x88 */
+	uint16_t myBuff1 = {0x0800};
+	uint16_t myBuff2 = {0x0008};
+	uint16_t result1 = 0; 
+	uint16_t result2 = 0;
+
 	while(1) {
 		/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = 0x00004;
+
+		spi_transaction(&SPI0, 1, &myBuff1, &result1);
+		spi_transaction(&SPI0, 1, &myBuff2, &result2);
 
 		/* delay loop */
 		for(i = 0; i < 100000; ++i);
