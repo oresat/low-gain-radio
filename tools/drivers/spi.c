@@ -3,7 +3,7 @@
 
 	Programmed by William Harrington, Theo Hill
 */
-#include <assert.h>
+//#include <assert.h>
 
 #include "spi.h"
 
@@ -55,7 +55,7 @@ static const struct pin_assign MOSI [] = {
 };
 
 
-static void set_pin_alt(const struct pin_assign list[], const struct spi * SPI, const struct pin * pin) {
+static void set_pin_alt(const struct pin_assign list[], volatile const struct spi * SPI, const struct pin * pin) {
 	for(int i = 0; list[i].spi != NULL; ++i) {
 		if(SPI != list[i].spi)
 			continue;
@@ -67,10 +67,14 @@ static void set_pin_alt(const struct pin_assign list[], const struct spi * SPI, 
 		pin->port->PCR[pin->pin] |= list[i].alt << 8;
 		return;
 	}
-	assert(0);
+	//assert(0);
 }
 
-void spi_init(struct spi * SPI, const struct spi_config * config){
+#define ENABLE_IN_MASTER (5 << 4)
+#define SS_OE (1 << 1)
+#define BITMODE16_AND_MASTER_MODE_FAULT_EN (13 << 4)
+
+void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 	/* 	TODO: how do I figure out that this is the correct pin
 		and what the proper value to write to the register is ?
 	*/
@@ -82,11 +86,11 @@ void spi_init(struct spi * SPI, const struct spi_config * config){
 	set_pin_alt(MISO, SPI, &config->MISO);
 
 	/* apply SPI configuration */
-	SPI->C1 = (5 << 4) | (config->CPOL << 3) | (config->CPHA << 2) | (1 << 1);
-	SPI->C2 = (13 << 4);
+	SPI->C1 = ENABLE_IN_MASTER | (config->CPOL << 3) | (config->CPHA << 2) | SS_OE;
+	SPI->C2 = BITMODE16_AND_MASTER_MODE_FAULT_EN;
 }
 
-void spi_read(struct spi * SPI, size_t len, uint16_t * buffer){
+void spi_read(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for send portion of transaction */
 	uint16_t dummyBuffer[len];
@@ -96,7 +100,7 @@ void spi_read(struct spi * SPI, size_t len, uint16_t * buffer){
 
 }
 
-void spi_write(struct spi * SPI, size_t len, uint16_t * buffer){
+void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for receive portion of transaction */
 	uint16_t dummyBuffer[len];
@@ -106,7 +110,7 @@ void spi_write(struct spi * SPI, size_t len, uint16_t * buffer){
 
 }
 
-void spi_transaction(struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
+void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
 
 	/* iterate through number of bytes for transaction */
 	for(int i = 0; i < len; ++i){

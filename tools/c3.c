@@ -4,6 +4,7 @@
 	Programmed by William Harrington, Michael Mathis, and Theo Hill
  */
 #include "kw0x.h"
+#include "drivers/spi.h"
 #if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
@@ -12,52 +13,39 @@ void initialize_spi(void){
 	/* enable clock for all ports */
 	SIM.SCGC5 |= 0x3E00;
 
+	/* configuration for SPI0, see Chapter 8.1 */
+	struct spi_config myConfig = {
+		/* Serial Clock */
+		.SCK = {.port=&PORTC, .pin=5,},
 
-	/* now let's set up the SPI interface for the transceiver */
-	/* first select the proper mux setting on each pin needed */
-	PORTC.PCR[5] |= 0x200;
-	PORTC.PCR[6] |= 0x200;
-	PORTC.PCR[7] |= 0x200;
-	PORTD.PCR[0] |= 0x200;
-	PORTE.PCR[2] |= 0x100;
-	PORTE.PCR[3] |= 0x100;
+		/* Slave Select */
+		.SS = {.port=&PORTD, .pin=0,},
 
-	/* configure SPI0 */
-	SPI0.C1 = 0x52;
-	SPI0.C2 = 0xD0;
+		/* Master out slave in */
+		.MOSI = {.port=&PORTC, .pin=6,},
 
-	/* poll the transmit buffer empty flag */
-	while(!(SPI0.S & (1 << 5)));
-	/* write to SPI0.DH and SPI0.DL */
-	SPI0.DH = 0xA6;		/* we want to write to register 0x26 in the transceiver, but it needs be encoded with a 1 at the MSB for a write */
-	SPI0.DL = 0x00;		/* clear the bits in register 0x26 of the transceiver block */
+		/* Master in slave out */
+		.MISO = {.port=&PORTC, .pin=7,},
 
-	//SPI0.DH = 0x81; //Transceiver Op Mode Register
-	//SPI0.DL = 0xC;  //Change to transmitter mode
+		/* Polarity */
+		.CPOL = 0,
 
-	//SPI0.DH = 0x83; //Bitrate MSB register
-	//SPI0.DL = 0x68;
+		/* Phase */
+		.CPHA = 0,
+	};
 
-	//SPI0.DH = 0x84; //Bitrate LSB register
-	//SPI0.DL = 0x2B;
+	/* initialize SPI0 */
+	spi_init(&SPI0, &myConfig);
 
-	//SPI0.DH = 0x85; //Frequency deviation MSB register
-	//SPI0.DL = 0x03;
+	/* send to transceiver to get 32MHz clock signal on PTA18 */
+	uint16_t buffer = {0xA600};
+	spi_write(&SPI0, 1, &buffer);
 
-	//SPI0.DH = 0x86; //Frequency deviation LSB register
-	//SPI0.DL = 0x33;
-
-	//SPI0.DH = 0x87; //RF carrier frequency MSB
-	//SPI0.DL = 0x6D;
-
-	//SPI0.DH = 0x88; //RF carrier frequency mid byte
-	//SPI0.DL = 0x20;
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
 
 	/* disable port module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC5 &= 0xFFFFC1FF;
-
 
 }
 
@@ -149,7 +137,7 @@ int main(void) {
 		GPIOB.PTOR = 0x00004;
 
 		/* delay loop */
-		//for(i = 0; i < 100000; ++i);
+		for(i = 0; i < 100000; ++i);
 	}
 	return 0;
 }
