@@ -2,7 +2,7 @@
 OPENOCD_DIR = ./toolchain
 OPENOCD_HEXFILE = ../firmware/c3.hex
 OOCD_CFG = olimex_swd_kinetis.cfg
-GDB_CFG = gdboocd_ocd.cmd
+GDB_CFG = toolchain/gdboocd_ocd.cmd
 LINKER_SCRIPT = toolchain/MKW01Z128.ld
 ARCH = arm-none-eabi
 CC = $(ARCH)-gcc
@@ -13,7 +13,7 @@ LDFLAGS = --specs=nosys.specs -static -nostartfiles -T$(LINKER_SCRIPT)
 
 all: c3
 
-c3: crt0.o c3.o drivers/spi.o
+c3: crt0.o c3.o drivers/spi.o 
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
