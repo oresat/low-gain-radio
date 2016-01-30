@@ -5,7 +5,9 @@
  */
 #include "kw0x.h"
 #include "drivers/spi.h"
+#include "transceiver.h"
 #if 1
+
 void initialize_spi(void){
 	/* enable clock for SPI modules */
 	SIM.SCGC4 |= 0xC00000;
@@ -38,7 +40,7 @@ void initialize_spi(void){
 	spi_init(&SPI0, &myConfig);
 
 	/* send to transceiver to get 32MHz clock signal on PTA18 */
-	uint16_t buffer = {0xA600};
+	uint16_t buffer = mask_spi_addr(transceiver.RegDioMapping2, 1, 0x00);
 	spi_write(&SPI0, 1, &buffer);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
@@ -117,7 +119,7 @@ void initialize_tpm(void){
 }
 #endif
 
-uint32_t i;
+//uint32_t i;
 
 int main(void) {
 
@@ -134,20 +136,52 @@ int main(void) {
 	//asm volatile ("cpsie   i");
 
 	/* reg for LNA settings, should be 0x88 */
-	uint16_t myBuff1 = {0x0800};
-	uint16_t myBuff2 = {0x0008};
-	uint16_t result1 = 0; 
-	uint16_t result2 = 0;
+	//uint16_t myBuff1 = {((transceiver.RegLna & 0x7F) << 8) | 0x00};
+	//uint16_t myBuff2 = {(0x00 << 8) | (transceiver.RegLna & 0x7F)};
+	//uint16_t result1 = 0; 
+	//uint16_t result2 = 0;
+
+	uint16_t results[5];
+	uint16_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, 1, 0x08);
+	//uint16_t OpModeCfg = ((transceiver.RegOpMode | 0xFF) << 8) | 0x08;
+
+	/* set transceiver op mode to FS mode */
+	spi_transaction(&SPI0, 1, &OpModeCfg, &results[0]);
+
+	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
+	
+	/* RegFrfMsb */
+	uint16_t FrfMsbCfg = mask_spi_addr(transceiver.RegFrfMsb, 1, 0x6D);
+	//uint16_t FrfMsbCfg= ((transceiver.RegFrfMsb | 0xFF) << 8) | 0x6D;
+
+	/* RegFrfMid */
+	uint16_t FrfMidCfg = mask_spi_addr(transceiver.RegFrfMid, 1, 0x20);
+	//uint16_t FrfMidCfg = ((transceiver.RegFrfMid | 0xFF) << 8) | 0x20;
+
+	/* RegFrfLsb */
+	uint16_t FrfLsbCfg = mask_spi_addr(transceiver.RegFrfLsb, 1, 0x00);
+	//uint16_t RegFrfMsb = ((transceiver.RegFrfMsb & 0x7F) << 8) | 0x00;
+
+	/* write configuration to appropriate registers */
+	spi_transaction(&SPI0, 1, &FrfMsbCfg, &results[1]);
+	spi_transaction(&SPI0, 1, &FrfMidCfg, &results[2]);
+	spi_transaction(&SPI0, 1, &FrfLsbCfg, &results[3]);
+
+	/* Set transceiver to transmit mode by writing to op mode register */
+	OpModeCfg = mask_spi_addr(transceiver.RegOpMode, 1, 0x0C);
+
+	/* set transceiver op mode to transmit mode */
+	spi_transaction(&SPI0, 1, &OpModeCfg, &results[4]);
 
 	while(1) {
 		/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = 0x00004;
 
-		spi_transaction(&SPI0, 1, &myBuff1, &result1);
-		spi_transaction(&SPI0, 1, &myBuff2, &result2);
+		//spi_transaction(&SPI0, 1, &myBuff1, &result1);
+		//spi_transaction(&SPI0, 1, &myBuff2, &result2);
 
 		/* delay loop */
-		for(i = 0; i < 100000; ++i);
+		for(uint32_t i = 0; i < 100000; ++i);
 	}
 	return 0;
 }
