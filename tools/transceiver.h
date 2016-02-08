@@ -210,7 +210,7 @@ void configure_transceiver(void){
 	spi_transaction(&SPI0, 1, &OpModeCfg, &results[5]);
 
 }
-/*Operating Modes
+/*Operating Modes - trans_set_op_mode function
 -------------------------------------------------*/
 #define SLEEP_MODE 0
 #define STAND_BY_MODE 1
@@ -218,7 +218,7 @@ void configure_transceiver(void){
 #define TRANSMIT_MODE 3
 #define RECEIVE_MODE 4
 
-/*Data Modulation
+/*Data Modulation - mode_config struct
 -------------------------------------------------*/
 #define PACKET_MODE 0			/*Packet mode*/
 #define CONT_WITH_BIT_SYNC 2	/*Continuous mode with bit sync*/
@@ -234,7 +234,7 @@ void configure_transceiver(void){
 #define OOK_BR_CUTOFF 1 /*Filtering with freq cutoff = BR*/
 #define	OOK_2BR_CUTOFF 2 /*Filtering with freq cutoff = 2 * BR */
 
-/*Auto Modes
+/*Auto Modes - set_automode_*****_cond functions
 -------------------------------------------------*/
 #define NONE 0
 #define RISING_FIFONOTEMPTY 1
@@ -256,37 +256,39 @@ void configure_transceiver(void){
 -------------------------------------------------*/
 
 struct mod_config {
-	uint16_t data_mode;
-	uint16_t mod_type;
-	uint16_t mod_shaping;
+	uint8_t data_mode; /*2 bits*/
+	uint8_t mod_type; /*2 bits*/
+	uint8_t mod_shaping; /*2 bits*/
 };
 
+/*Page 110 of referenc manual*/
 struct listen_config {
-	uint16_t idle_time_res;
-	uint16_t receive_time_res;
-	uint16_t listen_criteria;
-	uint16_t listen_end;
-	uint16_t idle_coef;
-	uint16_t receive_coef;
+	uint8_t idle_time_res;
+	uint8_t receive_time_res;
+	uint8_t listen_criteria;
+	uint8_t listen_end;
+	uint8_t idle_coef;
+	uint8_t receive_coef;
 };
 
+/*Page 118 of referenc manual*/
 struct packet_config {
 	uint16_t preamble_size;
-	uint16_t packet_format;
-	uint16_t dc_free;
-	uint16_t crc_check;
-	uint16_t crc_auto_clear;
-	uint16_t address_filtering;
-	uint16_t payload_length;
-	uint16_t node_address;
-	uint16_t broadcast_address;
-	uint16_t tx_start_cond;
-	uint16_t fifo_threshold;
-	uint16_t inter_packet_rxdelay;
-	uint16_t auto_rx_restart;
+	uint8_t packet_format;
+	uint8_t dc_free;
+	uint8_t crc_check;
+	uint8_t crc_auto_clear;
+	uint8_t address_filtering;
+	uint8_t payload_length;
+	uint8_t node_address;
+	uint8_t broadcast_address;
+	uint8_t tx_start_cond;
+	uint8_t fifo_threshold;
+	uint8_t inter_packet_rxdelay;
+	uint8_t auto_rx_restart;
 
 };
-void trans_set_op_mode(uint16_t mode);
+void trans_set_op_mode(uint8_t * mode);
 void trans_set_data_mod(struct mod_config * config);
 void trans_calibrate_rc(void);
 bool trans_read_low_bat(void);
@@ -302,24 +304,24 @@ void trans_disable_battery_mon(void);
 110 - 2.116 V
 111 - 2.185 V
 */
-void trans_set_lowbat_thresh(uint16_t threshold);
+void trans_set_lowbat_thresh(uint8_t * threshold);
 void trans_config_listen(struct listen_config * config);
-void trans_set_pa_output(uint16_t power);
-void trans_set_pa_ramp(uint16_t ramp_speed); /*In FSK mode*/
+void trans_set_pa_output(uint8_t * power);
+void trans_set_pa_ramp(uint8_t * ramp_speed); /*In FSK mode*/
 void trans_enable_ocp(void);
 void trans_disable_ocp(void);
-void trans_set_ocp_trim(uint16_t trim_value);
+void trans_set_ocp_trim(uint8_t * trim_value);
 void enable_aes(void);
 void disable_aes(void);
-void set_aes_key(uint16_t * buffer); /*16 bytes*/
-void set_automode_enter_cond(uint8_t enter_cond);
-void set_automode_exit_cond(uint8_t exit_cond);
-void set_automode_intermed_cond(uint8_t intermed_cond);
+void set_aes_key(uint8_t * buffer); /*16 bytes*/
+void set_automode_enter_cond(uint8_t * enter_cond);
+void set_automode_exit_cond(uint8_t * exit_cond);
+void set_automode_intermed_cond(uint8_t * intermed_cond);
 //auto modes
 //sync
 void start_temp_measure(void);
 uint8_t read_temp(void);
-void set_lna_sensitivity(uint16_t sensitivity);
-void set_pll_bandwidth(uint8_t bandwidth);
-void set_continuous_dagc(uint8_t dagc);
-void set_lowbeta_agc_offset(uint8_t offset);
+void set_lna_sensitivity(uint8_t * sensitivity);
+void set_pll_bandwidth(uint8_t * bandwidth);
+void set_continuous_dagc(uint8_t * dagc);
+void set_lowbeta_agc_offset(uint8_t * offset);
