@@ -6,6 +6,7 @@
 
 /* struct declaration for transceiver */
 struct TRANSCEIVER {
+	struct spi * SPI;
   	uint8_t RegFifo; /* FIFO read/write access */
   	uint8_t RegOpMode; /* Operating modes of the transceiver */
   	uint8_t RegDataModul; /* Data operation mode and modulation settings */
