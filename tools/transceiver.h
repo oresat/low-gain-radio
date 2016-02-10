@@ -6,7 +6,6 @@
 
 /* struct declaration for transceiver */
 struct TRANSCEIVER {
-	struct spi * SPI;
   	uint8_t RegFifo; /* FIFO read/write access */
   	uint8_t RegOpMode; /* Operating modes of the transceiver */
   	uint8_t RegDataModul; /* Data operation mode and modulation settings */
@@ -176,41 +175,7 @@ struct TRANSCEIVER transceiver = {
 	.RegTest = 0x50,
 };
 
-void configure_transceiver(void){
-	#define write 1
-	uint16_t results[6];
-	uint16_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, write, 0x08);
-
-	/* set transceiver op mode to FS mode */
-	spi_transaction(&SPI0, 1, &OpModeCfg, &results[0]);
-
-	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
-	
-	/* RegFrfMsb */
-	uint16_t FrfMsbCfg = mask_spi_addr(transceiver.RegFrfMsb, write, 0x6D);
-
-	/* RegFrfMid */
-	uint16_t FrfMidCfg = mask_spi_addr(transceiver.RegFrfMid, write, 0x20);
-
-	/* RegFrfLsb */
-	uint16_t FrfLsbCfg = mask_spi_addr(transceiver.RegFrfLsb, write, 0x00);
-
-	/* write configuration to appropriate registers */
-	spi_transaction(&SPI0, 1, &FrfMsbCfg, &results[1]);
-	spi_transaction(&SPI0, 1, &FrfMidCfg, &results[2]);
-	spi_transaction(&SPI0, 1, &FrfLsbCfg, &results[3]);
-
-	/* turn modulation to on-off keying */
-	uint16_t RegDataModulCfg = mask_spi_addr(transceiver.RegDataModul, write, 0x68);
-	spi_transaction(&SPI0, 1, &RegDataModulCfg, &results[4]);
-
-	/* Set transceiver to transmit mode by writing to op mode register */
-	OpModeCfg = mask_spi_addr(transceiver.RegOpMode, write, 0x0C);
-
-	/* set transceiver op mode to transmit mode */
-	spi_transaction(&SPI0, 1, &OpModeCfg, &results[5]);
-
-}
+void configure_transceiver(void);
 /*Operating Modes - trans_set_op_mode function
 -------------------------------------------------*/
 #define SLEEP_MODE 0
@@ -312,17 +277,17 @@ void trans_set_pa_ramp(uint8_t * ramp_speed); /*In FSK mode*/
 void trans_enable_ocp(void);
 void trans_disable_ocp(void);
 void trans_set_ocp_trim(uint8_t * trim_value);
-void enable_aes(void);
-void disable_aes(void);
-void set_aes_key(uint8_t * buffer); /*16 bytes*/
-void set_automode_enter_cond(uint8_t * enter_cond);
-void set_automode_exit_cond(uint8_t * exit_cond);
-void set_automode_intermed_cond(uint8_t * intermed_cond);
-//auto modes
+void trans_enable_aes(void);
+void trans_disable_aes(void);
+void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
+void trans_set_automode_enter(uint8_t * enter_cond);
+void trans_set_automode_exit(uint8_t * exit_cond);
+void trans_set_automode_intermed(uint8_t * intermed_cond);
+//cf
 //sync
-void start_temp_measure(void);
-uint8_t read_temp(void);
-void set_lna_sensitivity(uint8_t * sensitivity);
-void set_pll_bandwidth(uint8_t * bandwidth);
-void set_continuous_dagc(uint8_t * dagc);
-void set_lowbeta_agc_offset(uint8_t * offset);
+void trans_start_temp_measure(void);
+uint8_t trans_read_temp(void);
+void trans_set_lna_sensitivity(uint8_t * sensitivity);
+void trans_set_pll_bandwidth(uint8_t * bandwidth);
+void trans_set_continuous_dagc(uint8_t * dagc);
+void trans_set_lowbeta_agc_offset(uint8_t * offset);
