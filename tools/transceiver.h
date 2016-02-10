@@ -1,7 +1,7 @@
 /*
-	Struct for transceiver register mapping
+	Transceiver header
 
-	Programmed by William Harrington
+	Programmed by William Harrington and Michael Mathis
 */
 
 /* struct declaration for transceiver */
@@ -254,6 +254,8 @@ struct packet_config {
 	uint8_t auto_rx_restart;
 
 };
+uint8_t read_register(uint8_t address, uint8_t * buffer, uint8_t length);
+void write_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_set_op_mode(uint8_t * mode);
 void trans_set_data_mod(struct mod_config * config);
 void trans_calibrate_rc(void);
