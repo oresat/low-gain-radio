@@ -7,76 +7,53 @@
 
 #include "spi.h"
 
-struct pin_assign {
-	volatile struct spi * spi;
-	struct pin pin;
-	int alt;
-};
-
 static const struct pin_assign PCS0 [] = {
-	{.spi=&SPI0, .pin={&PORTE, 16}, .alt=2},
-	{.spi=&SPI0, .pin={&PORTD, 0},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTD, 4},  .alt=2},
+	{.module=&SPI0, .pin={&PORTE, 16}, .alt=2},
+	{.module=&SPI0, .pin={&PORTD, 0},  .alt=2},
+	{.module=&SPI1, .pin={&PORTD, 4},  .alt=2},
 	{}
 };
 
 static const struct pin_assign SCK [] = {
-	{.spi=&SPI0, .pin={&PORTE, 17}, .alt=2},
-	{.spi=&SPI0, .pin={&PORTC, 5},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTD, 5},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTE, 2},  .alt=2},
+	{.module=&SPI0, .pin={&PORTE, 17}, .alt=2},
+	{.module=&SPI0, .pin={&PORTC, 5},  .alt=2},
+	{.module=&SPI1, .pin={&PORTD, 5},  .alt=2},
+	{.module=&SPI1, .pin={&PORTE, 2},  .alt=2},
 	{}
 };
 
 static const struct pin_assign MISO [] = {
-	{.spi=&SPI0, .pin={&PORTE, 18}, .alt=5},
-	{.spi=&SPI0, .pin={&PORTE, 19}, .alt=2},
-	{.spi=&SPI0, .pin={&PORTC, 7},  .alt=2},
-	{.spi=&SPI0, .pin={&PORTC, 6},  .alt=5},
-	{.spi=&SPI1, .pin={&PORTB, 17}, .alt=2},
-	{.spi=&SPI1, .pin={&PORTE, 3},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTE, 1},  .alt=5},
-	{.spi=&SPI1, .pin={&PORTD, 7},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTD, 6},  .alt=5},
+	{.module=&SPI0, .pin={&PORTE, 18}, .alt=5},
+	{.module=&SPI0, .pin={&PORTE, 19}, .alt=2},
+	{.module=&SPI0, .pin={&PORTC, 7},  .alt=2},
+	{.module=&SPI0, .pin={&PORTC, 6},  .alt=5},
+	{.module=&SPI1, .pin={&PORTB, 17}, .alt=2},
+	{.module=&SPI1, .pin={&PORTE, 3},  .alt=2},
+	{.module=&SPI1, .pin={&PORTE, 1},  .alt=5},
+	{.module=&SPI1, .pin={&PORTD, 7},  .alt=2},
+	{.module=&SPI1, .pin={&PORTD, 6},  .alt=5},
 	{}
 };
 
 static const struct pin_assign MOSI [] = {
-	{.spi=&SPI0, .pin={&PORTE, 18}, .alt=2},
-	{.spi=&SPI0, .pin={&PORTE, 19}, .alt=5},
-	{.spi=&SPI0, .pin={&PORTC, 7},  .alt=5},
-	{.spi=&SPI0, .pin={&PORTC, 6},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTB, 17}, .alt=5},
-	{.spi=&SPI1, .pin={&PORTE, 3},  .alt=5},
-	{.spi=&SPI1, .pin={&PORTE, 1},  .alt=2},
-	{.spi=&SPI1, .pin={&PORTD, 7},  .alt=5},
-	{.spi=&SPI1, .pin={&PORTD, 6},  .alt=2},
+	{.module=&SPI0, .pin={&PORTE, 18}, .alt=2},
+	{.module=&SPI0, .pin={&PORTE, 19}, .alt=5},
+	{.module=&SPI0, .pin={&PORTC, 7},  .alt=5},
+	{.module=&SPI0, .pin={&PORTC, 6},  .alt=2},
+	{.module=&SPI1, .pin={&PORTB, 17}, .alt=5},
+	{.module=&SPI1, .pin={&PORTE, 3},  .alt=5},
+	{.module=&SPI1, .pin={&PORTE, 1},  .alt=2},
+	{.module=&SPI1, .pin={&PORTD, 7},  .alt=5},
+	{.module=&SPI1, .pin={&PORTD, 6},  .alt=2},
 	{}
 };
-
-
-static void set_pin_alt(const struct pin_assign list[], volatile const struct spi * SPI, const struct pin * pin) {
-	for(int i = 0; list[i].spi != NULL; ++i) {
-		if(SPI != list[i].spi)
-			continue;
-		if(pin->port != list[i].pin.port)
-			continue;
-		if(pin->pin != list[i].pin.pin)
-			continue;
-
-		pin->port->PCR[pin->pin] |= list[i].alt << 8;
-		return;
-	}
-	//assert(0);
-}
 
 #define ENABLE_IN_MASTER (5 << 4)
 #define SS_OE (1 << 1)
 #define BITMODE16_AND_MASTER_MODE_FAULT_EN (13 << 4)
 
 void spi_init(volatile struct spi * SPI, const struct spi_config * config){
-	/* 	TODO: how do I figure out that this is the correct pin
-		and what the proper value to write to the register is ?
+	/* 	TODO: add clock configuration in here
 	*/
 
 	/* select desired pin functionality */
@@ -98,7 +75,7 @@ uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
 	}
 
 	/* masking for read transaction */
-	byteToWrite = 0x00;
+     	byteToWrite = 0x00;
 	uint8_t result = ((addr & 0x7F) << 8) | byteToWrite;
 	return result;
 }

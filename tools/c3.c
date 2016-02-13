@@ -133,8 +133,8 @@ int main(void) {
 
 	//asm volatile ("cpsie   i");
 
-	/* this function is in transceiver.h if you want more details */
-	configure_transceiver();
+	/* this function is in transceiver.c if you want more details */
+	//configure_transceiver();
 
 	while(1) {
 		/* toggle LED connected to PTB2 */

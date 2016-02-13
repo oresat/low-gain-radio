@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include "kw0x.h"
+#include "port.h"
 
 struct uart_config {
 	// stuff will go here at some point

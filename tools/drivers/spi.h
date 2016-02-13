@@ -9,12 +9,7 @@
 #include <stdint.h>
 
 #include "kw0x.h"
-
-/* struct for pin selection */
-struct pin {
-	volatile struct port * port; /* port module */
-	uint8_t pin; /* pin on port module */
-};
+#include "port.h"
 
 /* struct for specifying config */
 struct spi_config {

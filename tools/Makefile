@@ -13,7 +13,7 @@ LDFLAGS = --specs=nosys.specs -static -nostartfiles -T$(LINKER_SCRIPT)
 
 all: c3
 
-c3: crt0.o c3.o drivers/spi.o 
+c3: crt0.o c3.o drivers/spi.o drivers/port.o drivers/uart.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
@@ -31,4 +31,4 @@ gdb: c3
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
 
 clean:
-	$(RM) c3 *.o *.hex *.s
+	$(RM) c3 *.o *.hex *.s ./drivers/*.o
