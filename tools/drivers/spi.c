@@ -101,6 +101,7 @@ void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 }
 
 void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
+ 	if(!len) return;
 
 	/* iterate through number of bytes for transaction */
 	for(int i = 0; i < len; ++i){

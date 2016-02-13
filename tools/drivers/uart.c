@@ -38,10 +38,24 @@ void uart_init(volatile struct uart * UART, const struct uart_config * config){
 	UART->C4 = 0x0;
 }
 
-void uart_read(volatile struct uart * UART){
-	/* stuff goes here */
+void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
+	if(!len) return;
+
+	/* poll the receive data register full flag */
+	/* it will be 0 when empty */
+	while(!(UART->S1 >> 5));
+
+	/* receive bytes */
+	for(size_t i = 0; i < len; ++i){
+		buffer[i] = UART->D;
+        }
 }
 
-void uart_write(volatile struct uart * UART, uint8_t toSent){
-	/* stuff goes here */
+void uart_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
+	if(!len) return;
+	/* poll transmit data register empty flag */
+	while(!(UART->S1 >> 7));
+	for(unsigned int i = 0; i < len; ++i){
+		UART->D = buffer[i];
+	}
 }
