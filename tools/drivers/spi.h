@@ -8,9 +8,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "kw0x.h"
 #include "port.h"
 
+#ifndef _SPI_H_
+#define _SPI_H_
 /* struct for specifying config */
 struct spi_config {
 	struct pin SCK; /* clock */
@@ -35,3 +36,5 @@ void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer);
 
 /* SPI transaction frame */
 void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer);
+
+#endif

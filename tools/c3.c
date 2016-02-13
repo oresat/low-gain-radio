@@ -3,8 +3,8 @@
 
 	Programmed by William Harrington, Michael Mathis, and Theo Hill
  */
-#include "kw0x.h"
-#include "drivers/spi.h"
+//#include "kw0x.h"
+//#include "drivers/spi.h"
 #include "transceiver.h"
 #if 1
 void initialize_spi(void){
@@ -134,7 +134,7 @@ int main(void) {
 	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	//configure_transceiver();
+	configure_transceiver();
 
 	while(1) {
 		/* toggle LED connected to PTB2 */

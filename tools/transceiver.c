@@ -1,98 +1,8 @@
 #include "transceiver.h"
-#include "spi.h"
 
-void read_register(uint8_t address, uint8_t * buffer, uint8_t length);
-void write_register(uint8_t address, uint8_t * buffer, uint8_t length);
-
-/*Change to operating mode of the transceiver. Sets bits 2-4 in RegOpMode*/
-void trans_set_op_mode(uint8_t * mode){
-	uint8_t current_value;
-	read_register(transceiver.RegOpMode, &current_value, 0x1);
-	uint8_t new_value = current_value & !mode;
-	new_value |= mode;
-	write_register(transceiver.RegOpMode, &new_value, 0x1);
-}
-
-/*Configures the data modulation settings for the transceiver. See header for struct and defines*/
-void trans_set_data_mod(struct mod_config * config){
-	uint8_t new_value = mod_config->data_mode << 5;
-	new_value |= mod_config->mod_type << 3;
-	new_value |= mod_config->mod_shaping;
-
-	write_register(transceiver.RegDataModul, &new_value, 0x1);
-}
-
-/*Calibrates the RC*/
-void trans_calibrate_rc(void){
-	/*Initialize the calibration*/
-	write_register(transceiver.Osc1, 0x80, 0x1);
-
-	/*Wait until the calibration is done*/
-	uint8_t done = 0x0;
-	while (!done){
-		read_register(transceiver.Osc1, &done, 0x1);
-		done &= 0x40;
-	}
-}
-
-/*Returns the low battery status*/
-//maybe include the current lowbat threshold later
-bool trans_read_low_bat(void){
-	uint8_t battery_low;
-	read_register(transceiver.LowBat, &battery_low, 0x1);
-	return (battery_low & 0x10);
-}
-
-/*Enable the transceiver's ow battery monitor*/
-void trans_enable_battery_mon(void){
-	uint8_t current_value;
-	read_register(transceiver.LowBat, &current_value, 0x1);
-	uint8_t new_value = current_value |= 0x08;
-	write_register(transceiver.LowBat, &new_value, 0x1);
-}
-
-/*Disables the transceiver's low battery monitor*/
-void trans_disable_battery_mon(void){
-	uint8_t current_value;
-	read_register(transceiver.LowBat, &current_value, 0x1);
-	uint8_t new_value = current_value &= 0xF7;
-	write_register(transceiver.LowBat, &new_value, 0x1);	
-}
-/*
-000 - 1.695 V
-001 - 1.764 V
-010 - 1.835 V
-011 - 1.905 V
-100 - 1.976 V
-101 - 2.045 V
-110 - 2.116 V
-111 - 2.185 V
-*/
-void trans_set_lowbat_thresh(uint8_t * threshold){
-	
-}
-void trans_config_listen(struct listen_config * config);
-void trans_set_pa_output(uint8_t * power);
-void trans_set_pa_ramp(uint8_t * ramp_speed); /*In FSK mode*/
-void trans_enable_ocp(void);
-void trans_disable_ocp(void);
-void trans_set_ocp_trim(uint8_t * trim_value);
-void trans_enable_aes(void);
-void trans_disable_aes(void);
-void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
-void trans_set_automode_enter(uint8_t * enter_cond);
-void trans_set_automode_exit(uint8_t * exit_cond);
-void trans_set_automode_intermed(uint8_t * intermed_cond);
-//cf
-//sync
-void trans_start_temp_measure(void);
-uint8_t trans_read_temp(void);
-void trans_set_lna_sensitivity(uint8_t * sensitivity);
-void trans_set_pll_bandwidth(uint8_t * bandwidth);
-void trans_set_continuous_dagc(uint8_t * dagc);
-void trans_set_lowbeta_agc_offset(uint8_t * offset);
 void configure_transceiver(void){
-	
+	#define WRITE 1
+	#define READ 0
 	uint16_t results[6];
 	uint16_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, WRITE, 0x08);
 
@@ -124,5 +34,112 @@ void configure_transceiver(void){
 
 	/* set transceiver op mode to transmit mode */
 	spi_transaction(&SPI0, 1, &OpModeCfg, &results[5]);
-
 }
+
+/*
+void read_register(uint8_t address, uint8_t * buffer, uint8_t length);
+void write_register(uint8_t address, uint8_t * buffer, uint8_t length);
+*/
+
+/*Change to operating mode of the transceiver. Sets bits 2-4 in RegOpMode*/
+/*
+void trans_set_op_mode(uint8_t * mode){
+	uint8_t current_value;
+	read_register(transceiver.RegOpMode, &current_value, 0x1);
+	uint8_t new_value = current_value & !mode;
+	new_value |= mode;
+	write_register(transceiver.RegOpMode, &new_value, 0x1);
+}
+*/
+/*Configures the data modulation settings for the transceiver. See header for struct and defines*/
+/*
+void trans_set_data_mod(struct mod_config * config){
+	uint8_t new_value = mod_config->data_mode << 5;
+	new_value |= mod_config->mod_type << 3;
+	new_value |= mod_config->mod_shaping;
+
+	write_register(transceiver.RegDataModul, &new_value, 0x1);
+}
+*/
+/*Calibrates the RC*/
+//void trans_calibrate_rc(void){
+	/*Initialize the calibration*/
+	//write_register(transceiver.Osc1, 0x80, 0x1);
+
+	/*Wait until the calibration is done*/
+	//uint8_t done = 0x0;
+	//while (!done){
+		//read_register(transceiver.Osc1, &done, 0x1);
+		//done &= 0x40;
+	//}
+//}
+
+/*Returns the low battery status*/
+//maybe include the current lowbat threshold later
+/*
+bool trans_read_low_bat(void){
+	uint8_t battery_low;
+	read_register(transceiver.LowBat, &battery_low, 0x1);
+	return (battery_low & 0x10);
+}
+*/
+/*Enable the transceiver's ow battery monitor*/
+/*
+void trans_enable_battery_mon(void){
+	uint8_t current_value;
+	read_register(transceiver.LowBat, &current_value, 0x1);
+	uint8_t new_value = current_value |= 0x08;
+	write_register(transceiver.LowBat, &new_value, 0x1);
+}
+*/
+/*Disables the transceiver's low battery monitor*/
+/*
+void trans_disable_battery_mon(void){
+	uint8_t current_value;
+	read_register(transceiver.LowBat, &current_value, 0x1);
+	uint8_t new_value = current_value &= 0xF7;
+	write_register(transceiver.LowBat, &new_value, 0x1);	
+}
+*/
+/*
+000 - 1.695 V
+001 - 1.764 V
+010 - 1.835 V
+011 - 1.905 V
+100 - 1.976 V
+101 - 2.045 V
+110 - 2.116 V
+111 - 2.185 V
+*/
+/*
+void trans_set_lowbat_thresh(uint8_t * threshold){
+	
+}*/
+/*
+void trans_config_listen(struct listen_config * config);
+void trans_set_pa_output(uint8_t * power);
+*/
+//void trans_set_pa_ramp(uint8_t * ramp_speed); /*In FSK mode*/
+/*
+void trans_enable_ocp(void);
+void trans_disable_ocp(void);
+void trans_set_ocp_trim(uint8_t * trim_value);
+void trans_enable_aes(void);
+void trans_disable_aes(void);
+*/
+//void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
+/*
+void trans_set_automode_enter(uint8_t * enter_cond);
+void trans_set_automode_exit(uint8_t * exit_cond);
+void trans_set_automode_intermed(uint8_t * intermed_cond);
+*/
+//cf
+//sync
+/*
+void trans_start_temp_measure(void);
+uint8_t trans_read_temp(void);
+void trans_set_lna_sensitivity(uint8_t * sensitivity);
+void trans_set_pll_bandwidth(uint8_t * bandwidth);
+void trans_set_continuous_dagc(uint8_t * dagc);
+void trans_set_lowbeta_agc_offset(uint8_t * offset);
+*/

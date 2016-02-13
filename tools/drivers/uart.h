@@ -5,9 +5,10 @@
  */
 #include <stdbool.h>
 #include <stdint.h>
-#include "kw0x.h"
 #include "port.h"
 
+#ifndef _UART_H_
+#define _UART_H_
 struct uart_config {
 	// stuff will go here at some point
 	struct pin TX;
@@ -23,3 +24,5 @@ void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer);
 
 /* function for placing characters into FIFO buffer */
 void uart_write(volatile struct uart * UART, size_t len, uint8_t * buffer);
+
+#endif

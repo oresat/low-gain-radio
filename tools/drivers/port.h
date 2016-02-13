@@ -5,6 +5,8 @@
  */
 #include "kw0x.h"
 
+#ifndef _PORT_H_
+#define _PORT_H_
 /* struct for pin selection */
 struct pin {
 	volatile struct port * port; /* port module */
@@ -18,3 +20,5 @@ struct pin_assign {
 };
 
 void set_pin_alt(const struct pin_assign list[], volatile void * module, const struct pin * pin);
+
+#endif

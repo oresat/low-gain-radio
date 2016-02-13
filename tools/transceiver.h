@@ -6,7 +6,9 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "kw0x.h"
+#include "drivers/spi.h"
+#ifndef _TRANSCEIVER_H_
+#define _TRANSCEIVER_H_
 /* struct declaration for transceiver */
 struct TRANSCEIVER {
   	uint8_t RegFifo; /* FIFO read/write access */
@@ -178,59 +180,61 @@ struct TRANSCEIVER transceiver = {
 	.RegTest = 0x50,
 };
 
+void configure_transceiver(void);
 
 /*Operating Modes - trans_set_op_mode function
 -------------------------------------------------*/
-#define SLEEP_MODE 0
-#define STAND_BY_MODE 1
-#define FS_MODE 2
-#define TRANSMIT_MODE 3
-#define RECEIVE_MODE 4
+//#define SLEEP_MODE 0
+//#define STAND_BY_MODE 1
+//#define FS_MODE 2
+//#define TRANSMIT_MODE 3
+//#define RECEIVE_MODE 4
 
 /*Data Modulation - mode_config struct
 -------------------------------------------------*/
-#define PACKET_MODE 0			/*Packet mode*/
-#define CONT_WITH_BIT_SYNC 2	/*Continuous mode with bit sync*/
-#define CONT_WITHOUT_BIT_SYNC 3 /*Continuous mode without bit sync*/
+//#define PACKET_MODE 0			/*Packet mode*/
+//#define CONT_WITH_BIT_SYNC 2	/*Continuous mode with bit sync*/
+//#define CONT_WITHOUT_BIT_SYNC 3 /*Continuous mode without bit sync*/
 
-#define FSK_MODULATION 0
-#define OOK_MODULATION 1
+//#define FSK_MODULATION 0
+//#define OOK_MODULATION 1
 
-#define NO_SHAPING 0			
-#define GAUS_BT_1_0	1 /*BT = 1.0*/
-#define GAUS_BT_0_5 2 /*BT = 0.5*/
-#define GAUS_BT_0_3 3 /*BT = 0.3*/
-#define OOK_BR_CUTOFF 1 /*Filtering with freq cutoff = BR*/
-#define	OOK_2BR_CUTOFF 2 /*Filtering with freq cutoff = 2 * BR */
+//#define NO_SHAPING 0			
+//#define GAUS_BT_1_0	1 /*BT = 1.0*/
+//#define GAUS_BT_0_5 2 /*BT = 0.5*/
+//#define GAUS_BT_0_3 3 /*BT = 0.3*/
+//#define OOK_BR_CUTOFF 1 /*Filtering with freq cutoff = BR*/
+//#define	OOK_2BR_CUTOFF 2 /*Filtering with freq cutoff = 2 * BR */
 
 /*Auto Modes - set_automode_*****_cond functions
 -------------------------------------------------*/
-#define NONE 0
-#define RISING_FIFONOTEMPTY 1
-#define RISING_FIFOLEVEL 2
-#define RISING_CRCOK 3
-#define RISING_PAYLOADREADY 4
-#define RISING_SYNCADDRESS 5
-#define RISING_PACKETSENT 6
-#define FALLING_FIFONOTEMPTY_ENTER 7
+//#define NONE 0
+//#define RISING_FIFONOTEMPTY 1
+//#define RISING_FIFOLEVEL 2
+//#define RISING_CRCOK 3
+//#define RISING_PAYLOADREADY 4
+//#define RISING_SYNCADDRESS 5
+//#define RISING_PACKETSENT 6
+//#define FALLING_FIFONOTEMPTY_ENTER 7
 
-#define FALLING_FIFONOTEMPTY_EXIT 1
+//#define FALLING_FIFONOTEMPTY_EXIT 1
 
-#define AUTO_SLEEP_MODE 0
-#define AUTO_STAND_BY_MODE 1
-#define AUTO_RECEIVE_MODE 2
-#define AUTO_TRANSMIT_MODE 3
+//#define AUTO_SLEEP_MODE 0
+//#define AUTO_STAND_BY_MODE 1
+//#define AUTO_RECEIVE_MODE 2
+//#define AUTO_TRANSMIT_MODE 3
 
 /*
 -------------------------------------------------*/
 
-struct mod_config {
-	uint8_t data_mode; /*2 bits*/
-	uint8_t mod_type; /*2 bits*/
-	uint8_t mod_shaping; /*2 bits*/
-};
+//struct mod_config {
+	//uint8_t data_mode; /*2 bits*/
+	//uint8_t mod_type; /*2 bits*/
+	//uint8_t mod_shaping; /*2 bits*/
+//};
 
 /*Page 110 of referenc manual*/
+/*
 struct listen_config {
 	uint8_t idle_time_res;
 	uint8_t receive_time_res;
@@ -239,15 +243,17 @@ struct listen_config {
 	uint8_t idle_coef;
 	uint8_t receive_coef;
 };
+*/
 
-struct sync_config {
-	uint8_t fifo_fill_cond;
-	uint8_t sync_word_size; /* sync_word_size + 1 bytes */
-	uint8_t sync_error_toleration;
-	uint8_t * sync_word;
-};
+//struct sync_config {
+	//uint8_t fifo_fill_cond;
+	//uint8_t sync_word_size; /* sync_word_size + 1 bytes */
+	//uint8_t sync_error_toleration;
+	//uint8_t * sync_word;
+//};
 
 /*Page 118 of referenc manual*/
+/*
 struct packet_config {
 	uint16_t preamble_size;
 	uint8_t packet_format;
@@ -264,7 +270,8 @@ struct packet_config {
 	uint8_t auto_rx_restart;
 
 };
-void configure_transceiver(void);
+*/
+/*
 void read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void write_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_set_op_mode(uint8_t mode);
@@ -273,6 +280,7 @@ void trans_calibrate_rc(void);
 bool trans_read_low_bat(void);
 void trans_enable_battery_mon(void);
 void trans_disable_battery_mon(void);
+*/
 /*
 000 - 1.695 V
 001 - 1.764 V
@@ -283,18 +291,23 @@ void trans_disable_battery_mon(void);
 110 - 2.116 V
 111 - 2.185 V
 */
+/*
 void trans_set_lowbat_thresh(uint8_t threshold);
 void trans_enable_listen(void);
 void trans_disable_listen(uint8_t new_mode);
 void trans_config_listen(struct listen_config * config);
 void trans_set_pa_output(uint8_t power);
-void trans_set_pa_ramp(uint8_t ramp_speed); /*In FSK mode*/
+*/
+//void trans_set_pa_ramp(uint8_t ramp_speed); /*In FSK mode*/
+/*
 void trans_enable_ocp(void);
 void trans_disable_ocp(void);
 void trans_set_ocp_trim(uint8_t trim_value);
 void trans_enable_aes(void);
 void trans_disable_aes(void);
-void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
+*/
+//void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
+/*
 void trans_set_automode_enter(uint8_t enter_cond);
 void trans_set_automode_exit(uint8_t exit_cond);
 void trans_set_automode_intermed(uint8_t intermed_cond);
@@ -306,3 +319,6 @@ void trans_set_lna_sensitivity(uint8_t sensitivity);
 void trans_set_pll_bandwidth(uint8_t bandwidth);
 void trans_set_continuous_dagc(uint8_t dagc);
 void trans_set_lowbeta_agc_offset(uint8_t offset);
+*/
+
+#endif
