@@ -5,7 +5,7 @@
  */
 //#include "kw0x.h"
 //#include "drivers/spi.h"
-#include "transceiver.h"
+#include "drivers/transceiver.h"
 #if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
@@ -121,6 +121,9 @@ void initialize_tpm(void){
 
 int main(void) {
 
+	/* delay loop for POR, transceiver not available for 10ms */
+	for(uint32_t i = 0; i < 1000000; ++i);
+
 	/* call initialization procedures */
 
 	initialize_spi();
@@ -141,7 +144,7 @@ int main(void) {
 		GPIOB.PTOR = 0x00004;
 
 		/* delay loop */
-		for(uint32_t i = 0; i < 1000000; ++i);
+		for(uint32_t j = 0; j < 100000; ++j);
 	}
 	return 0;
 }
