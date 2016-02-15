@@ -6,7 +6,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#include "drivers/spi.h"
+#include "spi.h"
 #ifndef _TRANSCEIVER_H_
 #define _TRANSCEIVER_H_
 /* struct declaration for transceiver */

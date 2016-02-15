@@ -104,7 +104,7 @@ void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffe
  	if(!len) return;
 
 	/* iterate through number of bytes for transaction */
-	for(int i = 0; i < len; ++i){
+	for(unsigned int i = 0; i < len; ++i){
 
 		/* poll the transmit buffer empty flag */
 		while(!(SPI->S & (1 << 5)));

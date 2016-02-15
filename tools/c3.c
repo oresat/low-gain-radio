@@ -3,8 +3,7 @@
 
 	Programmed by William Harrington, Michael Mathis, and Theo Hill
  */
-//#include "kw0x.h"
-//#include "drivers/spi.h"
+#include "drivers/uart.h"
 #include "drivers/transceiver.h"
 #if 1
 void initialize_spi(void){
@@ -105,6 +104,21 @@ void initialize_gpio(void){
 	return;
 }
 
+void initialize_uart(void){
+	/ * UART0 configuration */
+	struct uart_config myUART = {
+		/* pin for transmit = PTA1 */
+		.TX = {.port=&PORTA, .pin=1,},
+
+		/* pin for receive = PTA2 */
+		.RX = {.port=&PORTA, .pin=2,},
+
+		/* baud rate */
+		.baud = 115200,
+	};
+	uart0_init(&UART0, &myUART);
+}
+
 #if 0
 void initialize_tpm(void){
   	/* procedure for initializing Timer/PWM module */
@@ -132,6 +146,8 @@ int main(void) {
 
 	initialize_gpio();
 
+	initialize_uart();
+
 	//initialize_tpm();
 
 	//asm volatile ("cpsie   i");
@@ -140,11 +156,17 @@ int main(void) {
 	configure_transceiver();
 
 	while(1) {
-		/* toggle LED connected to PTB2 */
-		GPIOB.PTOR = 0x00004;
+		/* generate bytes to send over UART */
+	      	for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
+			/* send byte */
+			uart0_write(&UART0, 1, &k);
 
-		/* delay loop */
-		for(uint32_t j = 0; j < 100000; ++j);
+			/* delay loop */
+	       		for(uint32_t j = 0; j < 100000; ++j);
+
+	       		/* toggle LED connected to PTB2 */
+	       		GPIOB.PTOR = 0x00004;
+		}
 	}
 	return 0;
 }
