@@ -298,14 +298,15 @@ void trans_set_pa_ramp(uint8_t ramp_speed); /*In FSK mode*/
 void trans_enable_ocp(void);
 void trans_disable_ocp(void);
 void trans_set_ocp_trim(uint8_t trim_value);
+void trans_enable_sync(void);
+void trans_disable_sync(void);
 void trans_set_sync_config(struct sync_config * config);
 void trans_set_packet_config(struct packet_config * config);
+
 void trans_enable_aes(void);
 void trans_disable_aes(void);
 void trans_set_aes_key(uint8_t * buffer); /*16 bytes*/
-void trans_set_automode_enter(uint8_t enter_cond);
-void trans_set_automode_exit(uint8_t exit_cond);
-void trans_set_automode_intermed(uint8_t intermed_cond);
+void trans_set_automode_config(struct automode_config * config);
 //cf
 //sync
 void trans_start_temp_measure(void);
