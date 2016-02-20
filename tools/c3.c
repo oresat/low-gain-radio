@@ -5,6 +5,7 @@
  */
 #include "drivers/uart.h"
 #include "drivers/transceiver.h"
+#include "drivers/spi.h"
 #if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
@@ -105,7 +106,7 @@ void initialize_gpio(void){
 }
 
 void initialize_uart(void){
-	/ * UART0 configuration */
+	/* UART0 configuration */
 	struct uart_config myUART = {
 		/* pin for transmit = PTA1 */
 		.TX = {.port=&PORTA, .pin=1,},
@@ -157,16 +158,16 @@ int main(void) {
 
 	while(1) {
 		/* generate bytes to send over UART */
-	      	for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
+	      	//for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
 			/* send byte */
-			uart0_write(&UART0, 1, &k);
+			//uart0_write(&UART0, 1, &k);
 
 			/* delay loop */
-	       		for(uint32_t j = 0; j < 100000; ++j);
+	       	for(uint32_t j = 0; j < 250000; ++j);
 
-	       		/* toggle LED connected to PTB2 */
-	       		GPIOB.PTOR = 0x00004;
-		}
+	       	/* toggle LED connected to PTB2 */
+	       	GPIOB.PTOR = 0x00004;
+		//}
 	}
 	return 0;
 }
