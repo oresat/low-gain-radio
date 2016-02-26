@@ -50,7 +50,7 @@ static const struct pin_assign MOSI [] = {
 
 #define ENABLE_IN_MASTER (5 << 4)
 #define SS_OE (1 << 1)
-#define BITMODE16_AND_MASTER_MODE_FAULT_EN (13 << 4)
+#define MASTER_MODE_FAULT_EN (1 << 4)
 
 void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 	/* 	TODO: add clock configuration in here
@@ -64,7 +64,7 @@ void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 
 	/* apply SPI configuration */
 	SPI->C1 = ENABLE_IN_MASTER | (config->CPOL << 3) | (config->CPHA << 2) | SS_OE;
-	SPI->C2 = BITMODE16_AND_MASTER_MODE_FAULT_EN;
+	SPI->C2 = MASTER_MODE_FAULT_EN | (config->SPIMODE << 6);
 }
 
 uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
@@ -80,24 +80,24 @@ uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
 	return result;
 }
 
-void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer){
-
-	/* dummy buffer for send portion of transaction */
-	uint16_t dummyBuffer[len];
-
-	/* start transaction */
-	spi_transaction(SPI, len, dummyBuffer, buffer);
-
+void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
+	uint16_t dummy[len];
+	spi_transaction(SPI, len, dummy, buffer);
 }
 
-void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer){
+void spi_read_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
+	uint8_t dummy[len];
+	spi_transaction_8(SPI, len, dummy, buffer);
+}
 
-	/* dummy buffer for receive portion of transaction */
-	uint16_t dummyBuffer[len];
+void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
+	uint16_t dummy[len];
+	spi_transaction(SPI, len, buffer, dummy);
+}
 
-	/* start transaction */
-	spi_transaction(SPI, len, buffer, dummyBuffer);
-
+void spi_write_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
+	uint8_t dummy[len];
+	spi_transaction(SPI, len, buffer, dummy);
 }
 
 void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, uint16_t * recv){
@@ -124,3 +124,25 @@ void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, 
 		recv[i] = (SPI->DH << 8) | SPI->DL;
 	}
 }
+
+void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, uint8_t * recv){
+ 	if(!len) return;
+
+	/* iterate through number of bytes for transaction */
+	for(unsigned int i = 0; i < len; ++i){
+
+		/* poll the transmit buffer empty flag */
+		while(!(SPI->S & (1 << 5)));
+
+		/* send byte by writing to the data registers */
+		SPI->DL = send[i];
+
+		/* poll the read buffer full flag */
+		while(!(SPI->S & (1 << 7)));
+
+		/* grab data into buffer */
+		recv[i] = SPI->DL;
+	}
+}
+
+

@@ -20,6 +20,7 @@ struct spi_config {
 	struct pin MISO; /* master in, slave out */
 	bool CPOL; /* clock polarity */
 	bool CPHA; /* clock phase */
+	bool SPIMODE;
 };
 
 /* initialization function */
