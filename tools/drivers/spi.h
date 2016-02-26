@@ -29,12 +29,27 @@ void spi_init(volatile struct spi * SPI, const struct spi_config * config);
 uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite);
 
 /* read function */
-void spi_read(volatile struct spi * SPI, size_t len, uint16_t * buffer);
+void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer);
+void spi_read_8(volatile struct spi * SPI, size_t len, uint8_t * buffer);
+#define spi_read(SPI, len, buffer) _Generic((buffer), \
+		uint16_t *:spi_read_16, \
+		uint8_t *:spi_read_8 \
+		)(SPI, len, buffer)
 
 /* write function */
-void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer);
+void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer);
+void spi_write_8(volatile struct spi * SPI, size_t len, uint8_t * buffer);
+#define spi_write(SPI, len, buffer) _Generic((buffer), \
+		uint16_t *:spi_write_16, \
+		uint8_t *:spi_write_8 \
+		)(SPI, len, buffer)
 
 /* SPI transaction frame */
-void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer);
+void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, uint16_t * recv);
+void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, uint8_t * recv);
+#define spi_transaction(SPI, len, send, recv) _Generic((send), \
+		uint16_t *:spi_transaction_16, \
+		uint8_t *:spi_transaction_8 \
+		)(SPI, len, send, recv)
 
 #endif

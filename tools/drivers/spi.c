@@ -80,7 +80,7 @@ uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
 	return result;
 }
 
-void spi_read(volatile struct spi * SPI, size_t len, uint16_t * buffer){
+void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for send portion of transaction */
 	uint16_t dummyBuffer[len];
@@ -90,7 +90,7 @@ void spi_read(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 }
 
-void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer){
+void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 	/* dummy buffer for receive portion of transaction */
 	uint16_t dummyBuffer[len];
@@ -100,7 +100,7 @@ void spi_write(volatile struct spi * SPI, size_t len, uint16_t * buffer){
 
 }
 
-void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffer, uint16_t * recvBuffer){
+void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, uint16_t * recv){
  	if(!len) return;
 
 	/* iterate through number of bytes for transaction */
@@ -110,8 +110,8 @@ void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffe
 		while(!(SPI->S & (1 << 5)));
 
 		/* extract the MSB and LSB */
-		uint8_t MSB = (sendBuffer[i] >> 8) & 0xFF;
-		uint8_t LSB = (sendBuffer[i]) & 0xFF;
+		uint8_t MSB = (send[i] >> 8) & 0xFF;
+		uint8_t LSB = (send[i]) & 0xFF;
 
 		/* send em by writing to the data registers */
 		SPI->DH = MSB;
@@ -121,6 +121,6 @@ void spi_transaction(volatile struct spi * SPI, size_t len, uint16_t * sendBuffe
 		while(!(SPI->S & (1 << 7)));
 
 		/* grab data, concatenate into buffer */
-		recvBuffer[i] = (SPI->DH << 8) | SPI->DL;
+		recv[i] = (SPI->DH << 8) | SPI->DL;
 	}
 }
