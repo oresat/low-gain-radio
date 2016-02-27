@@ -26,8 +26,6 @@ struct spi_config {
 /* initialization function */
 void spi_init(volatile struct spi * SPI, const struct spi_config * config);
 
-/* function for masking addresses for spi transactions and concatenating the byte to write if applicable*/
-uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite);
 
 /* read function */
 void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer);

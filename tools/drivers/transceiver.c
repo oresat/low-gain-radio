@@ -176,11 +176,24 @@ void trans_set_lowbat_thresh(uint8_t threshold){
 	write_register(transceiver.RegLowBat, &new_value, 0x1);
 }
 
+uint8_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
+	if(write){
+		/* masking for write transaction */
+		uint8_t result = ((addr | 0x80) << 8) | byteToWrite;
+		return result;
+	}
+
+	/* masking for read transaction */
+     	byteToWrite = 0x00;
+	uint8_t result = ((addr & 0x7F) << 8) | byteToWrite;
+	return result;
+}
+
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver(void){
 	#define WRITE 1
-	uint16_t results[7];
-	uint16_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, WRITE, 0x08);
+	uint8_t results[7];
+	uint8_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, WRITE, 0x08);
 
 	/* set transceiver op mode to FS mode */
 	spi_transaction(&SPI0, 1, &OpModeCfg, &results[0]);
@@ -188,13 +201,13 @@ void configure_transceiver(void){
 	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
 	
 	/* RegFrfMsb */
-	uint16_t FrfMsbCfg = mask_spi_addr(transceiver.RegFrfMsb, WRITE, 0x6D);
+	uint8_t FrfMsbCfg = mask_spi_addr(transceiver.RegFrfMsb, WRITE, 0x6D);
 
 	/* RegFrfMid */
-	uint16_t FrfMidCfg = mask_spi_addr(transceiver.RegFrfMid, WRITE, 0x20);
+	uint8_t FrfMidCfg = mask_spi_addr(transceiver.RegFrfMid, WRITE, 0x20);
 
 	/* RegFrfLsb */
-	uint16_t FrfLsbCfg = mask_spi_addr(transceiver.RegFrfLsb, WRITE, 0x00);
+	uint8_t FrfLsbCfg = mask_spi_addr(transceiver.RegFrfLsb, WRITE, 0x00);
 
 	/* WRITE configuration to appropriate registers */
 	spi_transaction(&SPI0, 1, &FrfMsbCfg, &results[1]);
@@ -202,12 +215,12 @@ void configure_transceiver(void){
 	spi_transaction(&SPI0, 1, &FrfLsbCfg, &results[3]);
 
 	/* turn modulation to on-off keying */
-	uint16_t RegDataModulCfg = mask_spi_addr(transceiver.RegDataModul, WRITE, 0x68);
+	uint8_t RegDataModulCfg = mask_spi_addr(transceiver.RegDataModul, WRITE, 0x68);
 	spi_transaction(&SPI0, 1, &RegDataModulCfg, &results[4]);
 
 	/* configure PA level */
 	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
-	uint16_t RegPAOutputCfg = mask_spi_addr(transceiver.RegPaLevel, WRITE, 0x80);
+	uint8_t RegPAOutputCfg = mask_spi_addr(transceiver.RegPaLevel, WRITE, 0x80);
 	spi_transaction(&SPI0, 1, &RegPAOutputCfg, &results[5]);
 
 	/* Set transceiver to transmit mode by writing to op mode register */

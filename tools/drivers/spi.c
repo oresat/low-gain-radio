@@ -65,19 +65,6 @@ void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 	SPI->C2 = MASTER_MODE_FAULT_EN | (config->SPIMODE << 6);
 }
 
-uint16_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
-	if(write){
-		/* masking for write transaction */
-		uint16_t result = ((addr | 0x80) << 8) | byteToWrite;
-		return result;
-	}
-
-	/* masking for read transaction */
-     	byteToWrite = 0x00;
-	uint8_t result = ((addr & 0x7F) << 8) | byteToWrite;
-	return result;
-}
-
 void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
 	uint16_t dummy[len];
 	spi_transaction(SPI, len, dummy, buffer);
