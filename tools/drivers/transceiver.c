@@ -1,5 +1,7 @@
 #include "transceiver.h"
 #include "spi.h"
+#include <string.h>
+
 
 /* make struct, assign the addresses */
 struct TRANSCEIVER transceiver = {
@@ -87,8 +89,17 @@ struct TRANSCEIVER transceiver = {
 };
 
 void read_register(uint8_t address, uint8_t * buffer, uint8_t length){
+	uint8_t addr_buffer [length + 1];
+	addr_buffer [0] = address;
+	memcpy(addr_buffer + 1, buffer, length);
+	spi_read(&SPI0, length + 1, addr_buffer);
 }
+
 void write_register(uint8_t address, uint8_t * buffer, uint8_t length){
+	uint8_t addr_buffer [length + 1];
+	addr_buffer [0] = address;
+	memcpy(addr_buffer + 1, buffer, length);
+	spi_write(&SPI0, length + 1, addr_buffer);
 }
 /*COMMON CONFIGURATION FUNCTIONS*/
 /*Change to operating mode of the transceiver. Sets bits 2-4 in RegOpMode*/
