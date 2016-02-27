@@ -7,7 +7,7 @@ LINKER_SCRIPT = toolchain/MKW01Z128.ld
 ARCH = arm-none-eabi
 CC = $(ARCH)-gcc
 AS = $(ARCH)-as
-CPPFLAGS = -I. -Idrivers
+CPPFLAGS = -I. -Idrivers -I/usr/local/arm-none-eabi/include
 CFLAGS = -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3 -std=gnu11
 LDFLAGS = --specs=nosys.specs -static -nostartfiles -T$(LINKER_SCRIPT)
 

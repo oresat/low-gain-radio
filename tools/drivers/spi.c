@@ -3,8 +3,6 @@
 
 	Programmed by William Harrington, Theo Hill
 */
-//#include <assert.h>
-
 #include "spi.h"
 
 static const struct pin_assign PCS0 [] = {

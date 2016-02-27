@@ -1,3 +1,4 @@
+#include <assert.h>
 #include "port.h"
 
 void set_pin_alt(const struct pin_assign list[], volatile void * module, const struct pin * pin){
@@ -9,5 +10,5 @@ void set_pin_alt(const struct pin_assign list[], volatile void * module, const s
 		pin->port->PCR[pin->pin] |= list[i].alt << 8;
 		return;
 	}
-	//assert(0);
+	assert(0);
 }

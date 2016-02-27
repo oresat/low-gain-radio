@@ -6,7 +6,6 @@
 #include "drivers/uart.h"
 #include "drivers/transceiver.h"
 #include "drivers/spi.h"
-#include "drivers/packet.c"
 
 #if 1
 void initialize_spi(void){
