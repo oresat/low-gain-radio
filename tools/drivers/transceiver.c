@@ -89,15 +89,15 @@ struct TRANSCEIVER transceiver = {
 };
 
 void read_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	uint8_t addr_buffer [length + 1];
-	addr_buffer [0] = address;
+	uint8_t addr_buffer[length + 1];
+	addr_buffer[0] = address;
 	memcpy(addr_buffer + 1, buffer, length);
 	spi_read(&SPI0, length + 1, addr_buffer);
 }
 
 void write_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	uint8_t addr_buffer [length + 1];
-	addr_buffer [0] = address;
+	uint8_t addr_buffer[length + 1];
+	addr_buffer[0] = 1 << 7 | address;
 	memcpy(addr_buffer + 1, buffer, length);
 	spi_write(&SPI0, length + 1, addr_buffer);
 }
@@ -176,58 +176,39 @@ void trans_set_lowbat_thresh(uint8_t threshold){
 	write_register(transceiver.RegLowBat, &new_value, 0x1);
 }
 
-uint8_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite){
-	if(write){
-		/* masking for write transaction */
-		uint8_t result = ((addr | 0x80) << 8) | byteToWrite;
-		return result;
-	}
-
-	/* masking for read transaction */
-     	byteToWrite = 0x00;
-	uint8_t result = ((addr & 0x7F) << 8) | byteToWrite;
-	return result;
-}
-
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver(void){
-	#define WRITE 1
-	uint8_t results[7];
-	uint8_t OpModeCfg = mask_spi_addr(transceiver.RegOpMode, WRITE, 0x08);
-
-	/* set transceiver op mode to FS mode */
-	spi_transaction(&SPI0, 1, &OpModeCfg, &results[0]);
+	uint8_t OpModeCfg = 0x08;
+	write_register(transceiver.RegOpMode, &OpModeCfg, 1); 
 
 	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
 	
 	/* RegFrfMsb */
-	uint8_t FrfMsbCfg = mask_spi_addr(transceiver.RegFrfMsb, WRITE, 0x6D);
+	uint8_t FrfMsbCfg = 0x6D;
 
 	/* RegFrfMid */
-	uint8_t FrfMidCfg = mask_spi_addr(transceiver.RegFrfMid, WRITE, 0x20);
+	uint8_t FrfMidCfg = 0x20;
 
 	/* RegFrfLsb */
-	uint8_t FrfLsbCfg = mask_spi_addr(transceiver.RegFrfLsb, WRITE, 0x00);
+	uint8_t FrfLsbCfg = 0x00;
 
 	/* WRITE configuration to appropriate registers */
-	spi_transaction(&SPI0, 1, &FrfMsbCfg, &results[1]);
-	spi_transaction(&SPI0, 1, &FrfMidCfg, &results[2]);
-	spi_transaction(&SPI0, 1, &FrfLsbCfg, &results[3]);
+	write_register(transceiver.RegFrfMsb, &FrfMsbCfg, 1);
+	write_register(transceiver.RegFrfMid, &FrfMidCfg, 1);
+	write_register(transceiver.RegFrfLsb, &FrfLsbCfg, 1);
 
 	/* turn modulation to on-off keying */
-	uint8_t RegDataModulCfg = mask_spi_addr(transceiver.RegDataModul, WRITE, 0x68);
-	spi_transaction(&SPI0, 1, &RegDataModulCfg, &results[4]);
+	uint8_t RegDataModulCfg = 0x68;
+	write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
 
 	/* configure PA level */
 	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
-	uint8_t RegPAOutputCfg = mask_spi_addr(transceiver.RegPaLevel, WRITE, 0x80);
-	spi_transaction(&SPI0, 1, &RegPAOutputCfg, &results[5]);
+	uint8_t RegPAOutputCfg = 0x80;
+	write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
 	/* Set transceiver to transmit mode by writing to op mode register */
-	OpModeCfg = mask_spi_addr(transceiver.RegOpMode, WRITE, 0x0C);
-
-	/* set transceiver op mode to transmit mode */
-	spi_transaction(&SPI0, 1, &OpModeCfg, &results[6]);
+	OpModeCfg = 0x0C;
+	write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 
 }
 
