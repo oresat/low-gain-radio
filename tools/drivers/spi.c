@@ -67,7 +67,7 @@ void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 
 void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
 	uint16_t dummy[len];
-	spi_transaction(SPI, len, dummy, buffer);
+	spi_transaction_16(SPI, len, dummy, buffer);
 }
 
 void spi_read_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
@@ -77,12 +77,12 @@ void spi_read_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
 
 void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
 	uint16_t dummy[len];
-	spi_transaction(SPI, len, buffer, dummy);
+	spi_transaction_16(SPI, len, buffer, dummy);
 }
 
 void spi_write_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
 	uint8_t dummy[len];
-	spi_transaction(SPI, len, buffer, dummy);
+	spi_transaction_8(SPI, len, buffer, dummy);
 }
 
 void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, uint16_t * recv){

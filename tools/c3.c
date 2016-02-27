@@ -107,7 +107,7 @@ void initialize_gpio(void){
 
 	return;
 }
-
+#if 0
 void initialize_uart(void){
 	/* UART0 configuration */
 	struct uart_config myUART = {
@@ -123,7 +123,6 @@ void initialize_uart(void){
 	uart0_init(&UART0, &myUART);
 }
 
-#if 0
 void initialize_tpm(void){
   	/* procedure for initializing Timer/PWM module */
 
@@ -143,49 +142,45 @@ int main(void) {
 	for(uint32_t i = 0; i < 1000000; ++i);
 
 	/* call initialization procedures */
-
 	initialize_spi();
-
 	initialize_clock();
-
 	initialize_gpio();
 
-	initialize_uart();
-
+	//initialize_uart();
 	//initialize_tpm();
-
-	//asm volatile ("cpsie   i");
+   	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver();
+	//configure_transceiver();
 
 
 	//Configure the transceiver to send fsk packets
-	struct mod_config m_config = {
-	.data_mode = PACKET_MODE,
-	.mod_type = FSK_MODULATION,
-	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
-	};
-	trans_set_op_mode(FS_MODE);
-	trans_set_data_mod(&m_config);
-	trans_set_op_mode(STANDBY_MODE);
-   	uint8_t data [20];
-	for (int i = 0; i < 20; i++){
-		data[i] = i;
-	}
-	trans_set_op_mode(TRANSMIT_MODE);
-	write_register(0x00, data, 20);
+	//struct mod_config m_config = {
+	//.data_mode = PACKET_MODE,
+	//.mod_type = FSK_MODULATION,
+	//.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
+	//};
+	//trans_set_op_mode(FS_MODE);
+	//trans_set_data_mod(&m_config);
+	//trans_set_op_mode(STANDBY_MODE);
+   	//uint8_t data [20];
+	//for (int i = 0; i < 20; i++){
+	//	data[i] = i;
+	//}
+	//trans_set_op_mode(TRANSMIT_MODE);
+	//write_register(0x00, data, 20);
+
 	while(1) {
 		/* generate bytes to send over UART */
 	      	//for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
-			/* send byte */
-			//uart0_write(&UART0, 1, &k);
+		/* send byte */
+		//uart0_write(&UART0, 1, &k);
 
 
-			/* delay loop */
+		/* delay loop */
 	       	for(uint32_t j = 0; j < 250000; ++j);
 
-			write_register(0x00, data, 20);
+                //write_register(0x00, data, 20);
 	       	/* toggle LED connected to PTB2 */
 	       	GPIOB.PTOR = 0x00004;
 		//}

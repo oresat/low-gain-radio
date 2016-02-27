@@ -7,7 +7,6 @@
 */
 #include <stdbool.h>
 #include <stdint.h>
-
 #include "port.h"
 
 #ifndef _SPI_H_
