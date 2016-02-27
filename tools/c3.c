@@ -6,6 +6,8 @@
 #include "drivers/uart.h"
 #include "drivers/transceiver.h"
 #include "drivers/spi.h"
+#include "drivers/packet.c"
+
 #if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
@@ -156,15 +158,29 @@ int main(void) {
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver();
 
+
+	//Configure the transceiver to send fsk packets
+	struct mod_config m_config = {
+	.data_mode = PACKET_MODE,
+	.mod_type = FSK_MODULATION, 
+	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
+	};
+	trans_set_data_mod(&m_config);
+
 	while(1) {
 		/* generate bytes to send over UART */
 	      	//for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
 			/* send byte */
 			//uart0_write(&UART0, 1, &k);
+	       	uint8_t data [20];
+			for (int i = 0; i < 20; i++){
+				data[i] = i;
+			}
 
 			/* delay loop */
 	       	for(uint32_t j = 0; j < 250000; ++j);
-
+			
+			write_register(0x00, data, 20);
 	       	/* toggle LED connected to PTB2 */
 	       	GPIOB.PTOR = 0x00004;
 		//}
