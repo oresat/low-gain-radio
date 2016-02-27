@@ -33,5 +33,3 @@ gdb: c3
 clean:
 	$(RM) c3 *.o *.hex *.s ./drivers/*.o
 
-packet: drivers/packet.o drivers/transceiver.o drivers/spi.o drivers/kw0x.o
-	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
