@@ -6,7 +6,6 @@
 #include "drivers/uart.h"
 #include "drivers/transceiver.h"
 #include "drivers/spi.h"
-#include "drivers/packet.c"
 
 #if 1
 void initialize_spi(void){
@@ -35,6 +34,8 @@ void initialize_spi(void){
 
 		/* Phase */
 		.CPHA = 0,
+
+		.SPIMODE = 0,
 	};
 
 	/* initialize SPI0 */
@@ -165,17 +166,21 @@ int main(void) {
 	.mod_type = FSK_MODULATION, 
 	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
 	};
+	trans_set_op_mode(FS_MODE);
 	trans_set_data_mod(&m_config);
-
+	trans_set_op_mode(STANDBY_MODE);
+   	uint8_t data [20];
+	for (int i = 0; i < 20; i++){
+		data[i] = i;
+	}
+	trans_set_op_mode(TRANSMIT_MODE);
+	write_register(0x00, data, 20);
 	while(1) {
 		/* generate bytes to send over UART */
 	      	//for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
 			/* send byte */
 			//uart0_write(&UART0, 1, &k);
-	       	uint8_t data [20];
-			for (int i = 0; i < 20; i++){
-				data[i] = i;
-			}
+
 
 			/* delay loop */
 	       	for(uint32_t j = 0; j < 250000; ++j);

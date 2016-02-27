@@ -10,7 +10,7 @@
 /*Operating Modes - trans_set_op_mode function
 -------------------------------------------------*/
 #define SLEEP_MODE 0
-#define STAND_BY_MODE 1
+#define STANDBY_MODE 1
 #define FS_MODE 2
 #define TRANSMIT_MODE 3
 #define RECEIVE_MODE 4
