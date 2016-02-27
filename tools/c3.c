@@ -43,7 +43,7 @@ void initialize_spi(void){
 
 	/* send to transceiver to get 32MHz clock signal on PTA18 */
 	uint8_t buffer[2] = {transceiver.RegDioMapping2, 0x00};
-	spi_write(&SPI0, sizeof(buffer), &buffer);
+	spi_write(&SPI0, sizeof(buffer), buffer);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
@@ -163,7 +163,7 @@ int main(void) {
 	//Configure the transceiver to send fsk packets
 	struct mod_config m_config = {
 	.data_mode = PACKET_MODE,
-	.mod_type = FSK_MODULATION, 
+	.mod_type = FSK_MODULATION,
 	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
 	};
 	trans_set_op_mode(FS_MODE);
@@ -184,7 +184,7 @@ int main(void) {
 
 			/* delay loop */
 	       	for(uint32_t j = 0; j < 250000; ++j);
-			
+
 			write_register(0x00, data, 20);
 	       	/* toggle LED connected to PTB2 */
 	       	GPIOB.PTOR = 0x00004;
