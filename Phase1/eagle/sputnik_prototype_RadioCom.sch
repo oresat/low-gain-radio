@@ -484,6 +484,17 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <smd name="4" x="0.475" y="-1.95" dx="0.625" dy="0.4" layer="1" rot="R90"/>
 <circle x="2.39" y="-0.4" radius="0.1524" width="0.127" layer="21"/>
 </package>
+<package name="TPS78930DBVT">
+<wire x1="0" y1="0" x2="3" y2="0" width="0.127" layer="21"/>
+<wire x1="3" y1="0" x2="3" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="3" y1="-1.7" x2="0" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="0" y1="-1.7" x2="0" y2="0" width="0.127" layer="21"/>
+<smd name="2" x="1.5" y="-2.057" dx="0.55" dy="0.5" layer="1" rot="R90"/>
+<smd name="3" x="2.45" y="-2.057" dx="0.55" dy="0.5" layer="1" rot="R90"/>
+<smd name="1" x="0.55" y="-2.057" dx="0.55" dy="0.5" layer="1" rot="R90"/>
+<smd name="5" x="0.55" y="0.375" dx="0.55" dy="0.5" layer="1" rot="R90"/>
+<smd name="4" x="2.45" y="0.375" dx="0.55" dy="0.5" layer="1" rot="R90"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MKW01Z128">
@@ -706,6 +717,18 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <pin name="BYP" x="22.86" y="-10.16" length="short" rot="R180"/>
 <pin name="VOUT" x="22.86" y="-5.08" length="short" rot="R180"/>
 <text x="5.08" y="-2.54" size="1.778" layer="94">AAT3215</text>
+</symbol>
+<symbol name="TPS78930DBVT">
+<wire x1="0" y1="0" x2="20.32" y2="0" width="0.254" layer="94"/>
+<wire x1="20.32" y1="0" x2="20.32" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="20.32" y1="-22.86" x2="0" y2="-22.86" width="0.254" layer="94"/>
+<wire x1="0" y1="-22.86" x2="0" y2="0" width="0.254" layer="94"/>
+<pin name="IN" x="-2.54" y="-5.08" length="short"/>
+<pin name="!EN" x="-2.54" y="-15.24" length="short"/>
+<pin name="BYP" x="22.86" y="-5.08" length="short" rot="R180"/>
+<pin name="OUT" x="22.86" y="-15.24" length="short" rot="R180"/>
+<pin name="GND" x="10.16" y="-25.4" length="short" rot="R90"/>
+<text x="0" y="-2.54" size="1.778" layer="94">TPS78930DBVT</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -986,6 +1009,25 @@ LINEAR POWER AMPLIFIER</description>
 <connect gate="G$1" pin="GND" pad="2"/>
 <connect gate="G$1" pin="VIN" pad="1"/>
 <connect gate="G$1" pin="VOUT" pad="5"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="TPS78930DBVT">
+<gates>
+<gate name="G$1" symbol="TPS78930DBVT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="TPS78930DBVT">
+<connects>
+<connect gate="G$1" pin="!EN" pad="3"/>
+<connect gate="G$1" pin="BYP" pad="4"/>
+<connect gate="G$1" pin="GND" pad="2"/>
+<connect gate="G$1" pin="IN" pad="1"/>
+<connect gate="G$1" pin="OUT" pad="5"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -17804,7 +17846,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C35" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="6pF"/>
 <part name="GND33" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="U$6" library="psas_c3_team05" deviceset="SKY65116" device=""/>
-<part name="P+2" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+3" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+4" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="TP15" library="testpad" deviceset="TPS" device="PAD1-13"/>
@@ -17830,6 +17871,16 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C37" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
 <part name="C38" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1uF"/>
 <part name="3.3V1" library="psas_c3_team05" deviceset="V+" device=""/>
+<part name="GND34" library="psas_c3_team05" deviceset="GND" device=""/>
+<part name="P+1" library="SparkFun-v5" deviceset="3.3V" device=""/>
+<part name="U$8" library="psas_c3_team05" deviceset="TPS78930DBVT" device=""/>
+<part name="GND35" library="psas_c3_team05" deviceset="GND" device=""/>
+<part name="C39" library="rcl" deviceset="CPOL-US" device="CT6032" value="4.7uF"/>
+<part name="C40" library="rcl" deviceset="CPOL-US" device="CT6032" value="1uF"/>
+<part name="C41" library="rcl" deviceset="CPOL-US" device="CT6032" value=".01uF"/>
+<part name="GND36" library="psas_c3_team05" deviceset="GND" device=""/>
+<part name="R2" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK"/>
+<part name="P+2" library="SparkFun-v5" deviceset="3.3V" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -17914,6 +17965,7 @@ Need SPI Cache hookup</text>
 <wire x1="355.6" y1="114.3" x2="355.6" y2="154.94" width="0.1524" layer="97" style="longdash"/>
 <text x="358.14" y="152.4" size="1.778" layer="97">LDO for LNA</text>
 <wire x1="355.6" y1="215.9" x2="436.88" y2="215.9" width="0.1524" layer="97" style="longdash"/>
+<text x="78.74" y="266.7" size="1.778" layer="97">ESR of cap = 0.2Ohms</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -18030,7 +18082,6 @@ Need SPI Cache hookup</text>
 <instance part="C35" gate="CE" x="177.8" y="198.12" rot="R180"/>
 <instance part="GND33" gate="1" x="165.1" y="193.04"/>
 <instance part="U$6" gate="G$1" x="406.4" y="251.46"/>
-<instance part="P+2" gate="G$1" x="111.76" y="274.32"/>
 <instance part="P+3" gate="G$1" x="160.02" y="251.46"/>
 <instance part="P+4" gate="G$1" x="195.58" y="172.72"/>
 <instance part="TP15" gate="G$1" x="142.24" y="185.42"/>
@@ -18046,7 +18097,7 @@ Need SPI Cache hookup</text>
 <instance part="C46" gate="CE" x="452.12" y="312.42" rot="MR180"/>
 <instance part="GND41" gate="1" x="452.12" y="304.8"/>
 <instance part="3.3V2" gate="1" x="378.46" y="325.12" rot="MR0"/>
-<instance part="U$3" gate="G$1" x="322.58" y="124.46"/>
+<instance part="U$3" gate="G$1" x="25.4" y="185.42"/>
 <instance part="JP1" gate="G$1" x="238.76" y="76.2" rot="MR0"/>
 <instance part="GND1" gate="1" x="248.92" y="71.12"/>
 <instance part="SUPPLY1" gate="1" x="248.92" y="88.9"/>
@@ -18056,6 +18107,16 @@ Need SPI Cache hookup</text>
 <instance part="C37" gate="CE" x="406.4" y="132.08"/>
 <instance part="C38" gate="CE" x="360.68" y="132.08"/>
 <instance part="3.3V1" gate="1" x="360.68" y="144.78" rot="MR0"/>
+<instance part="GND34" gate="1" x="20.32" y="162.56"/>
+<instance part="P+1" gate="G$1" x="48.26" y="185.42"/>
+<instance part="U$8" gate="G$1" x="60.96" y="309.88"/>
+<instance part="GND35" gate="1" x="71.12" y="261.62"/>
+<instance part="C39" gate="G$1" x="91.44" y="289.56"/>
+<instance part="C40" gate="G$1" x="43.18" y="289.56"/>
+<instance part="C41" gate="G$1" x="121.92" y="299.72"/>
+<instance part="GND36" gate="1" x="121.92" y="287.02"/>
+<instance part="R2" gate="R" x="91.44" y="276.86" rot="R90"/>
+<instance part="P+2" gate="G$1" x="43.18" y="304.8"/>
 </instances>
 <busses>
 </busses>
@@ -18359,6 +18420,35 @@ Need SPI Cache hookup</text>
 <wire x1="406.4" y1="124.46" x2="424.18" y2="124.46" width="0.1524" layer="91"/>
 <wire x1="406.4" y1="127" x2="406.4" y2="124.46" width="0.1524" layer="91"/>
 <junction x="406.4" y="124.46"/>
+</segment>
+<segment>
+<pinref part="GND34" gate="1" pin="GND"/>
+<pinref part="U$3" gate="G$1" pin="VSS"/>
+<wire x1="20.32" y1="165.1" x2="20.32" y2="167.64" width="0.1524" layer="91"/>
+<wire x1="20.32" y1="167.64" x2="22.86" y2="167.64" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="GND"/>
+<pinref part="GND35" gate="1" pin="GND"/>
+<wire x1="71.12" y1="284.48" x2="71.12" y2="269.24" width="0.1524" layer="91"/>
+<pinref part="U$8" gate="G$1" pin="!EN"/>
+<wire x1="71.12" y1="269.24" x2="71.12" y2="264.16" width="0.1524" layer="91"/>
+<wire x1="58.42" y1="294.64" x2="55.88" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="294.64" x2="55.88" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="55.88" y1="269.24" x2="71.12" y2="269.24" width="0.1524" layer="91"/>
+<junction x="71.12" y="269.24"/>
+<pinref part="C40" gate="G$1" pin="-"/>
+<wire x1="43.18" y1="284.48" x2="43.18" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="269.24" x2="55.88" y2="269.24" width="0.1524" layer="91"/>
+<junction x="55.88" y="269.24"/>
+<pinref part="R2" gate="R" pin="1"/>
+<wire x1="91.44" y1="271.78" x2="91.44" y2="269.24" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="269.24" x2="71.12" y2="269.24" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C41" gate="G$1" pin="-"/>
+<pinref part="GND36" gate="1" pin="GND"/>
+<wire x1="121.92" y1="294.64" x2="121.92" y2="289.56" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
@@ -18680,35 +18770,6 @@ Need SPI Cache hookup</text>
 </net>
 <net name="3.3V" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="VDD"/>
-<wire x1="111.76" y1="274.32" x2="111.76" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="271.78" x2="111.76" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="259.08" x2="111.76" y2="251.46" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="271.78" x2="116.84" y2="271.78" width="0.1524" layer="91"/>
-<junction x="111.76" y="271.78"/>
-<pinref part="C26" gate="CE" pin="1"/>
-<pinref part="U$1" gate="G$1" pin="VDD2"/>
-<wire x1="116.84" y1="251.46" x2="116.84" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="259.08" x2="111.76" y2="259.08" width="0.1524" layer="91"/>
-<junction x="111.76" y="259.08"/>
-<pinref part="C27" gate="CE" pin="1"/>
-<junction x="116.84" y="259.08"/>
-<pinref part="U$1" gate="G$1" pin="VDDA"/>
-<pinref part="C28" gate="CE" pin="2"/>
-<wire x1="60.96" y1="236.22" x2="60.96" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="60.96" y1="243.84" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="243.84" x2="93.98" y2="243.84" width="0.1524" layer="91"/>
-<wire x1="111.76" y1="259.08" x2="81.28" y2="259.08" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="259.08" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
-<junction x="81.28" y="243.84"/>
-<pinref part="U$1" gate="G$1" pin="VREFH"/>
-<wire x1="93.98" y1="236.22" x2="81.28" y2="236.22" width="0.1524" layer="91"/>
-<wire x1="81.28" y1="236.22" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
-<pinref part="C29" gate="CE" pin="2"/>
-<junction x="81.28" y="236.22"/>
-<pinref part="P+2" gate="G$1" pin="3.3V"/>
-</segment>
-<segment>
 <pinref part="U$1" gate="G$1" pin="VBAT2"/>
 <pinref part="C30" gate="CE" pin="2"/>
 <wire x1="134.62" y1="223.52" x2="144.78" y2="223.52" width="0.1524" layer="91"/>
@@ -18728,6 +18789,20 @@ Need SPI Cache hookup</text>
 <pinref part="J1" gate="J" pin="VDD"/>
 <wire x1="195.58" y1="170.18" x2="181.61" y2="170.18" width="0.1524" layer="91"/>
 <pinref part="P+4" gate="G$1" pin="3.3V"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="VDD"/>
+<pinref part="P+1" gate="G$1" pin="3.3V"/>
+<wire x1="45.72" y1="182.88" x2="48.26" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="48.26" y1="182.88" x2="48.26" y2="185.42" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$8" gate="G$1" pin="IN"/>
+<pinref part="C40" gate="G$1" pin="+"/>
+<wire x1="58.42" y1="304.8" x2="43.18" y2="304.8" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="304.8" x2="43.18" y2="292.1" width="0.1524" layer="91"/>
+<pinref part="P+2" gate="G$1" pin="3.3V"/>
+<junction x="43.18" y="304.8"/>
 </segment>
 </net>
 <net name="N$5" class="0">
@@ -18765,17 +18840,16 @@ Need SPI Cache hookup</text>
 </net>
 <net name="PE3" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="PTA20/!RESET"/>
 <pinref part="J1" gate="J" pin="SRST"/>
 <wire x1="173.99" y1="160.02" x2="157.48" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="157.48" y1="160.02" x2="139.7" y2="160.02" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="160.02" x2="139.7" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="157.48" x2="134.62" y2="157.48" width="0.1524" layer="91"/>
 <label x="149.86" y="160.02" size="1.778" layer="95"/>
-<wire x1="157.48" y1="160.02" x2="157.48" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="160.02" x2="157.48" y2="157.48" width="0.1524" layer="91"/>
+<wire x1="157.48" y1="157.48" x2="157.48" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="157.48" y1="139.7" x2="238.76" y2="139.7" width="0.1524" layer="91"/>
-<junction x="157.48" y="160.02"/>
 <label x="241.3" y="139.7" size="1.778" layer="95"/>
+<pinref part="U$1" gate="G$1" pin="PTA20/!RESET"/>
+<wire x1="134.62" y1="157.48" x2="157.48" y2="157.48" width="0.1524" layer="91"/>
+<junction x="157.48" y="157.48"/>
 </segment>
 </net>
 <net name="VPA" class="0">
@@ -18862,6 +18936,57 @@ Need SPI Cache hookup</text>
 <junction x="373.38" y="198.12"/>
 <wire x1="373.38" y1="198.12" x2="370.84" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="C24" gate="CE" pin="1"/>
+</segment>
+</net>
+<net name="N$3" class="0">
+<segment>
+<pinref part="U$1" gate="G$1" pin="VDD"/>
+<wire x1="111.76" y1="271.78" x2="111.76" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="259.08" x2="111.76" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="271.78" x2="116.84" y2="271.78" width="0.1524" layer="91"/>
+<junction x="111.76" y="271.78"/>
+<pinref part="C26" gate="CE" pin="1"/>
+<pinref part="U$1" gate="G$1" pin="VDD2"/>
+<wire x1="116.84" y1="251.46" x2="116.84" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="116.84" y1="259.08" x2="111.76" y2="259.08" width="0.1524" layer="91"/>
+<junction x="111.76" y="259.08"/>
+<pinref part="C27" gate="CE" pin="1"/>
+<junction x="116.84" y="259.08"/>
+<pinref part="U$1" gate="G$1" pin="VDDA"/>
+<pinref part="C28" gate="CE" pin="2"/>
+<wire x1="60.96" y1="236.22" x2="60.96" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="60.96" y1="243.84" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="243.84" x2="93.98" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="259.08" x2="81.28" y2="259.08" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="259.08" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
+<junction x="81.28" y="243.84"/>
+<pinref part="U$1" gate="G$1" pin="VREFH"/>
+<wire x1="93.98" y1="236.22" x2="81.28" y2="236.22" width="0.1524" layer="91"/>
+<wire x1="81.28" y1="236.22" x2="81.28" y2="243.84" width="0.1524" layer="91"/>
+<pinref part="C29" gate="CE" pin="2"/>
+<junction x="81.28" y="236.22"/>
+<pinref part="U$8" gate="G$1" pin="OUT"/>
+<wire x1="83.82" y1="294.64" x2="91.44" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="294.64" x2="111.76" y2="294.64" width="0.1524" layer="91"/>
+<wire x1="111.76" y1="294.64" x2="111.76" y2="271.78" width="0.1524" layer="91"/>
+<pinref part="C39" gate="G$1" pin="+"/>
+<wire x1="91.44" y1="294.64" x2="91.44" y2="292.1" width="0.1524" layer="91"/>
+<junction x="91.44" y="294.64"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="U$8" gate="G$1" pin="BYP"/>
+<pinref part="C41" gate="G$1" pin="+"/>
+<wire x1="83.82" y1="304.8" x2="121.92" y2="304.8" width="0.1524" layer="91"/>
+<wire x1="121.92" y1="304.8" x2="121.92" y2="302.26" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$13" class="0">
+<segment>
+<pinref part="C39" gate="G$1" pin="-"/>
+<pinref part="R2" gate="R" pin="2"/>
+<wire x1="91.44" y1="284.48" x2="91.44" y2="281.94" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
