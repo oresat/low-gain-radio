@@ -127,6 +127,7 @@ void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, ui
 
 		/* grab data into buffer */
 		recv[i] = SPI->DL;
+
 	}
 }
 
