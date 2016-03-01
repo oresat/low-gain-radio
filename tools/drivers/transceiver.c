@@ -91,7 +91,7 @@ struct TRANSCEIVER transceiver = {
 void read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	uint8_t addr_buffer[length + 1];
 	addr_buffer[0] = address;
-	for (int i = 0; i < length, i++){
+	for (int i = 0; i < length; i++){
 		addr_buffer[i + 1] = buffer[i];
 	}
 	spi_read(&SPI0, length + 1, addr_buffer);
@@ -100,7 +100,7 @@ void read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 void write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	uint8_t addr_buffer[length + 1];
 	addr_buffer[0] = 1 << 7 | address;
-	for (int i = 0; i < length, i++){
+	for (int i = 0; i < length; i++){
 		addr_buffer[i + 1] = buffer[i];
 	}
 	spi_write(&SPI0, length + 1, addr_buffer);
