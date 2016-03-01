@@ -45,6 +45,7 @@ void initialize_spi(void){
 	uint8_t DioMapping2Cfg = 0x00;
 	write_register(transceiver.RegDioMapping2, &DioMapping2Cfg, 1);
 
+
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
 
