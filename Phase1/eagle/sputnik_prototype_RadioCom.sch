@@ -17945,7 +17945,7 @@ them this way though to conserve space.</text>
 <wire x1="261.62" y1="149.86" x2="233.68" y2="149.86" width="0.1524" layer="97" style="longdash"/>
 <text x="241.3" y="147.32" size="1.778" layer="97">System Controller</text>
 <text x="284.48" y="147.32" size="1.778" layer="97">Things to do:
-Need LDO for KW0x 3V supply, TPS78930DBVR?
+
 Need SPI Cache hookup</text>
 <text x="322.58" y="101.6" size="1.778" layer="97">SPI Cache</text>
 <text x="241.3" y="99.06" size="1.778" layer="97">power</text>
