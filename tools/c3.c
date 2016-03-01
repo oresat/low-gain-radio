@@ -35,16 +35,16 @@ void initialize_spi(void){
 		/* Phase */
 		.CPHA = 0,
 
-		.SPIMODE = 0,
+		.SPIMODE = 1,
 	};
 
 	/* initialize SPI0 */
 	spi_init(&SPI0, &myConfig);
 
 	/* send to transceiver to get 32MHz clock signal on PTA18 */
-	uint8_t DioMapping2Cfg = 0x00;
-	write_register(transceiver.RegDioMapping2, &DioMapping2Cfg, 1);
-
+	uint16_t DioMapping2Cfg = (transceiver.RegDioMapping2 | 0x80) << 8;
+	uint16_t bleh = 0;
+	spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh );
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
