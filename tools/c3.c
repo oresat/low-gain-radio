@@ -152,24 +152,24 @@ int main(void) {
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	//configure_transceiver();
+	configure_transceiver();
 
 
 	//Configure the transceiver to send fsk packets
-	//struct mod_config m_config = {
-	//.data_mode = PACKET_MODE,
-	//.mod_type = FSK_MODULATION,
-	//.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
-	//};
-	//trans_set_op_mode(FS_MODE);
-	//trans_set_data_mod(&m_config);
-	//trans_set_op_mode(STANDBY_MODE);
-   	//uint8_t data [20];
-	//for (int i = 0; i < 20; i++){
-	//	data[i] = i;
-	//}
-	//trans_set_op_mode(TRANSMIT_MODE);
-	//write_register(0x00, data, 20);
+	struct mod_config m_config = {
+	.data_mode = PACKET_MODE,
+	.mod_type = FSK_MODULATION,
+	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
+	};
+	trans_set_op_mode(FS_MODE);
+	trans_set_data_mod(&m_config);
+	trans_set_op_mode(STANDBY_MODE);
+   	uint8_t data [20];
+	for (int i = 0; i < 20; i++){
+		data[i] = i;
+	}
+	trans_set_op_mode(TRANSMIT_MODE);
+	trans_write_register(0x00, data, 20);
 
 	while(1) {
 		/* generate bytes to send over UART */
@@ -181,7 +181,7 @@ int main(void) {
 		/* delay loop */
 	       	for(uint32_t j = 0; j < 250000; ++j);
 
-                //write_register(0x00, data, 20);
+            trans_write_register(0x00, data, 20);
 	       	/* toggle LED connected to PTB2 */
 	       	GPIOB.PTOR = 0x00004;
 		//}
