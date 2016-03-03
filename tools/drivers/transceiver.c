@@ -88,31 +88,23 @@ struct TRANSCEIVER transceiver = {
 	.RegTest = 0x50,
 };
 
-void read_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	uint8_t addr_buffer[length + 1];
-	addr_buffer[0] = address;
-	for (int i = 0; i < length; i++){
-		addr_buffer[i + 1] = buffer[i];
-	}
-	spi_read(&SPI0, length + 1, addr_buffer);
+void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
+	spi0_transaction_8(length, &address, 0, buffer);
 }
 
-void write_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	uint8_t addr_buffer[length + 1];
-	addr_buffer[0] = 1 << 7 | address;
-	for (int i = 0; i < length; i++){
-		addr_buffer[i + 1] = buffer[i];
-	}
-	spi_write(&SPI0, length + 1, addr_buffer);
+void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
+	address |= 0x80; //signal transceiver that this is a write op
+	spi0_transaction_8(length, &address, buffer, 0);
 }
+
 /*COMMON CONFIGURATION FUNCTIONS*/
 /*Change to operating mode of the transceiver. Sets bits 2-4 in RegOpMode*/
 void trans_set_op_mode(uint8_t mode){
 	uint8_t current_value;
-	read_register(transceiver.RegOpMode, &current_value, 0x1);
+	trans_read_register(transceiver.RegOpMode, &current_value, 0x1);
 	uint8_t new_value = current_value & !(mode << 2);
 	new_value |= (mode << 2);
-	write_register(transceiver.RegOpMode, &new_value, 0x1);
+	trans_write_register(transceiver.RegOpMode, &new_value, 0x1);
 }
 
 /*Configures the data modulation settings for the transceiver. See header for struct and defines*/
@@ -121,19 +113,19 @@ void trans_set_data_mod(struct mod_config * config){
 	new_value |= config->mod_type << 3;
 	new_value |= config->mod_shaping;
 
-	write_register(transceiver.RegDataModul, &new_value, 0x1);
+	trans_write_register(transceiver.RegDataModul, &new_value, 0x1);
 }
 
 /*Calibrates the RC*/
 void trans_calibrate_rc(void){
 	uint8_t calibrate_command = 0x80;
 	/*Initialize the calibration*/
-	write_register(transceiver.RegOsc1, &calibrate_command, 0x1);
+	trans_write_register(transceiver.RegOsc1, &calibrate_command, 0x1);
 
 	/*Wait until the calibration is done*/
 	uint8_t done = 0x0;
 	while (!done){
-		read_register(transceiver.RegOsc1, &done, 0x1);
+		trans_read_register(transceiver.RegOsc1, &done, 0x1);
 		done &= 0x40;
 	}
 }
@@ -142,24 +134,24 @@ void trans_calibrate_rc(void){
 //maybe include the current lowbat threshold later
 bool trans_read_low_bat(void){
 	uint8_t battery_low;
-	read_register(transceiver.RegLowBat, &battery_low, 0x1);
+	trans_read_register(transceiver.RegLowBat, &battery_low, 0x1);
 	return (battery_low & 0x10);
 }
 
 /*Enable the transceiver's ow battery monitor*/
 void trans_enable_battery_mon(void){
 	uint8_t current_value;
-	read_register(transceiver.RegLowBat, &current_value, 0x1);
+	trans_read_register(transceiver.RegLowBat, &current_value, 0x1);
 	uint8_t new_value = current_value |= 0x08;
-	write_register(transceiver.RegLowBat, &new_value, 0x1);
+	trans_write_register(transceiver.RegLowBat, &new_value, 0x1);
 }
 
 /*Disables the transceiver's low battery monitor*/
 void trans_disable_battery_mon(void){
 	uint8_t current_value;
-	read_register(transceiver.RegLowBat, &current_value, 0x1);
+	trans_read_register(transceiver.RegLowBat, &current_value, 0x1);
 	uint8_t new_value = current_value &= 0xF7;
-	write_register(transceiver.RegLowBat, &new_value, 0x1);	
+	trans_write_register(transceiver.RegLowBat, &new_value, 0x1);	
 }
 /*
 000 - 1.695 V
@@ -174,16 +166,16 @@ void trans_disable_battery_mon(void){
 /*Sets the threshold for the low battery monitor*/
 void trans_set_lowbat_thresh(uint8_t threshold){
 	uint8_t current_value;
-	read_register(transceiver.RegLowBat, &current_value, 0x1);
+	trans_read_register(transceiver.RegLowBat, &current_value, 0x1);
 	uint8_t new_value = current_value & !threshold;
 	new_value |= threshold;
-	write_register(transceiver.RegLowBat, &new_value, 0x1);
+	trans_write_register(transceiver.RegLowBat, &new_value, 0x1);
 }
 
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver(void){
 	uint8_t OpModeCfg = 0x08;
-	write_register(transceiver.RegOpMode, &OpModeCfg, 1); 
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1); 
 
 	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
 	
@@ -197,42 +189,42 @@ void configure_transceiver(void){
 	uint8_t FrfLsbCfg = 0x00;
 
 	/* WRITE configuration to appropriate registers */
-	write_register(transceiver.RegFrfMsb, &FrfMsbCfg, 1);
-	write_register(transceiver.RegFrfMid, &FrfMidCfg, 1);
-	write_register(transceiver.RegFrfLsb, &FrfLsbCfg, 1);
+	trans_write_register(transceiver.RegFrfMsb, &FrfMsbCfg, 1);
+	trans_write_register(transceiver.RegFrfMid, &FrfMidCfg, 1);
+	trans_write_register(transceiver.RegFrfLsb, &FrfLsbCfg, 1);
 
 	/* turn modulation to on-off keying */
 	uint8_t RegDataModulCfg = 0x68;
-	write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
+	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
 
 	/* configure PA level */
 	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
 	uint8_t RegPAOutputCfg = 0x80;
-	write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
 	/* Set transceiver to transmit mode by writing to op mode register */
 	OpModeCfg = 0x0C;
-	write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 
 }
 
 /*Enable listen mode*/
 void trans_enable_listen(void){
 	uint8_t current_value;
-	read_register(transceiver.RegOpMode, &current_value, 0x1);
+	trans_read_register(transceiver.RegOpMode, &current_value, 0x1);
 	uint8_t new_value = current_value | 0x40;
-	write_register(transceiver.RegOpMode, &new_value, 0x1);
+	trans_write_register(transceiver.RegOpMode, &new_value, 0x1);
 }
 
 /*Disable listen mode*/
 void trans_disable_listen(uint8_t new_mode){
 	uint8_t current_value;
-	read_register(transceiver.RegOpMode, &current_value, 0x1);
+	trans_read_register(transceiver.RegOpMode, &current_value, 0x1);
 	uint8_t new_value = current_value & !new_mode;
 	new_value |= new_mode;
 	new_value &= 0xBF;
 	new_value |= 0x20;
-	write_register(transceiver.RegOpMode, &new_value, 0x1);
+	trans_write_register(transceiver.RegOpMode, &new_value, 0x1);
 }
 
 /*Configure listen mode settings*/
@@ -247,51 +239,51 @@ void trans_config_listen(struct listen_config * config){
 	listen_config_vals[2] = config->receive_coef;
 
 	/*Write the configuration to the three registers*/
-	write_register(transceiver.RegListen1, listen_config_vals, 0x3);
+	trans_write_register(transceiver.RegListen1, listen_config_vals, 0x3);
 }
 
 /*TRANSMITTER CONFIGURATION FUNCTIONS*/
 /*Sets the pa output power. -18dB + power with PA0 or PA1. 2dB + power with PA2*/
 void trans_set_pa_output(uint8_t power){
 	uint8_t current_value;
-	read_register(transceiver.RegPaLevel, &current_value, 0x1);
+	trans_read_register(transceiver.RegPaLevel, &current_value, 0x1);
 	uint8_t new_value = current_value & !power;
 	new_value |= power;
-	write_register(transceiver.RegPaLevel, &new_value, 0x1);
+	trans_write_register(transceiver.RegPaLevel, &new_value, 0x1);
 }
 
 /*Set the pa ramp power for FSK mode*/
 void trans_set_pa_ramp(uint8_t ramp_speed){
 	uint8_t current_value;
-	read_register(transceiver.RegPaRamp, &current_value, 0x1);
+	trans_read_register(transceiver.RegPaRamp, &current_value, 0x1);
 	uint8_t new_value = current_value & !ramp_speed;
 	new_value |= ramp_speed;
-	write_register(transceiver.RegPaRamp, &new_value, 0x1);
+	trans_write_register(transceiver.RegPaRamp, &new_value, 0x1);
 }
 
 /*Enable the overload current protection circuit*/
 void trans_enable_ocp(void){
 	uint8_t current_value;
-	read_register(transceiver.RegOcp, &current_value, 0x1);
+	trans_read_register(transceiver.RegOcp, &current_value, 0x1);
 	uint8_t new_value = current_value | 0x08;
-	write_register(transceiver.RegOcp, &new_value, 0x1);
+	trans_write_register(transceiver.RegOcp, &new_value, 0x1);
 }
 
 /*Disable the overload current protection circuit*/
 void trans_disable_ocp(void){
 	uint8_t current_value;
-	read_register(transceiver.RegOcp, &current_value, 0x1);
+	trans_read_register(transceiver.RegOcp, &current_value, 0x1);
 	uint8_t new_value = current_value & 0xF7;
-	write_register(transceiver.RegOcp, &new_value, 0x1);
+	trans_write_register(transceiver.RegOcp, &new_value, 0x1);
 }
 
 /*Set the overload current protection circuit threshold*/
 void trans_set_ocp_trim(uint8_t trim_value){
 	uint8_t current_value;
-	read_register(transceiver.RegOcp, &current_value, 0x1);
+	trans_read_register(transceiver.RegOcp, &current_value, 0x1);
 	uint8_t new_value = current_value & !trim_value;
 	new_value |= trim_value;
-	write_register(transceiver.RegOcp, &new_value, 0x1);
+	trans_write_register(transceiver.RegOcp, &new_value, 0x1);
 }
 
 /*RECEIVER CONFIGURATION FUNCTIONS*/
@@ -299,16 +291,16 @@ void trans_set_ocp_trim(uint8_t trim_value){
 /*PACKET ENGINE CONFIGURATION FUNCTIONS*/
 void trans_enable_sync(void){
 	uint8_t current_value;
-	read_register(transceiver.RegSyncConfig, &current_value, 0x1);
+	trans_read_register(transceiver.RegSyncConfig, &current_value, 0x1);
 	uint8_t new_value = current_value | 0x80;
-	write_register(transceiver.RegSyncConfig, &new_value, 0x1);
+	trans_write_register(transceiver.RegSyncConfig, &new_value, 0x1);
 }
 
 void trans_disable_sync(void){
 	uint8_t current_value;
-	read_register(transceiver.RegSyncConfig, &current_value, 0x1);
+	trans_read_register(transceiver.RegSyncConfig, &current_value, 0x1);
 	uint8_t new_value = current_value & 0x7F;
-	write_register(transceiver.RegSyncConfig, &new_value, 0x1);
+	trans_write_register(transceiver.RegSyncConfig, &new_value, 0x1);
 }
 
 void trans_set_sync_config(struct sync_config * config){
@@ -317,20 +309,20 @@ void trans_set_sync_config(struct sync_config * config){
 	config_value |= config->sync_error_toleration;
 
 	uint8_t current_value;
-	read_register(transceiver.RegSyncConfig, &current_value, 0x1);
+	trans_read_register(transceiver.RegSyncConfig, &current_value, 0x1);
 	uint8_t new_value = current_value & !config_value;
 	new_value |= config_value;
-	write_register(transceiver.RegSyncConfig, &new_value, 0x1);
+	trans_write_register(transceiver.RegSyncConfig, &new_value, 0x1);
 
 	/*Burst write the whole synce word*/
 	for (uint8_t i = 0; i < config->sync_word_size; i++){
-		write_register(transceiver.RegSyncValue1, config->sync_word, (config->sync_word_size));
+		trans_write_register(transceiver.RegSyncValue1, config->sync_word, (config->sync_word_size));
 	}
 }
 
 void trans_set_packet_config(struct packet_config * config){
 	/*Burst write the preamble size to the MSB and LSB registers*/
-	write_register(transceiver.RegPreambleMsb, config->preamble_size, 0x2);
+	trans_write_register(transceiver.RegPreambleMsb, config->preamble_size, 0x2);
 
 	/*Build the configuration value for the packet config 1 reg*/
 	uint8_t config_value = config->packet_format << 7;
@@ -339,44 +331,44 @@ void trans_set_packet_config(struct packet_config * config){
 	config_value |= config->crc_auto_clear << 3;
 	config_value |= config->address_filtering << 1;
 	
-	write_register(transceiver.RegPacketConfig1, &config_value, 0x1);
+	trans_write_register(transceiver.RegPacketConfig1, &config_value, 0x1);
 
-	write_register(transceiver.RegPayloadLength, &config->payload_length, 0x1);
+	trans_write_register(transceiver.RegPayloadLength, &config->payload_length, 0x1);
 	
-	write_register(transceiver.RegNodeAdrs, &config->node_address, 0x1);
+	trans_write_register(transceiver.RegNodeAdrs, &config->node_address, 0x1);
 	
-	write_register(transceiver.RegBroadcastAdrs, &config->broadcast_address, 0x1);
+	trans_write_register(transceiver.RegBroadcastAdrs, &config->broadcast_address, 0x1);
 	
 	config_value = (config->tx_start_cond << 7) | config->fifo_threshold;
-	write_register(transceiver.RegFifoThresh, &config_value, 0x1);
+	trans_write_register(transceiver.RegFifoThresh, &config_value, 0x1);
 	
 	config_value = (config->inter_packet_rxdelay << 4) | (config->auto_rx_restart << 1);
 	uint8_t current_value;
-	read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
+	trans_read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
 	uint8_t new_value;
 	new_value = current_value & !config_value;
 	new_value |= config_value;
-	write_register(transceiver.RegPacketConfig2, &new_value, 0x1);
+	trans_write_register(transceiver.RegPacketConfig2, &new_value, 0x1);
 }
 
 void trans_enable_aes(void){
 	uint8_t current_value;
 	uint8_t new_value;
-	read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
+	trans_read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
 	new_value = current_value | 0x1;
-	write_register(transceiver.RegPacketConfig2, &new_value, 0x1);
+	trans_write_register(transceiver.RegPacketConfig2, &new_value, 0x1);
 }
 
 void trans_disable_aes(void){
 	uint8_t current_value;
 	uint8_t new_value;
-	read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
+	trans_read_register(transceiver.RegPacketConfig2, &current_value, 0x1);
 	new_value = current_value & 0xFE;
-	write_register(transceiver.RegPacketConfig2, &new_value, 0x1);	
+	trans_write_register(transceiver.RegPacketConfig2, &new_value, 0x1);	
 }
 
 void trans_set_aes_key(uint8_t * buffer){ /*16 bytes*/
-	write_register(transceiver.RegAesKey1, buffer, 16);
+	trans_write_register(transceiver.RegAesKey1, buffer, 16);
 } 
 
 void trans_set_automode_config(struct automode_config * config){
@@ -384,19 +376,19 @@ void trans_set_automode_config(struct automode_config * config){
 	config_value |= config->exit_cond << 2;
 	config_value |= config->intermed_cond;
 
-	write_register(transceiver.RegAutoModes, &config_value, 0x1);
+	trans_write_register(transceiver.RegAutoModes, &config_value, 0x1);
 }
 
 /*TEMPERATURE SENSOR CONFIGURATION FUNCTIONS*/
 void trans_start_temp_measure(void){
 	uint8_t reading_temp;
 	uint8_t current_value;
-	read_register(transceiver.RegTemp1, &current_value, 0x1);
+	trans_read_register(transceiver.RegTemp1, &current_value, 0x1);
 	uint8_t new_value = current_value | 0x08;
-	write_register(transceiver.RegTemp1, &new_value, 0x1);
+	trans_write_register(transceiver.RegTemp1, &new_value, 0x1);
 	reading_temp = 1;
 	while(reading_temp){
-		read_register(transceiver.RegTemp1, &reading_temp, 0x1);
+		trans_read_register(transceiver.RegTemp1, &reading_temp, 0x1);
 		reading_temp &= 0x04;	
 	}	
 }
@@ -405,7 +397,7 @@ void trans_start_temp_measure(void){
 uint8_t trans_read_temp(void){
 	uint8_t temperature;
 	trans_start_temp_measure();
-	read_register(transceiver.RegTemp1, &temperature, 0x1);
+	trans_read_register(transceiver.RegTemp1, &temperature, 0x1);
 	return temperature;
 }
 
