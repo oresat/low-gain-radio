@@ -191,7 +191,6 @@ struct packet_config {
 };
 
 /* function prototypes */
-uint8_t mask_spi_addr(uint8_t addr, uint8_t write, uint8_t byteToWrite);
 void configure_transceiver(void);
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);

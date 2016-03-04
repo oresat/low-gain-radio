@@ -44,10 +44,11 @@ void initialize_spi(void){
 	/* send to transceiver to get 32MHz clock signal on PTA18 */
 	uint16_t DioMapping2Cfg = (transceiver.RegDioMapping2 | 0x80) << 8;
 	uint16_t bleh = 0;
-	spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh);
+	//spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh);
+	spi_transaction(&SPI0, 1, &DioMapping2Cfg, &bleh);
 
-	//myConfig.SPIMODE = 0;
-	//spi_init(&SPI0, &myConfig);
+	myConfig.SPIMODE = 0;
+	spi_init(&SPI0, &myConfig);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
@@ -155,18 +156,19 @@ int main(void) {
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	//configure_transceiver();
+	configure_transceiver();
 
-	uint16_t FIFObyte = (transceiver.RegFifo | 0x80) << 8 | 0xFF;
-	//uint8_t FIFObytes[] = {transceiver.RegFifo | 0x80, 0xFF};
-	uint16_t bleh = 0;
-	//uint8_t bleh2 = 0;
+	//uint16_t FIFObyte = (transceiver.RegFifo | 0x80) << 8 | 0xFF;
+	uint8_t FIFObytes[] = {transceiver.RegFifo | 0x80, 0xFF};
+	//uint16_t bleh = 0;
+	uint8_t bleh2 = 0;
 
 	while(1) {
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-		spi_transaction_16(&SPI0, 1, &FIFObyte, &bleh);
-		//spi_transaction_8(&SPI0, 2, FIFObytes, &bleh2);
+		//spi_transaction(&SPI0, 1, &FIFObyte, &bleh);
+		//spi_transaction_16(&SPI0, 1, &FIFObyte, &bleh);
+		spi_transaction_8(&SPI0, 2, FIFObytes, &bleh2);
 
 	       	/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = 0x00004;
