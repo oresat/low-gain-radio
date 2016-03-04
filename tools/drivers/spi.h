@@ -43,7 +43,7 @@ void spi_write_8(volatile struct spi * SPI, size_t len, uint8_t * buffer);
 		)(SPI, len, buffer)
 
 /* SPI transaction frame */
-void spi0_transaction_8(size_t len, uint8_t * address, uint8_t * send, uint8_t * recv);
+//void spi0_transaction_8(size_t len, uint8_t * address, uint8_t * send, uint8_t * recv);
 void spi_transaction_16(volatile struct spi * SPI, size_t len, uint16_t * send, uint16_t * recv);
 void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, uint8_t * recv);
 #define spi_transaction(SPI, len, send, recv) _Generic((send), \

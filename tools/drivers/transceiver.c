@@ -89,12 +89,12 @@ struct TRANSCEIVER transceiver = {
 };
 
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	spi0_transaction_8(length, &address, 0, buffer);
+  //spi0_transaction_8(length, &address, 0, buffer);
 }
 
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	address |= 0x80; //signal transceiver that this is a write op
-	spi0_transaction_8(length, &address, buffer, 0);
+  //address |= 0x80; //signal transceiver that this is a write op
+	//spi0_transaction_8(length, &address, buffer, 0);
 }
 
 /*COMMON CONFIGURATION FUNCTIONS*/
@@ -174,38 +174,46 @@ void trans_set_lowbat_thresh(uint8_t threshold){
 
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver(void){
-	uint8_t OpModeCfg = 0x08;
-	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1); 
+	uint16_t results[7];
+
+	uint16_t OpModeCfg = ((transceiver.RegOpMode | 0x80) << 8) | 0x08;
+	spi_transaction_16(&SPI0, 1, &OpModeCfg, &results[0]);
+	//trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 
 	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
 	
 	/* RegFrfMsb */
-	uint8_t FrfMsbCfg = 0x6D;
+	uint16_t FrfMsbCfg = ((transceiver.RegFrfMsb | 0x80) << 8) | 0x6D;
 
 	/* RegFrfMid */
-	uint8_t FrfMidCfg = 0x20;
+	uint16_t FrfMidCfg = ((transceiver.RegFrfMid | 0x80) << 8) | 0x20;
 
 	/* RegFrfLsb */
-	uint8_t FrfLsbCfg = 0x00;
+	uint16_t FrfLsbCfg = ((transceiver.RegFrfLsb | 0x80) << 8) | 0x00;
 
 	/* WRITE configuration to appropriate registers */
-	trans_write_register(transceiver.RegFrfMsb, &FrfMsbCfg, 1);
-	trans_write_register(transceiver.RegFrfMid, &FrfMidCfg, 1);
-	trans_write_register(transceiver.RegFrfLsb, &FrfLsbCfg, 1);
+	//trans_write_register(transceiver.RegFrfMsb, &FrfMsbCfg, 1);
+	//trans_write_register(transceiver.RegFrfMid, &FrfMidCfg, 1);
+	//trans_write_register(transceiver.RegFrfLsb, &FrfLsbCfg, 1);
+	spi_transaction_16(&SPI0, 1, &FrfMsbCfg, &results[1]);
+	spi_transaction_16(&SPI0, 1, &FrfMidCfg, &results[2]);
+	spi_transaction_16(&SPI0, 1, &FrfLsbCfg, &results[3]);
 
 	/* turn modulation to on-off keying */
-	uint8_t RegDataModulCfg = 0x68;
-	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
+	uint16_t RegDataModulCfg = ((transceiver.RegDataModul | 0x80) << 8) | 0x68;
+	spi_transaction_16(&SPI0, 1, &RegDataModulCfg, &results[4]);
+	//trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
 
 	/* configure PA level */
 	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
-	uint8_t RegPAOutputCfg = 0x80;
-	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+	uint16_t RegPAOutputCfg = ((transceiver.RegPaLevel | 0x80) << 8) | 0x80;
+	spi_transaction_16(&SPI0, 1, &RegPAOutputCfg, &results[5]);
+	//trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
 	/* Set transceiver to transmit mode by writing to op mode register */
-	OpModeCfg = 0x0C;
-	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
-
+	OpModeCfg = ((transceiver.RegOpMode | 0x80) << 8) | 0x0C;
+	//trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+	spi_transaction_16(&SPI0, 1, &OpModeCfg, &results[6]);
 }
 
 /*Enable listen mode*/

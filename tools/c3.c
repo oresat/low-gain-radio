@@ -44,7 +44,10 @@ void initialize_spi(void){
 	/* send to transceiver to get 32MHz clock signal on PTA18 */
 	uint16_t DioMapping2Cfg = (transceiver.RegDioMapping2 | 0x80) << 8;
 	uint16_t bleh = 0;
-	spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh );
+	spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh);
+
+	//myConfig.SPIMODE = 0;
+	//spi_init(&SPI0, &myConfig);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
 	SIM.SCGC4 &= 0xFF3FFFFF;
@@ -152,39 +155,21 @@ int main(void) {
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver();
+	//configure_transceiver();
 
-
-	//Configure the transceiver to send fsk packets
-	struct mod_config m_config = {
-	.data_mode = PACKET_MODE,
-	.mod_type = FSK_MODULATION,
-	.mod_shaping = NO_SHAPING, /*Needs to switch to gaussian*/
-	};
-	trans_set_op_mode(FS_MODE);
-	trans_set_data_mod(&m_config);
-	trans_set_op_mode(STANDBY_MODE);
-   	uint8_t data [20];
-	for (int i = 0; i < 20; i++){
-		data[i] = i;
-	}
-	trans_set_op_mode(TRANSMIT_MODE);
-	trans_write_register(0x00, data, 20);
+	uint16_t FIFObyte = (transceiver.RegFifo | 0x80) << 8 | 0xFF;
+	//uint8_t FIFObytes[] = {transceiver.RegFifo | 0x80, 0xFF};
+	uint16_t bleh = 0;
+	//uint8_t bleh2 = 0;
 
 	while(1) {
-		/* generate bytes to send over UART */
-	      	//for(uint8_t k = 0x0; k < 0xFF; k+=0x1){
-		/* send byte */
-		//uart0_write(&UART0, 1, &k);
+		for(uint32_t i = 0; i < 1000000; ++i);
 
+		spi_transaction_16(&SPI0, 1, &FIFObyte, &bleh);
+		//spi_transaction_8(&SPI0, 2, FIFObytes, &bleh2);
 
-		/* delay loop */
-	       	for(uint32_t j = 0; j < 250000; ++j);
-
-            trans_write_register(0x00, data, 20);
 	       	/* toggle LED connected to PTB2 */
-	       	GPIOB.PTOR = 0x00004;
-		//}
+		GPIOB.PTOR = 0x00004;
 	}
 	return 0;
 }
