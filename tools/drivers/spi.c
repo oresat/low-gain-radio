@@ -4,7 +4,7 @@
 	Programmed by William Harrington, Theo Hill
 */
 #include "spi.h"
-
+#include <assert.h>
 
 static const struct pin_assign PCS0 [] = {
 	{.module=&SPI0, .pin={&PORTE, 16}, .alt=2},
@@ -72,21 +72,33 @@ void spi_init(volatile struct spi * SPI, const struct spi_config * config){
 }
 
 void spi_read_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
+	/* prevent calls when in 8-bit SPI mode */
+ 	assert(SPI->C2 & (1 << 6));
+
 	uint16_t dummy[len];
 	spi_transaction_16(SPI, len, dummy, buffer);
 }
 
 void spi_read_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
+	/* prevent calls when in 16-bit SPI mode */
+	assert(!(SPI->C2 & (1 << 6)));
+
 	uint8_t dummy[len];
 	spi_transaction_8(SPI, len, dummy, buffer);
 }
 
 void spi_write_16(volatile struct spi * SPI, size_t len, uint16_t * buffer) {
+	/* prevent calls when in 8-bit SPI mode */
+	assert(SPI->C2 & (1 << 6));
+
 	uint16_t dummy[len];
 	spi_transaction_16(SPI, len, buffer, dummy);
 }
 
 void spi_write_8(volatile struct spi * SPI, size_t len, uint8_t * buffer) {
+	/* prevent calls when in 16-bit SPI mode */
+	assert(!(SPI->C2 & (1 << 6)));
+
 	uint8_t dummy[len];
 	spi_transaction_8(SPI, len, buffer, dummy);
 }
@@ -136,54 +148,3 @@ void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, ui
 
 	}
 }
-
-
-//void spi0_transaction_8(size_t len, uint8_t * address, uint8_t * send, uint8_t * recv){
-	//if(!len) return;
-
- 	/*Create a dummy array for unwanted received data*/
- 	//if (!recv){
-		//uint8_t recv [len];
-	//}
-
- 	/*Drive the slave select output low to initiate a transfer*/
- 	//GPIOD.PCOR = 0x1;
-
-	/* poll the transmit buffer empty flag */
-	//while(!(SPI0.S & (1 << 5)));
-
-	/* send byte by writing to the data registers */
-	//SPI0.DL = address[0];
-
-	/* grab data into buffer */
-	//while(!(SPI0.S & (1 << 7)));
-
-	//recv[i] = SPI0.DL;
-
-	/* iterate through number of bytes for transaction */
-		/*If this is a write operation*/
-		//if (address[0] & 0x80){
-			//for(unsigned int i = 0; i < len; ++i){
-				/* poll the transmit buffer empty flag */
-				//while(!(SPI0.S & (1 << 5)));
-
-				/* send byte by writing to the data registers */
-				//SPI0.DL = send[i];
-
-				/* grab data into buffer */
-				//while(!(SPI0.S & (1 << 7)));
-				//recv[i] = SPI0.DL;
-			//}
-			//GPIOD.PSOR = 0x1;
-		//}
-		//else{
-			//for(unsigned int i = 0; i < len; ++i){
-				/* grab data into buffer */
-				//while(!(SPI0.S & (1 << 7)));
-				//recv[i] = SPI0.DL;
-			//}
-			//GPIOD.PSOR = 0x1;
-		//}
-//}
-
-
