@@ -17957,6 +17957,8 @@ them this way though to conserve space.</text>
 <wire x1="60.96" y1="200.66" x2="60.96" y2="149.86" width="0.1524" layer="97" style="longdash"/>
 <wire x1="60.96" y1="149.86" x2="7.62" y2="149.86" width="0.1524" layer="97" style="longdash"/>
 <wire x1="7.62" y1="149.86" x2="7.62" y2="200.66" width="0.1524" layer="97" style="longdash"/>
+<text x="99.06" y="116.84" size="1.778" layer="97">TODO:
+-Fix RF GND</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
