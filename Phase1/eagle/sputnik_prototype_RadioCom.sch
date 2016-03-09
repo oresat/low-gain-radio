@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -17957,8 +17957,11 @@ them this way though to conserve space.</text>
 <wire x1="60.96" y1="200.66" x2="60.96" y2="149.86" width="0.1524" layer="97" style="longdash"/>
 <wire x1="60.96" y1="149.86" x2="7.62" y2="149.86" width="0.1524" layer="97" style="longdash"/>
 <wire x1="7.62" y1="149.86" x2="7.62" y2="200.66" width="0.1524" layer="97" style="longdash"/>
-<text x="99.06" y="116.84" size="1.778" layer="97">TODO:
--Fix RF GND</text>
+<text x="86.36" y="116.84" size="1.778" layer="97">TODO:
+-Fix RF GND
+-2mm 2x22pin custom part and placement (83B-44PA-2DS(71)-ND)
+(H123075-ND)
+-EN line on PA to KW0x</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
