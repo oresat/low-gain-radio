@@ -18125,10 +18125,9 @@ them this way though to conserve space.</text>
 <wire x1="60.96" y1="200.66" x2="60.96" y2="160.02" width="0.1524" layer="97" style="longdash"/>
 <wire x1="60.96" y1="160.02" x2="7.62" y2="160.02" width="0.1524" layer="97" style="longdash"/>
 <wire x1="7.62" y1="160.02" x2="7.62" y2="200.66" width="0.1524" layer="97" style="longdash"/>
-<text x="86.36" y="116.84" size="1.778" layer="97">TODO:
+<text x="104.14" y="81.28" size="1.778" layer="97">TODO:
 -Make footprint for 22pin (83B-44PA-2DS(71)-ND)
-(H123075-ND)
--Switch</text>
+(H123075-ND)</text>
 <text x="264.16" y="137.16" size="1.778" layer="97">All these go to 22 pinout</text>
 <wire x1="353.06" y1="233.68" x2="248.92" y2="233.68" width="0.1524" layer="97" style="longdash"/>
 <wire x1="154.94" y1="292.1" x2="185.42" y2="292.1" width="0.1524" layer="97" style="longdash"/>
@@ -19306,10 +19305,8 @@ them this way though to conserve space.</text>
 </segment>
 <segment>
 <pinref part="KW0X" gate="G$1" pin="PTE1"/>
-<wire x1="93.98" y1="167.64" x2="66.04" y2="167.64" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="167.64" x2="66.04" y2="157.48" width="0.1524" layer="91"/>
-<wire x1="66.04" y1="157.48" x2="50.8" y2="157.48" width="0.1524" layer="91"/>
-<label x="43.18" y="157.48" size="1.778" layer="95"/>
+<wire x1="93.98" y1="167.64" x2="86.36" y2="167.64" width="0.1524" layer="91"/>
+<label x="78.74" y="167.64" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="N$4" class="0">
@@ -19509,6 +19506,18 @@ them this way though to conserve space.</text>
 <pinref part="X2" gate="-21" pin="S"/>
 <wire x1="25.4" y1="78.74" x2="50.8" y2="78.74" width="0.1524" layer="91"/>
 <label x="53.34" y="78.74" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="LNA_EN" class="0">
+<segment>
+<pinref part="KW0X" gate="G$1" pin="PTC7"/>
+<wire x1="93.98" y1="195.58" x2="86.36" y2="195.58" width="0.1524" layer="91"/>
+<label x="76.2" y="195.58" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$7" gate="G$1" pin="EN"/>
+<wire x1="375.92" y1="137.16" x2="373.38" y2="137.16" width="0.1524" layer="91"/>
+<label x="363.22" y="137.16" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
