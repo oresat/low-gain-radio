@@ -18395,8 +18395,8 @@ Source: www.mpe-connector.de / garry_shortform_2012.pdf</description>
 <attribute name="MFN" value="M/A-Com Technology Solutions"/>
 <attribute name="MPN" value="MAAL-010704-TR3000"/>
 </part>
-<part name="R1" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK"/>
-<part name="L8" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK"/>
+<part name="R1" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="250"/>
+<part name="L8" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="150nH"/>
 <part name="TRSWITCH" library="psas_c3_team05" deviceset="SKY13405-490LF" device="">
 <attribute name="MFN" value="Skyworks"/>
 <attribute name="MPN" value="SKY13405-490LF"/>
@@ -18429,10 +18429,10 @@ Source: www.mpe-connector.de / garry_shortform_2012.pdf</description>
 <part name="P+3" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+4" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="TP15" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="C23" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK"/>
-<part name="C24" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK"/>
+<part name="C23" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF"/>
+<part name="C24" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
 <part name="C25" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF"/>
-<part name="C43" library="rcl" deviceset="CPOL-US" device="CT6032"/>
+<part name="C43" library="rcl" deviceset="CPOL-US" device="CT6032" value="100uF"/>
 <part name="L7" library="rcl_custom" deviceset="L-US" device="0402-B-NOSILK"/>
 <part name="U$9" library="psas_c3_team05" deviceset="LD39200" device=""/>
 <part name="C13" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
@@ -18542,15 +18542,25 @@ Source: www.mpe-connector.de / garry_shortform_2012.pdf</description>
 <part name="R8" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
 <part name="GND10" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED5" library="psas_c3_team05" deviceset="LED" device="-0603">
-<attribute name="GREEN" value=""/>
+<attribute name="ORANGE" value=""/>
 </part>
 <part name="R9" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
 <part name="GND11" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED6" library="psas_c3_team05" deviceset="LED" device="-0603">
-<attribute name="GREEN" value=""/>
+<attribute name="ORANGE" value=""/>
 </part>
 <part name="R10" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
 <part name="GND12" library="psas_c3_team05" deviceset="GND" device=""/>
+<part name="LED7" library="psas_c3_team05" deviceset="LED" device="-0603">
+<attribute name="ORANGE" value=""/>
+</part>
+<part name="R11" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="GND13" library="psas_c3_team05" deviceset="GND" device=""/>
+<part name="LED8" library="psas_c3_team05" deviceset="LED" device="-0603">
+<attribute name="ORANGE" value=""/>
+</part>
+<part name="R12" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="GND14" library="psas_c3_team05" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18586,7 +18596,7 @@ Source: www.mpe-connector.de / garry_shortform_2012.pdf</description>
 <text x="439.42" y="195.58" size="1.778" layer="97">RF Tx/Rx Switch</text>
 <text x="518.16" y="173.99" size="1.778" layer="97">MCX to 70 cm
 Antenna</text>
-<text x="66.04" y="25.4" size="1.778" layer="100">UART connection between KW0x and ATMega128
+<text x="63.5" y="55.88" size="1.778" layer="97">UART connection between KW0x and ATMega128
 
 PTA1 = KW0x UART0 RX
 PTA2 = KW0x UART0 TX
@@ -18596,7 +18606,7 @@ PE0 = ATMega128 UART0 RX
 
 PE1 is connected to PTA1
 PE0 is connected to PTA2</text>
-<text x="332.74" y="168.91" size="1.778" layer="100">TODO: FIGURE OUT VALUES FOR LNA</text>
+<text x="378.46" y="161.29" size="1.778" layer="100">TODO: FIGURE OUT VALUE FOR L7</text>
 <text x="457.2" y="133.35" size="1.778" layer="97">GND lines for RF2 and RF3 need to go along
 their respective transmission lines to prevent
 intereference from other signals. I have left
@@ -18619,12 +18629,12 @@ them this way though to conserve space.</text>
 <text x="142.24" y="250.19" size="1.778" layer="100">FIXME!!!!</text>
 <text x="152.4" y="147.32" size="1.778" layer="100">DOES !RESET NEED
 A PULL-UP?!</text>
-<text x="182.88" y="86.36" size="1.778" layer="97">Debug interface</text>
-<wire x1="261.62" y1="38.1" x2="160.02" y2="38.1" width="0.1524" layer="97" style="longdash"/>
+<text x="213.36" y="86.36" size="1.778" layer="97">Debug interface</text>
+<wire x1="261.62" y1="2.54" x2="160.02" y2="2.54" width="0.1524" layer="97" style="longdash"/>
 <wire x1="261.62" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="97" style="longdash"/>
-<wire x1="261.62" y1="101.6" x2="261.62" y2="38.1" width="0.1524" layer="97" style="longdash"/>
-<wire x1="160.02" y1="101.6" x2="160.02" y2="38.1" width="0.1524" layer="97" style="longdash"/>
-<text x="193.04" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
+<wire x1="261.62" y1="101.6" x2="261.62" y2="2.54" width="0.1524" layer="97" style="longdash"/>
+<wire x1="160.02" y1="101.6" x2="160.02" y2="2.54" width="0.1524" layer="97" style="longdash"/>
+<text x="223.52" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
 <text x="7.62" y="154.94" size="1.778" layer="97" rot="R90">ORESAT BACKPLANE</text>
 </plain>
 <instances>
@@ -18777,8 +18787,8 @@ A PULL-UP?!</text>
 </instance>
 <instance part="C46" gate="CE" x="408.94" y="320.04" rot="MR180"/>
 <instance part="3.3V2" gate="1" x="365.76" y="332.74" rot="MR0"/>
-<instance part="GND1" gate="1" x="177.8" y="43.18"/>
-<instance part="SUPPLY1" gate="1" x="177.8" y="88.9"/>
+<instance part="GND1" gate="1" x="208.28" y="43.18"/>
+<instance part="SUPPLY1" gate="1" x="208.28" y="88.9"/>
 <instance part="C36" gate="CE" x="403.86" y="193.04"/>
 <instance part="C37" gate="CE" x="396.24" y="190.5"/>
 <instance part="C38" gate="CE" x="360.68" y="193.04" smashed="yes">
@@ -18851,8 +18861,8 @@ A PULL-UP?!</text>
 <instance part="P+6" gate="G$1" x="129.54" y="312.42" rot="MR0"/>
 <instance part="TP9" gate="G$1" x="396.24" y="307.34"/>
 <instance part="TP10" gate="G$1" x="76.2" y="312.42"/>
-<instance part="JP2" gate="G$1" x="187.96" y="63.5"/>
-<instance part="P+7" gate="G$1" x="172.72" y="93.98"/>
+<instance part="JP2" gate="G$1" x="218.44" y="63.5"/>
+<instance part="P+7" gate="G$1" x="203.2" y="93.98"/>
 <instance part="TP11" gate="G$1" x="137.16" y="193.04" smashed="yes">
 <attribute name="NAME" x="133.35" y="194.31" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="138.43" y="191.77" size="1.778" layer="97"/>
@@ -18916,12 +18926,12 @@ A PULL-UP?!</text>
 <instance part="X1" gate="-43" x="33.02" y="22.86" rot="MR0"/>
 <instance part="X1" gate="-44" x="33.02" y="20.32" rot="MR0"/>
 <instance part="U$24" gate="G$1" x="396.24" y="142.24"/>
-<instance part="LED1" gate="LED" x="208.28" y="71.12">
-<attribute name="GREEN" x="208.28" y="71.12" size="1.778" layer="96" display="off"/>
+<instance part="LED1" gate="LED" x="238.76" y="71.12">
+<attribute name="GREEN" x="238.76" y="71.12" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R4" gate="R" x="208.28" y="60.96" rot="R90"/>
+<instance part="R4" gate="R" x="238.76" y="60.96" rot="R90"/>
 <instance part="R5" gate="R" x="91.44" y="345.44" rot="R180"/>
-<instance part="GND7" gate="1" x="208.28" y="50.8"/>
+<instance part="GND7" gate="1" x="238.76" y="50.8"/>
 <instance part="LED2" gate="LED" x="419.1" y="190.5">
 <attribute name="GREEN" x="419.1" y="190.5" size="1.778" layer="96" display="off"/>
 </instance>
@@ -18933,21 +18943,31 @@ A PULL-UP?!</text>
 <instance part="R7" gate="R" x="426.72" y="307.34" rot="R90"/>
 <instance part="GND9" gate="1" x="426.72" y="297.18"/>
 <instance part="TP14" gate="G$1" x="96.52" y="347.98"/>
-<instance part="LED4" gate="LED" x="223.52" y="71.12">
-<attribute name="GREEN" x="223.52" y="71.12" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R8" gate="R" x="223.52" y="60.96" rot="R90"/>
-<instance part="GND10" gate="1" x="223.52" y="50.8"/>
-<instance part="LED5" gate="LED" x="238.76" y="71.12">
-<attribute name="GREEN" x="238.76" y="71.12" size="1.778" layer="96" display="off"/>
-</instance>
-<instance part="R9" gate="R" x="238.76" y="60.96" rot="R90"/>
-<instance part="GND11" gate="1" x="238.76" y="50.8"/>
-<instance part="LED6" gate="LED" x="254" y="71.12">
+<instance part="LED4" gate="LED" x="254" y="71.12">
 <attribute name="GREEN" x="254" y="71.12" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R10" gate="R" x="254" y="60.96" rot="R90"/>
-<instance part="GND12" gate="1" x="254" y="50.8"/>
+<instance part="R8" gate="R" x="254" y="60.96" rot="R90"/>
+<instance part="GND10" gate="1" x="254" y="50.8"/>
+<instance part="LED5" gate="LED" x="170.18" y="27.94">
+<attribute name="ORANGE" x="170.18" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R9" gate="R" x="170.18" y="17.78" rot="R90"/>
+<instance part="GND11" gate="1" x="170.18" y="7.62"/>
+<instance part="LED6" gate="LED" x="180.34" y="27.94">
+<attribute name="ORANGE" x="180.34" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R10" gate="R" x="180.34" y="17.78" rot="R90"/>
+<instance part="GND12" gate="1" x="180.34" y="7.62"/>
+<instance part="LED7" gate="LED" x="190.5" y="27.94">
+<attribute name="ORANGE" x="190.5" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R11" gate="R" x="190.5" y="17.78" rot="R90"/>
+<instance part="GND13" gate="1" x="190.5" y="7.62"/>
+<instance part="LED8" gate="LED" x="200.66" y="27.94">
+<attribute name="ORANGE" x="200.66" y="27.94" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="R12" gate="R" x="200.66" y="17.78" rot="R90"/>
+<instance part="GND14" gate="1" x="200.66" y="7.62"/>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19031,10 +19051,10 @@ A PULL-UP?!</text>
 <junction x="170.18" y="215.9"/>
 </segment>
 <segment>
-<wire x1="177.8" y1="48.26" x2="177.8" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="48.26" x2="208.28" y2="45.72" width="0.1524" layer="91"/>
 <pinref part="GND1" gate="1" pin="GND"/>
 <pinref part="JP2" gate="G$1" pin="12"/>
-<wire x1="177.8" y1="48.26" x2="185.42" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="48.26" x2="215.9" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="G$1" pin="GND"/>
@@ -19313,7 +19333,7 @@ A PULL-UP?!</text>
 <segment>
 <pinref part="R4" gate="R" pin="1"/>
 <pinref part="GND7" gate="1" pin="GND"/>
-<wire x1="208.28" y1="55.88" x2="208.28" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="55.88" x2="238.76" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R6" gate="R" pin="1"/>
@@ -19328,17 +19348,27 @@ A PULL-UP?!</text>
 <segment>
 <pinref part="R8" gate="R" pin="1"/>
 <pinref part="GND10" gate="1" pin="GND"/>
-<wire x1="223.52" y1="55.88" x2="223.52" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="254" y1="55.88" x2="254" y2="53.34" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R9" gate="R" pin="1"/>
 <pinref part="GND11" gate="1" pin="GND"/>
-<wire x1="238.76" y1="55.88" x2="238.76" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="12.7" x2="170.18" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R10" gate="R" pin="1"/>
 <pinref part="GND12" gate="1" pin="GND"/>
-<wire x1="254" y1="55.88" x2="254" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="12.7" x2="180.34" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R11" gate="R" pin="1"/>
+<pinref part="GND13" gate="1" pin="GND"/>
+<wire x1="190.5" y1="12.7" x2="190.5" y2="10.16" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R12" gate="R" pin="1"/>
+<pinref part="GND14" gate="1" pin="GND"/>
+<wire x1="200.66" y1="12.7" x2="200.66" y2="10.16" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
@@ -19390,14 +19420,14 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="SUPPLY1" gate="1" pin="V+"/>
-<wire x1="177.8" y1="86.36" x2="177.8" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="86.36" x2="208.28" y2="83.82" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="G$1" pin="1"/>
-<wire x1="177.8" y1="83.82" x2="177.8" y2="76.2" width="0.1524" layer="91"/>
-<wire x1="177.8" y1="76.2" x2="185.42" y2="76.2" width="0.1524" layer="91"/>
-<pinref part="LED1" gate="LED" pin="A"/>
-<wire x1="177.8" y1="83.82" x2="208.28" y2="83.82" width="0.1524" layer="91"/>
 <wire x1="208.28" y1="83.82" x2="208.28" y2="76.2" width="0.1524" layer="91"/>
-<junction x="177.8" y="83.82"/>
+<wire x1="208.28" y1="76.2" x2="215.9" y2="76.2" width="0.1524" layer="91"/>
+<pinref part="LED1" gate="LED" pin="A"/>
+<wire x1="208.28" y1="83.82" x2="238.76" y2="83.82" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="83.82" x2="238.76" y2="76.2" width="0.1524" layer="91"/>
+<junction x="208.28" y="83.82"/>
 </segment>
 </net>
 <net name="SWD_DIO" class="0">
@@ -19676,7 +19706,7 @@ A PULL-UP?!</text>
 <wire x1="147.32" y1="83.82" x2="147.32" y2="53.34" width="0.1524" layer="91"/>
 <junction x="147.32" y="83.82"/>
 <pinref part="JP2" gate="G$1" pin="10"/>
-<wire x1="147.32" y1="53.34" x2="185.42" y2="53.34" width="0.1524" layer="91"/>
+<wire x1="147.32" y1="53.34" x2="215.9" y2="53.34" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-19" pin="S"/>
 <pinref part="X1" gate="-20" pin="S"/>
 </segment>
@@ -19699,7 +19729,7 @@ A PULL-UP?!</text>
 <wire x1="144.78" y1="86.36" x2="144.78" y2="50.8" width="0.1524" layer="91"/>
 <junction x="144.78" y="86.36"/>
 <pinref part="JP2" gate="G$1" pin="11"/>
-<wire x1="144.78" y1="50.8" x2="185.42" y2="50.8" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="50.8" x2="215.9" y2="50.8" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-17" pin="S"/>
 <pinref part="X1" gate="-18" pin="S"/>
 </segment>
@@ -19768,14 +19798,14 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="P+7" gate="G$1" pin="3.3V"/>
-<wire x1="172.72" y1="93.98" x2="172.72" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="93.98" x2="203.2" y2="91.44" width="0.1524" layer="91"/>
 <pinref part="JP2" gate="G$1" pin="2"/>
-<wire x1="172.72" y1="91.44" x2="172.72" y2="73.66" width="0.1524" layer="91"/>
-<wire x1="172.72" y1="73.66" x2="185.42" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="91.44" x2="203.2" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="203.2" y1="73.66" x2="215.9" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="LED4" gate="LED" pin="A"/>
-<wire x1="172.72" y1="91.44" x2="223.52" y2="91.44" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="91.44" x2="223.52" y2="76.2" width="0.1524" layer="91"/>
-<junction x="172.72" y="91.44"/>
+<wire x1="203.2" y1="91.44" x2="254" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="254" y1="91.44" x2="254" y2="76.2" width="0.1524" layer="91"/>
+<junction x="203.2" y="91.44"/>
 </segment>
 <segment>
 <pinref part="R2" gate="R" pin="2"/>
@@ -20006,7 +20036,12 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="3"/>
-<wire x1="165.1" y1="71.12" x2="185.42" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="71.12" x2="170.18" y2="71.12" width="0.1524" layer="91"/>
+<pinref part="LED5" gate="LED" pin="A"/>
+<wire x1="170.18" y1="71.12" x2="215.9" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="71.12" x2="170.18" y2="33.02" width="0.1524" layer="91"/>
+<junction x="170.18" y="71.12"/>
+<label x="170.18" y="40.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="PTC2" class="0">
@@ -20022,7 +20057,11 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="4"/>
-<wire x1="165.1" y1="68.58" x2="185.42" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="68.58" x2="180.34" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="68.58" x2="215.9" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="35.56" x2="180.34" y2="68.58" width="0.1524" layer="91"/>
+<junction x="180.34" y="68.58"/>
+<label x="180.34" y="40.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="PTC3" class="0">
@@ -20038,7 +20077,12 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="5"/>
-<wire x1="165.1" y1="66.04" x2="185.42" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="66.04" x2="190.5" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="LED7" gate="LED" pin="A"/>
+<wire x1="190.5" y1="66.04" x2="215.9" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="33.02" x2="190.5" y2="66.04" width="0.1524" layer="91"/>
+<junction x="190.5" y="66.04"/>
+<label x="190.5" y="40.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="PTC4" class="0">
@@ -20054,7 +20098,12 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="6"/>
-<wire x1="165.1" y1="63.5" x2="185.42" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="63.5" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
+<pinref part="LED8" gate="LED" pin="A"/>
+<wire x1="200.66" y1="63.5" x2="215.9" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="200.66" y1="33.02" x2="200.66" y2="63.5" width="0.1524" layer="91"/>
+<junction x="200.66" y="63.5"/>
+<label x="200.66" y="40.64" size="1.778" layer="95" rot="R90"/>
 </segment>
 </net>
 <net name="PTC5" class="0">
@@ -20070,7 +20119,7 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="7"/>
-<wire x1="165.1" y1="60.96" x2="185.42" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="60.96" x2="215.9" y2="60.96" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PTC6" class="0">
@@ -20086,7 +20135,7 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="8"/>
-<wire x1="165.1" y1="58.42" x2="185.42" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="58.42" x2="215.9" y2="58.42" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PTE16" class="0">
@@ -20261,7 +20310,7 @@ A PULL-UP?!</text>
 </segment>
 <segment>
 <pinref part="JP2" gate="G$1" pin="9"/>
-<wire x1="165.1" y1="55.88" x2="185.42" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="55.88" x2="215.9" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$3" class="0">
@@ -20346,7 +20395,7 @@ A PULL-UP?!</text>
 <segment>
 <pinref part="LED1" gate="LED" pin="K"/>
 <pinref part="R4" gate="R" pin="2"/>
-<wire x1="208.28" y1="68.58" x2="208.28" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="238.76" y1="68.58" x2="238.76" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="3.3V1" class="0">
@@ -20373,33 +20422,41 @@ A PULL-UP?!</text>
 <segment>
 <pinref part="LED4" gate="LED" pin="K"/>
 <pinref part="R8" gate="R" pin="2"/>
-<wire x1="223.52" y1="68.58" x2="223.52" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="254" y1="68.58" x2="254" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$26" class="0">
 <segment>
 <pinref part="LED5" gate="LED" pin="K"/>
 <pinref part="R9" gate="R" pin="2"/>
-<wire x1="238.76" y1="68.58" x2="238.76" y2="66.04" width="0.1524" layer="91"/>
-</segment>
-</net>
-<net name="N$28" class="0">
-<segment>
-<pinref part="LED5" gate="LED" pin="A"/>
-<wire x1="238.76" y1="78.74" x2="238.76" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="170.18" y1="25.4" x2="170.18" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$29" class="0">
 <segment>
 <pinref part="LED6" gate="LED" pin="K"/>
 <pinref part="R10" gate="R" pin="2"/>
-<wire x1="254" y1="68.58" x2="254" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="25.4" x2="180.34" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$32" class="0">
 <segment>
 <pinref part="LED6" gate="LED" pin="A"/>
-<wire x1="254" y1="78.74" x2="254" y2="76.2" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="35.56" x2="180.34" y2="33.02" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$21" class="0">
+<segment>
+<pinref part="LED7" gate="LED" pin="K"/>
+<pinref part="R11" gate="R" pin="2"/>
+<wire x1="190.5" y1="25.4" x2="190.5" y2="22.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$33" class="0">
+<segment>
+<pinref part="LED8" gate="LED" pin="K"/>
+<pinref part="R12" gate="R" pin="2"/>
+<wire x1="200.66" y1="25.4" x2="200.66" y2="22.86" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
