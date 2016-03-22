@@ -18617,18 +18617,12 @@ them this way though to conserve space.</text>
 <wire x1="83.82" y1="322.58" x2="83.82" y2="279.4" width="0.1524" layer="97" style="longdash"/>
 <wire x1="83.82" y1="279.4" x2="139.7" y2="279.4" width="0.1524" layer="97" style="longdash"/>
 <wire x1="139.7" y1="279.4" x2="139.7" y2="322.58" width="0.1524" layer="97" style="longdash"/>
-<text x="104.14" y="66.04" size="1.778" layer="100">TODO:
--Make footprint for 22pin (83B-44PA-2DS(71)-ND)
-(H123075-ND)</text>
 <wire x1="314.96" y1="231.14" x2="241.3" y2="231.14" width="0.1524" layer="97" style="longdash"/>
 <wire x1="309.88" y1="99.06" x2="340.36" y2="99.06" width="0.1524" layer="97" style="longdash"/>
 <wire x1="340.36" y1="99.06" x2="340.36" y2="78.74" width="0.1524" layer="97" style="longdash"/>
 <wire x1="340.36" y1="78.74" x2="309.88" y2="78.74" width="0.1524" layer="97" style="longdash"/>
 <wire x1="309.88" y1="78.74" x2="309.88" y2="99.06" width="0.1524" layer="97" style="longdash"/>
 <text x="312.42" y="96.52" size="1.778" layer="97">RF/DC GND connection</text>
-<text x="142.24" y="250.19" size="1.778" layer="100">FIXME!!!!</text>
-<text x="152.4" y="147.32" size="1.778" layer="100">DOES !RESET NEED
-A PULL-UP?!</text>
 <text x="213.36" y="86.36" size="1.778" layer="97">Debug interface</text>
 <wire x1="261.62" y1="2.54" x2="160.02" y2="2.54" width="0.1524" layer="97" style="longdash"/>
 <wire x1="261.62" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="97" style="longdash"/>
@@ -18636,6 +18630,10 @@ A PULL-UP?!</text>
 <wire x1="160.02" y1="101.6" x2="160.02" y2="2.54" width="0.1524" layer="97" style="longdash"/>
 <text x="223.52" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
 <text x="7.62" y="154.94" size="1.778" layer="97" rot="R90">ORESAT BACKPLANE</text>
+<text x="134.62" y="251.46" size="1.778" layer="97">Controlled by DIO0 pin</text>
+<text x="25.4" y="162.56" size="1.778" layer="97">DIO0 pin controls 
+transceiver RESET
+if needed</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -19933,13 +19931,6 @@ A PULL-UP?!</text>
 <wire x1="375.92" y1="304.8" x2="370.84" y2="304.8" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="SOMETHING" class="0">
-<segment>
-<pinref part="KW0X" gate="G$1" pin="RESET(RF)"/>
-<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
-<label x="139.7" y="246.38" size="1.778" layer="95"/>
-</segment>
-</net>
 <net name="LNA_EN" class="0">
 <segment>
 <label x="66.04" y="226.06" size="1.778" layer="95" rot="R180" xref="yes"/>
@@ -20355,6 +20346,11 @@ A PULL-UP?!</text>
 <wire x1="93.98" y1="165.1" x2="71.12" y2="165.1" width="0.1524" layer="91"/>
 <wire x1="71.12" y1="165.1" x2="71.12" y2="171.45" width="0.1524" layer="91"/>
 <label x="86.36" y="165.1" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="KW0X" gate="G$1" pin="RESET(RF)"/>
+<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
+<label x="139.7" y="246.38" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="DIO1" class="0">

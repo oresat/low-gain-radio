@@ -3783,9 +3783,6 @@ design rules under a new name.</description>
 <contactref element="KW0X" pad="18"/>
 <wire x1="41.9778" y1="35.08" x2="78.72" y2="46.805" width="0" layer="19" extent="1-1"/>
 </signal>
-<signal name="SOMETHING">
-<contactref element="KW0X" pad="48"/>
-</signal>
 <signal name="LNA_EN">
 <contactref element="U$7" pad="3"/>
 <contactref element="KW0X" pad="17"/>
@@ -3977,6 +3974,8 @@ design rules under a new name.</description>
 <signal name="DIO0">
 <contactref element="KW0X" pad="49"/>
 <contactref element="TP16" pad="TP"/>
+<contactref element="KW0X" pad="48"/>
+<wire x1="34.2222" y1="37.58" x2="34.2222" y2="37.08" width="0" layer="19" extent="1-1"/>
 <wire x1="3.81" y1="16.51" x2="34.2222" y2="37.08" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="DIO1">
