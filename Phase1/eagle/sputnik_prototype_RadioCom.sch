@@ -18624,8 +18624,7 @@ them this way though to conserve space.</text>
 <wire x1="160.02" y1="101.6" x2="160.02" y2="2.54" width="0.1524" layer="97" style="longdash"/>
 <text x="223.52" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
 <text x="7.62" y="154.94" size="1.778" layer="97" rot="R90">ORESAT BACKPLANE</text>
-<text x="134.62" y="251.46" size="1.778" layer="97">Controlled by DIO0 pin</text>
-<text x="25.4" y="162.56" size="1.778" layer="97">DIO0 pin controls 
+<text x="140.97" y="257.81" size="1.778" layer="97">DIO0 pin controls 
 transceiver RESET
 if needed</text>
 </plain>
@@ -18866,8 +18865,8 @@ if needed</text>
 <attribute name="NAME" x="146.05" y="194.31" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="148.59" y="191.77" size="1.778" layer="97"/>
 </instance>
-<instance part="TP16" gate="G$1" x="71.12" y="173.99"/>
-<instance part="TP17" gate="G$1" x="64.77" y="165.1"/>
+<instance part="TP16" gate="G$1" x="71.12" y="167.64"/>
+<instance part="TP17" gate="G$1" x="66.04" y="170.18"/>
 <instance part="R2" gate="R" x="88.9" y="314.96" rot="R90"/>
 <instance part="P+8" gate="G$1" x="88.9" y="322.58" rot="MR0"/>
 <instance part="P+9" gate="G$1" x="139.7" y="299.72"/>
@@ -20265,23 +20264,25 @@ if needed</text>
 </net>
 <net name="DIO0" class="0">
 <segment>
+<pinref part="KW0X" gate="G$1" pin="RESET(RF)"/>
+<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="246.38" x2="139.7" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="276.86" x2="43.18" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="276.86" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
 <pinref part="KW0X" gate="G$1" pin="PTE2"/>
 <pinref part="TP16" gate="G$1" pin="PP"/>
 <wire x1="93.98" y1="165.1" x2="71.12" y2="165.1" width="0.1524" layer="91"/>
-<wire x1="71.12" y1="165.1" x2="71.12" y2="171.45" width="0.1524" layer="91"/>
 <label x="86.36" y="165.1" size="1.778" layer="95"/>
-</segment>
-<segment>
-<pinref part="KW0X" gate="G$1" pin="RESET(RF)"/>
-<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
-<label x="139.7" y="246.38" size="1.778" layer="95"/>
+<wire x1="43.18" y1="165.1" x2="71.12" y2="165.1" width="0.1524" layer="91"/>
+<junction x="71.12" y="165.1"/>
 </segment>
 </net>
 <net name="DIO1" class="0">
 <segment>
 <pinref part="TP17" gate="G$1" pin="PP"/>
 <pinref part="KW0X" gate="G$1" pin="PTE3"/>
-<wire x1="93.98" y1="162.56" x2="64.77" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="162.56" x2="66.04" y2="162.56" width="0.1524" layer="91"/>
+<wire x1="66.04" y1="162.56" x2="66.04" y2="167.64" width="0.1524" layer="91"/>
 <label x="86.36" y="162.56" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -20418,6 +20419,12 @@ if needed</text>
 <segment>
 <pinref part="KW0X" gate="G$1" pin="PTE30"/>
 <wire x1="93.98" y1="149.86" x2="83.82" y2="149.86" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="PTA19" class="0">
+<segment>
+<pinref part="KW0X" gate="G$1" pin="PTA19/XTAL0"/>
+<wire x1="134.62" y1="160.02" x2="142.24" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
