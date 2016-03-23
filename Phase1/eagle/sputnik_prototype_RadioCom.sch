@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18565,6 +18565,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND14" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="CF1" library="oresat-eagle" deviceset="ORESAT-CONNECTOR-40PIN" device=""/>
 <part name="CF2" library="oresat-eagle" deviceset="CON-MCX-LINX" device=""/>
+<part name="TP18" library="testpad" deviceset="TPS" device="PAD1-13"/>
 </parts>
 <sheets>
 <sheet>
@@ -18924,6 +18925,10 @@ if needed</text>
 <instance part="CF2" gate="G$1" x="510.54" y="175.26" smashed="yes" rot="MR0">
 <attribute name="NAME" x="511.81" y="170.18" size="1.27" layer="95"/>
 <attribute name="VALUE" x="511.81" y="168.91" size="1.27" layer="95"/>
+</instance>
+<instance part="TP18" gate="G$1" x="162.56" y="205.74" smashed="yes">
+<attribute name="NAME" x="161.29" y="207.01" size="1.778" layer="95"/>
+<attribute name="TP_SIGNAL_NAME" x="163.83" y="204.47" size="1.778" layer="97"/>
 </instance>
 </instances>
 <busses>
@@ -19648,6 +19653,7 @@ if needed</text>
 <wire x1="162.56" y1="203.2" x2="167.64" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="200.66" x2="162.56" y2="203.2" width="0.1524" layer="91"/>
 <junction x="162.56" y="203.2"/>
+<pinref part="TP18" gate="G$1" pin="PP"/>
 </segment>
 </net>
 <net name="N$8" class="0">
