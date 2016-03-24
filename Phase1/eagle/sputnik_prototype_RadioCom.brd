@@ -3655,7 +3655,7 @@ This Sunstone Circuits 4 Layer .DRU has been set to cover our minimum requiremen
 <wire x1="81.36" y1="61.12" x2="76.04" y2="61.12" width="0.3" layer="1"/>
 <wire x1="76.04" y1="61.12" x2="76.04" y2="61.07" width="0.3" layer="1"/>
 <wire x1="76.04" y1="61.07" x2="74.34" y2="61.07" width="0.3" layer="1"/>
-<wire x1="74.35" y1="54.0778" x2="74.35" y2="61.07" width="0.3" layer="1"/>
+<wire x1="74.35" y1="54.0778" x2="74.35" y2="61.07" width="0" layer="19" extent="1-16"/>
 <wire x1="74.35" y1="61.07" x2="74.34" y2="61.07" width="0.3" layer="1"/>
 </signal>
 <signal name="N$31">
