@@ -18610,6 +18610,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="TP18" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="SH1" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
 <part name="U$34" library="psas_c3_team05" deviceset="RF_GND" device=""/>
+<part name="SH2" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
+<part name="U$36" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18974,6 +18976,8 @@ if needed</text>
 </instance>
 <instance part="SH1" gate="G$1" x="350.52" y="139.7"/>
 <instance part="U$34" gate="G$1" x="350.52" y="132.08"/>
+<instance part="SH2" gate="G$1" x="419.1" y="248.92"/>
+<instance part="U$36" gate="G$1" x="419.1" y="241.3"/>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19390,8 +19394,12 @@ if needed</text>
 <pinref part="LED5" gate="LED" pin="K"/>
 <wire x1="170.18" y1="15.24" x2="170.18" y2="17.78" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="SH2" gate="G$1" pin="P$1"/>
+<pinref part="U$36" gate="G$1" pin="GND"/>
+</segment>
 </net>
-<net name="V+" class="0">
+<net name="RIP" class="0">
 <segment>
 <pinref part="TRSWITCH" gate="G$1" pin="VDD"/>
 <wire x1="454.66" y1="180.34" x2="452.12" y2="180.34" width="0.1524" layer="91"/>
