@@ -24,6 +24,7 @@ struct spi_config {
 
 /* initialization function */
 void spi_init(volatile struct spi * SPI, const struct spi_config * config);
+void spi_init_8(volatile struct spi * SPI);
 
 
 /* read function */

@@ -88,15 +88,31 @@ struct TRANSCEIVER transceiver = {
 	.RegTest = 0x50,
 };
 
-void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	//spi_read(&SPI0, length, &address, buffer);
-	spi_transaction(&SPI0, length, &address, buffer);
+
+void trans_read_register(uint8_t * address, uint8_t * buffer, uint8_t length){
+	/*Here we pad the write buffer with junk for the SPI to write, this will be 
+	ignored by the transceiver and the address will be incremented internally I hope*/
+	uint8_t addresses [length];
+
+	for(int i = 0; i < length; i++){
+		addresses[i] = address[0];
+	}
+
+	spi_transaction_8(&SPI0, length , addresses, buffer);
 }
 
-void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
-	address |= 0x80;
-	//spi_write(&SPI0, length, &address, buffer);
-	spi_transaction(&SPI0, length, &address, buffer);
+void trans_write_register(uint8_t * address, uint8_t * buffer, uint8_t length){
+	uint8_t addr_buf[length + 1];
+	addr_buf[0] = *address | 0x80;
+
+	for (int i = 0; i < length; i++){
+		addr_buf[i + 1] = buffer[i];
+	}
+
+	uint8_t recv [length + 1];
+	spi_transaction_8(&SPI0, (length + 1), addr_buf, recv);
+
+
 }
 
 /*COMMON CONFIGURATION FUNCTIONS*/
