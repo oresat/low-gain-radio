@@ -141,6 +141,26 @@ void initialize_tpm(void){
 }
 #endif
 
+void test_spi_8(void){
+	spi_init_8();
+
+	initialize_gpio();
+
+	uint8_t write_data[3] = {0x12,0x34,0x56};
+	uint8_t read_data[3];
+	/*this is the first part of the AES key, we wont break anything by writing and reading there*/
+	uint8_t test_address = 0x3E; 
+	read_register(&test_address, read_data, 3);
+	if (read_data[0] == 0 && read_data[0] == 0 && read_data[2] == 0){
+		GPIOB.PTOR = 0x00004;
+	}
+	write_register(&test_address, write_data, 3);
+	read_register(&test_address, read_data, 3);
+	if (read_data[0] == 0x12 && read_data[0] == 0x34 && read_data[2] == 0x56){
+		GPIOB.PTOR = 0x00004;
+	}
+}
+
 int main(void) {
 
 	/* delay loop for POR, transceiver not available for 10ms */
