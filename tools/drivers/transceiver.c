@@ -166,6 +166,12 @@ void trans_write_register(uint8_t * address, uint8_t * buffer, uint8_t length){
 
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver(void){
+	/*
+	   This function configures the transceiver assuming
+	   a 16-bit spi mode for the SPI0 module.
+
+	   return is void
+	*/
 	uint16_t results[7];
 
 	uint16_t OpModeCfg = 0x08;
@@ -217,6 +223,12 @@ void configure_transceiver(void){
 
 /*Sets up the carrier frequency for the transceiver*/
 void configure_transceiver_8(void){
+	/*
+	   This function configures the transceiver assuming
+	   a 8-bit spi mode for the SPI0 module.
+
+	   return is void
+	*/
 	uint8_t results[7];
 
 	uint8_t OpModeCfg = 0x08;
