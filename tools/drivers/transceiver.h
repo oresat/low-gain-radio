@@ -191,6 +191,7 @@ struct packet_config {
 };
 
 /* function prototypes */
+void configure_transceiver_8(void);
 void configure_transceiver(void);
 void trans_read_register(uint8_t * address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t * address, uint8_t * buffer, uint8_t length);

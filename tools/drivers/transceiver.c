@@ -241,6 +241,46 @@ void configure_transceiver(void){
 	spi_transaction_16(&SPI0, 1, &OpModeCfg, &results[6]);
 }
 
+
+/*Sets up the carrier frequency for the transceiver*/
+void configure_transceiver_8(void){
+	uint8_t results[7];
+
+	uint8_t OpModeCfg = 0x08;
+	spi_transaction_8(&SPI0, 1, &OpModeCfg, &results[0]);
+	//trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+	//trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+
+	//Set the carrier frequency to 436.5 assuming transceiver PLL at 32MHz
+	
+	/* RegFrfMsb */
+	uint8_t FrfMsbCfg = 0x6D;
+
+	/* RegFrfMid */
+	uint8_t FrfMidCfg = 0x20;
+
+	/* RegFrfLsb */
+	uint8_t FrfLsbCfg = 0x00;
+
+	/* WRITE configuration to appropriate registers */
+	trans_write_register(&transceiver.RegFrfMsb, &FrfMsbCfg, 1);
+	trans_write_register(&transceiver.RegFrfMid, &FrfMidCfg, 1);
+	trans_write_register(&transceiver.RegFrfLsb, &FrfLsbCfg, 1);
+
+	/* turn modulation to on-off keying */
+	uint8_t RegDataModulCfg = 0x68;
+	trans_write_register(&transceiver.RegDataModul, &RegDataModulCfg, 1);
+
+	/* configure PA level */
+	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
+	uint8_t RegPAOutputCfg = 0x8C;
+	trans_write_register(&transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+
+	/* Set transceiver to transmit mode by writing to op mode register */
+	OpModeCfg = 0x0C;
+	trans_write_register(&transceiver.RegOpMode, &OpModeCfg, 1);
+}
+
 /*Enable listen mode*/
 void trans_enable_listen(void){
 	uint8_t current_value;
