@@ -192,8 +192,8 @@ struct packet_config {
 
 /* function prototypes */
 void configure_transceiver(void);
-void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
-void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);
+void trans_read_register(uint8_t * address, uint8_t * buffer, uint8_t length);
+void trans_write_register(uint8_t * address, uint8_t * buffer, uint8_t length);
 void trans_set_op_mode(uint8_t mode);
 void trans_set_data_mod(struct mod_config * config);
 void trans_calibrate_rc(void);
