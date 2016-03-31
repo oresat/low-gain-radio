@@ -142,7 +142,7 @@ void initialize_tpm(void){
 #endif
 
 void test_spi_8(void){
-	spi_init_8();
+	spi_init_8(&SPI0);
 
 	initialize_gpio();
 
@@ -150,13 +150,13 @@ void test_spi_8(void){
 	uint8_t read_data[3];
 	/*this is the first part of the AES key, we wont break anything by writing and reading there*/
 	uint8_t test_address = 0x3E; 
-	read_register(&test_address, read_data, 3);
-	if (read_data[0] == 0 && read_data[0] == 0 && read_data[2] == 0){
+	trans_read_register(&test_address, read_data, 3);
+	if (!read_data[0] && !read_data[1] && !read_data[2]){
 		GPIOB.PTOR = 0x00004;
 	}
-	write_register(&test_address, write_data, 3);
-	read_register(&test_address, read_data, 3);
-	if (read_data[0] == 0x12 && read_data[0] == 0x34 && read_data[2] == 0x56){
+	trans_write_register(&test_address, write_data, 3);
+	trans_read_register(&test_address, read_data, 3);
+	if (read_data[0] == 0x12 && read_data[1] == 0x34 && read_data[2] == 0x56){
 		GPIOB.PTOR = 0x00004;
 	}
 }
