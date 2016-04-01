@@ -102,6 +102,7 @@ struct TRANSCEIVER {
 extern struct TRANSCEIVER transceiver;
 
 /* function prototypes */
+void initialize_trans_spi(volatile struct spi * SPI);
 void configure_transceiver(void);
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);

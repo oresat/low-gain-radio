@@ -163,20 +163,70 @@ void configure_transceiver(void){
 	/* RegFrfMsb */
 	static uint8_t FrfCfg [3] = {0x6D, 0x20, 0x00};
 
-
 	/* WRITE configuration to appropriate registers */
 	trans_write_register(transceiver.RegFrfMsb, FrfCfg, 3);
 
 	/* turn modulation to on-off keying */
-	uint8_t RegDataModulCfg = 0x68;
+	uint8_t RegDataModulCfg = 0x0;
 	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
 
+	static uint8_t RegFDevCfg = {0x00, 0x29};
+	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
+
+	static uint8_t RegBitrateCfg = {0x34, 0x15};
+	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
 	/* configure PA level */
 	/* 0x90 = ~0dBm, 0x91 = ~1dBm, 0x92 = ~2dBm, 0x80 = ~-18dBm */
 	uint8_t RegPAOutputCfg = 0x8C;
 	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
+	uint8_t RegPayloadLengthCfg = 0x2;
+	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
+
+	
+
 	/* Set transceiver to transmit mode by writing to op mode register */
 	OpModeCfg = 0x0C;
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+}
+
+void initialize_trans_spi(volatile struct spi * SPI){
+	/* configuration for SPI0, see Chapter 8.1 */
+	struct spi_config config = {
+		/* Serial Clock */
+		.SCK = {.port=&PORTC, .pin=5,},
+
+		/* Slave Select */
+		.SS = {.port=&PORTD, .pin=0,},
+
+		/* Master out slave in */
+		.MOSI = {.port=&PORTC, .pin=6,},
+
+		/* Master in slave out */
+		.MISO = {.port=&PORTC, .pin=7,},
+
+		/* Polarity */
+		.CPOL = 0,
+
+		/* Phase */
+		.CPHA = 0,
+
+		.SPIMODE = 0,
+	};
+
+	/* Select desired pin functionality */
+	set_pin_alt(SCK,  SPI, &config->SCK);
+	/* We need to control the slave select manually with PTD0 set as GPIO to 
+	perform SPI operations longer than one byte*/
+	PORTD.PCR[0] |= 0x100; 	//Enable PTD0 as a GPIO
+	GPIOD.PSOR = 0x1;		//Set the output signal to high
+	GPIOD.PDDR |= 0x1;		//Set PTD0 data direction to output
+	set_pin_alt(MOSI, SPI, &config->MOSI);
+	set_pin_alt(MISO, SPI, &config->MISO);
+
+	SPI->C1 = ENABLE_IN_MASTER | (config->CPOL << 3) | (config->CPHA << 2);
+	SPI->C2 = 0x0;
+
+	/* 1MHz baud rate */
+	SPI->BR = 0x22;
 }
