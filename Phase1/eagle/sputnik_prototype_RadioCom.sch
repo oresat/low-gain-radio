@@ -18673,8 +18673,13 @@ them this way though to conserve space.</text>
 <text x="140.97" y="257.81" size="1.778" layer="97">DIO0 pin controls 
 transceiver RESET
 if needed</text>
-<text x="345.44" y="88.9" size="1.778" layer="100">Put RF bead here</text>
+<text x="314.96" y="81.28" size="1.778" layer="100">Put RF bead here</text>
 <text x="373.38" y="111.76" size="1.778" layer="100">Add an inverter stupid</text>
+<text x="347.98" y="172.72" size="1.778" layer="100">Add 100nF Cap</text>
+<text x="421.64" y="180.34" size="1.778" layer="100">Add 100nF Cap 
+V_LNA_FILTERED</text>
+<text x="429.26" y="309.88" size="1.778" layer="100">Add 100nF Cap 
+V_PA_FILTERED</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
