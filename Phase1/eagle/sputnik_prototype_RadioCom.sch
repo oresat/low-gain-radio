@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18673,6 +18673,8 @@ them this way though to conserve space.</text>
 <text x="140.97" y="257.81" size="1.778" layer="97">DIO0 pin controls 
 transceiver RESET
 if needed</text>
+<text x="345.44" y="88.9" size="1.778" layer="100">Put RF bead here</text>
+<text x="373.38" y="111.76" size="1.778" layer="100">Add an inverter stupid</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -19587,14 +19589,10 @@ if needed</text>
 <net name="LNA_IN" class="0">
 <segment>
 <pinref part="C23" gate="CE" pin="1"/>
-<wire x1="421.64" y1="152.4" x2="426.72" y2="152.4" width="0.1524" layer="91"/>
-<label x="433.07" y="152.4" size="1.778" layer="95"/>
-<pinref part="TRSWITCH" gate="G$1" pin="RF2"/>
-<wire x1="426.72" y1="152.4" x2="431.8" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="469.9" y1="190.5" x2="469.9" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="469.9" y1="203.2" x2="426.72" y2="203.2" width="0.1524" layer="91"/>
-<wire x1="426.72" y1="203.2" x2="426.72" y2="152.4" width="0.1524" layer="91"/>
-<junction x="426.72" y="152.4"/>
+<label x="429.26" y="153.67" size="1.778" layer="95" rot="R90"/>
+<pinref part="TRSWITCH" gate="G$1" pin="RF3"/>
+<wire x1="421.64" y1="152.4" x2="469.9" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="152.4" x2="469.9" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$25" class="0">
@@ -19982,12 +19980,8 @@ if needed</text>
 <segment>
 <pinref part="PA" gate="G$1" pin="RFOUT"/>
 <wire x1="398.78" y1="256.54" x2="469.9" y2="256.54" width="0.1524" layer="91"/>
-<pinref part="TRSWITCH" gate="G$1" pin="RF3"/>
-<wire x1="469.9" y1="160.02" x2="469.9" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="469.9" y1="147.32" x2="497.84" y2="147.32" width="0.1524" layer="91"/>
-<wire x1="497.84" y1="147.32" x2="497.84" y2="205.74" width="0.1524" layer="91"/>
-<wire x1="497.84" y1="205.74" x2="469.9" y2="205.74" width="0.1524" layer="91"/>
-<wire x1="469.9" y1="205.74" x2="469.9" y2="256.54" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="190.5" x2="469.9" y2="256.54" width="0.1524" layer="91"/>
+<pinref part="TRSWITCH" gate="G$1" pin="RF2"/>
 </segment>
 </net>
 <net name="PTB2" class="0">
