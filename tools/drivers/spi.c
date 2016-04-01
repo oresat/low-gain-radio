@@ -152,35 +152,21 @@ void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, ui
  	GPIOD.PCOR = 0x1;	//Assert low to start the transaction
 	for(unsigned int i = 0; i < len; ++i){
 
-		/* poll the transmit buffer empty flag */
+		/* Poll the transmit buffer empty flag */
 		while(!(SPI->S & (1 << 5)));
 
-		/* send byte by writing to the data registers */
+		/* Send byte by writing to the data registers */
 		SPI->DL = send[i];
 
+		/* Make sure the byte was sent*/
 		while(!(SPI->S & (1 << 5)));
+
 		/* poll the read buffer full flag to make sure the data was sent before reading*/
-
 		while(!(SPI->S & (1 << 7)));
-		/* grab data into buffer.... The first byte will be garbage */
-		if (i == 0){
-			recv[i] = SPI->DL;
-		}
-		else{
-			recv[i-1] = SPI->DL;	
-		}
 
+		/* grab data into buffer.... The first byte will be garbage */
+		recv[i] = SPI->DL;
 	}
 	
-	/*Request a read of an arbitrary register to get the last good 
-	data byte out of the transceiver's shift register*/
-	
-	/* poll the transmit buffer empty flag */
-	while(!(SPI->S & (1 << 5)));
-	SPI->DL = 0x1;
-	while(!(SPI->S & (1 << 5)));
-	while(!(SPI->S & (1 << 7)));
-	recv[len-1] = SPI->DL;
-
 	GPIOD.PSOR = 0x1;	//Assert high to start the transaction
 }
