@@ -51,37 +51,42 @@ static const struct pin_assign MOSI [] = {
 #define SS_OE (1 << 1)
 #define MASTER_MODE_FAULT_EN (1 << 4)
 
-void spi_init(volatile struct spi * SPI, const struct spi_config * config){
-	/* 	TODO: add clock configuration in here
-	*/
 
-	/* select desired pin functionality */
-	set_pin_alt(SCK,  SPI, &config->SCK);
-	set_pin_alt(PCS0, SPI, &config->SS);
-	set_pin_alt(MOSI, SPI, &config->MOSI);
-	set_pin_alt(MISO, SPI, &config->MISO);
+void initialize_trans_spi(volatile struct spi * SPI){
+	/* configuration for SPI0, see Chapter 8.1 */
+	struct spi_config config = {
+		/* Serial Clock */
+		.SCK = {.port=&PORTC, .pin=5,},
 
-	/* apply SPI configuration */
-	SPI->C1 = ENABLE_IN_MASTER | (config->CPOL << 3) | (config->CPHA << 2) | SS_OE;
-	SPI->C2 = MASTER_MODE_FAULT_EN | (config->SPIMODE << 6);
+		/* Slave Select */
+		.SS = {.port=&PORTD, .pin=0,},
 
-	//SPI->BR = 0x77;
+		/* Master out slave in */
+		.MOSI = {.port=&PORTC, .pin=6,},
 
-	/* 1MHz baud rate */
-	SPI->BR = 0x22;
-}
+		/* Master in slave out */
+		.MISO = {.port=&PORTC, .pin=7,},
 
-void spi_init_8(volatile struct spi * SPI, const struct spi_config * config){
-	/* select desired pin functionality */
-	set_pin_alt(SCK,  SPI, &config->SCK);
+		/* Polarity */
+		.CPOL = 0,
+
+		/* Phase */
+		.CPHA = 0,
+
+		.SPIMODE = 0,
+	};
+
+	/* Select desired pin functionality */
+	set_pin_alt(SCK,  SPI, &config.SCK);
+	/* We need to control the slave select manually with PTD0 set as GPIO to 
+	perform SPI operations longer than one byte*/
 	PORTD.PCR[0] |= 0x100; 	//Enable PTD0 as a GPIO
 	GPIOD.PSOR = 0x1;		//Set the output signal to high
 	GPIOD.PDDR |= 0x1;		//Set PTD0 data direction to output
-	set_pin_alt(MOSI, SPI, &config->MOSI);
-	set_pin_alt(MISO, SPI, &config->MISO);
+	set_pin_alt(MOSI, SPI, &config.MOSI);
+	set_pin_alt(MISO, SPI, &config.MISO);
 
-	/* apply SPI configuration */
-	SPI->C1 = ENABLE_IN_MASTER | (config->CPOL << 3) | (config->CPHA << 2);
+	SPI->C1 = ENABLE_IN_MASTER | (config.CPOL << 3) | (config.CPHA << 2);
 	SPI->C2 = 0x0;
 
 	/* 1MHz baud rate */

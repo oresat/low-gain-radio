@@ -8,6 +8,9 @@
 #include "drivers/spi.h"
 
 #if 1
+
+
+
 void initialize_spi(void){
 	/* enable clock for SPI modules */
 	SIM.SCGC4 |= 0xC00000;
@@ -15,86 +18,11 @@ void initialize_spi(void){
 	/* enable clock for all ports */
 	SIM.SCGC5 |= 0x3E00;
 
-	/* configuration for SPI0, see Chapter 8.1 */
-	struct spi_config myConfig = {
-		/* Serial Clock */
-		.SCK = {.port=&PORTC, .pin=5,},
+	/* The transceiver requires a specific SPI configuration*/
+	initialize_trans_spi(&SPI0);
 
-		/* Slave Select */
-		.SS = {.port=&PORTD, .pin=0,},
-
-		/* Master out slave in */
-		.MOSI = {.port=&PORTC, .pin=6,},
-
-		/* Master in slave out */
-		.MISO = {.port=&PORTC, .pin=7,},
-
-		/* Polarity */
-		.CPOL = 0,
-
-		/* Phase */
-		.CPHA = 0,
-
-		.SPIMODE = 1,
-	};
-
-	/* initialize SPI0 */
-	spi_init(&SPI0, &myConfig);
-
-	/* send to transceiver to get 32MHz clock signal on PTA18 */
-	uint16_t DioMapping2Cfg = (transceiver.RegDioMapping2 | 0x80) << 8;
-	uint16_t bleh = 0;
-	//spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh);
-	spi_transaction(&SPI0, 1, &DioMapping2Cfg, &bleh);
-
-	//myConfig.SPIMODE = 0;
-	//spi_init(&SPI0, &myConfig);
-
-	/* disable SPI module clock because theo said it would get mad if I didn't! */
-	SIM.SCGC4 &= 0xFF3FFFFF;
-
-	/* disable port module clock because theo said it would get mad if I didn't! */
-	SIM.SCGC5 &= 0xFFFFC1FF;
-
-}
-
-
-void initialize_spi_8(void){
-	/* enable clock for SPI modules */
-	SIM.SCGC4 |= 0xC00000;
-
-	/* enable clock for all ports */
-	SIM.SCGC5 |= 0x3E00;
-
-	/* configuration for SPI0, see Chapter 8.1 */
-	struct spi_config myConfig = {
-		/* Serial Clock */
-		.SCK = {.port=&PORTC, .pin=5,},
-
-		/* Slave Select */
-		.SS = {.port=&PORTD, .pin=0,},
-
-		/* Master out slave in */
-		.MOSI = {.port=&PORTC, .pin=6,},
-
-		/* Master in slave out */
-		.MISO = {.port=&PORTC, .pin=7,},
-
-		/* Polarity */
-		.CPOL = 0,
-
-		/* Phase */
-		.CPHA = 0,
-
-		.SPIMODE = 0,
-	};
-
-	/* initialize SPI0 */
-	spi_init_8(&SPI0, &myConfig);
-
-	/* send to transceiver to get 32MHz clock signal on PTA18 */
+	/* Send to transceiver to get 32MHz clock signal on PTA18 */
 	uint8_t RegDioMapping2Cfg = 0x0;
-	//spi_transaction_16(&SPI0, 1, &DioMapping2Cfg, &bleh);
 	trans_write_register(transceiver.RegDioMapping2, &RegDioMapping2Cfg, 1);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
@@ -189,69 +117,13 @@ void initialize_tpm(void){
 }
 #endif
 
-void test_spi_8(void){
-
-
-	/* enable clock for SPI modules */
-	SIM.SCGC4 |= 0xC00000;
-
-	/* enable clock for all ports */
-	SIM.SCGC5 |= 0x3E00;
-
-	/* configuration for SPI0, see Chapter 8.1 */
-	struct spi_config myConfig = {
-		/* Serial Clock */
-		.SCK = {.port=&PORTC, .pin=5,},
-
-		/* Slave Select */
-		.SS = {.port=&PORTD, .pin=0,},
-
-		/* Master out slave in */
-		.MOSI = {.port=&PORTC, .pin=6,},
-
-		/* Master in slave out */
-		.MISO = {.port=&PORTC, .pin=7,},
-
-		/* Polarity */
-		.CPOL = 0,
-
-		/* Phase */
-		.CPHA = 0,
-
-		.SPIMODE = 0,
-	};
-
-
-	spi_init_8(&SPI0, &myConfig);
-
-	initialize_gpio();
-
-	uint8_t write_data[3];
-	write_data[0] = 0x12;
-	write_data[1] = 0x34;
-	write_data[2] = 0x56;
-	
-	uint8_t read_data[3];
-	/*this is the first part of the AES key, we wont break anything by writing and reading there*/
-	uint8_t test_address = 0x3E; 
-	trans_read_register(test_address, read_data, 3);
-	if (!read_data[0] && !read_data[1] && !read_data[2]){
-		GPIOB.PTOR = 0x00004;
-	}
-	trans_write_register(test_address, write_data, 3);
-	trans_read_register(test_address, read_data, 3);
-	if (read_data[0] == 0x12 && read_data[1] == 0x34 && read_data[2] == 0x56){
-		GPIOB.PTOR = 0x00004;
-	}
-}
-
 int main(void) {
 
 	/* delay loop for POR, transceiver not available for 10ms */
 	for(uint32_t i = 0; i < 1000000; ++i);
 	//test_spi_8();
 	/* call initialization procedures */
-	initialize_spi_8();
+	initialize_spi();
 	initialize_clock();
 	initialize_gpio();
 
