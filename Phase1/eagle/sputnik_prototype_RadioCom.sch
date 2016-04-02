@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18612,6 +18612,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SH2" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
 <part name="U$36" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="C44" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
+<part name="R13" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="0"/>
 </parts>
 <sheets>
 <sheet>
@@ -18980,10 +18981,14 @@ V_PA_FILTERED</text>
 <attribute name="TP_SIGNAL_NAME" x="163.83" y="204.47" size="1.778" layer="97"/>
 </instance>
 <instance part="SH1" gate="G$1" x="350.52" y="139.7"/>
-<instance part="U$34" gate="G$1" x="350.52" y="132.08"/>
+<instance part="U$34" gate="G$1" x="350.52" y="129.54"/>
 <instance part="SH2" gate="G$1" x="419.1" y="248.92"/>
 <instance part="U$36" gate="G$1" x="419.1" y="241.3"/>
 <instance part="C44" gate="CE" x="359.41" y="162.56"/>
+<instance part="R13" gate="R" x="325.12" y="93.98" smashed="yes" rot="R180">
+<attribute name="NAME" x="318.77" y="91.44" size="1.778" layer="95"/>
+<attribute name="VALUE" x="327.66" y="91.44" size="1.778" layer="96"/>
+</instance>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19101,15 +19106,6 @@ V_PA_FILTERED</text>
 <junction x="129.54" y="302.26"/>
 </segment>
 <segment>
-<pinref part="LNA" gate="G$1" pin="GND"/>
-<wire x1="378.46" y1="134.62" x2="378.46" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="LNA" gate="G$1" pin="GND2"/>
-<wire x1="378.46" y1="132.08" x2="386.08" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="386.08" y1="132.08" x2="386.08" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="U$2" gate="G$1" pin="GND"/>
-<junction x="378.46" y="132.08"/>
-</segment>
-<segment>
 <pinref part="C12" gate="CE" pin="1"/>
 <wire x1="299.72" y1="180.34" x2="299.72" y2="177.8" width="0.1524" layer="91"/>
 <pinref part="U$3" gate="G$1" pin="GND"/>
@@ -19211,19 +19207,6 @@ V_PA_FILTERED</text>
 <pinref part="U$22" gate="G$1" pin="GND"/>
 </segment>
 <segment>
-<wire x1="349.25" y1="157.48" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
-<pinref part="C43" gate="G$1" pin="-"/>
-<pinref part="U$23" gate="G$1" pin="GND"/>
-<wire x1="349.25" y1="156.21" x2="349.25" y2="154.94" width="0.1524" layer="91"/>
-<wire x1="339.09" y1="157.48" x2="339.09" y2="156.21" width="0.1524" layer="91"/>
-<pinref part="C24" gate="CE" pin="2"/>
-<wire x1="339.09" y1="156.21" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
-<junction x="349.25" y="156.21"/>
-<pinref part="C44" gate="CE" pin="2"/>
-<wire x1="359.41" y1="157.48" x2="359.41" y2="156.21" width="0.1524" layer="91"/>
-<wire x1="359.41" y1="156.21" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="C1" gate="CE" pin="1"/>
 <wire x1="205.74" y1="259.08" x2="200.66" y2="259.08" width="0.1524" layer="91"/>
 <wire x1="200.66" y1="259.08" x2="200.66" y2="256.54" width="0.1524" layer="91"/>
@@ -19305,9 +19288,8 @@ V_PA_FILTERED</text>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
 <wire x1="317.5" y1="88.9" x2="317.5" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="93.98" x2="330.2" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="U$33" gate="G$1" pin="GND"/>
-<wire x1="330.2" y1="93.98" x2="330.2" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="R13" gate="R" pin="2"/>
+<wire x1="317.5" y1="93.98" x2="320.04" y2="93.98" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND5" gate="1" pin="GND"/>
@@ -19370,10 +19352,6 @@ V_PA_FILTERED</text>
 <wire x1="426.72" y1="299.72" x2="426.72" y2="302.26" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="SH1" gate="G$1" pin="P$1"/>
-<pinref part="U$34" gate="G$1" pin="GND"/>
-</segment>
-<segment>
 <pinref part="LED1" gate="LED" pin="K"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 <wire x1="238.76" y1="60.96" x2="238.76" y2="58.42" width="0.1524" layer="91"/>
@@ -19408,7 +19386,7 @@ V_PA_FILTERED</text>
 <pinref part="U$36" gate="G$1" pin="GND"/>
 </segment>
 </net>
-<net name="RIP" class="0">
+<net name="V+" class="0">
 <segment>
 <pinref part="TRSWITCH" gate="G$1" pin="VDD"/>
 <wire x1="454.66" y1="180.34" x2="452.12" y2="180.34" width="0.1524" layer="91"/>
@@ -20487,6 +20465,40 @@ V_PA_FILTERED</text>
 <wire x1="200.66" y1="25.4" x2="200.66" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="RF_GND" class="0">
+<segment>
+<pinref part="U$33" gate="G$1" pin="GND"/>
+<wire x1="330.2" y1="93.98" x2="330.2" y2="88.9" width="0.1524" layer="91"/>
+<pinref part="R13" gate="R" pin="1"/>
+</segment>
+<segment>
+<pinref part="LNA" gate="G$1" pin="GND"/>
+<wire x1="378.46" y1="134.62" x2="378.46" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="LNA" gate="G$1" pin="GND2"/>
+<wire x1="378.46" y1="132.08" x2="386.08" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="132.08" x2="386.08" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="U$2" gate="G$1" pin="GND"/>
+<junction x="378.46" y="132.08"/>
+</segment>
+<segment>
+<pinref part="SH1" gate="G$1" pin="P$1"/>
+<pinref part="U$34" gate="G$1" pin="GND"/>
+<wire x1="350.52" y1="132.08" x2="350.52" y2="134.62" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<wire x1="349.25" y1="157.48" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
+<pinref part="C43" gate="G$1" pin="-"/>
+<pinref part="U$23" gate="G$1" pin="GND"/>
+<wire x1="349.25" y1="156.21" x2="349.25" y2="154.94" width="0.1524" layer="91"/>
+<wire x1="339.09" y1="157.48" x2="339.09" y2="156.21" width="0.1524" layer="91"/>
+<pinref part="C24" gate="CE" pin="2"/>
+<wire x1="339.09" y1="156.21" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
+<junction x="349.25" y="156.21"/>
+<pinref part="C44" gate="CE" pin="2"/>
+<wire x1="359.41" y1="157.48" x2="359.41" y2="156.21" width="0.1524" layer="91"/>
+<wire x1="359.41" y1="156.21" x2="349.25" y2="156.21" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -20505,7 +20517,6 @@ V_PA_FILTERED</text>
 <approved hash="104,1,114.3,144.78,KW0X,VSS2,GND,,,"/>
 <approved hash="104,1,93.98,241.3,KW0X,VSSA,GND,,,"/>
 <approved hash="104,1,370.84,152.4,LNA,VBIAS,N$27,,,"/>
-<approved hash="104,1,454.66,180.34,TRSWITCH,VDD,V+,,,"/>
 <approved hash="104,1,383.54,271.78,PA,VCC1,VPA,,,"/>
 <approved hash="104,1,375.92,256.54,PA,VREF,VPA,,,"/>
 <approved hash="104,1,375.92,259.08,PA,VCNT,VPA,,,"/>
@@ -20513,6 +20524,14 @@ V_PA_FILTERED</text>
 <approved hash="113,1,279.296,215.796,FRAME1,,,,,"/>
 <approved hash="113,1,182.733,163.851,J1,,,,,"/>
 <approved hash="113,1,216.137,63.6312,JP2,,,,,"/>
+<approved hash="113,1,234.969,64.77,LED1,,,,,"/>
+<approved hash="113,1,415.309,179.07,LED2,,,,,"/>
+<approved hash="113,1,422.929,306.07,LED3,,,,,"/>
+<approved hash="113,1,250.209,64.77,LED4,,,,,"/>
+<approved hash="113,1,166.389,21.59,LED5,,,,,"/>
+<approved hash="113,1,176.549,21.59,LED6,,,,,"/>
+<approved hash="113,1,186.709,21.59,LED7,,,,,"/>
+<approved hash="113,1,196.869,21.59,LED8,,,,,"/>
 </errors>
 </schematic>
 </drawing>
