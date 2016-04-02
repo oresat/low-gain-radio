@@ -3333,7 +3333,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="C29" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="68.8" y="54.8" rot="R90"/>
 <element name="C3" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="66.6" y="64.2" rot="R180"/>
 <element name="C30" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="78.45" y="64.5" rot="R270"/>
-<element name="C31" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="76.65" y="64.48" rot="R270"/>
+<element name="C31" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="76.9" y="64.48" rot="R270"/>
 <element name="C32" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="70.93" y="62.65" rot="R270"/>
 <element name="C33" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="69.33" y="62.33" rot="R270"/>
 <element name="C34" library="rcl_custom" package=".0603-B-NOSILK" value="6pF" x="66.9279125" y="62.19725625" rot="R180"/>
@@ -3509,7 +3509,6 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <contactref element="KW0X" pad="4"/>
 <contactref element="C28" pad="1"/>
 <contactref element="C29" pad="1"/>
-<contactref element="KW0X" pad="36"/>
 <contactref element="U$8" pad="2"/>
 <contactref element="C41" pad="2"/>
 <contactref element="C39" pad="2"/>
@@ -3586,7 +3585,6 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="73.338371875" y1="54.427225" x2="70.5" y2="54" width="0" layer="19" extent="1-1"/>
 <wire x1="77.508371875" y1="56.805025" x2="74.338371875" y2="54.427225" width="0" layer="19" extent="1-1"/>
 <wire x1="79.966171875" y1="57.555025" x2="77.508371875" y2="56.805025" width="0" layer="19" extent="1-1"/>
-<wire x1="75.838371875" y1="62.182825" x2="74.588371875" y2="59.805025" width="0" layer="19" extent="1-1"/>
 <wire x1="81.76" y1="55.48" x2="79.966171875" y2="57.555025" width="0" layer="19" extent="1-1"/>
 <wire x1="67.7279125" y1="62.19725625" x2="65.8079125" y2="57.39725625" width="0" layer="19" extent="1-1"/>
 <wire x1="72.016" y1="82.704" x2="80.8275" y2="85.05" width="0" layer="19" extent="1-1"/>
@@ -3773,13 +3771,12 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <signal name="RXTX">
 <contactref element="KW0X" pad="37"/>
 <contactref element="U$39" pad="2"/>
-<via x="75.35" y="63.6" extent="1-16" drill="0.254"/>
-<wire x1="75.35" y1="63.6" x2="75.35" y2="64.2" width="0.2" layer="16"/>
-<wire x1="75.35" y1="64.2" x2="70.35" y2="70.3" width="0.2" layer="16"/>
+<via x="75.35" y="64.15" extent="1-16" drill="0.254"/>
+<wire x1="75.35" y1="64.15" x2="70.35" y2="70.3" width="0.2" layer="16"/>
 <via x="70.35" y="70.3" extent="1-16" drill="0.254"/>
 <wire x1="70.35" y1="70.3" x2="70.35" y2="77.36" width="0.2" layer="1"/>
 <wire x1="75.338371875" y1="62.182825" x2="75.338371875" y2="63.588371875" width="0.2" layer="1"/>
-<wire x1="75.338371875" y1="63.588371875" x2="75.35" y2="63.6" width="0.2" layer="1"/>
+<wire x1="75.338371875" y1="63.588371875" x2="75.35" y2="64.15" width="0.2" layer="1"/>
 </signal>
 <signal name="N$30">
 <contactref element="TRSWITCH" pad="5"/>
@@ -3939,10 +3936,9 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="72.210571875" y1="55.055025" x2="72.838371875" y2="54.427225" width="0.2" layer="1"/>
 <wire x1="79.966171875" y1="57.055025" x2="81.525025" y2="57.055025" width="0.2" layer="1"/>
 <wire x1="81.525025" y1="57.055025" x2="81.76" y2="57.08" width="0.2" layer="1"/>
-<wire x1="76.65" y1="63.68" x2="78.43" y2="63.68" width="1" layer="1"/>
+<wire x1="76.9" y1="63.68" x2="78.43" y2="63.68" width="1" layer="1"/>
 <wire x1="78.43" y1="63.68" x2="78.45" y2="63.7" width="0.5" layer="1"/>
-<wire x1="76.338371875" y1="62.182825" x2="76.338371875" y2="63.368371875" width="0.2" layer="1"/>
-<wire x1="76.338371875" y1="63.368371875" x2="76.65" y2="63.68" width="0.2" layer="1"/>
+<wire x1="76.338371875" y1="63.368371875" x2="76.9" y2="63.68" width="0.4" layer="1"/>
 <wire x1="76.338371875" y1="62.182825" x2="76.338371875" y2="61.555025" width="0.2" layer="1"/>
 <wire x1="79.35" y1="58.61" x2="79.35" y2="57.05" width="0.2" layer="1"/>
 <wire x1="79.35" y1="57.05" x2="79.966171875" y2="57.05" width="0.2" layer="1"/>
@@ -3978,6 +3974,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="45.81" y1="2.775" x2="45.81" y2="11.03" width="1" layer="1"/>
 <wire x1="76.338371875" y1="61.555025" x2="76.338371875" y2="58.61" width="0.2" layer="1"/>
 <wire x1="76.338371875" y1="58.61" x2="79.35" y2="58.61" width="0.2" layer="1"/>
+<wire x1="76.338371875" y1="62.182825" x2="76.338371875" y2="63.368371875" width="0.2" layer="1"/>
 </signal>
 <signal name="N$7">
 <contactref element="L8" pad="1"/>
@@ -4749,6 +4746,15 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="73.838371875" y1="65.061628125" x2="73.25" y2="65.65" width="0.2" layer="1"/>
 <wire x1="74.838371875" y1="62.182825" x2="74.838371875" y2="64.438371875" width="0.2" layer="1"/>
 <wire x1="74.838371875" y1="64.438371875" x2="75.65" y2="65.25" width="0.2" layer="1"/>
+<contactref element="KW0X" pad="36"/>
+<wire x1="75.838371875" y1="62.182825" x2="75.9" y2="62.182825" width="0.2" layer="1"/>
+<wire x1="75.9" y1="62.182825" x2="75.9" y2="63.75" width="0.2" layer="1"/>
+<wire x1="74.838371875" y1="64.438371875" x2="74.838371875" y2="64.588371875" width="0.2" layer="1"/>
+<wire x1="74.838371875" y1="64.588371875" x2="75.2" y2="64.95" width="0.2" layer="1"/>
+<wire x1="75.2" y1="64.95" x2="75.5" y2="64.95" width="0.2" layer="1"/>
+<wire x1="75.5" y1="64.95" x2="76.05" y2="64.4" width="0.2" layer="1"/>
+<wire x1="76.05" y1="64.4" x2="76.05" y2="63.9" width="0.2" layer="1"/>
+<wire x1="76.05" y1="63.9" x2="75.9" y2="63.75" width="0.2" layer="1"/>
 </signal>
 </signals>
 </board>
