@@ -18744,6 +18744,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="C48" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
 <part name="U$41" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="U$42" library="psas_c3_team05" deviceset="742792651" device=""/>
+<part name="U$43" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -18908,15 +18909,15 @@ line crossing on layout</text>
 </instance>
 <instance part="C31" gate="CE" x="160.02" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="158.496" y="218.059" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="161.036" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="VALUE" x="158.496" y="212.979" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C32" gate="CE" x="170.18" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="168.656" y="218.059" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="173.736" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="VALUE" x="168.656" y="212.979" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="C33" gate="CE" x="180.34" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="178.816" y="218.059" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="183.896" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="VALUE" x="178.816" y="212.979" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="Y1" gate="G$1" x="162.56" y="198.12" smashed="yes" rot="MR270">
 <attribute name="DIST" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
@@ -19122,6 +19123,7 @@ line crossing on layout</text>
 <instance part="C48" gate="CE" x="345.44" y="180.34" rot="MR180"/>
 <instance part="U$41" gate="G$1" x="345.44" y="172.72"/>
 <instance part="U$42" gate="G$1" x="327.66" y="93.98"/>
+<instance part="U$43" gate="G$1" x="180.34" y="210.82"/>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19183,27 +19185,9 @@ line crossing on layout</text>
 <junction x="78.74" y="236.22"/>
 </segment>
 <segment>
-<pinref part="KW0X" gate="G$1" pin="GND_PA1"/>
 <pinref part="GND32" gate="1" pin="GND"/>
-<wire x1="134.62" y1="215.9" x2="144.78" y2="215.9" width="0.1524" layer="91"/>
-<wire x1="144.78" y1="215.9" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
-<pinref part="KW0X" gate="G$1" pin="GND_PA2"/>
-<wire x1="144.78" y1="213.36" x2="144.78" y2="210.82" width="0.1524" layer="91"/>
-<wire x1="134.62" y1="213.36" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
-<junction x="144.78" y="213.36"/>
 <pinref part="KW0X" gate="G$1" pin="GND/SCAN"/>
 <wire x1="134.62" y1="210.82" x2="144.78" y2="210.82" width="0.1524" layer="91"/>
-<junction x="144.78" y="210.82"/>
-<pinref part="C30" gate="CE" pin="1"/>
-<junction x="144.78" y="215.9"/>
-<pinref part="C31" gate="CE" pin="1"/>
-<wire x1="160.02" y1="215.9" x2="144.78" y2="215.9" width="0.1524" layer="91"/>
-<pinref part="C32" gate="CE" pin="1"/>
-<wire x1="160.02" y1="215.9" x2="170.18" y2="215.9" width="0.1524" layer="91"/>
-<junction x="160.02" y="215.9"/>
-<pinref part="C33" gate="CE" pin="1"/>
-<wire x1="170.18" y1="215.9" x2="180.34" y2="215.9" width="0.1524" layer="91"/>
-<junction x="170.18" y="215.9"/>
 </segment>
 <segment>
 <wire x1="208.28" y1="48.26" x2="208.28" y2="45.72" width="0.1524" layer="91"/>
@@ -20681,6 +20665,26 @@ line crossing on layout</text>
 <wire x1="335.28" y1="88.9" x2="335.28" y2="93.98" width="0.1524" layer="91"/>
 <pinref part="U$42" gate="G$1" pin="2"/>
 <wire x1="332.74" y1="93.98" x2="335.28" y2="93.98" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="U$43" gate="G$1" pin="GND"/>
+<pinref part="KW0X" gate="G$1" pin="GND_PA1"/>
+<wire x1="134.62" y1="215.9" x2="144.78" y2="215.9" width="0.1524" layer="91"/>
+<wire x1="144.78" y1="215.9" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="KW0X" gate="G$1" pin="GND_PA2"/>
+<wire x1="134.62" y1="213.36" x2="144.78" y2="213.36" width="0.1524" layer="91"/>
+<pinref part="C30" gate="CE" pin="1"/>
+<junction x="144.78" y="215.9"/>
+<pinref part="C31" gate="CE" pin="1"/>
+<wire x1="160.02" y1="215.9" x2="144.78" y2="215.9" width="0.1524" layer="91"/>
+<pinref part="C32" gate="CE" pin="1"/>
+<wire x1="160.02" y1="215.9" x2="170.18" y2="215.9" width="0.1524" layer="91"/>
+<junction x="160.02" y="215.9"/>
+<pinref part="C33" gate="CE" pin="1"/>
+<wire x1="170.18" y1="215.9" x2="180.34" y2="215.9" width="0.1524" layer="91"/>
+<junction x="170.18" y="215.9"/>
+<wire x1="180.34" y1="213.36" x2="180.34" y2="215.9" width="0.1524" layer="91"/>
+<junction x="180.34" y="215.9"/>
 </segment>
 </net>
 </nets>
