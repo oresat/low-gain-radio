@@ -9333,12 +9333,12 @@ Pad definition corrected 2006.05.15, librarian@cadsoft.de
 <wire x1="1" y1="-0.66" x2="-1" y2="-0.66" width="0.127" layer="21"/>
 <wire x1="-1" y1="-0.66" x2="-1" y2="0.59" width="0.127" layer="21"/>
 <wire x1="-1" y1="0.59" x2="1" y2="0.59" width="0.127" layer="21"/>
-<smd name="4" x="0.65" y="0.8025" dx="0.15" dy="0.425" layer="1" rot="R180"/>
-<smd name="5" x="0" y="0.8025" dx="0.15" dy="0.425" layer="1" rot="R180"/>
-<smd name="6" x="-0.65" y="0.81" dx="0.15" dy="0.425" layer="1" rot="R180"/>
-<smd name="3" x="0.65" y="-0.8725" dx="0.15" dy="0.425" layer="1" rot="R180"/>
-<smd name="2" x="0" y="-0.8725" dx="0.15" dy="0.425" layer="1" rot="R180"/>
-<smd name="1" x="-0.65" y="-0.8725" dx="0.15" dy="0.425" layer="1" rot="R180"/>
+<smd name="4" x="0.65" y="0.8025" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
+<smd name="5" x="0" y="0.8025" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
+<smd name="6" x="-0.65" y="0.81" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
+<smd name="3" x="0.65" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
+<smd name="2" x="0" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
+<smd name="1" x="-0.65" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <wire x1="-0.99" y1="-0.36" x2="-0.71" y2="-0.64" width="0.127" layer="21"/>
 </package>
 </packages>
