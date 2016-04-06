@@ -129,13 +129,20 @@ int main(void) {
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	//configure_transceiver_tx();
+	configure_transceiver_rx();
 
+        uint8_t result = 0x0;
 	while(1) {
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-	       	/* toggle LED connected to PTB2 */
-		GPIOB.PTOR = 0x00004;
+		/* read fifo register in transceiver block */
+		trans_read_register(transceiver.RegFifo, &result, 1);
+
+		/* check if byte is 0x55 */
+                if(result == 0x55){
+			/* toggle LED connected to PTB17 */
+			GPIOB.PTOR = 0x20000;
+                }
 	}
 	return 0;
 }

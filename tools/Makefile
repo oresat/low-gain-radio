@@ -16,6 +16,12 @@ all: c3
 c3: crt0.o c3.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
+rx: crt0.o rx.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
+	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+tx: crt0.o tx.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
+	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
 %.s: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -S $^ -o $@
 %.o: %.s
@@ -25,6 +31,12 @@ c3: crt0.o c3.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.
 	$(ARCH)-objcopy -O ihex $^ $@
 
 write: c3.hex
+	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
+
+write_tx: tx.hex
+	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
+
+write_rx: rx.hex
 	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
 gdb: c3

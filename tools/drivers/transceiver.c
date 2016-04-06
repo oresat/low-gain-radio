@@ -119,7 +119,7 @@ void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 
 	/* Copy the received data back into the user's buffer */
 	//memcpy(buffer, recv + 1, length);
-	for (int i = 0; i < length; i++){
+	for (int i = 0; i < length + 1; i++){
 		if(i > 0){
 			buffer[i-1] = recv[i];
 		}
@@ -152,7 +152,7 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 }
 
 /*Sets up the carrier frequency for the transceiver*/
-void configure_transceiver(void){
+void configure_transceiver_tx(void){
 	/*
 	   This function configures the transceiver assuming
 	   a 8-bit spi mode for the SPI0 module.
@@ -182,25 +182,63 @@ void configure_transceiver(void){
 	static uint8_t RegFDevCfg [2] = {0x00, 0x29};
 	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
 
-	/* bitrate settings */
+	/* bitrate settings = 2.4 kbps */
 	static uint8_t RegBitrateCfg [2] = {0x34, 0x15};
 	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
 
 	/* configure PA output power */
-
 	/* 0x9F = ~13dBm, 0x92 = ~0dBm, 0x80 = ~-18dBm */
 	uint8_t RegPAOutputCfg = 0x9F;
 	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
-        /* length of payload in packet */
+        /* 2 bytes in payload */
 	uint8_t RegPayloadLengthCfg = 0x2;
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
 
 	/* Set transceiver to transmit mode by writing to op mode register */
-	//OpModeCfg = 0x0C;
-
-	/* Receive mode */
-	OpModeCfg = 0x10;
+	OpModeCfg = 0x0C;
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 }
 
+void configure_transceiver_rx(void){
+	/*
+	   This function configures the transceiver assuming
+	   a 8-bit spi mode for the SPI0 module.
+
+	   return is void
+	*/
+
+	/* Change to frequency synthesizer mode */
+	uint8_t OpModeCfg = 0x08;
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+
+	/* Set the carrier frequency to 436.5MHz assuming transceiver PLL at 32MHz 
+		See Table 7-5 in the reference manual
+	*/
+	
+	/* RegFrfMsb */
+	static uint8_t FrfCfg [3] = {0x6D, 0x20, 0x00};
+
+	/* WRITE configuration to appropriate registers */
+	trans_write_register(transceiver.RegFrfMsb, FrfCfg, 3);
+
+	/* turn modulation to frequency shift keying */
+	uint8_t RegDataModulCfg = 0x0;
+	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
+
+	/* frequency deviation settings */
+	static uint8_t RegFDevCfg [2] = {0x00, 0x29};
+	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
+
+	/* bitrate settings = 2.4 kbps */
+	static uint8_t RegBitrateCfg [2] = {0x34, 0x15};
+	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
+
+        /* 2 bytes for payload length */
+	uint8_t RegPayloadLengthCfg = 0x2;
+	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
+
+	/* Set transceiver to receive mode by writing to op mode register */
+	OpModeCfg = 0x10;
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+}
