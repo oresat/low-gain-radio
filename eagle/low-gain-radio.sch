@@ -789,19 +789,19 @@ This package is identical to 0603-B, but has its tPlace silkscreen layer removed
 <text x="-5.08" y="2.54" size="1.778" layer="94">AAT3215</text>
 </symbol>
 <symbol name="W25Q80DV">
-<wire x1="0" y1="0" x2="15.24" y2="0" width="0.254" layer="94"/>
-<wire x1="15.24" y1="0" x2="15.24" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="15.24" y1="-20.32" x2="0" y2="-20.32" width="0.254" layer="94"/>
-<wire x1="0" y1="-20.32" x2="0" y2="0" width="0.254" layer="94"/>
-<pin name="VDD" x="-2.54" y="-2.54" length="short"/>
-<pin name="GND" x="-2.54" y="-7.62" length="short"/>
-<pin name="DI" x="-2.54" y="-17.78" length="short"/>
-<pin name="!WP" x="-2.54" y="-12.7" length="short"/>
-<pin name="!HOLD" x="17.78" y="-2.54" length="short" rot="R180"/>
-<pin name="!CS" x="17.78" y="-7.62" length="short" rot="R180"/>
-<pin name="CLK" x="17.78" y="-12.7" length="short" rot="R180"/>
-<pin name="DO" x="17.78" y="-17.78" length="short" rot="R180"/>
-<text x="0" y="0" size="1.778" layer="94">W25Q80DV</text>
+<wire x1="-7.62" y1="10.16" x2="7.62" y2="10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="10.16" x2="7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="7.62" y1="-10.16" x2="-7.62" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-7.62" y1="-10.16" x2="-7.62" y2="10.16" width="0.254" layer="94"/>
+<pin name="VDD" x="-10.16" y="7.62" length="short"/>
+<pin name="GND" x="-10.16" y="2.54" length="short"/>
+<pin name="DI" x="-10.16" y="-7.62" length="short"/>
+<pin name="!WP" x="-10.16" y="-2.54" length="short"/>
+<pin name="!HOLD" x="10.16" y="7.62" length="short" rot="R180"/>
+<pin name="!CS" x="10.16" y="2.54" length="short" rot="R180"/>
+<pin name="CLK" x="10.16" y="-2.54" length="short" rot="R180"/>
+<pin name="DO" x="10.16" y="-7.62" length="short" rot="R180"/>
+<text x="-7.62" y="10.16" size="1.778" layer="94">W25Q80DV</text>
 </symbol>
 <symbol name="LED+COLOR">
 <wire x1="-2.54" y1="1.778" x2="-3.81" y2="0.508" width="0.254" layer="94"/>
@@ -19517,7 +19517,7 @@ line crossing on layout</text>
 <attribute name="MFN" x="381" y="198.12" size="1.778" layer="96" display="off"/>
 <attribute name="MFN-PN" x="381" y="198.12" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="U$1" gate="G$1" x="116.84" y="312.42" rot="MR0"/>
+<instance part="U$1" gate="G$1" x="109.22" y="302.26" rot="MR0"/>
 <instance part="U$2" gate="G$1" x="378.46" y="129.54"/>
 <instance part="U$3" gate="G$1" x="299.72" y="175.26"/>
 <instance part="U$4" gate="G$1" x="281.94" y="175.26"/>
@@ -20291,7 +20291,7 @@ line crossing on layout</text>
 <junction x="142.24" y="182.88"/>
 </segment>
 </net>
-<net name="N$6" class="0">
+<net name="XTA" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="XTA"/>
 <wire x1="134.62" y1="203.2" x2="162.56" y2="203.2" width="0.1524" layer="91"/>
@@ -20879,14 +20879,14 @@ line crossing on layout</text>
 <wire x1="165.1" y1="55.88" x2="215.9" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$3" class="0">
+<net name="DIO2" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO2"/>
 <pinref part="TP11" gate="G$1" pin="PP"/>
 <wire x1="134.62" y1="190.5" x2="137.16" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$5" class="0">
+<net name="DIO3" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO3"/>
 <pinref part="TP12" gate="G$1" pin="PP"/>
@@ -20894,7 +20894,7 @@ line crossing on layout</text>
 <wire x1="142.24" y1="187.96" x2="142.24" y2="190.5" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$9" class="0">
+<net name="DIO4" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO4"/>
 <pinref part="TP13" gate="G$1" pin="PP"/>
@@ -20938,7 +20938,7 @@ line crossing on layout</text>
 <label x="86.36" y="162.56" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$11" class="0">
+<net name="V_SPI" class="0">
 <segment>
 <wire x1="121.92" y1="287.02" x2="121.92" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="!WP"/>
@@ -20950,7 +20950,7 @@ line crossing on layout</text>
 <junction x="129.54" y="287.02"/>
 </segment>
 </net>
-<net name="N$12" class="0">
+<net name="LDO_EN" class="0">
 <segment>
 <pinref part="U$8" gate="G$1" pin="EN"/>
 <pinref part="R5" gate="R" pin="1"/>
