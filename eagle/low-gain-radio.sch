@@ -18531,64 +18531,259 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="J1" library="psas_c3_team05" deviceset="JTAG_ARM-10-*" device="50MIL"/>
 <part name="GND2" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="GND4" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="L1" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="22nH"/>
-<part name="C1" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C2" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="12pF"/>
-<part name="L2" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="22nH"/>
-<part name="C3" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C4" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="12pF"/>
-<part name="C5" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF"/>
-<part name="C6" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF"/>
-<part name="C7" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2pF"/>
-<part name="C8" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2pF"/>
-<part name="L3" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH"/>
-<part name="L4" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH"/>
-<part name="L5" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH"/>
-<part name="L6" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH"/>
-<part name="C9" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF"/>
-<part name="C10" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF"/>
-<part name="C11" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="8.2pF"/>
-<part name="C12" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="8.2pF"/>
-<part name="C14" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C15" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
-<part name="C16" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C17" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
-<part name="C18" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C19" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
-<part name="C20" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C21" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C22" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
+<part name="L1" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="22nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6874-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN22NG00D"/>
+</part>
+<part name="C1" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C2" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="12pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H120JA01D"/>
+</part>
+<part name="L2" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="22nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6874-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN22NG00D"/>
+</part>
+<part name="C3" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C4" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="12pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H120JA01D"/>
+</part>
+<part name="C5" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1407-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+</part>
+<part name="C6" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1407-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+</part>
+<part name="C7" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-9668-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D"/>
+</part>
+<part name="C8" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-9668-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D"/>
+</part>
+<part name="L3" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6866-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+</part>
+<part name="L4" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6866-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+</part>
+<part name="L5" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6866-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+</part>
+<part name="L6" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="15nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6866-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+</part>
+<part name="C9" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1407-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+</part>
+<part name="C10" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="15pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1407-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+</part>
+<part name="C11" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="8.2pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="06031U8R2BAT2A-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06031U8R2BAT2A"/>
+</part>
+<part name="C12" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="8.2pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="06031U8R2BAT2A-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06031U8R2BAT2A"/>
+</part>
+<part name="C14" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C15" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
+<part name="C16" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C17" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
+<part name="C18" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C19" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
+<part name="C20" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C21" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C22" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
 <part name="LNA" library="sputnik" deviceset="MAAL-010704" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="1465-1261-6-ND"/>
 <attribute name="MFN" value="M/A-Com Technology Solutions"/>
 <attribute name="MPN" value="MAAL-010704-TR3000"/>
 </part>
-<part name="R1" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="250"/>
-<part name="L8" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="82nH"/>
+<part name="R1" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="250">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="1276-4592-2-ND"/>
+<attribute name="MFG" value="Samsung"/>
+<attribute name="MFG_PN" value="RC1608F2490CS"/>
+</part>
+<part name="L8" library="rcl_custom" deviceset="L-US" device="0603-B-NOSILK" value="82nH">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6912-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="LQW18AN82NG00D"/>
+</part>
 <part name="TRSWITCH" library="psas_c3_team05" deviceset="SKY13405-490LF" device="">
 <attribute name="MFN" value="Skyworks"/>
 <attribute name="MPN" value="SKY13405-490LF"/>
 </part>
 <part name="3.3V" library="psas_c3_team05" deviceset="V+" device=""/>
-<part name="C26" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C27" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C26" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C27" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="GND25" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="C28" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C28" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="GND28" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="C29" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C30" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C31" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C32" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
-<part name="C33" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C29" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C30" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C31" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C32" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
+<part name="C33" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="Y1" library="microbuilder" deviceset="CRYSTAL" device="2.5X2.0MM" value="32MHz">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="SER4044CT-ND"/>
 <attribute name="MFN" value="EPSON"/>
 <attribute name="MPN" value="FA20H 32.0000MF12Y-W3"/>
 </part>
-<part name="C34" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="6pF"/>
-<part name="C35" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="6pF"/>
+<part name="C34" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="6pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+</part>
+<part name="C35" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="6pF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+</part>
 <part name="GND33" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="PA" library="psas_c3_team05" deviceset="SKY65116" device="">
 <attribute name="MFN" value="Skyworks"/>
@@ -18597,13 +18792,43 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="P+3" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+4" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="TP15" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="C23" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF"/>
-<part name="C24" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF"/>
-<part name="C25" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF"/>
-<part name="C43" library="rcl" deviceset="CPOL-US" device="CT6032" value="100uF"/>
+<part name="C23" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF">
+<attribute name="DIST" value="Digi-key"/>
+<attribute name="DPN" value="490-1303-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+</part>
+<part name="C24" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF">
+<attribute name="DIST" value="Digi-key"/>
+<attribute name="DPN" value="490-1303-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+</part>
+<part name="C25" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF">
+<attribute name="DIST" value="Digi-key"/>
+<attribute name="DPN" value="490-1303-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+</part>
+<part name="C43" library="rcl" deviceset="CPOL-US" device="CT6032" value="100uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-1704-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="TAJC107K010RNJ"/>
+</part>
 <part name="U$9" library="psas_c3_team05" deviceset="LD39200" device=""/>
-<part name="C13" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
-<part name="C46" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF"/>
+<part name="C13" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
+<part name="C46" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
 <part name="3.3V2" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND1" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="psas_c3_team05" deviceset="V+" device=""/>
@@ -18657,7 +18882,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="GND3" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="3.3V5" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND5" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="C42" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C42" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="GND6" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="P+1" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+2" library="SparkFun-v5" deviceset="3.3V" device=""/>
@@ -18672,52 +18902,107 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="TP13" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP16" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP17" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="R2" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k"/>
+<part name="R2" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+</part>
 <part name="P+8" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+9" library="SparkFun-v5" deviceset="3.3V" device=""/>
-<part name="R3" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k"/>
+<part name="R3" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+</part>
 <part name="U$24" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="LED1" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="GREEN" value=""/>
 </part>
-<part name="R4" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
-<part name="R5" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k"/>
+<part name="R4" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
+<part name="R5" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+</part>
 <part name="GND7" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED2" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="GREEN" value=""/>
 </part>
-<part name="R6" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R6" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND8" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED3" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="GREEN" value=""/>
 </part>
-<part name="R7" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R7" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND9" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="TP14" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="LED4" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="GREEN" value=""/>
 </part>
-<part name="R8" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R8" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND10" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED5" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="ORANGE" value=""/>
 </part>
-<part name="R9" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R9" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND11" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED6" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="ORANGE" value=""/>
 </part>
-<part name="R10" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R10" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND12" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED7" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="ORANGE" value=""/>
 </part>
-<part name="R11" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R11" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND13" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED8" library="psas_c3_team05" deviceset="LED" device="-0603">
 <attribute name="ORANGE" value=""/>
 </part>
-<part name="R12" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k"/>
+<part name="R12" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="1k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+</part>
 <part name="GND14" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="CF1" library="oresat-eagle" deviceset="ORESAT-CONNECTOR-40PIN" device=""/>
 <part name="CF2" library="oresat-eagle" deviceset="CON-MCX-LINX" device=""/>
@@ -18726,24 +19011,74 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U$34" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="SH2" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
 <part name="U$36" library="psas_c3_team05" deviceset="RF_GND" device=""/>
-<part name="C44" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
-<part name="C45" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C44" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-key"/>
+<attribute name="DPN" value="490-4516-1-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM155R71H103KA88D"/>
+</part>
+<part name="C45" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="U$37" library="psas_c3_team05" deviceset="RF_GND" device=""/>
-<part name="C47" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C47" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="U$38" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="U$39" library="psas_c3_team05" deviceset="NC7SZ05" device=""/>
 <part name="3.3V4" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="U$40" library="psas_c3_team05" deviceset="RF_GND" device=""/>
-<part name="C48" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF"/>
+<part name="C48" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-5778-1-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="06035C104JAT2A"/>
+</part>
 <part name="U$41" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="U$42" library="psas_c3_team05" deviceset="742792651" device=""/>
 <part name="U$43" library="psas_c3_team05" deviceset="RF_GND" device=""/>
-<part name="C39" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF"/>
-<part name="C40" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF"/>
-<part name="C36" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF"/>
-<part name="C37" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
-<part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2nF"/>
+<part name="C39" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1543-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R61A105KA61D"/>
+</part>
+<part name="C40" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-3492-2-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="SQCSVA2R2BAT1A"/>
+</part>
+<part name="C36" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1543-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R61A105KA61D"/>
+</part>
+<part name="C37" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-1512-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+</part>
+<part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="478-3492-2-ND"/>
+<attribute name="MFG" value="AVX"/>
+<attribute name="MFG_PN" value="SQCSVA2R2BAT1A"/>
+</part>
 </parts>
 <sheets>
 <sheet>
@@ -18822,62 +19157,200 @@ line crossing on layout</text>
 <instance part="J1" gate="J" x="182.88" y="162.56" rot="MR0"/>
 <instance part="GND2" gate="1" x="195.58" y="154.94"/>
 <instance part="GND4" gate="1" x="119.38" y="134.62"/>
-<instance part="L1" gate="L" x="226.06" y="259.08"/>
-<instance part="C1" gate="CE" x="208.28" y="259.08" rot="R90"/>
-<instance part="C2" gate="CE" x="246.38" y="248.92"/>
+<instance part="L1" gate="L" x="226.06" y="259.08">
+<attribute name="DIST" x="226.06" y="259.08" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="226.06" y="259.08" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="226.06" y="259.08" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="226.06" y="259.08" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C1" gate="CE" x="208.28" y="259.08" rot="R90">
+<attribute name="DIST" x="208.28" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="208.28" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="208.28" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="208.28" y="259.08" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C2" gate="CE" x="246.38" y="248.92">
+<attribute name="DIST" x="246.38" y="248.92" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="246.38" y="248.92" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="246.38" y="248.92" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="246.38" y="248.92" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="L2" gate="L" x="226.06" y="228.6" smashed="yes">
 <attribute name="NAME" x="219.71" y="231.14" size="1.778" layer="95"/>
 <attribute name="VALUE" x="224.79" y="231.14" size="1.778" layer="96" rot="MR180" align="top-left"/>
+<attribute name="DIST" x="226.06" y="228.6" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="226.06" y="228.6" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="226.06" y="228.6" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="226.06" y="228.6" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C3" gate="CE" x="215.9" y="223.52" smashed="yes">
 <attribute name="NAME" x="217.424" y="223.901" size="1.778" layer="95"/>
 <attribute name="VALUE" x="217.424" y="218.821" size="1.778" layer="96"/>
+<attribute name="DIST" x="215.9" y="223.52" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="215.9" y="223.52" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="215.9" y="223.52" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="215.9" y="223.52" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C4" gate="CE" x="246.38" y="185.42"/>
-<instance part="C5" gate="CE" x="251.46" y="254" rot="R90"/>
-<instance part="C6" gate="CE" x="251.46" y="190.5" rot="R90"/>
-<instance part="C7" gate="CE" x="264.16" y="269.24" rot="R90"/>
-<instance part="C8" gate="CE" x="266.7" y="198.12" rot="R90"/>
+<instance part="C4" gate="CE" x="246.38" y="185.42">
+<attribute name="DIST" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C5" gate="CE" x="251.46" y="254" rot="R90">
+<attribute name="DIST" x="251.46" y="254" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="251.46" y="254" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="251.46" y="254" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="251.46" y="254" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C6" gate="CE" x="251.46" y="190.5" rot="R90">
+<attribute name="DIST" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C7" gate="CE" x="264.16" y="269.24" rot="R90">
+<attribute name="DIST" x="264.16" y="269.24" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="264.16" y="269.24" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="264.16" y="269.24" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="264.16" y="269.24" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="C8" gate="CE" x="266.7" y="198.12" rot="R90">
+<attribute name="DIST" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="L3" gate="L" x="269.24" y="254" smashed="yes">
 <attribute name="NAME" x="262.89" y="256.54" size="1.778" layer="95"/>
 <attribute name="VALUE" x="267.97" y="256.54" size="1.778" layer="96" rot="MR180" align="top-left"/>
+<attribute name="DIST" x="269.24" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="269.24" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="269.24" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="269.24" y="254" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="L4" gate="L" x="269.24" y="190.5"/>
+<instance part="L4" gate="L" x="269.24" y="190.5">
+<attribute name="DIST" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="L5" gate="L" x="289.56" y="254" smashed="yes">
 <attribute name="NAME" x="283.21" y="256.54" size="1.778" layer="95"/>
 <attribute name="VALUE" x="288.29" y="256.54" size="1.778" layer="96" rot="MR180" align="top-left"/>
+<attribute name="DIST" x="289.56" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="289.56" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="289.56" y="254" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="289.56" y="254" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="L6" gate="L" x="292.1" y="190.5"/>
-<instance part="C9" gate="CE" x="279.4" y="246.38" rot="R180"/>
-<instance part="C10" gate="CE" x="281.94" y="182.88" rot="R180"/>
+<instance part="L6" gate="L" x="292.1" y="190.5">
+<attribute name="DIST" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C9" gate="CE" x="279.4" y="246.38" rot="R180">
+<attribute name="DIST" x="279.4" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="279.4" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="279.4" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="279.4" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="C10" gate="CE" x="281.94" y="182.88" rot="R180">
+<attribute name="DIST" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="C11" gate="CE" x="297.18" y="246.38" smashed="yes" rot="R180">
 <attribute name="NAME" x="291.084" y="244.221" size="1.778" layer="95"/>
 <attribute name="VALUE" x="295.656" y="251.079" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="297.18" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="297.18" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="297.18" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="297.18" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C12" gate="CE" x="299.72" y="182.88" smashed="yes" rot="R180">
 <attribute name="NAME" x="305.816" y="182.499" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="307.086" y="187.579" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C14" gate="CE" x="304.8" y="254" smashed="yes" rot="R270">
 <attribute name="NAME" x="306.324" y="255.651" size="1.778" layer="95"/>
 <attribute name="VALUE" x="306.324" y="251.841" size="1.778" layer="96"/>
+<attribute name="DIST" x="304.8" y="254" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="304.8" y="254" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="304.8" y="254" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG_PN" x="304.8" y="254" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="C15" gate="CE" x="396.24" y="284.48" rot="MR180"/>
-<instance part="C16" gate="CE" x="383.54" y="284.48" rot="MR180"/>
-<instance part="C17" gate="CE" x="411.48" y="284.48" rot="MR180"/>
-<instance part="C18" gate="CE" x="424.18" y="284.48" rot="MR180"/>
-<instance part="C19" gate="CE" x="337.82" y="284.48" rot="MR180"/>
-<instance part="C20" gate="CE" x="327.66" y="284.48" rot="MR180"/>
-<instance part="C21" gate="CE" x="355.6" y="284.48" rot="R180"/>
-<instance part="C22" gate="CE" x="365.76" y="284.48" rot="R180"/>
+<instance part="C15" gate="CE" x="396.24" y="284.48" rot="MR180">
+<attribute name="DIST" x="396.24" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="396.24" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="396.24" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="396.24" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C16" gate="CE" x="383.54" y="284.48" rot="MR180">
+<attribute name="DIST" x="383.54" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="383.54" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="383.54" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="383.54" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C17" gate="CE" x="411.48" y="284.48" rot="MR180">
+<attribute name="DIST" x="411.48" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="411.48" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="411.48" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="411.48" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C18" gate="CE" x="424.18" y="284.48" rot="MR180">
+<attribute name="DIST" x="424.18" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="424.18" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="424.18" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="424.18" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C19" gate="CE" x="337.82" y="284.48" rot="MR180">
+<attribute name="DIST" x="337.82" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="337.82" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="337.82" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="337.82" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C20" gate="CE" x="327.66" y="284.48" rot="MR180">
+<attribute name="DIST" x="327.66" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="327.66" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="327.66" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="327.66" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C21" gate="CE" x="355.6" y="284.48" rot="R180">
+<attribute name="DIST" x="355.6" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="355.6" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="355.6" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="355.6" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
+<instance part="C22" gate="CE" x="365.76" y="284.48" rot="R180">
+<attribute name="DIST" x="365.76" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="365.76" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="365.76" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="365.76" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="LNA" gate="G$1" x="378.46" y="144.78">
 <attribute name="MFN" x="378.46" y="144.78" size="1.778" layer="96" display="off"/>
 <attribute name="MPN" x="378.46" y="144.78" size="1.778" layer="96" display="off"/>
 <attribute name="DIST" x="378.46" y="144.78" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="378.46" y="144.78" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R1" gate="R" x="368.3" y="160.02" rot="R90"/>
-<instance part="L8" gate="L" x="334.01" y="160.02" rot="R90"/>
+<instance part="R1" gate="R" x="368.3" y="160.02" rot="R90">
+<attribute name="DIST" x="368.3" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="368.3" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="368.3" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="368.3" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="L8" gate="L" x="334.01" y="160.02" rot="R90">
+<attribute name="DIST" x="334.01" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="334.01" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="334.01" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="334.01" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="TRSWITCH" gate="G$1" x="469.9" y="175.26">
 <attribute name="MFN" x="469.9" y="175.26" size="1.778" layer="96" display="off"/>
 <attribute name="MPN" x="469.9" y="175.26" size="1.778" layer="96" display="off"/>
@@ -18886,36 +19359,68 @@ line crossing on layout</text>
 <instance part="C26" gate="CE" x="127" y="264.16" smashed="yes">
 <attribute name="NAME" x="128.524" y="264.541" size="1.778" layer="95"/>
 <attribute name="VALUE" x="129.794" y="259.461" size="1.778" layer="96"/>
+<attribute name="DIST" x="127" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="127" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="127" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="127" y="264.16" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C27" gate="CE" x="116.84" y="264.16" smashed="yes">
 <attribute name="NAME" x="118.364" y="264.541" size="1.778" layer="95"/>
 <attribute name="VALUE" x="118.364" y="259.461" size="1.778" layer="96"/>
+<attribute name="DIST" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND25" gate="1" x="121.92" y="254"/>
 <instance part="C28" gate="CE" x="73.66" y="238.76" smashed="yes" rot="R180">
 <attribute name="NAME" x="72.136" y="245.999" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="72.136" y="238.379" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="GND28" gate="1" x="78.74" y="231.14"/>
 <instance part="C29" gate="CE" x="83.82" y="238.76" smashed="yes" rot="R180">
 <attribute name="NAME" x="82.296" y="245.999" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="82.296" y="238.379" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C30" gate="CE" x="144.78" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="143.256" y="223.139" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="153.416" y="223.139" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C31" gate="CE" x="160.02" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="158.496" y="218.059" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="158.496" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C32" gate="CE" x="170.18" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="168.656" y="218.059" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="168.656" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C33" gate="CE" x="180.34" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="178.816" y="218.059" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="178.816" y="212.979" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="Y1" gate="G$1" x="162.56" y="198.12" smashed="yes" rot="MR270">
 <attribute name="DIST" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
@@ -18928,10 +19433,18 @@ line crossing on layout</text>
 <instance part="C34" gate="CE" x="172.72" y="203.2" smashed="yes" rot="MR90">
 <attribute name="NAME" x="165.354" y="206.629" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="172.974" y="206.629" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="DPN" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG_PN" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C35" gate="CE" x="172.72" y="193.04" smashed="yes" rot="MR90">
 <attribute name="NAME" x="165.354" y="191.389" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="165.354" y="188.849" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="DPN" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG_PN" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND33" gate="1" x="175.26" y="187.96" rot="MR0"/>
 <instance part="PA" gate="G$1" x="388.62" y="259.08">
@@ -18944,16 +19457,45 @@ line crossing on layout</text>
 <attribute name="NAME" x="148.59" y="186.69" size="1.778" layer="95"/>
 <attribute name="TP_SIGNAL_NAME" x="151.13" y="184.15" size="1.778" layer="97"/>
 </instance>
-<instance part="C23" gate="CE" x="419.1" y="152.4" rot="R270"/>
-<instance part="C24" gate="CE" x="339.09" y="162.56"/>
-<instance part="C25" gate="CE" x="327.66" y="147.32" rot="MR270"/>
-<instance part="C43" gate="G$1" x="349.25" y="162.56"/>
+<instance part="C23" gate="CE" x="419.1" y="152.4" rot="R270">
+<attribute name="DIST" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG_PN" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
+</instance>
+<instance part="C24" gate="CE" x="339.09" y="162.56">
+<attribute name="DIST" x="339.09" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="339.09" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="339.09" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="339.09" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C25" gate="CE" x="327.66" y="147.32" rot="MR270">
+<attribute name="DIST" x="327.66" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="DPN" x="327.66" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="MFG" x="327.66" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="MFG_PN" x="327.66" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
+</instance>
+<instance part="C43" gate="G$1" x="349.25" y="162.56">
+<attribute name="DIST" x="349.25" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="349.25" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="349.25" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="349.25" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="U$9" gate="G$1" x="388.62" y="322.58"/>
 <instance part="C13" gate="CE" x="365.76" y="320.04" smashed="yes" rot="MR180">
 <attribute name="NAME" x="359.664" y="324.739" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="359.664" y="318.389" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="365.76" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="365.76" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="365.76" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="365.76" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C46" gate="CE" x="408.94" y="320.04" rot="MR180"/>
+<instance part="C46" gate="CE" x="408.94" y="320.04" rot="MR180">
+<attribute name="DIST" x="408.94" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="408.94" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="408.94" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="408.94" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
 <instance part="3.3V2" gate="1" x="365.76" y="332.74" rot="MR0"/>
 <instance part="GND1" gate="1" x="208.28" y="43.18"/>
 <instance part="SUPPLY1" gate="1" x="208.28" y="88.9"/>
@@ -19010,6 +19552,10 @@ line crossing on layout</text>
 <instance part="C42" gate="CE" x="129.54" y="304.8" smashed="yes" rot="MR180">
 <attribute name="NAME" x="132.334" y="309.499" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="131.064" y="304.419" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="129.54" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="129.54" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="129.54" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="129.54" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="GND6" gate="1" x="91.44" y="231.14"/>
 <instance part="P+1" gate="G$1" x="88.9" y="246.38"/>
@@ -19034,55 +19580,109 @@ line crossing on layout</text>
 </instance>
 <instance part="TP16" gate="G$1" x="71.12" y="167.64"/>
 <instance part="TP17" gate="G$1" x="66.04" y="170.18"/>
-<instance part="R2" gate="R" x="88.9" y="314.96" rot="R90"/>
+<instance part="R2" gate="R" x="88.9" y="314.96" rot="R90">
+<attribute name="DIST" x="88.9" y="314.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="88.9" y="314.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="88.9" y="314.96" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="88.9" y="314.96" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="P+8" gate="G$1" x="88.9" y="322.58" rot="MR0"/>
 <instance part="P+9" gate="G$1" x="139.7" y="299.72"/>
 <instance part="R3" gate="R" x="139.7" y="292.1" smashed="yes" rot="MR90">
 <attribute name="NAME" x="137.3886" y="287.02" size="1.778" layer="95" rot="MR90"/>
 <attribute name="VALUE" x="137.16" y="294.64" size="1.778" layer="96" rot="MR90"/>
+<attribute name="DIST" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="DPN" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MFG_PN" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="U$24" gate="G$1" x="396.24" y="142.24"/>
 <instance part="LED1" gate="LED" x="238.76" y="63.5">
 <attribute name="GREEN" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R4" gate="R" x="238.76" y="76.2" rot="R90"/>
-<instance part="R5" gate="R" x="91.44" y="353.06" rot="R180"/>
+<instance part="R4" gate="R" x="238.76" y="76.2" rot="R90">
+<attribute name="DIST" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="R5" gate="R" x="91.44" y="353.06" rot="R180">
+<attribute name="DIST" x="91.44" y="353.06" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="91.44" y="353.06" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="91.44" y="353.06" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG_PN" x="91.44" y="353.06" size="1.778" layer="96" rot="R180" display="off"/>
+</instance>
 <instance part="GND7" gate="1" x="238.76" y="55.88"/>
 <instance part="LED2" gate="LED" x="419.1" y="177.8">
 <attribute name="GREEN" x="419.1" y="177.8" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R6" gate="R" x="419.1" y="190.5" rot="R90"/>
+<instance part="R6" gate="R" x="419.1" y="190.5" rot="R90">
+<attribute name="DIST" x="419.1" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="419.1" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="419.1" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="419.1" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND8" gate="1" x="419.1" y="170.18"/>
 <instance part="LED3" gate="LED" x="426.72" y="304.8">
 <attribute name="GREEN" x="426.72" y="304.8" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R7" gate="R" x="426.72" y="317.5" rot="R90"/>
+<instance part="R7" gate="R" x="426.72" y="317.5" rot="R90">
+<attribute name="DIST" x="426.72" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="426.72" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="426.72" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="426.72" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND9" gate="1" x="426.72" y="297.18"/>
 <instance part="TP14" gate="G$1" x="96.52" y="355.6"/>
 <instance part="LED4" gate="LED" x="254" y="63.5">
 <attribute name="GREEN" x="254" y="63.5" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R8" gate="R" x="254" y="76.2" rot="R90"/>
+<instance part="R8" gate="R" x="254" y="76.2" rot="R90">
+<attribute name="DIST" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND10" gate="1" x="254" y="55.88"/>
 <instance part="LED5" gate="LED" x="170.18" y="20.32">
 <attribute name="ORANGE" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R9" gate="R" x="170.18" y="33.02" rot="R90"/>
+<instance part="R9" gate="R" x="170.18" y="33.02" rot="R90">
+<attribute name="DIST" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND11" gate="1" x="170.18" y="12.7"/>
 <instance part="LED6" gate="LED" x="180.34" y="20.32">
 <attribute name="ORANGE" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R10" gate="R" x="180.34" y="33.02" rot="R90"/>
+<instance part="R10" gate="R" x="180.34" y="33.02" rot="R90">
+<attribute name="DIST" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND12" gate="1" x="180.34" y="12.7"/>
 <instance part="LED7" gate="LED" x="190.5" y="20.32">
 <attribute name="ORANGE" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R11" gate="R" x="190.5" y="33.02" rot="R90"/>
+<instance part="R11" gate="R" x="190.5" y="33.02" rot="R90">
+<attribute name="DIST" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND13" gate="1" x="190.5" y="12.7"/>
 <instance part="LED8" gate="LED" x="200.66" y="20.32">
 <attribute name="ORANGE" x="200.66" y="20.32" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R12" gate="R" x="200.66" y="33.02" rot="R90"/>
+<instance part="R12" gate="R" x="200.66" y="33.02" rot="R90">
+<attribute name="DIST" x="200.66" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="200.66" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="200.66" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG_PN" x="200.66" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
 <instance part="GND14" gate="1" x="200.66" y="12.7"/>
 <instance part="CF1" gate="G$1" x="30.48" y="90.17" smashed="yes">
 <attribute name="NAME" x="24.13" y="142.875" size="1.778" layer="95"/>
@@ -19100,34 +19700,81 @@ line crossing on layout</text>
 <instance part="U$34" gate="G$1" x="350.52" y="129.54"/>
 <instance part="SH2" gate="G$1" x="419.1" y="248.92"/>
 <instance part="U$36" gate="G$1" x="419.1" y="238.76"/>
-<instance part="C44" gate="CE" x="359.41" y="162.56"/>
-<instance part="C45" gate="CE" x="434.34" y="304.8" rot="MR180"/>
+<instance part="C44" gate="CE" x="359.41" y="162.56">
+<attribute name="DIST" x="359.41" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="359.41" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="359.41" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="359.41" y="162.56" size="1.778" layer="96" display="off"/>
+</instance>
+<instance part="C45" gate="CE" x="434.34" y="304.8" rot="MR180">
+<attribute name="DIST" x="434.34" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="434.34" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="434.34" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="434.34" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
 <instance part="U$37" gate="G$1" x="434.34" y="297.18"/>
-<instance part="C47" gate="CE" x="426.72" y="177.8" rot="MR180"/>
+<instance part="C47" gate="CE" x="426.72" y="177.8" rot="MR180">
+<attribute name="DIST" x="426.72" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="426.72" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="426.72" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="426.72" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
 <instance part="U$38" gate="G$1" x="426.72" y="170.18"/>
 <instance part="U$39" gate="G$1" x="406.4" y="114.3"/>
 <instance part="U$39" gate="G$2" x="406.4" y="101.6" rot="MR270"/>
 <instance part="3.3V4" gate="1" x="396.24" y="106.68" rot="MR0"/>
 <instance part="U$40" gate="G$1" x="416.56" y="96.52"/>
-<instance part="C48" gate="CE" x="345.44" y="180.34" rot="MR180"/>
+<instance part="C48" gate="CE" x="345.44" y="180.34" rot="MR180">
+<attribute name="DIST" x="345.44" y="180.34" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="345.44" y="180.34" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="345.44" y="180.34" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="345.44" y="180.34" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
 <instance part="U$41" gate="G$1" x="345.44" y="172.72"/>
 <instance part="U$42" gate="G$1" x="327.66" y="93.98"/>
 <instance part="U$43" gate="G$1" x="144.78" y="208.28"/>
 <instance part="C39" gate="CE" x="83.82" y="345.44" smashed="yes" rot="MR180">
 <attribute name="NAME" x="86.614" y="350.139" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="85.344" y="345.059" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="83.82" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="83.82" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="83.82" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="83.82" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C40" gate="CE" x="129.54" y="345.44" smashed="yes" rot="MR180">
 <attribute name="NAME" x="132.334" y="350.139" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="131.064" y="345.059" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="129.54" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="129.54" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="129.54" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="129.54" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C41" gate="CE" x="139.7" y="345.44" smashed="yes" rot="MR180">
 <attribute name="NAME" x="142.494" y="350.139" size="1.778" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="141.224" y="345.059" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="139.7" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="139.7" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="139.7" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="139.7" y="345.44" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C36" gate="CE" x="360.68" y="190.5" rot="MR180"/>
-<instance part="C37" gate="CE" x="396.24" y="187.96" rot="MR180"/>
-<instance part="C38" gate="CE" x="403.86" y="190.5" rot="MR180"/>
+<instance part="C36" gate="CE" x="360.68" y="190.5" rot="MR180">
+<attribute name="DIST" x="360.68" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="360.68" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="360.68" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="360.68" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C37" gate="CE" x="396.24" y="187.96" rot="MR180">
+<attribute name="DIST" x="396.24" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="396.24" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="396.24" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="396.24" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
+<instance part="C38" gate="CE" x="403.86" y="190.5" rot="MR180">
+<attribute name="DIST" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG_PN" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+</instance>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
