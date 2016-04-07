@@ -18607,9 +18607,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="3.3V2" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND1" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="SUPPLY1" library="psas_c3_team05" deviceset="V+" device=""/>
-<part name="C36" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="2.2uF"/>
-<part name="C37" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
-<part name="C38" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1uF"/>
 <part name="3.3V1" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND34" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="U$8" library="psas_c3_team05" deviceset="AAT3215" device="">
@@ -18617,9 +18614,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFN-PN" value="AAT3215"/>
 </part>
 <part name="GND35" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="C39" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="2.2uF"/>
-<part name="C40" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF"/>
-<part name="C41" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1uF"/>
 <part name="3.3V3" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="TP1" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP2" library="testpad" deviceset="TPS" device="PAD1-13"/>
@@ -18744,6 +18738,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U$41" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="U$42" library="psas_c3_team05" deviceset="742792651" device=""/>
 <part name="U$43" library="psas_c3_team05" deviceset="RF_GND" device=""/>
+<part name="C39" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF"/>
+<part name="C40" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
+<part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF"/>
+<part name="C36" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF"/>
+<part name="C37" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10nF"/>
+<part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2nF"/>
 </parts>
 <sheets>
 <sheet>
@@ -18957,12 +18957,6 @@ line crossing on layout</text>
 <instance part="3.3V2" gate="1" x="365.76" y="332.74" rot="MR0"/>
 <instance part="GND1" gate="1" x="208.28" y="43.18"/>
 <instance part="SUPPLY1" gate="1" x="208.28" y="88.9"/>
-<instance part="C36" gate="CE" x="403.86" y="193.04"/>
-<instance part="C37" gate="CE" x="396.24" y="190.5"/>
-<instance part="C38" gate="CE" x="360.68" y="193.04" smashed="yes">
-<attribute name="NAME" x="354.33" y="193.04" size="1.778" layer="95"/>
-<attribute name="VALUE" x="354.584" y="188.341" size="1.778" layer="96"/>
-</instance>
 <instance part="3.3V1" gate="1" x="360.68" y="203.2" rot="MR0"/>
 <instance part="GND34" gate="1" x="129.54" y="297.18"/>
 <instance part="U$8" gate="G$1" x="111.76" y="358.14">
@@ -18970,9 +18964,6 @@ line crossing on layout</text>
 <attribute name="MFN-PN" x="111.76" y="358.14" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND35" gate="1" x="111.76" y="335.28"/>
-<instance part="C39" gate="CE" x="139.7" y="347.98"/>
-<instance part="C40" gate="CE" x="129.54" y="347.98"/>
-<instance part="C41" gate="CE" x="83.82" y="347.98"/>
 <instance part="3.3V3" gate="1" x="83.82" y="368.3" rot="MR0"/>
 <instance part="TP1" gate="G$1" x="71.12" y="307.34"/>
 <instance part="TP2" gate="G$1" x="76.2" y="302.26"/>
@@ -19122,6 +19113,21 @@ line crossing on layout</text>
 <instance part="U$41" gate="G$1" x="345.44" y="172.72"/>
 <instance part="U$42" gate="G$1" x="327.66" y="93.98"/>
 <instance part="U$43" gate="G$1" x="144.78" y="208.28"/>
+<instance part="C39" gate="CE" x="83.82" y="345.44" smashed="yes" rot="MR180">
+<attribute name="NAME" x="86.614" y="350.139" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="85.344" y="345.059" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="C40" gate="CE" x="129.54" y="345.44" smashed="yes" rot="MR180">
+<attribute name="NAME" x="132.334" y="350.139" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="131.064" y="345.059" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="C41" gate="CE" x="139.7" y="345.44" smashed="yes" rot="MR180">
+<attribute name="NAME" x="142.494" y="350.139" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="141.224" y="345.059" size="1.778" layer="96" rot="MR180"/>
+</instance>
+<instance part="C36" gate="CE" x="360.68" y="190.5" rot="MR180"/>
+<instance part="C37" gate="CE" x="396.24" y="187.96" rot="MR180"/>
+<instance part="C38" gate="CE" x="403.86" y="190.5" rot="MR180"/>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19192,18 +19198,18 @@ line crossing on layout</text>
 <pinref part="U$8" gate="G$1" pin="GND"/>
 <pinref part="GND35" gate="1" pin="GND"/>
 <wire x1="111.76" y1="347.98" x2="111.76" y2="340.36" width="0.1524" layer="91"/>
-<pinref part="C41" gate="CE" pin="2"/>
 <wire x1="111.76" y1="340.36" x2="111.76" y2="337.82" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="342.9" x2="83.82" y2="340.36" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="340.36" x2="111.76" y2="340.36" width="0.1524" layer="91"/>
 <junction x="111.76" y="340.36"/>
-<pinref part="C39" gate="CE" pin="2"/>
 <wire x1="139.7" y1="340.36" x2="139.7" y2="342.9" width="0.1524" layer="91"/>
 <wire x1="111.76" y1="340.36" x2="129.54" y2="340.36" width="0.1524" layer="91"/>
-<pinref part="C40" gate="CE" pin="2"/>
 <wire x1="129.54" y1="340.36" x2="139.7" y2="340.36" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="342.9" x2="129.54" y2="340.36" width="0.1524" layer="91"/>
 <junction x="129.54" y="340.36"/>
+<pinref part="C39" gate="CE" pin="1"/>
+<pinref part="C40" gate="CE" pin="1"/>
+<pinref part="C41" gate="CE" pin="1"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="GND"/>
@@ -19223,20 +19229,20 @@ line crossing on layout</text>
 </segment>
 <segment>
 <wire x1="381" y1="187.96" x2="381" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="C38" gate="CE" pin="2"/>
 <wire x1="381" y1="182.88" x2="381" y2="180.34" width="0.1524" layer="91"/>
 <wire x1="360.68" y1="187.96" x2="360.68" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="360.68" y1="182.88" x2="381" y2="182.88" width="0.1524" layer="91"/>
 <junction x="381" y="182.88"/>
-<pinref part="C36" gate="CE" pin="2"/>
 <wire x1="403.86" y1="182.88" x2="403.86" y2="187.96" width="0.1524" layer="91"/>
 <wire x1="381" y1="182.88" x2="396.24" y2="182.88" width="0.1524" layer="91"/>
-<pinref part="C37" gate="CE" pin="2"/>
 <wire x1="396.24" y1="182.88" x2="403.86" y2="182.88" width="0.1524" layer="91"/>
 <wire x1="396.24" y1="185.42" x2="396.24" y2="182.88" width="0.1524" layer="91"/>
 <junction x="396.24" y="182.88"/>
 <pinref part="U$7" gate="G$1" pin="GND"/>
 <pinref part="U$32" gate="G$1" pin="GND"/>
+<pinref part="C36" gate="CE" pin="1"/>
+<pinref part="C37" gate="CE" pin="1"/>
+<pinref part="C38" gate="CE" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -19356,16 +19362,15 @@ line crossing on layout</text>
 <junction x="365.76" y="325.12"/>
 </segment>
 <segment>
-<pinref part="C38" gate="CE" pin="1"/>
 <wire x1="360.68" y1="195.58" x2="360.68" y2="198.12" width="0.1524" layer="91"/>
 <wire x1="360.68" y1="198.12" x2="360.68" y2="200.66" width="0.1524" layer="91"/>
 <pinref part="3.3V1" gate="1" pin="V+"/>
 <pinref part="U$7" gate="G$1" pin="VIN"/>
 <wire x1="360.68" y1="198.12" x2="368.3" y2="198.12" width="0.1524" layer="91"/>
 <junction x="360.68" y="198.12"/>
+<pinref part="C36" gate="CE" pin="2"/>
 </segment>
 <segment>
-<pinref part="C41" gate="CE" pin="1"/>
 <pinref part="U$8" gate="G$1" pin="VIN"/>
 <wire x1="83.82" y1="350.52" x2="83.82" y2="353.06" width="0.1524" layer="91"/>
 <wire x1="83.82" y1="353.06" x2="83.82" y2="358.14" width="0.1524" layer="91"/>
@@ -19376,6 +19381,7 @@ line crossing on layout</text>
 <pinref part="R5" gate="R" pin="2"/>
 <wire x1="86.36" y1="353.06" x2="83.82" y2="353.06" width="0.1524" layer="91"/>
 <junction x="83.82" y="353.06"/>
+<pinref part="C39" gate="CE" pin="2"/>
 </segment>
 <segment>
 <pinref part="3.3V5" gate="1" pin="V+"/>
@@ -19785,13 +19791,13 @@ line crossing on layout</text>
 <wire x1="139.7" y1="299.72" x2="139.7" y2="297.18" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="C39" gate="CE" pin="1"/>
 <pinref part="U$8" gate="G$1" pin="VOUT"/>
 <wire x1="139.7" y1="358.14" x2="139.7" y2="350.52" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="358.14" x2="139.7" y2="358.14" width="0.1524" layer="91"/>
 <pinref part="P+2" gate="G$1" pin="3.3V"/>
 <wire x1="139.7" y1="358.14" x2="139.7" y2="365.76" width="0.1524" layer="91"/>
 <junction x="139.7" y="358.14"/>
+<pinref part="C41" gate="CE" pin="2"/>
 </segment>
 </net>
 <net name="N$7" class="0">
@@ -19875,9 +19881,9 @@ line crossing on layout</text>
 </net>
 <net name="N$1" class="0">
 <segment>
-<pinref part="C37" gate="CE" pin="1"/>
 <wire x1="393.7" y1="193.04" x2="396.24" y2="193.04" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="BYP"/>
+<pinref part="C37" gate="CE" pin="2"/>
 </segment>
 </net>
 <net name="PA_EN" class="0">
@@ -20309,14 +20315,13 @@ line crossing on layout</text>
 <net name="N$13" class="0">
 <segment>
 <pinref part="U$8" gate="G$1" pin="BYP"/>
-<pinref part="C40" gate="CE" pin="1"/>
 <wire x1="124.46" y1="353.06" x2="129.54" y2="353.06" width="0.1524" layer="91"/>
 <wire x1="129.54" y1="353.06" x2="129.54" y2="350.52" width="0.1524" layer="91"/>
+<pinref part="C40" gate="CE" pin="2"/>
 </segment>
 </net>
 <net name="VBIAS" class="0">
 <segment>
-<pinref part="C36" gate="CE" pin="1"/>
 <wire x1="403.86" y1="198.12" x2="403.86" y2="195.58" width="0.1524" layer="91"/>
 <wire x1="393.7" y1="198.12" x2="403.86" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="U$7" gate="G$1" pin="VOUT"/>
@@ -20348,6 +20353,7 @@ line crossing on layout</text>
 <pinref part="C44" gate="CE" pin="1"/>
 <wire x1="359.41" y1="165.1" x2="359.41" y2="167.64" width="0.1524" layer="91"/>
 <junction x="359.41" y="167.64"/>
+<pinref part="C38" gate="CE" pin="2"/>
 </segment>
 </net>
 <net name="PTE0" class="0">
