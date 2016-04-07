@@ -19142,6 +19142,8 @@ transceiver RESET
 if needed</text>
 <text x="424.18" y="101.6" size="1.778" layer="97">Inverter prevents RF 
 line crossing on layout</text>
+<text x="309.88" y="60.96" size="1.778" layer="100">TODO:
+-Add attributes for rest of parts</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
