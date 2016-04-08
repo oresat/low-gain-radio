@@ -359,7 +359,11 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <smd name="6" x="0.439" y="-0.964" dx="0.31" dy="0.3" layer="1"/>
 <smd name="10" x="0.439" y="0.996" dx="0.31" dy="0.3" layer="1"/>
 <smd name="12" x="-0.471" y="0.996" dx="0.31" dy="0.3" layer="1"/>
-<polygon width="0.127" layer="1">
+<polygon width="0.1524" layer="1">
+<vertex x="-0.29239375" y="0.516"/>
+<vertex x="0.26039375" y="0.516" curve="-90"/>
+</polygon>
+<polygon width="0.1524" layer="1">
 <vertex x="-0.29239375" y="0.516"/>
 <vertex x="0.26039375" y="0.516" curve="-90"/>
 <vertex x="0.484" y="0.29239375"/>
@@ -368,6 +372,16 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <vertex x="-0.29239375" y="-0.484" curve="-90"/>
 <vertex x="-0.516" y="-0.26039375"/>
 <vertex x="-0.516" y="0.29239375"/>
+</polygon>
+<polygon width="0.127" layer="29">
+<vertex x="-0.30239375" y="0.556"/>
+<vertex x="0.27039375" y="0.556" curve="-90"/>
+<vertex x="0.514" y="0.33239375"/>
+<vertex x="0.514" y="-0.30039375" curve="-90"/>
+<vertex x="0.27039375" y="-0.524"/>
+<vertex x="-0.29239375" y="-0.524" curve="-90"/>
+<vertex x="-0.556" y="-0.30039375"/>
+<vertex x="-0.556" y="0.30239375"/>
 </polygon>
 </package>
 <package name="SKY65116">
@@ -388,21 +402,22 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <smd name="10" x="1.7105" y="3.5788" dx="0.893" dy="0.81" layer="1" rot="R270"/>
 <smd name="11" x="-0.1255" y="3.5788" dx="0.893" dy="0.81" layer="1" rot="R270"/>
 <smd name="12" x="-1.9615" y="3.5788" dx="0.893" dy="0.81" layer="1" rot="R270"/>
-<polygon width="0.127" layer="1">
+<polygon width="0.1524" layer="1">
 <vertex x="-2.118" y="-1.736" curve="-180"/>
 <vertex x="1.882" y="1.464" curve="-180"/>
 </polygon>
+<circle x="-0.1" y="-0.15" radius="2.681640625" width="0.127" layer="29"/>
 </package>
 <package name="LD39200">
 <wire x1="-1.27" y1="1.524" x2="1.23" y2="1.524" width="0.127" layer="21"/>
 <wire x1="1.23" y1="1.524" x2="1.23" y2="-1.576" width="0.127" layer="21"/>
 <wire x1="1.23" y1="-1.576" x2="-1.27" y2="-1.576" width="0.127" layer="21"/>
 <wire x1="-1.27" y1="-1.576" x2="-1.27" y2="1.524" width="0.127" layer="21"/>
-<polygon width="0.127" layer="1">
-<vertex x="-1.27" y="0.849"/>
-<vertex x="1.23" y="0.849"/>
-<vertex x="1.23" y="-0.901"/>
-<vertex x="-1.27" y="-0.901"/>
+<polygon width="0.1524" layer="1">
+<vertex x="-1.26" y="0.839"/>
+<vertex x="1.22" y="0.839"/>
+<vertex x="1.22" y="-0.891"/>
+<vertex x="-1.26" y="-0.891"/>
 </polygon>
 <smd name="5" x="-0.02" y="1.339" dx="0.5" dy="0.45" layer="1" rot="R90"/>
 <smd name="6" x="-0.97" y="1.339" dx="0.5" dy="0.45" layer="1" rot="R90"/>
@@ -410,6 +425,10 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <smd name="3" x="0.93" y="-1.388" dx="0.5" dy="0.45" layer="1" rot="R90"/>
 <smd name="2" x="-0.02" y="-1.388" dx="0.5" dy="0.45" layer="1" rot="R90"/>
 <smd name="1" x="-0.97" y="-1.388" dx="0.5" dy="0.45" layer="1" rot="R90"/>
+<wire x1="-1.33" y1="0.91" x2="1.28" y2="0.91" width="0.127" layer="29"/>
+<wire x1="1.28" y1="0.91" x2="1.28" y2="-0.95" width="0.127" layer="29"/>
+<wire x1="1.28" y1="-0.95" x2="-1.33" y2="-0.95" width="0.127" layer="29"/>
+<wire x1="-1.33" y1="-0.95" x2="-1.33" y2="0.91" width="0.127" layer="29"/>
 </package>
 <package name="AAT3215">
 <wire x1="-1.524" y1="0.762" x2="1.326" y2="0.762" width="0.127" layer="21"/>
@@ -18448,8 +18467,8 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="CON-MCX-LINX" prefix="CF">
-<description>Linx Technologies MCX Connector #CONMCX003.062</description>
+<deviceset name="CON-MCX-F-LINX-CONMCX003.062" prefix="CF">
+<description>Linx Technologies F MCX board-edge connector #CONMCX003.062</description>
 <gates>
 <gate name="G$1" symbol="CON-COAX" x="0" y="0"/>
 </gates>
@@ -19005,7 +19024,7 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </part>
 <part name="GND14" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="CF1" library="oresat-eagle" deviceset="ORESAT-CONNECTOR-40PIN" device=""/>
-<part name="CF2" library="oresat-eagle" deviceset="CON-MCX-LINX" device=""/>
+<part name="CF2" library="oresat-eagle" deviceset="CON-MCX-F-LINX-CONMCX003.062" device=""/>
 <part name="TP18" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="SH1" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
 <part name="U$34" library="psas_c3_team05" deviceset="RF_GND" device=""/>
@@ -21082,13 +21101,6 @@ line crossing on layout</text>
 <wire x1="200.66" y1="25.4" x2="200.66" y2="27.94" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="ASD" class="0">
-<segment>
-<pinref part="C47" gate="CE" pin="1"/>
-<wire x1="426.72" y1="175.26" x2="426.72" y2="172.72" width="0.1524" layer="91"/>
-<pinref part="U$38" gate="G$1" pin="GND"/>
-</segment>
-</net>
 <net name="N$2" class="0">
 <segment>
 <pinref part="TRSWITCH" gate="G$1" pin="CTRL"/>
@@ -21151,6 +21163,9 @@ line crossing on layout</text>
 <pinref part="U$30" gate="G$1" pin="GND"/>
 <wire x1="502.92" y1="167.64" x2="510.54" y2="167.64" width="0.1524" layer="91"/>
 <wire x1="510.54" y1="167.64" x2="510.54" y2="165.1" width="0.1524" layer="91"/>
+<pinref part="CF2" gate="G$1" pin="SHIELD"/>
+<wire x1="510.54" y1="170.18" x2="510.54" y2="167.64" width="0.1524" layer="91"/>
+<junction x="510.54" y="167.64"/>
 </segment>
 <segment>
 <pinref part="TRSWITCH" gate="G$1" pin="GND5"/>
@@ -21337,16 +21352,18 @@ line crossing on layout</text>
 <junction x="144.78" y="213.36"/>
 <junction x="144.78" y="210.82"/>
 </segment>
+<segment>
+<pinref part="C47" gate="CE" pin="1"/>
+<wire x1="426.72" y1="175.26" x2="426.72" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="U$38" gate="G$1" pin="GND"/>
+</segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
-<approved hash="104,1,134.62,210.82,KW0X,GND/SCAN,GND,,,"/>
 <approved hash="104,1,116.84,144.78,KW0X,GND1,GND,,,"/>
 <approved hash="104,1,119.38,144.78,KW0X,GND2,GND,,,"/>
-<approved hash="104,1,134.62,215.9,KW0X,GND_PA1,GND,,,"/>
-<approved hash="104,1,134.62,213.36,KW0X,GND_PA2,GND,,,"/>
 <approved hash="104,1,134.62,236.22,KW0X,VBAT1,3.3V,,,"/>
 <approved hash="104,1,134.62,223.52,KW0X,VBAT2,3.3V,,,"/>
 <approved hash="104,1,111.76,251.46,KW0X,VDD,3.3V,,,"/>
@@ -21361,16 +21378,7 @@ line crossing on layout</text>
 <approved hash="104,1,375.92,259.08,PA,VCNT,VPA,,,"/>
 <approved hash="104,1,391.16,271.78,PA,VCC2,VPA,,,"/>
 <approved hash="113,1,279.296,215.796,FRAME1,,,,,"/>
-<approved hash="113,1,182.733,163.851,J1,,,,,"/>
 <approved hash="113,1,216.137,63.6312,JP2,,,,,"/>
-<approved hash="113,1,234.969,64.77,LED1,,,,,"/>
-<approved hash="113,1,415.309,179.07,LED2,,,,,"/>
-<approved hash="113,1,422.929,306.07,LED3,,,,,"/>
-<approved hash="113,1,250.209,64.77,LED4,,,,,"/>
-<approved hash="113,1,166.389,21.59,LED5,,,,,"/>
-<approved hash="113,1,176.549,21.59,LED6,,,,,"/>
-<approved hash="113,1,186.709,21.59,LED7,,,,,"/>
-<approved hash="113,1,196.869,21.59,LED8,,,,,"/>
 </errors>
 </schematic>
 </drawing>
