@@ -76,7 +76,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="99" name="SpiceOrder" color="7" fill="1" visible="no" active="no"/>
-<layer number="100" name="TODO" color="12" fill="1" visible="no" active="yes"/>
+<layer number="100" name="TODO" color="12" fill="1" visible="yes" active="yes"/>
 <layer number="101" name="Hidden" color="7" fill="1" visible="no" active="yes"/>
 <layer number="102" name="Changes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
@@ -170,6 +170,27 @@
 <wire x1="49.85" y1="89.6" x2="49.85" y2="71.25" width="0.2" layer="100" style="shortdash"/>
 <wire x1="49.85" y1="71.25" x2="59.75" y2="71.25" width="0.2" layer="100" style="shortdash"/>
 <text x="49.65" y="90.35" size="0.75" layer="100">Cut power plane to here</text>
+<text x="62.15" y="62.8" size="1" layer="21" font="vector" ratio="16">XTA</text>
+<text x="97.45" y="71.6" size="1" layer="21" font="vector" ratio="16" rot="R180">SCLK</text>
+<text x="89.6" y="67.5" size="1" layer="21" font="vector" ratio="16" rot="R180">!HOLD</text>
+<text x="97.25" y="66.55" size="1" layer="21" font="vector" ratio="16" rot="R180">MOSI</text>
+<text x="90" y="50.3" size="1" layer="21" font="vector" ratio="16" rot="R180">MISO</text>
+<text x="93" y="47.3" size="1" layer="21" font="vector" ratio="16">V_SPI</text>
+<text x="91.6" y="45.9" size="1" layer="21" font="vector" ratio="16" rot="R180">DIO5/CLKOUT</text>
+<text x="59.15" y="51.65" size="1" layer="21" font="vector" ratio="16">!RESET</text>
+<text x="58.05" y="55.3" size="1" layer="21" font="vector" ratio="16">LDO
+EN</text>
+<text x="88.95" y="52.05" size="1" layer="21" font="vector" ratio="16">!CS</text>
+<text x="45.95" y="64.25" size="1" layer="21" font="vector" ratio="16">DIO0</text>
+<text x="45.8" y="60.35" size="1" layer="21" font="vector" ratio="16" rot="R180">DIO1</text>
+<text x="63.4" y="55.45" size="1" layer="21" font="vector" ratio="16">DIO2</text>
+<text x="50.65" y="55.4" size="1" layer="21" font="vector" ratio="16" rot="R180">DIO3</text>
+<text x="55.2" y="53.05" size="1" layer="21" font="vector" ratio="16" rot="R180">DIO4</text>
+<text x="45.05" y="86.5" size="1" layer="21" font="vector" ratio="16">PG</text>
+<text x="65.45" y="30.4" size="0.4064" layer="100">TODO:
+-Add PSAS and people who helped with board text
+-Figure out footprint drc error
+-I'm guessing we are ignoring the dimension drc error on the MCX???</text>
 </plain>
 <libraries>
 <library name="rcl_custom">
@@ -3313,46 +3334,241 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 </pass>
 </autorouter>
 <elements>
-<element name="C1" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="79.9" y="74.9" rot="R270"/>
-<element name="C10" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="90.99" y="85.79" rot="R270"/>
-<element name="C11" library="rcl_custom" package=".0603-B-NOSILK" value="8.2pF" x="60.4" y="69.05"/>
-<element name="C12" library="rcl_custom" package=".0603-B-NOSILK" value="8.2pF" x="88.59" y="86.66" rot="R180"/>
-<element name="C14" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="58.9" y="67.4"/>
-<element name="C15" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="56.95" y="74.78" rot="R90"/>
-<element name="C16" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="58.65" y="74.77" rot="R90"/>
-<element name="C17" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="62.1" y="86" rot="R180"/>
-<element name="C18" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="62.1" y="87.5" rot="R180"/>
-<element name="C19" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="56" y="87.4"/>
-<element name="C2" library="rcl_custom" package=".0603-B-NOSILK" value="12pF" x="69" y="69.8" rot="R90"/>
-<element name="C20" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="56" y="85.9"/>
-<element name="C21" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="58.3" y="86.8" rot="R270"/>
-<element name="C22" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="59.8" y="86.8" rot="R270"/>
-<element name="C26" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="81.91" y="56.18" rot="R270"/>
-<element name="C27" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="83.26" y="56.18" rot="R270"/>
-<element name="C28" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="70.8" y="54.55" rot="R90"/>
-<element name="C29" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="69.35" y="54.55" rot="R90"/>
-<element name="C3" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="66.6" y="64.2" rot="R180"/>
-<element name="C30" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="78.45" y="64.5" rot="R270"/>
-<element name="C31" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="76.9" y="64.48" rot="R270"/>
-<element name="C32" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="70.93" y="62.65" rot="R270"/>
-<element name="C33" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="69.33" y="62.33" rot="R270"/>
-<element name="C34" library="rcl_custom" package=".0603-B-NOSILK" value="6pF" x="66.9279125" y="62.19725625" rot="R180"/>
-<element name="C35" library="rcl_custom" package=".0603-B-NOSILK" value="6pF" x="66.6079125" y="57.39725625"/>
-<element name="C4" library="rcl_custom" package=".0603-B-NOSILK" value="12pF" x="91" y="79.4" rot="R90"/>
-<element name="C5" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="68.2" y="67.4" rot="R180"/>
-<element name="C6" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="89.4" y="79.4" rot="R90"/>
-<element name="C7" library="rcl_custom" package=".0603-B-NOSILK" value="2.2pF" x="65.1" y="65.8" rot="R180"/>
-<element name="C8" library="rcl_custom" package=".0603-B-NOSILK" value="2.2pF" x="91" y="82.5" rot="R90"/>
-<element name="C9" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="65.1" y="69.05" rot="R180"/>
+<element name="C1" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="79.9" y="74.9" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="79.9" y="74.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="79.9" y="74.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="79.9" y="74.9" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="79.9" y="74.9" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C10" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="90.99" y="85.79" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="90.99" y="85.79" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-1407-2-ND" x="90.99" y="85.79" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="90.99" y="85.79" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D" x="90.99" y="85.79" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C11" library="rcl_custom" package=".0603-B-NOSILK" value="8.2pF" x="60.4" y="69.05">
+<attribute name="DIST" value="Digi-Key" x="60.4" y="69.05" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="06031U8R2BAT2A-ND" x="60.4" y="69.05" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="AVX" x="60.4" y="69.05" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="06031U8R2BAT2A" x="60.4" y="69.05" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C12" library="rcl_custom" package=".0603-B-NOSILK" value="8.2pF" x="88.59" y="86.66" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="88.59" y="86.66" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="06031U8R2BAT2A-ND" x="88.59" y="86.66" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="AVX" x="88.59" y="86.66" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="06031U8R2BAT2A" x="88.59" y="86.66" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C14" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="58.9" y="67.4">
+<attribute name="DIST" value="Digi-Key" x="58.9" y="67.4" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="58.9" y="67.4" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="AVX" x="58.9" y="67.4" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="58.9" y="67.4" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C15" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="56.95" y="74.78" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="56.95" y="74.78" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="56.95" y="74.78" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="56.95" y="74.78" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="56.95" y="74.78" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C16" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="58.65" y="74.77" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="58.65" y="74.77" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="58.65" y="74.77" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="58.65" y="74.77" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="58.65" y="74.77" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C17" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="62.1" y="86" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="62.1" y="86" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="62.1" y="86" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="62.1" y="86" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="62.1" y="86" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C18" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="62.1" y="87.5" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="62.1" y="87.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="62.1" y="87.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="62.1" y="87.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="62.1" y="87.5" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C19" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="56" y="87.4">
+<attribute name="DIST" value="Digi-Key" x="56" y="87.4" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="56" y="87.4" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Murata" x="56" y="87.4" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="56" y="87.4" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C2" library="rcl_custom" package=".0603-B-NOSILK" value="12pF" x="69" y="69.8" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="69" y="69.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1405-2-ND" x="69" y="69.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="69" y="69.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H120JA01D" x="69" y="69.8" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C20" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="56" y="85.9">
+<attribute name="DIST" value="Digi-Key" x="56" y="85.9" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="56" y="85.9" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Murata" x="56" y="85.9" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="56" y="85.9" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C21" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="58.3" y="86.8" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="58.3" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="58.3" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="58.3" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="58.3" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C22" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="59.8" y="86.8" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="59.8" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="59.8" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="59.8" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="59.8" y="86.8" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C26" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="81.91" y="56.18" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="81.91" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="81.91" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="81.91" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="81.91" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C27" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="83.26" y="56.18" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="83.26" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="83.26" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="83.26" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="83.26" y="56.18" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C28" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="70.8" y="54.55" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="70.8" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="70.8" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="AVX" x="70.8" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="70.8" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C29" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="69.35" y="54.55" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="69.35" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="69.35" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="AVX" x="69.35" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="69.35" y="54.55" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C3" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="66.6" y="64.2" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="66.6" y="64.2" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="66.6" y="64.2" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="66.6" y="64.2" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="66.6" y="64.2" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C30" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="78.45" y="64.5" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="78.45" y="64.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="78.45" y="64.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="78.45" y="64.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="78.45" y="64.5" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C31" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="76.9" y="64.48" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="76.9" y="64.48" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="76.9" y="64.48" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="76.9" y="64.48" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="76.9" y="64.48" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C32" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="70.93" y="62.65" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="70.93" y="62.65" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="70.93" y="62.65" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="70.93" y="62.65" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="70.93" y="62.65" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C33" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="69.33" y="62.33" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="69.33" y="62.33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="69.33" y="62.33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="69.33" y="62.33" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="69.33" y="62.33" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C34" library="rcl_custom" package=".0603-B-NOSILK" value="6pF" x="66.9279125" y="62.19725625" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="66.9279125" y="62.19725625" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="GQM1875C2E6R0BB12D-ND" x="66.9279125" y="62.19725625" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="66.9279125" y="62.19725625" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D" x="66.9279125" y="62.19725625" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C35" library="rcl_custom" package=".0603-B-NOSILK" value="6pF" x="66.6079125" y="57.39725625">
+<attribute name="DIST" value="Digi-Key" x="66.6079125" y="57.39725625" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="GQM1875C2E6R0BB12D-ND" x="66.6079125" y="57.39725625" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Murata" x="66.6079125" y="57.39725625" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D" x="66.6079125" y="57.39725625" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C4" library="rcl_custom" package=".0603-B-NOSILK" value="12pF" x="91" y="79.4" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="91" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1405-2-ND" x="91" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="91" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H120JA01D" x="91" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C5" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="68.2" y="67.4" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="68.2" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-1407-2-ND" x="68.2" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="68.2" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D" x="68.2" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C6" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="89.4" y="79.4" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="89.4" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1407-2-ND" x="89.4" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="89.4" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D" x="89.4" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C7" library="rcl_custom" package=".0603-B-NOSILK" value="2.2pF" x="65.1" y="65.8" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="65.1" y="65.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-9668-2-ND" x="65.1" y="65.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="65.1" y="65.8" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D" x="65.1" y="65.8" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C8" library="rcl_custom" package=".0603-B-NOSILK" value="2.2pF" x="91" y="82.5" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="91" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-9668-2-ND" x="91" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="91" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D" x="91" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C9" library="rcl_custom" package=".0603-B-NOSILK" value="15pF" x="65.1" y="69.05" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="65.1" y="69.05" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-1407-2-ND" x="65.1" y="69.05" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="65.1" y="69.05" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM1885C1H150JA01D" x="65.1" y="69.05" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="J1" library="psas_c3_team05" package="PINHEADER-2X5-0.05+POL+SILK" value="" x="52.07" y="3.41"/>
-<element name="L1" library="rcl_custom" package=".0603-B-NOSILK" value="22nH" x="69" y="65" rot="R90"/>
-<element name="L2" library="rcl_custom" package=".0603-B-NOSILK" value="22nH" x="82.3" y="74.1"/>
-<element name="L3" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="65.1" y="67.4" rot="R180"/>
-<element name="L4" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="89.4" y="82.5" rot="R90"/>
-<element name="L5" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="62" y="67.4" rot="R180"/>
-<element name="L6" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="88.59" y="85" rot="R180"/>
-<element name="L8" library="rcl_custom" package=".0603-B-NOSILK" value="82nH" x="83.96" y="84.23" rot="R270"/>
-<element name="R1" library="rcl_custom" package=".0603-B-NOSILK" value="250" x="83.16" y="81.8"/>
+<element name="L1" library="rcl_custom" package=".0603-B-NOSILK" value="22nH" x="69" y="65" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="69" y="65" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-6874-1-ND" x="69" y="65" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="69" y="65" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN22NG00D" x="69" y="65" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="L2" library="rcl_custom" package=".0603-B-NOSILK" value="22nH" x="82.3" y="74.1">
+<attribute name="DIST" value="Digi-Key" x="82.3" y="74.1" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="490-6874-1-ND" x="82.3" y="74.1" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Murata" x="82.3" y="74.1" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN22NG00D" x="82.3" y="74.1" size="1.778" layer="27" display="off"/>
+</element>
+<element name="L3" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="65.1" y="67.4" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="65.1" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6866-1-ND" x="65.1" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="65.1" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D" x="65.1" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="L4" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="89.4" y="82.5" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="89.4" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-6866-1-ND" x="89.4" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="89.4" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D" x="89.4" y="82.5" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="L5" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="62" y="67.4" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="62" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6866-1-ND" x="62" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="62" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D" x="62" y="67.4" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="L6" library="rcl_custom" package=".0603-B-NOSILK" value="15nH" x="88.59" y="85" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="88.59" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6866-1-ND" x="88.59" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="88.59" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN15NG00D" x="88.59" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="L8" library="rcl_custom" package=".0603-B-NOSILK" value="82nH" x="83.96" y="84.23" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="83.96" y="84.23" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-6912-2-ND" x="83.96" y="84.23" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="83.96" y="84.23" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="LQW18AN82NG00D" x="83.96" y="84.23" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="R1" library="rcl_custom" package=".0603-B-NOSILK" value="250" x="83.16" y="81.8">
+<attribute name="DIST" value="Digi-Key" x="83.16" y="81.8" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="1276-4592-2-ND" x="83.16" y="81.8" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Samsung" x="83.16" y="81.8" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="RC1608F2490CS" x="83.16" y="81.8" size="1.778" layer="27" display="off"/>
+</element>
 <element name="KW0X" library="psas_c3_team05" package="MKW01Z128" value="MKW01Z128" x="76.088371875" y="58.305025">
 <attribute name="MFN" value="NXP" x="76.088371875" y="58.305025" size="1.778" layer="27" display="off"/>
 <attribute name="MPN" value="MKW01Z128CHN" x="76.088371875" y="58.305025" size="1.778" layer="27" display="off"/>
@@ -3382,13 +3598,43 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="TP15" library="testpad" package="P1-13" value="TPSPAD1-13" x="80.28" y="45.36" rot="R180">
 <attribute name="TP_SIGNAL_NAME" value="" x="80.28" y="45.36" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="C23" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="75.2" y="83.75"/>
-<element name="C24" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="85.41" y="83.01" rot="R90"/>
-<element name="C25" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="85.9" y="85" rot="R180"/>
-<element name="C43" library="rcl" package="CT6032" value="100uF" x="74.2" y="74.8" rot="R270"/>
+<element name="C23" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="75.2" y="83.75">
+<attribute name="DIST" value="Digi-key" x="75.2" y="83.75" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="490-1303-1-ND" x="75.2" y="83.75" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="Murata" x="75.2" y="83.75" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D" x="75.2" y="83.75" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C24" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="85.41" y="83.01" rot="R90">
+<attribute name="DIST" value="Digi-key" x="85.41" y="83.01" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1303-1-ND" x="85.41" y="83.01" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="85.41" y="83.01" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D" x="85.41" y="83.01" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C25" library="rcl_custom" package=".0402-B-NOSILK" value="1nF" x="85.9" y="85" rot="R180">
+<attribute name="DIST" value="Digi-key" x="85.9" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-1303-1-ND" x="85.9" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="85.9" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM155R71H102KA01D" x="85.9" y="85" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C43" library="rcl" package="CT6032" value="100uF" x="74.2" y="74.8" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="74.2" y="74.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-1704-1-ND" x="74.2" y="74.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="74.2" y="74.8" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="TAJC107K010RNJ" x="74.2" y="74.8" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 <element name="U$9" library="psas_c3_team05" package="LD39200" value="LD39200" x="46.20334375" y="84.3091875" rot="R90"/>
-<element name="C13" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="45.65" y="81.85" rot="R180"/>
-<element name="C46" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="48.8" y="84.6" rot="R270"/>
+<element name="C13" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="45.65" y="81.85" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="45.65" y="81.85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="45.65" y="81.85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="45.65" y="81.85" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="45.65" y="81.85" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C46" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="48.8" y="84.6" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="48.8" y="84.6" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="48.8" y="84.6" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="48.8" y="84.6" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="48.8" y="84.6" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 <element name="U$8" library="psas_c3_team05" package="AAT3215" value="AAT3215" x="59.4" y="60.05" rot="R90">
 <attribute name="MFN" value="Skyworks" x="59.4" y="60.05" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MFN-PN" value="AAT3215" x="59.4" y="60.05" size="1.778" layer="27" rot="R90" display="off"/>
@@ -3416,7 +3662,12 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="MFN-PN" value="AAT3215" x="84.8" y="79" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="U$1" library="psas_c3_team05" package="W25Q80DV" value="W25Q80DV" x="92" y="59.6"/>
-<element name="C42" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="90.5" y="65.75" rot="R180"/>
+<element name="C42" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="90.5" y="65.75" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="90.5" y="65.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="90.5" y="65.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="AVX" x="90.5" y="65.75" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="90.5" y="65.75" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="TP9" library="testpad" package="P1-13" value="TPSPAD1-13" x="43.5" y="86.7">
 <attribute name="TP_SIGNAL_NAME" value="" x="43.5" y="86.7" size="1.778" layer="27" display="off"/>
 </element>
@@ -3439,44 +3690,99 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="TP17" library="testpad" package="P1-13" value="TPSPAD1-13" x="47.39" y="59.77" rot="R180">
 <attribute name="TP_SIGNAL_NAME" value="" x="47.39" y="59.77" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
-<element name="R2" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="90.5" y="64.1" rot="R180"/>
-<element name="R3" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="92.6" y="55.1" rot="R270"/>
+<element name="R2" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="90.5" y="64.1" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="90.5" y="64.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND" x="90.5" y="64.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Yageo" x="90.5" y="64.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL" x="90.5" y="64.1" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="R3" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="92.6" y="55.1" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="92.6" y="55.1" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND" x="92.6" y="55.1" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Yageo" x="92.6" y="55.1" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL" x="92.6" y="55.1" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 <element name="LED1" library="psas_c3_team05" package="LED-0603" value="" x="61.4" y="3.9" rot="R90">
 <attribute name="GREEN" value="" x="61.4" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R4" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="61.4" y="7" rot="R90"/>
-<element name="R5" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="55.6" y="59.8" rot="R90"/>
+<element name="R4" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="61.4" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="61.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="61.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="61.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="61.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="R5" library="rcl_custom" package=".0603-B-NOSILK" value="10k" x="55.6" y="59.8" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="55.6" y="59.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND" x="55.6" y="59.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="55.6" y="59.8" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL" x="55.6" y="59.8" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED2" library="psas_c3_team05" package="LED-0603" value="" x="67" y="3.9" rot="R90">
 <attribute name="GREEN" value="" x="61.92" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R6" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="82.55" y="79.38" rot="R90"/>
+<element name="R6" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="82.55" y="79.38" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="82.55" y="79.38" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="82.55" y="79.38" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="82.55" y="79.38" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="82.55" y="79.38" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED3" library="psas_c3_team05" package="LED-0603" value="" x="69.8" y="3.9" rot="R90">
 <attribute name="GREEN" value="" x="64.72" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R7" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="61.2" y="75.15" rot="R180"/>
+<element name="R7" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="61.2" y="75.15" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="61.2" y="75.15" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="61.2" y="75.15" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Yageo" x="61.2" y="75.15" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="61.2" y="75.15" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 <element name="TP14" library="testpad" package="P1-13" value="TPSPAD1-13" x="56.7" y="56.5" rot="R270">
 <attribute name="TP_SIGNAL_NAME" value="" x="56.7" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="LED4" library="psas_c3_team05" package="LED-0603" value="" x="64.2" y="3.9" rot="R90">
 <attribute name="GREEN" value="" x="59.12" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R8" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="64.2" y="7" rot="R90"/>
+<element name="R8" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="64.2" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="64.2" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="64.2" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="64.2" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="64.2" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED5" library="psas_c3_team05" package="LED-0603" value="" x="74.8" y="3.9" rot="R90">
 <attribute name="ORANGE" value="" x="69.72" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R9" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="74.8" y="7" rot="R90"/>
+<element name="R9" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="74.8" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="74.8" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="74.8" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="74.8" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="74.8" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED6" library="psas_c3_team05" package="LED-0603" value="" x="77.6" y="3.9" rot="R90">
 <attribute name="ORANGE" value="" x="77.6" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R10" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="77.6" y="7" rot="R90"/>
+<element name="R10" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="77.6" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="77.6" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="77.6" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="77.6" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="77.6" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED7" library="psas_c3_team05" package="LED-0603" value="" x="80.5" y="3.9" rot="R90">
 <attribute name="ORANGE" value="" x="75.42" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R11" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="80.5" y="7" rot="R90"/>
+<element name="R11" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="80.5" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="80.5" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="80.5" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="80.5" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="80.5" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="LED8" library="psas_c3_team05" package="LED-0603" value="" x="83.4" y="3.9" rot="R90">
 <attribute name="ORANGE" value="" x="83.4" y="3.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
-<element name="R12" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="83.4" y="7" rot="R90"/>
+<element name="R12" library="rcl_custom" package=".0603-B-NOSILK" value="1k" x="83.4" y="7" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="83.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="311-1.00KHRCT-ND" x="83.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Yageo" x="83.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="RC0603FR-071KL" x="83.4" y="7" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="CF1" library="oresat-eagle" package="HARWIN-ARCHER-M50-3202045" value="ORESAT-CONNECTOR-40PIN" x="30.065" y="95.46" locked="yes" rot="R180"/>
 <element name="CF2" library="oresat-eagle" package="CON-MCX-LINX-CONMCX003.062" value="CON-MCX-LINX" x="72.04" y="90.119" locked="yes" rot="R90"/>
 <element name="U$35" library="oresat-eagle" package="ORESAT-CARD-RF-V0.3" value="" x="0" y="0" locked="yes"/>
@@ -3485,18 +3791,68 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 </element>
 <element name="SH1" library="hw-laird-bmi-s-202" package="BMI-S-202" value="BMI-S-202-SHIELD" x="85.2" y="80.7" locked="yes"/>
 <element name="SH2" library="hw-laird-bmi-s-202" package="BMI-S-202" value="BMI-S-202-SHIELD" x="58.9" y="80.8" locked="yes"/>
-<element name="C44" library="rcl_custom" package=".0402-B-NOSILK" value="10nF" x="80.77" y="79.67" rot="R270"/>
-<element name="C45" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="64.25" y="71.3" rot="R180"/>
-<element name="C47" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="94.65" y="79.4" rot="R270"/>
+<element name="C44" library="rcl_custom" package=".0402-B-NOSILK" value="10nF" x="80.77" y="79.67" rot="R270">
+<attribute name="DIST" value="Digi-key" x="80.77" y="79.67" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-4516-1-ND" x="80.77" y="79.67" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="80.77" y="79.67" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM155R71H103KA88D" x="80.77" y="79.67" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C45" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="64.25" y="71.3" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="64.25" y="71.3" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="64.25" y="71.3" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="AVX" x="64.25" y="71.3" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="64.25" y="71.3" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
+<element name="C47" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="94.65" y="79.4" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="94.65" y="79.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="94.65" y="79.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="AVX" x="94.65" y="79.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="94.65" y="79.4" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
 <element name="U$39" library="psas_c3_team05" package="NC7SZ05" value="NC7SZ05" x="70.35" y="78.65"/>
-<element name="C48" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="84.4" y="70.4" rot="R90"/>
+<element name="C48" library="rcl_custom" package=".0603-B-NOSILK" value="100nF" x="84.4" y="70.4" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="84.4" y="70.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="478-5778-1-ND" x="84.4" y="70.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="AVX" x="84.4" y="70.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="06035C104JAT2A" x="84.4" y="70.4" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
 <element name="U$42" library="psas_c3_team05" package=".0603-B-NOSILK" value="742792651" x="51.7" y="65.35" rot="R90"/>
-<element name="C39" library="rcl_custom" package=".0603-B-NOSILK" value="1uF" x="57.05" y="61.7" rot="R270"/>
-<element name="C40" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="61.6" y="58.1" rot="R90"/>
-<element name="C41" library="rcl_custom" package=".0603-B-NOSILK" value="2.2uF" x="59.65" y="62.15"/>
-<element name="C36" library="rcl_custom" package=".0603-B-NOSILK" value="1uF" x="85.1" y="75.95" rot="R90"/>
-<element name="C37" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="87.25" y="79.4" rot="R90"/>
-<element name="C38" library="rcl_custom" package=".0603-B-NOSILK" value="2.2nF" x="87.5" y="82.5" rot="R180"/>
+<element name="C39" library="rcl_custom" package=".0603-B-NOSILK" value="1uF" x="57.05" y="61.7" rot="R270">
+<attribute name="DIST" value="Digi-Key" x="57.05" y="61.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-1543-2-ND" x="57.05" y="61.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="57.05" y="61.7" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R61A105KA61D" x="57.05" y="61.7" size="1.778" layer="27" rot="R270" display="off"/>
+</element>
+<element name="C40" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="61.6" y="58.1" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="61.6" y="58.1" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="61.6" y="58.1" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="61.6" y="58.1" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="61.6" y="58.1" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C41" library="rcl_custom" package=".0603-B-NOSILK" value="2.2uF" x="59.65" y="62.15">
+<attribute name="DIST" value="Digi-Key" x="59.65" y="62.15" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="478-3492-2-ND" x="59.65" y="62.15" size="1.778" layer="27" display="off"/>
+<attribute name="MFG" value="AVX" x="59.65" y="62.15" size="1.778" layer="27" display="off"/>
+<attribute name="MFG_PN" value="SQCSVA2R2BAT1A" x="59.65" y="62.15" size="1.778" layer="27" display="off"/>
+</element>
+<element name="C36" library="rcl_custom" package=".0603-B-NOSILK" value="1uF" x="85.1" y="75.95" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="85.1" y="75.95" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1543-2-ND" x="85.1" y="75.95" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="85.1" y="75.95" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM188R61A105KA61D" x="85.1" y="75.95" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C37" library="rcl_custom" package=".0603-B-NOSILK" value="10nF" x="87.25" y="79.4" rot="R90">
+<attribute name="DIST" value="Digi-Key" x="87.25" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="490-1512-2-ND" x="87.25" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG" value="Murata" x="87.25" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MFG_PN" value="GRM188R71H103KA01D" x="87.25" y="79.4" size="1.778" layer="27" rot="R90" display="off"/>
+</element>
+<element name="C38" library="rcl_custom" package=".0603-B-NOSILK" value="2.2uF" x="87.5" y="82.5" rot="R180">
+<attribute name="DIST" value="Digi-Key" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="478-3492-2-ND" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="AVX" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="SQCSVA2R2BAT1A" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+</element>
 </elements>
 <signals>
 <signal name="GND" airwireshidden="yes">
@@ -3840,7 +4196,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="79.966171875" y1="55.055025" x2="79.966171875" y2="45.673828125" width="0.2" layer="1"/>
 <wire x1="79.966171875" y1="45.673828125" x2="80.28" y2="45.36" width="0.2" layer="1"/>
 </signal>
-<signal name="N$6">
+<signal name="XTA">
 <contactref element="KW0X" pad="46"/>
 <contactref element="C34" pad="2"/>
 <contactref element="Y1" pad="1"/>
@@ -4414,8 +4770,9 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <signal name="N$4">
 <contactref element="U$9" pad="4"/>
 <contactref element="TP9" pad="TP"/>
-<wire x1="44.86434375" y1="85.2391875" x2="43.5" y2="86.60353125" width="0.2" layer="1"/>
 <wire x1="43.5" y1="86.60353125" x2="43.5" y2="86.7" width="0.2" layer="1"/>
+<wire x1="44.86434375" y1="85.2391875" x2="43.5" y2="85.2391875" width="0.2" layer="1"/>
+<wire x1="43.5" y1="85.2391875" x2="43.5" y2="86.7" width="0.2" layer="1"/>
 </signal>
 <signal name="!HOLD">
 <contactref element="U$1" pad="7"/>
@@ -4518,7 +4875,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="44.15" y1="90.6" x2="37.05" y2="90.6" width="0.2" layer="16"/>
 <wire x1="37.05" y1="90.6" x2="37.05" y2="48.76" width="0.2" layer="16"/>
 </signal>
-<signal name="N$3">
+<signal name="DIO2">
 <contactref element="KW0X" pad="51"/>
 <contactref element="TP11" pad="TP"/>
 <wire x1="72.210571875" y1="57.555025" x2="69.805025" y2="57.555025" width="0.2" layer="1"/>
@@ -4527,7 +4884,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="68.35" y1="57.55" x2="64.21" y2="57.55" width="0.2" layer="16"/>
 <wire x1="64.21" y1="57.55" x2="63.84" y2="57.92" width="0.2" layer="16"/>
 </signal>
-<signal name="N$5">
+<signal name="DIO3">
 <contactref element="KW0X" pad="52"/>
 <contactref element="TP12" pad="TP"/>
 <wire x1="72.210571875" y1="57.055025" x2="68.905025" y2="57.055025" width="0.2" layer="1"/>
@@ -4540,7 +4897,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="68.905025" y1="57.055025" x2="68.55" y2="56.7" width="0.2" layer="1"/>
 <wire x1="68.55" y1="56.7" x2="67.9" y2="56.7" width="0.2" layer="1"/>
 </signal>
-<signal name="N$9">
+<signal name="DIO4">
 <contactref element="KW0X" pad="53"/>
 <contactref element="TP13" pad="TP"/>
 <via x="70.2" y="56.4" extent="1-16" drill="0.254"/>
@@ -4594,7 +4951,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="67.75" y1="59.35" x2="47.81" y2="59.35" width="0.2" layer="16"/>
 <wire x1="47.81" y1="59.35" x2="47.39" y2="59.77" width="0.2" layer="16"/>
 </signal>
-<signal name="N$11">
+<signal name="V_SPI">
 <contactref element="U$1" pad="3"/>
 <contactref element="R3" pad="1"/>
 <contactref element="TP5" pad="TP"/>
@@ -4604,7 +4961,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="95.6" y1="55.9" x2="95.6" y2="51.15" width="0.2" layer="1"/>
 <wire x1="95.6" y1="51.15" x2="94.3" y2="49.85" width="0.2" layer="1"/>
 </signal>
-<signal name="N$12">
+<signal name="LDO_EN">
 <contactref element="U$8" pad="3"/>
 <contactref element="R5" pad="1"/>
 <contactref element="TP14" pad="TP"/>
@@ -4830,4 +5187,10 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 </signals>
 </board>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
