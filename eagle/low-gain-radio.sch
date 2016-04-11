@@ -19245,8 +19245,6 @@ transceiver RESET
 if needed</text>
 <text x="424.18" y="101.6" size="1.778" layer="97">Inverter prevents RF 
 line crossing on layout</text>
-<text x="309.88" y="60.96" size="1.778" layer="100">TODO:
--Add attributes for rest of parts</text>
 <text x="405.13" y="199.39" size="1.778" layer="97">= 3.0V</text>
 <text x="410.21" y="326.39" size="1.778" layer="97">= 3.0V</text>
 </plain>

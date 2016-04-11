@@ -4222,9 +4222,9 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <contactref element="KW0X" pad="37"/>
 <contactref element="U$39" pad="2"/>
 <via x="75.45" y="64.15" extent="1-16" drill="0.254"/>
-<wire x1="75.45" y1="64.15" x2="70.35" y2="70.3" width="0.2" layer="16"/>
-<via x="70.35" y="70.3" extent="1-16" drill="0.254"/>
-<wire x1="70.35" y1="70.3" x2="70.35" y2="77.36" width="0.2" layer="1"/>
+<wire x1="75.45" y1="64.15" x2="70.35" y2="69.25" width="0.2" layer="16"/>
+<via x="70.35" y="69.25" extent="1-16" drill="0.254"/>
+<wire x1="70.35" y1="69.25" x2="70.35" y2="77.36" width="0.2" layer="1"/>
 <wire x1="75.338371875" y1="62.182825" x2="75.338371875" y2="64.038371875" width="0.2" layer="1"/>
 <wire x1="75.338371875" y1="64.038371875" x2="75.45" y2="64.15" width="0.2" layer="1"/>
 </signal>
