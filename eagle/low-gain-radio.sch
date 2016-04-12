@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.4.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -578,42 +578,6 @@ why.</description>
 <rectangle x1="-0.16" y1="-1.42" x2="0.17" y2="-0.67" layer="51"/>
 <rectangle x1="0.79" y1="-1.42" x2="1.12" y2="-0.67" layer="51"/>
 </package>
-<package name=".0603-B-NOSILK">
-<description>&lt;b&gt;0603 (metric 1608) normal 'IPC-B' without silkscreen&lt;/b&gt;
-&lt;br&gt;In house package for nominal spacing based on IPC-7351B.
-This package is identical to 0603-B, but has its tPlace silkscreen layer removed.</description>
-<wire x1="1.495" y1="0.745" x2="-1.495" y2="0.745" width="0.01" layer="39"/>
-<wire x1="-1.495" y1="0.745" x2="-1.495" y2="-0.745" width="0.01" layer="39"/>
-<wire x1="-1.495" y1="-0.745" x2="1.495" y2="-0.745" width="0.01" layer="39"/>
-<wire x1="1.495" y1="-0.745" x2="1.495" y2="0.745" width="0.01" layer="39"/>
-<wire x1="-0.8" y1="-0.41" x2="-0.8" y2="0.41" width="0.08" layer="51"/>
-<wire x1="-0.79" y1="0.4" x2="0.79" y2="0.4" width="0.1" layer="51"/>
-<wire x1="0.8" y1="0.41" x2="0.8" y2="-0.41" width="0.08" layer="51"/>
-<wire x1="0.79" y1="-0.4" x2="-0.79" y2="-0.4" width="0.1" layer="51"/>
-<wire x1="-0.8" y1="-0.41" x2="-0.8" y2="0.41" width="0.08" layer="33"/>
-<wire x1="-0.79" y1="0.4" x2="0.79" y2="0.4" width="0.1" layer="33"/>
-<wire x1="0.8" y1="0.41" x2="0.8" y2="-0.41" width="0.08" layer="33"/>
-<wire x1="0.79" y1="-0.4" x2="-0.79" y2="-0.4" width="0.1" layer="33"/>
-<rectangle x1="-0.555" y1="-0.4" x2="-0.35" y2="0.4" layer="51"/>
-<rectangle x1="0.35" y1="-0.4" x2="0.555" y2="0.4" layer="51"/>
-<smd name="1" x="-0.8" y="0" dx="0.8" dy="0.95" layer="1" roundness="50" stop="no"/>
-<smd name="2" x="0.8" y="0" dx="0.8" dy="0.95" layer="1" roundness="50" stop="no"/>
-<text x="-1.2" y="0.8" size="0.8" layer="25" font="vector" ratio="15">&gt;NAME</text>
-<text x="-1.2" y="-1.6" size="0.8" layer="27" font="vector" ratio="15">&gt;VALUE</text>
-<text x="0" y="0" size="0.3" layer="33" ratio="15" align="center">&gt;NAME</text>
-<polygon width="0.52" layer="29">
-<vertex x="1" y="0.28"/>
-<vertex x="0.6" y="0.28"/>
-<vertex x="0.6" y="-0.28"/>
-<vertex x="1" y="-0.28"/>
-</polygon>
-<polygon width="0.52" layer="29">
-<vertex x="-0.6" y="0.28"/>
-<vertex x="-1" y="0.28"/>
-<vertex x="-1" y="-0.28"/>
-<vertex x="-0.6" y="-0.28"/>
-</polygon>
-</package>
 </packages>
 <symbols>
 <symbol name="MKW01Z128">
@@ -854,18 +818,6 @@ This package is identical to 0603-B, but has its tPlace silkscreen layer removed
 <text x="1.905" y="2.54" size="1.27" layer="95" rot="R90">VCC</text>
 <pin name="GND" x="0" y="-7.62" visible="pad" length="middle" direction="pwr" rot="R90"/>
 <pin name="VCC" x="0" y="7.62" visible="pad" length="middle" direction="pwr" rot="R270"/>
-</symbol>
-<symbol name="L-US">
-<wire x1="-5.08" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
-<wire x1="-2.54" y1="0" x2="-3.81" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
-<wire x1="-2.54" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
-<wire x1="0" y1="0" x2="-1.27" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
-<wire x1="0" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="-90" cap="flat"/>
-<wire x1="2.54" y1="0" x2="1.27" y2="1.27" width="0.254" layer="94" curve="90" cap="flat"/>
-<pin name="1" x="-7.62" y="0" visible="off" length="short" direction="pas" swaplevel="1"/>
-<pin name="2" x="5.08" y="0" visible="off" length="short" direction="pas" swaplevel="1" rot="R180"/>
-<text x="-5.08" y="2.54" size="1.778" layer="95">&gt;NAME</text>
-<text x="-5.08" y="-1.27" size="1.778" layer="96" align="top-left">&gt;VALUE</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -1111,21 +1063,6 @@ LINEAR POWER AMPLIFIER</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="RF_GND">
-<description>GND for RF portion of schematic.
-This is to be hooked to DC GND for the rest of the
-schematic at one point.</description>
-<gates>
-<gate name="G$1" symbol="GND" x="0" y="0"/>
-</gates>
-<devices>
-<device name="">
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="LED" prefix="LED" uservalue="yes">
 <description>Generic LED with Color designator as an attribute.</description>
 <gates>
@@ -1183,23 +1120,6 @@ schematic at one point.</description>
 <connect gate="G$1" pin="OUT" pad="4"/>
 <connect gate="G$2" pin="GND" pad="3"/>
 <connect gate="G$2" pin="VCC" pad="5"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
-<deviceset name="742792651">
-<description>Ferrite Bead</description>
-<gates>
-<gate name="G$1" symbol="L-US" x="2.54" y="0"/>
-</gates>
-<devices>
-<device name="" package=".0603-B-NOSILK">
-<connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="2" pad="2"/>
 </connects>
 <technologies>
 <technology name=""/>
@@ -18556,6 +18476,46 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="Tova">
+<packages>
+<package name="2MM-TEST-POINT">
+<wire x1="-0.85" y1="-0.9" x2="0.85" y2="-0.9" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="-0.9" x2="0.85" y2="0.9" width="0.2032" layer="21"/>
+<wire x1="0.85" y1="0.9" x2="-0.85" y2="0.9" width="0.2032" layer="21"/>
+<wire x1="-0.85" y1="0.9" x2="-0.85" y2="-0.9" width="0.2032" layer="21"/>
+<pad name="1" x="0" y="0" drill="0.7366"/>
+<rectangle x1="-0.25" y1="-0.25" x2="0.25" y2="0.25" layer="51"/>
+<text x="-1.6" y="1.5" size="0.8" layer="25" font="vector" ratio="20">&gt;NAME</text>
+</package>
+</packages>
+<symbols>
+<symbol name="TEST-POINT">
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.254" layer="94"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.254" layer="94"/>
+<text x="-5.08" y="2.54" size="1.778" layer="95" font="vector">&gt;NAME</text>
+<pin name="1" x="0" y="0" visible="off" length="point" direction="pas"/>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="TEST-POINT" prefix="TP">
+<gates>
+<gate name="G$1" symbol="TEST-POINT" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="2MM-TEST-POINT">
+<connects>
+<connect gate="G$1" pin="1" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -18840,7 +18800,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </part>
 <part name="P+3" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+4" library="SparkFun-v5" deviceset="3.3V" device=""/>
-<part name="TP15" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="C23" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
@@ -18930,7 +18889,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U$19" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$20" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$21" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="U$22" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="U$23" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$25" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$14" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
@@ -18941,8 +18899,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U$30" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$31" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$32" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="U$33" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="GND3" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="3.3V5" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND5" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="C42" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
@@ -18960,9 +18916,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="TP10" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="JP2" library="pinhead" deviceset="PINHD-1X12" device=""/>
 <part name="P+7" library="SparkFun-v5" deviceset="3.3V" device=""/>
-<part name="TP11" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="TP12" library="testpad" deviceset="TPS" device="PAD1-13"/>
-<part name="TP13" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP16" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="TP17" library="testpad" deviceset="TPS" device="PAD1-13"/>
 <part name="R2" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
@@ -18979,7 +18932,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MFG_PN" value="RC0603FR-0710KL"/>
 </part>
-<part name="U$24" library="psas_c3_team05" deviceset="RF_GND" device=""/>
 <part name="LED1" library="psas_c3_team05" deviceset="LED" device="-0603" value="GRN">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1446-1-ND"/>
@@ -19133,12 +19085,6 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG_PN" value="06035C104JAT2A"/>
 </part>
 <part name="U$41" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="U$42" library="psas_c3_team05" deviceset="742792651" device="">
-<attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="732-1593-2-ND"/>
-<attribute name="MFG" value="Wurth Electronics Inc"/>
-<attribute name="MFG_PN" value="742792651"/>
-</part>
 <part name="U$43" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="C39" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF">
 <attribute name="DIST" value="Digi-Key"/>
@@ -19182,6 +19128,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG" value="AVX"/>
 <attribute name="MFG_PN" value="06035C104JAT2A"/>
 </part>
+<part name="TP6" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="TP7" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="TP19" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="TP20" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="U$22" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
+<part name="U$24" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19228,11 +19180,6 @@ them this way though to conserve space.</text>
 <wire x1="83.82" y1="279.4" x2="144.78" y2="279.4" width="0.1524" layer="97" style="longdash"/>
 <wire x1="144.78" y1="279.4" x2="144.78" y2="330.2" width="0.1524" layer="97" style="longdash"/>
 <wire x1="314.96" y1="231.14" x2="241.3" y2="231.14" width="0.1524" layer="97" style="longdash"/>
-<wire x1="309.88" y1="101.6" x2="347.98" y2="101.6" width="0.1524" layer="97" style="longdash"/>
-<wire x1="347.98" y1="101.6" x2="347.98" y2="78.74" width="0.1524" layer="97" style="longdash"/>
-<wire x1="347.98" y1="78.74" x2="309.88" y2="78.74" width="0.1524" layer="97" style="longdash"/>
-<wire x1="309.88" y1="78.74" x2="309.88" y2="101.6" width="0.1524" layer="97" style="longdash"/>
-<text x="312.42" y="99.06" size="1.778" layer="97">RF/DC GND connection</text>
 <text x="241.3" y="97.79" size="1.778" layer="97">Debug interface</text>
 <wire x1="261.62" y1="7.62" x2="160.02" y2="7.62" width="0.1524" layer="97" style="longdash"/>
 <wire x1="261.62" y1="101.6" x2="160.02" y2="101.6" width="0.1524" layer="97" style="longdash"/>
@@ -19562,10 +19509,6 @@ line crossing on layout</text>
 </instance>
 <instance part="P+3" gate="G$1" x="160.02" y="243.84"/>
 <instance part="P+4" gate="G$1" x="195.58" y="170.18"/>
-<instance part="TP15" gate="G$1" x="149.86" y="185.42" smashed="yes">
-<attribute name="NAME" x="148.59" y="186.69" size="1.778" layer="95"/>
-<attribute name="TP_SIGNAL_NAME" x="151.13" y="184.15" size="1.778" layer="97"/>
-</instance>
 <instance part="C23" gate="CE" x="419.1" y="152.4" rot="R270">
 <attribute name="DIST" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="DPN" x="419.1" y="152.4" size="1.778" layer="96" rot="R270" display="off"/>
@@ -19657,7 +19600,6 @@ line crossing on layout</text>
 <instance part="U$19" gate="1" x="365.76" y="276.86"/>
 <instance part="U$20" gate="1" x="327.66" y="276.86"/>
 <instance part="U$21" gate="1" x="337.82" y="276.86"/>
-<instance part="U$22" gate="G$1" x="441.96" y="170.18"/>
 <instance part="U$23" gate="1" x="349.25" y="152.4"/>
 <instance part="U$25" gate="1" x="200.66" y="254"/>
 <instance part="U$14" gate="1" x="383.54" y="276.86"/>
@@ -19668,8 +19610,6 @@ line crossing on layout</text>
 <instance part="U$30" gate="1" x="510.54" y="162.56"/>
 <instance part="U$31" gate="1" x="487.68" y="187.96"/>
 <instance part="U$32" gate="1" x="381" y="177.8"/>
-<instance part="U$33" gate="1" x="335.28" y="86.36"/>
-<instance part="GND3" gate="1" x="317.5" y="86.36"/>
 <instance part="3.3V5" gate="1" x="35.56" y="63.5" rot="MR0"/>
 <instance part="GND5" gate="1" x="35.56" y="35.56"/>
 <instance part="C42" gate="CE" x="129.54" y="304.8" smashed="yes" rot="MR180">
@@ -19689,18 +19629,6 @@ line crossing on layout</text>
 <instance part="TP10" gate="G$1" x="96.52" y="312.42"/>
 <instance part="JP2" gate="G$1" x="218.44" y="63.5"/>
 <instance part="P+7" gate="G$1" x="203.2" y="93.98"/>
-<instance part="TP11" gate="G$1" x="137.16" y="193.04" smashed="yes">
-<attribute name="NAME" x="133.35" y="194.31" size="1.778" layer="95"/>
-<attribute name="TP_SIGNAL_NAME" x="138.43" y="191.77" size="1.778" layer="97"/>
-</instance>
-<instance part="TP12" gate="G$1" x="142.24" y="193.04" smashed="yes">
-<attribute name="NAME" x="139.7" y="194.31" size="1.778" layer="95"/>
-<attribute name="TP_SIGNAL_NAME" x="143.51" y="191.77" size="1.778" layer="97"/>
-</instance>
-<instance part="TP13" gate="G$1" x="147.32" y="193.04" smashed="yes">
-<attribute name="NAME" x="146.05" y="194.31" size="1.778" layer="95"/>
-<attribute name="TP_SIGNAL_NAME" x="148.59" y="191.77" size="1.778" layer="97"/>
-</instance>
 <instance part="TP16" gate="G$1" x="71.12" y="167.64"/>
 <instance part="TP17" gate="G$1" x="66.04" y="170.18"/>
 <instance part="R2" gate="R" x="88.9" y="314.96" rot="R90">
@@ -19719,7 +19647,6 @@ line crossing on layout</text>
 <attribute name="MFG" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG_PN" x="139.7" y="292.1" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
-<instance part="U$24" gate="G$1" x="396.24" y="142.24"/>
 <instance part="LED1" gate="LED" x="238.76" y="63.5" smashed="yes">
 <attribute name="DIST" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
@@ -19899,12 +19826,6 @@ line crossing on layout</text>
 <attribute name="MFG_PN" x="345.44" y="180.34" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="U$41" gate="1" x="345.44" y="172.72"/>
-<instance part="U$42" gate="G$1" x="327.66" y="93.98">
-<attribute name="DIST" x="327.66" y="93.98" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="327.66" y="93.98" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="327.66" y="93.98" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="327.66" y="93.98" size="1.778" layer="96" display="off"/>
-</instance>
 <instance part="U$43" gate="1" x="144.78" y="208.28"/>
 <instance part="C39" gate="CE" x="83.82" y="345.44" smashed="yes" rot="MR180">
 <attribute name="NAME" x="86.614" y="350.139" size="1.778" layer="95" rot="MR180"/>
@@ -19954,6 +19875,20 @@ line crossing on layout</text>
 <attribute name="MFG" x="401.32" y="90.17" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG_PN" x="401.32" y="90.17" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
+<instance part="TP6" gate="G$1" x="137.16" y="190.5" smashed="yes">
+<attribute name="NAME" x="134.62" y="193.04" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="TP7" gate="G$1" x="142.24" y="187.96" smashed="yes">
+<attribute name="NAME" x="142.24" y="190.5" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="TP19" gate="G$1" x="147.32" y="185.42" smashed="yes">
+<attribute name="NAME" x="147.32" y="187.96" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="TP20" gate="G$1" x="152.4" y="182.88" smashed="yes">
+<attribute name="NAME" x="152.4" y="185.42" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="U$22" gate="1" x="441.96" y="170.18"/>
+<instance part="U$24" gate="1" x="127" y="139.7"/>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -19991,15 +19926,11 @@ line crossing on layout</text>
 <pinref part="KW0X" gate="G$1" pin="GND2"/>
 <pinref part="GND4" gate="1" pin="GND"/>
 <wire x1="119.38" y1="144.78" x2="119.38" y2="139.7" width="0.1524" layer="91"/>
-<pinref part="KW0X" gate="G$1" pin="GND1"/>
 <wire x1="119.38" y1="139.7" x2="119.38" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="144.78" x2="116.84" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="116.84" y1="139.7" x2="119.38" y2="139.7" width="0.1524" layer="91"/>
 <junction x="119.38" y="139.7"/>
 <pinref part="KW0X" gate="G$1" pin="VSS2"/>
 <wire x1="114.3" y1="144.78" x2="114.3" y2="139.7" width="0.1524" layer="91"/>
-<wire x1="114.3" y1="139.7" x2="116.84" y2="139.7" width="0.1524" layer="91"/>
-<junction x="116.84" y="139.7"/>
+<wire x1="114.3" y1="139.7" x2="119.38" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="KW0X" gate="G$1" pin="VSS"/>
 <wire x1="109.22" y1="144.78" x2="109.22" y2="139.7" width="0.1524" layer="91"/>
 <wire x1="109.22" y1="139.7" x2="114.3" y2="139.7" width="0.1524" layer="91"/>
@@ -20048,18 +19979,6 @@ line crossing on layout</text>
 <junction x="129.54" y="302.26"/>
 </segment>
 <segment>
-<pinref part="TRSWITCH" gate="G$1" pin="GND"/>
-<wire x1="454.66" y1="175.26" x2="441.96" y2="175.26" width="0.1524" layer="91"/>
-<wire x1="441.96" y1="175.26" x2="441.96" y2="172.72" width="0.1524" layer="91"/>
-<pinref part="U$22" gate="G$1" pin="GND"/>
-</segment>
-<segment>
-<pinref part="GND3" gate="1" pin="GND"/>
-<wire x1="317.5" y1="88.9" x2="317.5" y2="93.98" width="0.1524" layer="91"/>
-<wire x1="317.5" y1="93.98" x2="320.04" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="U$42" gate="G$1" pin="1"/>
-</segment>
-<segment>
 <pinref part="GND5" gate="1" pin="GND"/>
 <wire x1="30.48" y1="40.64" x2="35.56" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="35.56" y1="40.64" x2="35.56" y2="38.1" width="0.1524" layer="91"/>
@@ -20102,12 +20021,6 @@ line crossing on layout</text>
 <pinref part="GND33" gate="1" pin="GND"/>
 <wire x1="175.26" y1="190.5" x2="175.26" y2="193.04" width="0.1524" layer="91"/>
 <junction x="175.26" y="193.04"/>
-</segment>
-<segment>
-<wire x1="393.7" y1="147.32" x2="396.24" y2="147.32" width="0.1524" layer="91"/>
-<pinref part="LNA" gate="G$1" pin="NC"/>
-<pinref part="U$24" gate="G$1" pin="GND"/>
-<wire x1="396.24" y1="147.32" x2="396.24" y2="144.78" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED2" gate="LED" pin="K"/>
@@ -20442,13 +20355,13 @@ line crossing on layout</text>
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO5"/>
 <wire x1="134.62" y1="182.88" x2="142.24" y2="182.88" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="182.88" x2="149.86" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="142.24" y1="182.88" x2="152.4" y2="182.88" width="0.1524" layer="91"/>
 <pinref part="KW0X" gate="G$1" pin="PTA18/EXTAL0"/>
 <wire x1="142.24" y1="162.56" x2="134.62" y2="162.56" width="0.1524" layer="91"/>
 <label x="143.51" y="177.8" size="1.778" layer="95"/>
-<pinref part="TP15" gate="G$1" pin="PP"/>
 <wire x1="142.24" y1="182.88" x2="142.24" y2="162.56" width="0.1524" layer="91"/>
 <junction x="142.24" y="182.88"/>
+<pinref part="TP20" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="XTA" class="0">
@@ -21042,24 +20955,22 @@ line crossing on layout</text>
 <net name="DIO2" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO2"/>
-<pinref part="TP11" gate="G$1" pin="PP"/>
 <wire x1="134.62" y1="190.5" x2="137.16" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="TP6" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="DIO3" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO3"/>
-<pinref part="TP12" gate="G$1" pin="PP"/>
 <wire x1="134.62" y1="187.96" x2="142.24" y2="187.96" width="0.1524" layer="91"/>
-<wire x1="142.24" y1="187.96" x2="142.24" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="TP7" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="DIO4" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO4"/>
-<pinref part="TP13" gate="G$1" pin="PP"/>
 <wire x1="134.62" y1="185.42" x2="147.32" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="147.32" y1="185.42" x2="147.32" y2="190.5" width="0.1524" layer="91"/>
+<pinref part="TP19" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="PTD0" class="0">
@@ -21260,7 +21171,7 @@ line crossing on layout</text>
 <junction x="419.1" y="185.42"/>
 </segment>
 </net>
-<net name="RF_GND" class="0">
+<net name="RIP" class="0">
 <segment>
 <pinref part="U$39" gate="G$2" pin="GND"/>
 <pinref part="U$40" gate="1" pin="RF_GND"/>
@@ -21278,6 +21189,11 @@ line crossing on layout</text>
 <wire x1="386.08" y1="132.08" x2="386.08" y2="134.62" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="1" pin="RF_GND"/>
 <junction x="378.46" y="132.08"/>
+<pinref part="LNA" gate="G$1" pin="NC"/>
+<wire x1="393.7" y1="147.32" x2="396.24" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="147.32" x2="396.24" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="396.24" y1="132.08" x2="386.08" y2="132.08" width="0.1524" layer="91"/>
+<junction x="386.08" y="132.08"/>
 </segment>
 <segment>
 <pinref part="SH1" gate="G$1" pin="P$1"/>
@@ -21460,12 +21376,6 @@ line crossing on layout</text>
 <pinref part="U$37" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
-<pinref part="U$33" gate="1" pin="RF_GND"/>
-<wire x1="335.28" y1="88.9" x2="335.28" y2="93.98" width="0.1524" layer="91"/>
-<pinref part="U$42" gate="G$1" pin="2"/>
-<wire x1="332.74" y1="93.98" x2="335.28" y2="93.98" width="0.1524" layer="91"/>
-</segment>
-<segment>
 <pinref part="U$43" gate="1" pin="RF_GND"/>
 <pinref part="KW0X" gate="G$1" pin="GND/SCAN"/>
 <wire x1="144.78" y1="210.82" x2="134.62" y2="210.82" width="0.1524" layer="91"/>
@@ -21520,13 +21430,28 @@ line crossing on layout</text>
 <pinref part="C10" gate="CE" pin="1"/>
 <wire x1="281.94" y1="177.8" x2="281.94" y2="180.34" width="0.1524" layer="91"/>
 </segment>
+<segment>
+<pinref part="TRSWITCH" gate="G$1" pin="GND"/>
+<wire x1="454.66" y1="175.26" x2="441.96" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="441.96" y1="175.26" x2="441.96" y2="172.72" width="0.1524" layer="91"/>
+<pinref part="U$22" gate="1" pin="RF_GND"/>
+</segment>
+<segment>
+<pinref part="KW0X" gate="G$1" pin="GND1"/>
+<wire x1="116.84" y1="144.78" x2="116.84" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="U$24" gate="1" pin="RF_GND"/>
+<wire x1="116.84" y1="142.24" x2="127" y2="142.24" width="0.1524" layer="91"/>
+</segment>
 </net>
 </nets>
 </sheet>
 </sheets>
 <errors>
+<approved hash="104,1,134.62,210.82,KW0X,GND/SCAN,RF_GND,,,"/>
 <approved hash="104,1,116.84,144.78,KW0X,GND1,GND,,,"/>
 <approved hash="104,1,119.38,144.78,KW0X,GND2,GND,,,"/>
+<approved hash="104,1,134.62,215.9,KW0X,GND_PA1,RF_GND,,,"/>
+<approved hash="104,1,134.62,213.36,KW0X,GND_PA2,RF_GND,,,"/>
 <approved hash="104,1,134.62,236.22,KW0X,VBAT1,3.3V,,,"/>
 <approved hash="104,1,134.62,223.52,KW0X,VBAT2,3.3V,,,"/>
 <approved hash="104,1,111.76,251.46,KW0X,VDD,3.3V,,,"/>
@@ -21536,12 +21461,16 @@ line crossing on layout</text>
 <approved hash="104,1,114.3,144.78,KW0X,VSS2,GND,,,"/>
 <approved hash="104,1,93.98,241.3,KW0X,VSSA,GND,,,"/>
 <approved hash="104,1,370.84,152.4,LNA,VBIAS,N$27,,,"/>
+<approved hash="104,1,454.66,180.34,TRSWITCH,VDD,V+,,,"/>
 <approved hash="104,1,383.54,271.78,PA,VCC1,VPA,,,"/>
 <approved hash="104,1,375.92,256.54,PA,VREF,VPA,,,"/>
 <approved hash="104,1,375.92,259.08,PA,VCNT,VPA,,,"/>
 <approved hash="104,1,391.16,271.78,PA,VCC2,VPA,,,"/>
+<approved hash="104,1,350.52,134.62,SH1,P$1,RF_GND,,,"/>
+<approved hash="104,1,419.1,243.84,SH2,P$1,RF_GND,,,"/>
+<approved hash="104,1,396.24,83.82,U$39G$2,GND,RF_GND,,,"/>
+<approved hash="104,1,396.24,99.06,U$39G$2,VCC,V+,,,"/>
 <approved hash="113,1,279.296,215.796,FRAME1,,,,,"/>
-<approved hash="113,1,182.733,163.851,J1,,,,,"/>
 <approved hash="113,1,216.137,63.6312,JP2,,,,,"/>
 </errors>
 </schematic>
