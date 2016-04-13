@@ -5548,15 +5548,13 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <via x="58.8" y="78.7" extent="1-16" drill="0.254" diameter="0.245"/>
 <via x="57.8" y="79.7" extent="1-16" drill="0.254" diameter="0.245"/>
 <via x="56.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="58.8" y="80.7" extent="1-16" drill="0.254"/>
 </signal>
 <signal name="N$3">
 <via x="43.5" y="53.2" extent="1-16" drill="0.254"/>
 </signal>
 <signal name="N$9">
 <via x="45" y="88.1" extent="1-16" drill="0.254"/>
-</signal>
-<signal name="N$11">
-<via x="58.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
 </signal>
 </signals>
 <errors>
