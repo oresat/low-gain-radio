@@ -385,11 +385,11 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 </polygon>
 </package>
 <package name="SKY65116">
-<wire x1="-4.318" y1="4.064" x2="4.067" y2="4.064" width="0.127" layer="21"/>
-<wire x1="4.067" y1="4.064" x2="4.067" y2="-4.321" width="0.127" layer="21"/>
-<wire x1="4.067" y1="-4.321" x2="-4.318" y2="-4.321" width="0.127" layer="21"/>
-<wire x1="-4.318" y1="-4.321" x2="-4.318" y2="4.064" width="0.127" layer="21"/>
-<wire x1="-3.811" y1="4.0341" x2="-4.2847" y2="3.5565" width="0.127" layer="21"/>
+<wire x1="-4.318" y1="4.064" x2="4.067" y2="4.064" width="0.127" layer="51"/>
+<wire x1="4.067" y1="4.064" x2="4.067" y2="-4.321" width="0.127" layer="51"/>
+<wire x1="4.067" y1="-4.321" x2="-4.318" y2="-4.321" width="0.127" layer="51"/>
+<wire x1="-4.318" y1="-4.321" x2="-4.318" y2="4.064" width="0.127" layer="51"/>
+<wire x1="-3.811" y1="4.0341" x2="-4.2847" y2="3.5565" width="0.127" layer="51"/>
 <smd name="1" x="-3.8353" y="1.7075" dx="0.893" dy="0.81" layer="1" rot="R180"/>
 <smd name="2" x="-3.8353" y="-0.1285" dx="0.893" dy="0.81" layer="1"/>
 <smd name="3" x="-3.8353" y="-1.9645" dx="0.893" dy="0.81" layer="1"/>
@@ -407,12 +407,21 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <vertex x="1.882" y="1.464" curve="-180"/>
 </polygon>
 <circle x="-0.1" y="-0.15" radius="2.681640625" width="0.127" layer="29"/>
+<text x="-5.1" y="2.5" size="0.6096" layer="21">1</text>
+<wire x1="-4.45" y1="3.75" x2="-4.45" y2="4.2" width="0.127" layer="21"/>
+<wire x1="-4.45" y1="4.2" x2="-4" y2="4.2" width="0.127" layer="21"/>
+<wire x1="-4" y1="-4.45" x2="-4.45" y2="-4.45" width="0.127" layer="21"/>
+<wire x1="-4.45" y1="-4.45" x2="-4.45" y2="-4" width="0.127" layer="21"/>
+<wire x1="4.2" y1="-4" x2="4.2" y2="-4.45" width="0.127" layer="21"/>
+<wire x1="4.2" y1="-4.45" x2="3.75" y2="-4.45" width="0.127" layer="21"/>
+<wire x1="3.75" y1="4.2" x2="4.2" y2="4.2" width="0.127" layer="21"/>
+<wire x1="4.2" y1="4.2" x2="4.2" y2="3.75" width="0.127" layer="21"/>
 </package>
 <package name="LD39200">
-<wire x1="-1.27" y1="1.524" x2="1.23" y2="1.524" width="0.127" layer="21"/>
-<wire x1="1.23" y1="1.524" x2="1.23" y2="-1.576" width="0.127" layer="21"/>
-<wire x1="1.23" y1="-1.576" x2="-1.27" y2="-1.576" width="0.127" layer="21"/>
-<wire x1="-1.27" y1="-1.576" x2="-1.27" y2="1.524" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="1.524" x2="1.23" y2="1.524" width="0.127" layer="51"/>
+<wire x1="1.23" y1="1.524" x2="1.23" y2="-1.576" width="0.127" layer="51"/>
+<wire x1="1.23" y1="-1.576" x2="-1.27" y2="-1.576" width="0.127" layer="51"/>
+<wire x1="-1.27" y1="-1.576" x2="-1.27" y2="1.524" width="0.127" layer="51"/>
 <polygon width="0.1524" layer="1">
 <vertex x="-1.26" y="0.839"/>
 <vertex x="1.22" y="0.839"/>
@@ -429,25 +438,43 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <wire x1="1.28" y1="0.91" x2="1.28" y2="-0.95" width="0.127" layer="29"/>
 <wire x1="1.28" y1="-0.95" x2="-1.33" y2="-0.95" width="0.127" layer="29"/>
 <wire x1="-1.33" y1="-0.95" x2="-1.33" y2="0.91" width="0.127" layer="29"/>
+<text x="-1.2" y="-2.45" size="0.6096" layer="21" rot="R90">1</text>
+<wire x1="-1.4" y1="1.4" x2="-1.4" y2="1.65" width="0.127" layer="21"/>
+<wire x1="-1.4" y1="1.65" x2="-1.15" y2="1.65" width="0.127" layer="21"/>
+<wire x1="-1.15" y1="-1.7" x2="-1.4" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="-1.4" y1="-1.7" x2="-1.4" y2="-1.45" width="0.127" layer="21"/>
+<wire x1="1.35" y1="-1.45" x2="1.35" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="1.35" y1="-1.7" x2="1.1" y2="-1.7" width="0.127" layer="21"/>
+<wire x1="1.1" y1="1.65" x2="1.35" y2="1.65" width="0.127" layer="21"/>
+<wire x1="1.35" y1="1.65" x2="1.35" y2="1.4" width="0.127" layer="21"/>
 </package>
 <package name="AAT3215">
-<wire x1="-1.524" y1="0.762" x2="1.326" y2="0.762" width="0.127" layer="21"/>
-<wire x1="1.326" y1="0.762" x2="1.326" y2="-0.813" width="0.127" layer="21"/>
-<wire x1="1.326" y1="-0.813" x2="-1.524" y2="-0.813" width="0.127" layer="21"/>
-<wire x1="-1.524" y1="-0.813" x2="-1.524" y2="0.762" width="0.127" layer="21"/>
+<wire x1="-1.524" y1="0.762" x2="1.326" y2="0.762" width="0.127" layer="51"/>
+<wire x1="1.326" y1="0.762" x2="1.326" y2="-0.813" width="0.127" layer="51"/>
+<wire x1="1.326" y1="-0.813" x2="-1.524" y2="-0.813" width="0.127" layer="51"/>
+<wire x1="-1.524" y1="-0.813" x2="-1.524" y2="0.762" width="0.127" layer="51"/>
 <smd name="3" x="-1.049" y="1.142" dx="0.625" dy="0.4" layer="1" rot="R90"/>
 <smd name="2" x="-0.099" y="1.142" dx="0.625" dy="0.4" layer="1" rot="R90"/>
 <smd name="1" x="0.851" y="1.142" dx="0.625" dy="0.4" layer="1" rot="R90"/>
 <smd name="5" x="0.851" y="-1.188" dx="0.625" dy="0.4" layer="1" rot="R90"/>
 <smd name="4" x="-1.049" y="-1.188" dx="0.625" dy="0.4" layer="1" rot="R90"/>
-<circle x="0.866" y="0.362" radius="0.1524" width="0.127" layer="21"/>
+<circle x="0.866" y="0.362" radius="0.1524" width="0.127" layer="51"/>
+<text x="1.77" y="1.58" size="0.6096" layer="21" rot="R180">1</text>
+<wire x1="-1.65" y1="0.6" x2="-1.65" y2="0.9" width="0.127" layer="21"/>
+<wire x1="-1.65" y1="0.9" x2="-1.35" y2="0.9" width="0.127" layer="21"/>
+<wire x1="-1.35" y1="-0.95" x2="-1.65" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="-1.65" y1="-0.95" x2="-1.65" y2="-0.65" width="0.127" layer="21"/>
+<wire x1="1.45" y1="-0.65" x2="1.45" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="1.45" y1="-0.95" x2="1.15" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="1.15" y1="0.9" x2="1.45" y2="0.9" width="0.127" layer="21"/>
+<wire x1="1.45" y1="0.9" x2="1.45" y2="0.6" width="0.127" layer="21"/>
 </package>
 <package name="W25Q80DV">
-<wire x1="-2.54" y1="2.032" x2="2.46" y2="2.032" width="0.127" layer="21"/>
-<wire x1="2.46" y1="2.032" x2="2.46" y2="-1.968" width="0.127" layer="21"/>
-<wire x1="2.46" y1="-1.968" x2="-2.54" y2="-1.968" width="0.127" layer="21"/>
-<wire x1="-2.54" y1="-1.968" x2="-2.54" y2="2.032" width="0.127" layer="21"/>
-<circle x="-1.94" y="-1.368" radius="0.2" width="0.127" layer="21"/>
+<wire x1="-2.54" y1="2.032" x2="2.46" y2="2.032" width="0.127" layer="51"/>
+<wire x1="2.46" y1="2.032" x2="2.46" y2="-1.968" width="0.127" layer="51"/>
+<wire x1="2.46" y1="-1.968" x2="-2.54" y2="-1.968" width="0.127" layer="51"/>
+<wire x1="-2.54" y1="-1.968" x2="-2.54" y2="2.032" width="0.127" layer="51"/>
+<circle x="-1.94" y="-1.368" radius="0.2" width="0.127" layer="51"/>
 <smd name="8" x="-1.945" y="2.632" dx="1" dy="0.51" layer="1" rot="R90"/>
 <smd name="7" x="-0.675" y="2.632" dx="1" dy="0.51" layer="1" rot="R90"/>
 <smd name="6" x="0.595" y="2.632" dx="1" dy="0.51" layer="1" rot="R90"/>
@@ -456,6 +483,15 @@ Parts include Samtech SHF-105-01-L-D-TH and similar and Don Connex P/N: C42.</de
 <smd name="2" x="-0.675" y="-2.568" dx="1" dy="0.51" layer="1" rot="R90"/>
 <smd name="3" x="0.595" y="-2.568" dx="1" dy="0.51" layer="1" rot="R90"/>
 <smd name="4" x="1.865" y="-2.568" dx="1" dy="0.51" layer="1" rot="R90"/>
+<text x="-2.5" y="-3.45" size="0.8128" layer="21" rot="R90">1</text>
+<wire x1="-2.7" y1="1.9" x2="-2.7" y2="2.2" width="0.127" layer="21"/>
+<wire x1="-2.7" y1="2.2" x2="-2.4" y2="2.2" width="0.127" layer="21"/>
+<wire x1="2.3" y1="2.2" x2="2.6" y2="2.2" width="0.127" layer="21"/>
+<wire x1="2.6" y1="2.2" x2="2.6" y2="1.9" width="0.127" layer="21"/>
+<wire x1="-2.4" y1="-2.1" x2="-2.7" y2="-2.1" width="0.127" layer="21"/>
+<wire x1="-2.7" y1="-2.1" x2="-2.7" y2="-1.8" width="0.127" layer="21"/>
+<wire x1="2.6" y1="-1.8" x2="2.6" y2="-2.1" width="0.127" layer="21"/>
+<wire x1="2.6" y1="-2.1" x2="2.3" y2="-2.1" width="0.127" layer="21"/>
 </package>
 <package name="LED-3MM">
 <description>Standard radial through-hole LED, 3&amp;nbsp;mm outside diameter.</description>
@@ -559,14 +595,14 @@ why.</description>
 </package>
 <package name="NC7SZ05">
 <wire x1="0" y1="-1.29" x2="0" y2="-1.3" width="0.01" layer="21"/>
-<wire x1="1.42" y1="0.8" x2="1.42" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="1.42" y1="0.8" x2="1.42" y2="-0.8" width="0.127" layer="51"/>
 <wire x1="1.42" y1="-0.8" x2="-1.42" y2="-0.8" width="0.127" layer="51"/>
-<wire x1="-1.42" y1="-0.8" x2="-1.42" y2="0.8" width="0.127" layer="21"/>
+<wire x1="-1.42" y1="-0.8" x2="-1.42" y2="0.8" width="0.127" layer="51"/>
 <wire x1="-1.42" y1="0.8" x2="1.42" y2="0.8" width="0.127" layer="51"/>
-<wire x1="-1.27" y1="0.65" x2="1.28" y2="0.65" width="0.075" layer="21"/>
-<wire x1="1.28" y1="0.65" x2="1.28" y2="-0.66" width="0.075" layer="21"/>
-<wire x1="1.28" y1="-0.66" x2="-1.27" y2="-0.66" width="0.075" layer="21"/>
-<wire x1="-1.27" y1="-0.66" x2="-1.27" y2="0.65" width="0.075" layer="21"/>
+<wire x1="-1.27" y1="0.65" x2="1.28" y2="0.65" width="0.075" layer="51"/>
+<wire x1="1.28" y1="0.65" x2="1.28" y2="-0.66" width="0.075" layer="51"/>
+<wire x1="1.28" y1="-0.66" x2="-1.27" y2="-0.66" width="0.075" layer="51"/>
+<wire x1="-1.27" y1="-0.66" x2="-1.27" y2="0.65" width="0.075" layer="51"/>
 <smd name="1" x="-0.95" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
 <smd name="2" x="0" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
 <smd name="3" x="0.95" y="-1.29" dx="0.69" dy="0.99" layer="1"/>
@@ -577,6 +613,15 @@ why.</description>
 <rectangle x1="-1.11" y1="-1.42" x2="-0.78" y2="-0.67" layer="51"/>
 <rectangle x1="-0.16" y1="-1.42" x2="0.17" y2="-0.67" layer="51"/>
 <rectangle x1="0.79" y1="-1.42" x2="1.12" y2="-0.67" layer="51"/>
+<text x="-1.27" y="-2.54" size="0.6096" layer="21" rot="R90">1</text>
+<wire x1="-1.55" y1="0.65" x2="-1.55" y2="0.95" width="0.127" layer="21"/>
+<wire x1="-1.55" y1="0.95" x2="-1.25" y2="0.95" width="0.127" layer="21"/>
+<wire x1="-1.25" y1="-0.95" x2="-1.55" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="-1.55" y1="-0.95" x2="-1.55" y2="-0.65" width="0.127" layer="21"/>
+<wire x1="1.55" y1="-0.65" x2="1.55" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="1.55" y1="-0.95" x2="1.25" y2="-0.95" width="0.127" layer="21"/>
+<wire x1="1.25" y1="0.95" x2="1.55" y2="0.95" width="0.127" layer="21"/>
+<wire x1="1.55" y1="0.95" x2="1.55" y2="0.65" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
@@ -9268,32 +9313,41 @@ Pad definition corrected 2006.05.15, librarian@cadsoft.de
 <library name="sputnik">
 <packages>
 <package name="MAAL-010704">
-<wire x1="1" y1="0.59" x2="1" y2="-0.66" width="0.127" layer="21"/>
-<wire x1="1" y1="-0.66" x2="-1" y2="-0.66" width="0.127" layer="21"/>
-<wire x1="-1" y1="-0.66" x2="-1" y2="0.59" width="0.127" layer="21"/>
-<wire x1="-1" y1="0.59" x2="1" y2="0.59" width="0.127" layer="21"/>
+<wire x1="1" y1="0.59" x2="1" y2="-0.66" width="0.127" layer="51"/>
+<wire x1="1" y1="-0.66" x2="-1" y2="-0.66" width="0.127" layer="51"/>
+<wire x1="-1" y1="-0.66" x2="-1" y2="0.59" width="0.127" layer="51"/>
+<wire x1="-1" y1="0.59" x2="1" y2="0.59" width="0.127" layer="51"/>
 <smd name="4" x="0.65" y="0.8025" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <smd name="5" x="0" y="0.8025" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <smd name="6" x="-0.65" y="0.81" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <smd name="3" x="0.65" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <smd name="2" x="0" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
 <smd name="1" x="-0.65" y="-0.8725" dx="0.29971875" dy="0.425" layer="1" rot="R180"/>
-<wire x1="-0.99" y1="-0.36" x2="-0.71" y2="-0.64" width="0.127" layer="21"/>
+<wire x1="-0.99" y1="-0.36" x2="-0.71" y2="-0.64" width="0.127" layer="51"/>
+<text x="-1.5" y="-1.1" size="0.6096" layer="21" rot="R270">1</text>
+<wire x1="-0.95" y1="0.75" x2="-1.15" y2="0.75" width="0.127" layer="21"/>
+<wire x1="-1.15" y1="0.75" x2="-1.15" y2="0.55" width="0.127" layer="21"/>
+<wire x1="-1.15" y1="-0.6" x2="-1.15" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="-1.15" y1="-0.8" x2="-0.95" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="1.15" y1="0.55" x2="1.15" y2="0.75" width="0.127" layer="21"/>
+<wire x1="1.15" y1="0.75" x2="0.95" y2="0.75" width="0.127" layer="21"/>
+<wire x1="0.95" y1="-0.8" x2="1.15" y2="-0.8" width="0.127" layer="21"/>
+<wire x1="1.15" y1="-0.8" x2="1.15" y2="-0.6" width="0.127" layer="21"/>
 </package>
 </packages>
 <symbols>
 <symbol name="MAAL-010704">
-<wire x1="-5.08" y1="12.7" x2="12.7" y2="12.7" width="0.254" layer="94"/>
-<wire x1="12.7" y1="12.7" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
+<wire x1="-5.08" y1="7.62" x2="12.7" y2="7.62" width="0.254" layer="94"/>
+<wire x1="12.7" y1="7.62" x2="12.7" y2="-7.62" width="0.254" layer="94"/>
 <wire x1="12.7" y1="-7.62" x2="-5.08" y2="-7.62" width="0.254" layer="94"/>
-<wire x1="-5.08" y1="-7.62" x2="-5.08" y2="12.7" width="0.254" layer="94"/>
-<pin name="VBIAS" x="-7.62" y="7.62" length="short" direction="pwr"/>
-<pin name="GND" x="0" y="-10.16" length="short" rot="R90"/>
-<pin name="RFOUT" x="-7.62" y="2.54" length="short" direction="out"/>
-<pin name="RFIN" x="15.24" y="7.62" length="short" direction="in" rot="R180"/>
-<pin name="GND2" x="7.62" y="-10.16" length="short" rot="R90"/>
-<pin name="NC" x="15.24" y="2.54" length="short" rot="R180"/>
-<text x="-3.556" y="10.16" size="1.778" layer="94">MAAL-010704</text>
+<wire x1="-5.08" y1="-7.62" x2="-5.08" y2="7.62" width="0.254" layer="94"/>
+<pin name="VBIAS" x="-7.62" y="2.54" length="short" direction="pwr"/>
+<pin name="GND" x="-7.62" y="0" length="short"/>
+<pin name="RFOUT" x="-7.62" y="-2.54" length="short" direction="out"/>
+<pin name="RFIN" x="15.24" y="2.54" length="short" direction="in" rot="R180"/>
+<pin name="GND2" x="15.24" y="0" length="short" rot="R180"/>
+<pin name="NC" x="15.24" y="-2.54" length="short" rot="R180"/>
+<text x="-3.556" y="5.08" size="1.778" layer="94">MAAL-010704</text>
 </symbol>
 </symbols>
 <devicesets>
@@ -19608,13 +19662,13 @@ line crossing on layout</text>
 <segment>
 <pinref part="C23" gate="CE" pin="2"/>
 <pinref part="LNA" gate="G$1" pin="RFIN"/>
-<wire x1="414.02" y1="152.4" x2="393.7" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="152.4" x2="393.7" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$27" class="0">
 <segment>
 <pinref part="LNA" gate="G$1" pin="VBIAS"/>
-<wire x1="370.84" y1="152.4" x2="368.3" y2="152.4" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="147.32" x2="368.3" y2="152.4" width="0.1524" layer="91"/>
 <wire x1="368.3" y1="152.4" x2="368.3" y2="154.94" width="0.1524" layer="91"/>
 <pinref part="R1" gate="R" pin="1"/>
 </segment>
@@ -19868,7 +19922,7 @@ line crossing on layout</text>
 <wire x1="332.74" y1="147.32" x2="334.01" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="LNA" gate="G$1" pin="RFOUT"/>
 <wire x1="334.01" y1="147.32" x2="334.01" y2="152.4" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="147.32" x2="334.01" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="142.24" x2="334.01" y2="147.32" width="0.1524" layer="91"/>
 <junction x="334.01" y="147.32"/>
 </segment>
 </net>
@@ -20523,14 +20577,14 @@ line crossing on layout</text>
 </segment>
 <segment>
 <pinref part="LNA" gate="G$1" pin="GND"/>
-<wire x1="378.46" y1="134.62" x2="378.46" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="144.78" x2="378.46" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="LNA" gate="G$1" pin="GND2"/>
 <wire x1="378.46" y1="132.08" x2="386.08" y2="132.08" width="0.1524" layer="91"/>
-<wire x1="386.08" y1="132.08" x2="386.08" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="386.08" y1="132.08" x2="393.7" y2="144.78" width="0.1524" layer="91"/>
 <pinref part="U$2" gate="1" pin="RF_GND"/>
 <junction x="378.46" y="132.08"/>
 <pinref part="LNA" gate="G$1" pin="NC"/>
-<wire x1="393.7" y1="147.32" x2="396.24" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="393.7" y1="142.24" x2="396.24" y2="147.32" width="0.1524" layer="91"/>
 <wire x1="396.24" y1="147.32" x2="396.24" y2="132.08" width="0.1524" layer="91"/>
 <wire x1="396.24" y1="132.08" x2="386.08" y2="132.08" width="0.1524" layer="91"/>
 <junction x="386.08" y="132.08"/>
