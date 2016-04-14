@@ -5101,7 +5101,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="58.258" y1="59.001" x2="58.22" y2="59" width="0.2" layer="1"/>
 <wire x1="58.22" y1="59" x2="55.6" y2="59" width="0.2" layer="1"/>
 <contactref element="TP2" pad="1"/>
-<wire x1="55.6" y1="56.5" x2="56.7" y2="56.5" width="0" layer="19" extent="1-1"/>
+<wire x1="55.6" y1="56.5" x2="56.7" y2="56.5" width="0.2" layer="1"/>
 </signal>
 <signal name="N$13">
 <contactref element="U$8" pad="4"/>
@@ -5590,18 +5590,18 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <via x="74.6" y="59.5" extent="1-16" drill="0.254" diameter="0.245"/>
 <via x="73.9" y="60.4" extent="1-16" drill="0.254" diameter="0.245"/>
 <via x="75.3" y="60.4" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="59.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="60.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="59.8" y="81.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="58.8" y="81.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="58.8" y="82.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="57.8" y="81.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="57.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="58.8" y="79.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="59.8" y="79.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="58.8" y="78.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="57.8" y="79.7" extent="1-16" drill="0.254" diameter="0.245"/>
-<via x="56.8" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="60" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
+<wire x1="60.8" y1="80.7" x2="60.8" y2="80.7" width="0" layer="19" extent="1-16"/>
+<via x="60" y="81.9" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="58.8" y="81.9" extent="1-16" drill="0.254" diameter="0.245"/>
+<wire x1="58.8" y1="82.7" x2="58.8" y2="82.7" width="0" layer="19" extent="1-16"/>
+<via x="57.6" y="81.9" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="57.6" y="80.7" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="58.8" y="79.5" extent="1-16" drill="0.254" diameter="0.245"/>
+<via x="60" y="79.5" extent="1-16" drill="0.254" diameter="0.245"/>
+<wire x1="58.8" y1="78.7" x2="58.8" y2="78.7" width="0" layer="19" extent="1-16"/>
+<via x="57.6" y="79.5" extent="1-16" drill="0.254" diameter="0.245"/>
+<wire x1="56.8" y1="80.7" x2="56.8" y2="80.7" width="0" layer="19" extent="1-16"/>
 <via x="58.8" y="80.7" extent="1-16" drill="0.254"/>
 </signal>
 <signal name="N$3">
