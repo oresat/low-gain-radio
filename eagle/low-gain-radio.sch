@@ -18484,24 +18484,24 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG" value="AVX"/>
 <attribute name="MFG_PN" value="06035C104JAT2A"/>
 </part>
-<part name="TP6" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP7" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP19" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP20" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO2" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO3" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO4" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO5/CLKOUT" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="U$22" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$24" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="TP11" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP12" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP8" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP13" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP15" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP18" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP1" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP2" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP3" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP4" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP5" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="TP10" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="XTAL" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="!RESET" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="!CS" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="SCLK" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="MISO" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="MOSI" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="!HOLD" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="LDO_EN" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="V_SPI" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO0" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="DIO1" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="PG" library="Tova" deviceset="TEST-POINT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19233,54 +19233,54 @@ line crossing on layout</text>
 <attribute name="MFG" x="401.32" y="90.17" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG_PN" x="401.32" y="90.17" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="TP6" gate="G$1" x="137.16" y="190.5" smashed="yes">
+<instance part="DIO2" gate="G$1" x="137.16" y="190.5" smashed="yes">
 <attribute name="NAME" x="134.62" y="193.04" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP7" gate="G$1" x="142.24" y="187.96" smashed="yes">
+<instance part="DIO3" gate="G$1" x="142.24" y="187.96" smashed="yes">
 <attribute name="NAME" x="142.24" y="190.5" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP19" gate="G$1" x="147.32" y="185.42" smashed="yes">
+<instance part="DIO4" gate="G$1" x="147.32" y="185.42" smashed="yes">
 <attribute name="NAME" x="147.32" y="187.96" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP20" gate="G$1" x="152.4" y="182.88" smashed="yes">
+<instance part="DIO5/CLKOUT" gate="G$1" x="152.4" y="182.88" smashed="yes">
 <attribute name="NAME" x="152.4" y="185.42" size="1.778" layer="95" font="vector"/>
 </instance>
 <instance part="U$22" gate="1" x="441.96" y="170.18"/>
 <instance part="U$24" gate="1" x="127" y="139.7"/>
-<instance part="TP11" gate="G$1" x="162.56" y="203.2" smashed="yes">
+<instance part="XTAL" gate="G$1" x="162.56" y="203.2" smashed="yes">
 <attribute name="NAME" x="157.48" y="205.74" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP12" gate="G$1" x="149.86" y="157.48" smashed="yes">
+<instance part="!RESET" gate="G$1" x="149.86" y="157.48" smashed="yes">
 <attribute name="NAME" x="149.86" y="160.02" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP8" gate="G$1" x="73.66" y="304.8" smashed="yes">
+<instance part="!CS" gate="G$1" x="73.66" y="304.8" smashed="yes">
 <attribute name="NAME" x="73.66" y="307.34" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP13" gate="G$1" x="68.58" y="299.72" smashed="yes">
+<instance part="SCLK" gate="G$1" x="68.58" y="299.72" smashed="yes">
 <attribute name="NAME" x="63.5" y="302.26" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP15" gate="G$1" x="73.66" y="294.64" smashed="yes">
+<instance part="MISO" gate="G$1" x="73.66" y="294.64" smashed="yes">
 <attribute name="NAME" x="73.66" y="297.18" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP18" gate="G$1" x="68.58" y="289.56" smashed="yes">
+<instance part="MOSI" gate="G$1" x="68.58" y="289.56" smashed="yes">
 <attribute name="NAME" x="63.5" y="292.1" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP1" gate="G$1" x="93.98" y="309.88" smashed="yes">
+<instance part="!HOLD" gate="G$1" x="93.98" y="309.88" smashed="yes">
 <attribute name="NAME" x="93.98" y="312.42" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP2" gate="G$1" x="96.52" y="353.06" smashed="yes">
+<instance part="LDO_EN" gate="G$1" x="96.52" y="353.06" smashed="yes">
 <attribute name="NAME" x="96.52" y="355.6" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP3" gate="G$1" x="127" y="287.02" smashed="yes">
+<instance part="V_SPI" gate="G$1" x="127" y="287.02" smashed="yes">
 <attribute name="NAME" x="127" y="289.56" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP4" gate="G$1" x="58.42" y="165.1" smashed="yes">
+<instance part="DIO0" gate="G$1" x="58.42" y="165.1" smashed="yes">
 <attribute name="NAME" x="58.42" y="167.64" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP5" gate="G$1" x="66.04" y="162.56" smashed="yes">
+<instance part="DIO1" gate="G$1" x="66.04" y="162.56" smashed="yes">
 <attribute name="NAME" x="66.04" y="157.48" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="TP10" gate="G$1" x="396.24" y="304.8" smashed="yes">
+<instance part="PG" gate="G$1" x="396.24" y="304.8" smashed="yes">
 <attribute name="NAME" x="396.24" y="307.34" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
@@ -19755,7 +19755,7 @@ line crossing on layout</text>
 <label x="143.51" y="177.8" size="1.778" layer="95"/>
 <wire x1="142.24" y1="182.88" x2="142.24" y2="162.56" width="0.1524" layer="91"/>
 <junction x="142.24" y="182.88"/>
-<pinref part="TP20" gate="G$1" pin="1"/>
+<pinref part="DIO5/CLKOUT" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="XTA" class="0">
@@ -19767,7 +19767,7 @@ line crossing on layout</text>
 <wire x1="162.56" y1="203.2" x2="167.64" y2="203.2" width="0.1524" layer="91"/>
 <wire x1="162.56" y1="200.66" x2="162.56" y2="203.2" width="0.1524" layer="91"/>
 <junction x="162.56" y="203.2"/>
-<pinref part="TP11" gate="G$1" pin="1"/>
+<pinref part="XTAL" gate="G$1" pin="1"/>
 <junction x="162.56" y="203.2"/>
 </segment>
 </net>
@@ -20248,7 +20248,7 @@ line crossing on layout</text>
 <pinref part="KW0X" gate="G$1" pin="PTA20/!RESET"/>
 <wire x1="134.62" y1="157.48" x2="149.86" y2="157.48" width="0.1524" layer="91"/>
 <label x="157.48" y="157.48" size="1.778" layer="95"/>
-<pinref part="TP12" gate="G$1" pin="1"/>
+<pinref part="!RESET" gate="G$1" pin="1"/>
 <junction x="149.86" y="157.48"/>
 </segment>
 </net>
@@ -20257,7 +20257,7 @@ line crossing on layout</text>
 <wire x1="391.16" y1="309.88" x2="391.16" y2="304.8" width="0.1524" layer="91"/>
 <pinref part="U$9" gate="G$1" pin="PG"/>
 <wire x1="391.16" y1="304.8" x2="396.24" y2="304.8" width="0.1524" layer="91"/>
-<pinref part="TP10" gate="G$1" pin="1"/>
+<pinref part="PG" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="!HOLD" class="0">
@@ -20265,7 +20265,7 @@ line crossing on layout</text>
 <pinref part="U$1" gate="G$1" pin="!HOLD"/>
 <pinref part="R2" gate="R" pin="1"/>
 <wire x1="99.06" y1="309.88" x2="93.98" y2="309.88" width="0.1524" layer="91"/>
-<pinref part="TP1" gate="G$1" pin="1"/>
+<pinref part="!HOLD" gate="G$1" pin="1"/>
 <wire x1="93.98" y1="309.88" x2="88.9" y2="309.88" width="0.1524" layer="91"/>
 <junction x="93.98" y="309.88"/>
 </segment>
@@ -20275,7 +20275,7 @@ line crossing on layout</text>
 <pinref part="U$1" gate="G$1" pin="!CS"/>
 <wire x1="99.06" y1="304.8" x2="73.66" y2="304.8" width="0.1524" layer="91"/>
 <label x="53.34" y="304.8" size="1.778" layer="95"/>
-<pinref part="TP8" gate="G$1" pin="1"/>
+<pinref part="!CS" gate="G$1" pin="1"/>
 <wire x1="73.66" y1="304.8" x2="50.8" y2="304.8" width="0.1524" layer="91"/>
 <junction x="73.66" y="304.8"/>
 </segment>
@@ -20291,7 +20291,7 @@ line crossing on layout</text>
 <pinref part="U$1" gate="G$1" pin="CLK"/>
 <label x="53.34" y="299.72" size="1.778" layer="95"/>
 <wire x1="68.58" y1="299.72" x2="99.06" y2="299.72" width="0.1524" layer="91"/>
-<pinref part="TP13" gate="G$1" pin="1"/>
+<pinref part="SCLK" gate="G$1" pin="1"/>
 <junction x="68.58" y="299.72"/>
 </segment>
 <segment>
@@ -20305,7 +20305,7 @@ line crossing on layout</text>
 <wire x1="99.06" y1="294.64" x2="73.66" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="DO"/>
 <label x="53.34" y="294.64" size="1.778" layer="95"/>
-<pinref part="TP15" gate="G$1" pin="1"/>
+<pinref part="MISO" gate="G$1" pin="1"/>
 <wire x1="73.66" y1="294.64" x2="50.8" y2="294.64" width="0.1524" layer="91"/>
 <junction x="73.66" y="294.64"/>
 </segment>
@@ -20322,7 +20322,7 @@ line crossing on layout</text>
 <wire x1="119.38" y1="289.56" x2="119.38" y2="294.64" width="0.1524" layer="91"/>
 <pinref part="U$1" gate="G$1" pin="DI"/>
 <label x="53.34" y="289.56" size="1.778" layer="95"/>
-<pinref part="TP18" gate="G$1" pin="1"/>
+<pinref part="MOSI" gate="G$1" pin="1"/>
 <junction x="68.58" y="289.56"/>
 </segment>
 <segment>
@@ -20351,21 +20351,21 @@ line crossing on layout</text>
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO2"/>
 <wire x1="134.62" y1="190.5" x2="137.16" y2="190.5" width="0.1524" layer="91"/>
-<pinref part="TP6" gate="G$1" pin="1"/>
+<pinref part="DIO2" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="DIO3" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO3"/>
 <wire x1="134.62" y1="187.96" x2="142.24" y2="187.96" width="0.1524" layer="91"/>
-<pinref part="TP7" gate="G$1" pin="1"/>
+<pinref part="DIO3" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="DIO4" class="0">
 <segment>
 <pinref part="KW0X" gate="G$1" pin="DIO4"/>
 <wire x1="134.62" y1="185.42" x2="147.32" y2="185.42" width="0.1524" layer="91"/>
-<pinref part="TP19" gate="G$1" pin="1"/>
+<pinref part="DIO4" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="PTD0" class="0">
@@ -20391,7 +20391,7 @@ line crossing on layout</text>
 <wire x1="93.98" y1="165.1" x2="58.42" y2="165.1" width="0.1524" layer="91"/>
 <label x="86.36" y="165.1" size="1.778" layer="95"/>
 <wire x1="43.18" y1="165.1" x2="58.42" y2="165.1" width="0.1524" layer="91"/>
-<pinref part="TP4" gate="G$1" pin="1"/>
+<pinref part="DIO0" gate="G$1" pin="1"/>
 <junction x="58.42" y="165.1"/>
 </segment>
 </net>
@@ -20400,7 +20400,7 @@ line crossing on layout</text>
 <pinref part="KW0X" gate="G$1" pin="PTE3"/>
 <wire x1="93.98" y1="162.56" x2="66.04" y2="162.56" width="0.1524" layer="91"/>
 <label x="86.36" y="162.56" size="1.778" layer="95"/>
-<pinref part="TP5" gate="G$1" pin="1"/>
+<pinref part="DIO1" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="V_SPI" class="0">
@@ -20410,7 +20410,7 @@ line crossing on layout</text>
 <wire x1="121.92" y1="299.72" x2="119.38" y2="299.72" width="0.1524" layer="91"/>
 <pinref part="R3" gate="R" pin="1"/>
 <wire x1="139.7" y1="287.02" x2="127" y2="287.02" width="0.1524" layer="91"/>
-<pinref part="TP3" gate="G$1" pin="1"/>
+<pinref part="V_SPI" gate="G$1" pin="1"/>
 <wire x1="127" y1="287.02" x2="121.92" y2="287.02" width="0.1524" layer="91"/>
 <junction x="127" y="287.02"/>
 </segment>
@@ -20419,7 +20419,7 @@ line crossing on layout</text>
 <segment>
 <pinref part="U$8" gate="G$1" pin="EN"/>
 <pinref part="R5" gate="R" pin="1"/>
-<pinref part="TP2" gate="G$1" pin="1"/>
+<pinref part="LDO_EN" gate="G$1" pin="1"/>
 <junction x="96.52" y="353.06"/>
 <wire x1="96.52" y1="353.06" x2="99.06" y2="353.06" width="0.1524" layer="91"/>
 </segment>
