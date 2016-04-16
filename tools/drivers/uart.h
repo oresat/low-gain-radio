@@ -1,7 +1,7 @@
 /*
-	UART driver for the Freescale/NXP MKW01Z128 UART module.
+	UART driver for the Freescale/NXP MKW01Z128.
 
-	Programmed by William Harrington, Theo Hill
+	Programmed by William Harrington
  */
 #include <stdbool.h>
 #include <stdint.h>
@@ -19,17 +19,9 @@ struct uart_config {
 void uart0_init(volatile struct uart0 * UART, const struct uart_config * config);
 void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer);
 void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer);
-void uart0_transaction(volatile struct uart0 * UART, size_t len, uint8_t * sendBuff, uint8_t * recvBuff);
 
-/* function for initializing UART */
 void uart_init(volatile struct uart * UART, const struct uart_config * config);
-
-/* function for receiving characters from FIFO buffer */
 void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer);
-
-/* function for placing characters into FIFO buffer */
 void uart_write(volatile struct uart * UART, size_t len, uint8_t * buffer);
-
-void uart_transaction(volatile struct uart * UART, size_t len, uint8_t * sendBuff, uint8_t * recvBuff);
 
 #endif

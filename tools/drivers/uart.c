@@ -1,3 +1,9 @@
+/* 
+	Universal asynchronous receiver/transmitter driver for MKW01Z128
+
+	Programmed by William Harrington
+ */
+
 #include "uart.h"
 
 static const struct pin_assign TX [] = {
@@ -40,6 +46,28 @@ void uart0_init(volatile struct uart0 * UART, const struct uart_config * config)
 	UART->C4 = 0x0;
 }
 
+void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
+	for(unsigned int i = 0; i < len; ++i){
+		/* poll receive data register full flag */
+		while(!(UART->S1 & (1 << 5)));
+
+		UART->D = buffer[i];
+	}
+}
+
+void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
+	if(!len) return;
+
+	/* poll transmit data register empty flag */
+	while(!(UART->S1 & (1 << 7)));
+
+	/* write bytes to data register */
+	for(unsigned int i = 0; i < len; ++i){
+		UART->D = buffer[i];
+	}
+}
+
+
 void uart_init(volatile struct uart * UART, const struct uart_config * config){
   	/* enable clock for UART modules */
 	SIM.SCGC4 |= 0x1c00; /* TODO: detect which one to turn one */
@@ -54,6 +82,7 @@ void uart_init(volatile struct uart * UART, const struct uart_config * config){
 	//uint32_t divisor = busClock/(16*baudRate);
 	//UART->BDH = (divisor & 0x1F00) >> 8;
 	//UART->BDL = (divisor & 0xFF);
+
 	UART->BDH = 0x1d;
 	UART->BDL = 0xb7;
 	UART->C1 = 0x0;
@@ -62,102 +91,23 @@ void uart_init(volatile struct uart * UART, const struct uart_config * config){
 	UART->C4 = 0x0;
 }
 
-void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	uint8_t dummyBuff[len];
-
-	uart0_transaction(UART, len, dummyBuff, buffer);
-
-	//if(!len) return;
-	/* poll the receive data register full flag */
-	/* it will be 0 when empty */
-	//while(!(UART->S1 >> 5));
-	/* receive bytes */
-	//for(size_t i = 0; i < len; ++i){
-  	//buffer[i] = UART->D;
-  	//}
-}
-
 void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
-	uint8_t dummyBuff[len];
-
-	uart_transaction(UART, len, dummyBuff, buffer);
-
-  	//if(!len) return;
-	/* poll the receive data register full flag */
-	/* it will be 0 when empty */
-	//while(!(UART->S1 >> 5));
-	/* receive bytes */
-	//for(size_t i = 0; i < len; ++i){
-  	//buffer[i] = UART->D;
-  	//}
-}
-
-void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	//uint8_t dummyBuff[len];
-
-  	//uart0_transaction(UART, len, buffer, dummyBuff);
-
-	/* make sure len is not 0 */
-  	if(!len) return;
-
-	/* poll transmit data register empty flag */
-	while(!(UART->S1 >> 7));
-
-        /* transmission */
 	for(unsigned int i = 0; i < len; ++i){
-		/* send byte */
-  		UART->D = buffer[i];
+		/* poll receive data register full flag */
+		while(!(UART->S1 & (1 << 5)));
 
-		/* poll transmission complete flag */
-		while(!(UART->S1 >> 6));
-  	}
+		UART->D = buffer[i];
+	}
 }
 
 void uart_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
-	uint8_t dummyBuff[len];
+	if(!len) return;
 
-	uart_transaction(UART, len, buffer, dummyBuff);
-
-	//if(!len) return;
 	/* poll transmit data register empty flag */
-	//while(!(UART->S1 >> 7));
-	//for(unsigned int i = 0; i < len; ++i){
-        //UART->D = buffer[i];
-	//}
-}
+	while(!(UART->S1 & (1 << 7)));
 
-void uart0_transaction(volatile struct uart0 * UART, size_t len, uint8_t * sendBuff, uint8_t * recvBuff){
-	if(!len) return;
+	/* write bytes to data register */
 	for(unsigned int i = 0; i < len; ++i){
-		/* poll transmit data register empty flag */
-		while(!(UART->S1 >> 7));
-
-		/* send data */
-		UART->D = sendBuff[i];
-
-		/* poll the receive data register full flag */
-		/* it will be 0 when empty */
-		while(!(UART->S1 >> 5));
-
-		/* grab data */
-		recvBuff[i] = UART->D;
-        }
-}
-
-void uart_transaction(volatile struct uart * UART, size_t len, uint8_t * sendBuff, uint8_t * recvBuff){
-	if(!len) return;
-	for(unsigned int i = 0; i < len; ++i){
-		/* poll transmit data register empty flag */
-		while(!(UART->S1 >> 7));
-
-		/* send data */
-		UART->D = sendBuff[i];
-
-		/* poll the receive data register full flag */
-		/* it will be 0 when empty */
-		while(!(UART->S1 >> 5));
-
-		/* grab data */
-		recvBuff[i] = UART->D;
-        }
+		UART->D = buffer[i];
+	}
 }
