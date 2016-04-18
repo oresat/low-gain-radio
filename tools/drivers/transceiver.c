@@ -89,10 +89,9 @@ struct TRANSCEIVER transceiver = {
 	.RegTemp1 = 0x4E,
 	.RegTemp2 = 0x4F,
 	.RegTestLna = 0x58,
-	.PDSTST3 = 0x5F,
+	.RegTestPLL = 0x5F,
 	.RegTestDagc = 0x6F,
 	.RegTestAfc = 0x71,
-	.RegTest = 0x50,
 };
 
 
@@ -182,6 +181,10 @@ void configure_transceiver_tx(void){
 	static uint8_t RegFDevCfg [2] = {0x00, 0x29};
 	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
 
+	/* adjust PLL bandwidth to 75kHz */
+	uint8_t RegTestPLLCfg = 0x0;
+	trans_write_register(transceiver.RegTestPLL, &RegTestPLLCfg, 1);
+
 	/* bitrate settings = 2.4 kbps */
 	static uint8_t RegBitrateCfg [2] = {0x34, 0x15};
 	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
@@ -229,6 +232,10 @@ void configure_transceiver_rx(void){
 	/* frequency deviation settings */
 	static uint8_t RegFDevCfg [2] = {0x00, 0x29};
 	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
+
+	/* adjust PLL bandwidth to 75kHz */
+	uint8_t RegTestPLLCfg = 0x0;
+	trans_write_register(transceiver.RegTestPLL, &RegTestPLLCfg, 1);
 
 	/* bitrate settings = 2.4 kbps */
 	static uint8_t RegBitrateCfg [2] = {0x34, 0x15};

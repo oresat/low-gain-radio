@@ -92,19 +92,18 @@ struct TRANSCEIVER {
 	uint8_t RegTemp1; /* Temperature Sensor control */
 	uint8_t RegTemp2; /* Temperature readout */
 	uint8_t RegTestLna; /* Sensitivity boost */
-	uint8_t PDSTST3; /* Test register includes PLL bandwidth */
+	uint8_t RegTestPLL; /* PLL Bandwidth */
 	uint8_t RegTestDagc; /* Fading margin improvement */
 	uint8_t RegTestAfc; /* AFC offset for low modulation index AFC */
-	uint8_t RegTest; /* Internal test registers */
 };
 
 /* allow for external access to struct */
 extern struct TRANSCEIVER transceiver;
 
-/* function prototypes */
 void initialize_trans_spi(volatile struct spi * SPI);
-void configure_transceiver(void);
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);
+void configure_transceiver_tx(void);
+void configure_transceiver_rx(void);
 
 #endif

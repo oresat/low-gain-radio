@@ -47,6 +47,8 @@ void uart0_init(volatile struct uart0 * UART, const struct uart_config * config)
 }
 
 void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
+	if(!len) return;
+
 	for(unsigned int i = 0; i < len; ++i){
 		/* poll receive data register full flag */
 		while(!(UART->S1 & (1 << 5)));
@@ -92,6 +94,8 @@ void uart_init(volatile struct uart * UART, const struct uart_config * config){
 }
 
 void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
+	if(!len) return;
+
 	for(unsigned int i = 0; i < len; ++i){
 		/* poll receive data register full flag */
 		while(!(UART->S1 & (1 << 5)));
