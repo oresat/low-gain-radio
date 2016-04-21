@@ -1,15 +1,15 @@
 # Parts Selection  
 ## Table of Contents
-[Low Gain Radio Parts]    
-Microcontroller 
-Voltage Regulation  
-RF Parts  
-SPI Cache  
+[Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#low-gain-radio)    
+[Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#microcontroller)   
+[RF Parts](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#rf-parts)  
+[Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#voltage-regulation)  
+[SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#spi-cache)  
   
-System Controller Parts  
-Microcontroller  
-Voltage Regulation  
-Digital Components  
+[System Controller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#system-controller)   
+[Microcontroller]  
+[Voltage Regulation]  
+[Digital Components]  
 
 
 ### Low Gain Radio 
