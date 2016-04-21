@@ -28,13 +28,15 @@ Rad-Hard Analog: N/A
 Part No.: SKY65116  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
-Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.    
+Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.  
+Rad-Hard Analog: N/A  
   
 **LNA:**  
 Part No.: MAAL-010704  
 Manufacturer: MAACOM  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
-Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.    
+Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
+Rad-Hard Analog: N/A  
 **_Alternative_**   
 Part No.: HMC616LP3    
 Manufacturer: Hittite  
@@ -46,13 +48,15 @@ Part No.: SKY13405_490F
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons:  
+Rad-Hard Analog: N/A  
 
 #### Voltage Regulation:
 **MCU LDO:**
 Part No.: AAT3215  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Low noise rejection. Cheap. Works for other parts as well.    
+Reasons: Low noise rejection. Cheap. Works for other parts as well.     
+Rad-Hard Analog:  
 **_Alternative_**  
 Part No.: TPS789xx      
 Manufacturer: Texas Instruments  
@@ -63,13 +67,15 @@ Reasons: Works, but went with the same LDO as the LNA for simplicity and cost ef
 Part No.: AAT3215  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.  
+Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.   
+Rad-Hard Analog: N/A  
   
 **PA LDO:**  
 Part No.: DM00102135  
 Manufacturer: ST Microelectronics  
 [Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
 Reasons:  
+Rad-Hard Analog: N/A  
 
 
 #### SPI Cache:  
@@ -78,6 +84,7 @@ Part No.: w25q80dv
 Manufacturer: Winbond  
 [Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
 Reasons: 8MB worth of storage. Easy hardware implementation.   
+Rad-Hard Analog: N/A  
 **_Alternative_**       
 Part No.: LE25FU406BMB     
 Manufacturer: SANYO      
@@ -90,6 +97,7 @@ Reasons: 4MB storage. Unfortunately it was vaporware at the time and has less st
 #### Microcontroller:  
 **Microcontroller:** 
 Part No.: ATmega128  
+Rad-Hard Part No.: ATmegaS128  
 Manufacturer: Atmel  
 [Non-hardened Datasheet](http://www.atmel.com/images/doc2467.pdf)  
 [Rad-hard Datasheet](http://aerosupport.atmel.com/Atmel/doc41036S.pdf)  
