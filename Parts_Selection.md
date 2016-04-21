@@ -34,8 +34,9 @@ Reasons: Able to provide 1W power output. Also has low voltage rails, but asks f
 Part No.: MAAL-010704  
 Manufacturer: MAACOM  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
-Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
-Alternative: HMC616LP3  
+Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.    
+**_Alternative_**   
+Part No.: HMC616LP3    
 Manufacturer: Hittite  
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
 Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
@@ -51,8 +52,9 @@ Reasons:
 Part No.: AAT3215  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Low noise rejection. Cheap. Works for other parts as well. 
-Alternative: TPS789xx  
+Reasons: Low noise rejection. Cheap. Works for other parts as well.    
+**_Alternative_**  
+Part No.: TPS789xx      
 Manufacturer: Texas Instruments  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
@@ -75,12 +77,12 @@ Reasons:
 Part No.: w25q80dv  
 Manufacturer: Winbond  
 [Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
-Reasons: 8MB worth of storage. Easy hardware implementation. 
-Alternative   
-Part No.: LE25FU406BMB   
+Reasons: 8MB worth of storage. Easy hardware implementation.   
+**_Alternative_**       
+Part No.: LE25FU406BMB     
 Manufacturer: SANYO      
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
-Reasons: 4MB storage. Unfortunately it was vaporware at the time. 
+Reasons: 4MB storage. Unfortunately it was vaporware at the time and has less storage.   
   
 
 ### System Controller
