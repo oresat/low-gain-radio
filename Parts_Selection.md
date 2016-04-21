@@ -53,7 +53,7 @@ Manufacturer: SkyWorks
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
 Reasons: Low noise rejection. Cheap. Works for other parts as well. 
 Alternative: TPS789xx  
-Manufacturer:  
+Manufacturer: Texas Instruments  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
   
@@ -65,7 +65,7 @@ Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also ha
   
 **PA LDO:**  
 Part No.: DM00102135  
-Manufacturer:     
+Manufacturer: ST Microelectronics  
 [Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
 Reasons:  
 
@@ -77,8 +77,8 @@ Manufacturer: Winbond
 [Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
 Reasons: 8MB worth of storage. Easy hardware implementation. 
 Alternative   
-Part No.: LE25FU406BMB 
-Manufacturer:  
+Part No.: LE25FU406BMB   
+Manufacturer: SANYO      
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
 Reasons: 4MB storage. Unfortunately it was vaporware at the time. 
   
