@@ -1,20 +1,72 @@
-### Parts Selection
+# Parts Selection  
+## Table of Contents
+[Low Gain Radio Parts]    
+Microcontroller 
+Voltage Regulation  
+RF Parts  
+SPI Cache  
+  
+System Controller Parts  
+Microcontroller  
+Voltage Regulation  
+Digital Components  
 
-##### Radio MCU:
+
+### Low Gain Radio 
+
+##### Microcontroller:
 Part No.: MKW01Z128  
 [Datasheet](http://cache.nxp.com/files/microcontrollers/doc/data_sheet/MKW01Z128.pdf)  
 Reasons: Requirement for the project  
 Rad-Hard Analog: N/A  
   
+##### RF Parts:  
+  
+PA:  
+<http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf>
+-Can provide 1W power output
+-Low voltage rails, but this requires high current  
+  
+LNA:  
+<http://cdn.macom.com/datasheets/MAAL-010704.pdf> or optimally <http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf>
+MAACOM
+-Provides >0.7dB Noise level at space temperatures at 436.5MHz
+Hittite
+-Provides >0.6dB Noise at all temperatures and at most frequencies.
+-At space temperatures, around 0.3dB Noise level at 436.5MHz
+-Bad thing: Vaporware in the USA. Looks like it has to be ordered from China
 
+RF Switch:  
+<http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf>  
 
-##### KW0x LDO:
+##### Voltage Regulation:
+MCU LDO:
 Part No.: AAT3215  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
 Reasons: Low noise rejection. Cheap. Available from practicum.  
 **Alternative:** TPS789xx  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
+  
+LNA LDO:
+Part No.: AAT3215  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
+Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.  
+  
+PA LDO:
+<http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf>
+
+
+
+##### SPI Cache:
+Part No.: w25q80dv  
+[Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
+Reasons: 8MB worth of storage. Easy hardware implementation. 
+  
+**Alternative**   
+Part No.: LE25FU406BMB 
+[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
+Reasons: 4MB storage. Unfortunately it was vaporware at the time. 
   
 
 ##### System Controller MCU:
@@ -23,46 +75,6 @@ Part No.: ATmega128
 [Rad-hard Datasheet](http://aerosupport.atmel.com/Atmel/doc41036S.pdf)  
 Reasons: Microcontroller has analogoues radiation hardened version meaning we can test at a low price. MCU is easily programmable.  
   
-
-##### SPI Cache:
-Part No.: w25q80dv  
-[Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
-Reasons: 8MB worth of storage. Easy hardware implementation.  
-
-**Alternative**   
-Part No.: LE25FU406BMB 
-[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
-Reasons: 4MB storage. Unfortunately it was vaporware at the time.  
-  
-
-##### LNA LDO:
-Part No.: AAT3215  
-[Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.  
-  
-##### PA LDO:
-<http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf>
-
-
-##### LNA:
-<http://cdn.macom.com/datasheets/MAAL-010704.pdf> or optimally <http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf>
-
-##### MAACOM
--Provides >0.7dB Noise level at space temperatures at 436.5MHz
-Hittite
--Provides >0.6dB Noise at all temperatures and at most frequencies.
--At space temperatures, around 0.3dB Noise level at 436.5MHz
--Bad thing: Vaporware in the USA. Looks like it has to be ordered from China
-
-
-##### PA:
-<http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf>
--Can provide 1W power output
--Low voltage rails, but this requires high current
-
-
-##### RF Switch:
-<http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf>
 
 ##### Possible radhard MOSFET:
 <http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00295117.pdf>
