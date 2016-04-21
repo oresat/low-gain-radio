@@ -3,29 +3,29 @@
 written by Shan Quinney, William Harrington, and James Heath
 
 **Table of Contents**
-* [Revision History](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#revision-history)
-    * [Introduction](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#introduction)
-    * [Purpose](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#purpose)
-    * [Testing Procedure](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#testing-procedure)
-    * [Recording of Results, witnessing, and authorities](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#recording-of-results-witnessing-and-authorities)
-* [Reference Documents](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#reference-documents)
-    * [Design Documentation](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#design-documentation)
-* [Overview](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#overview)
-    * [Operational Description](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#operational-description)
-* [Preparation](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#pre-test-preparation)
-    * [Test Equipment](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#test-equipment)
-    * [Test setup and calibration](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#test-setup-and-calibration)
-* [Component Tests](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#component-tests)
-     * [Crystal Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#crystal-test)
-     * [Supply Range Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#supply-range-test)
-     * [Temperature Range Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#temperature-range-test)
-     * [Force Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#force-test)
-     * [Vacuum Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#vacuum-test)
-* [System Tests](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#system-tests)
-    * [Radio Communication Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#radio-communication-test)
-    * [Control Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#control-test)
-    * [Command Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#command-test)
-    * [Functionality Test](https://github.com/wrh2/sputnik/blob/master/Phase1/Test_Plan/Test_Plan_Sputnik_Capstone.md#functionality-test)
+* [Revision History](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#revision-history)
+    * [Introduction](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#introduction)
+    * [Purpose](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#purpose)
+    * [Testing Procedure](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#testing-procedure)
+    * [Recording of Results, witnessing, and authorities](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#recording-of-results-witnessing-and-authorities)
+* [Reference Documents](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#reference-documents)
+    * [Design Documentation](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#design-documentation)
+* [Overview](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#overview)
+    * [Operational Description](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#operational-description)
+* [Preparation](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#pre-test-preparation)
+    * [Test Equipment](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#test-equipment)
+    * [Test setup and calibration](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#test-setup-and-calibration)
+* [Component Tests](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#component-tests)
+     * [Crystal Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#crystal-test)
+     * [Supply Range Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#supply-range-test)
+     * [Temperature Range Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#temperature-range-test)
+     * [Force Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#force-test)
+     * [Vacuum Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#vacuum-test)
+* [System Tests](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#system-tests)
+    * [Radio Communication Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#radio-communication-test)
+    * [Control Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#control-test)
+    * [Command Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#command-test)
+    * [Functionality Test](https://github.com/oresat/low-gain-radio/Test_Plan_Sputnik_Capstone.md#functionality-test)
 
 ### Revision History
 
@@ -38,6 +38,8 @@ written by Shan Quinney, William Harrington, and James Heath
 04/17/16 - Added component test section and all component tests and grids: Crystal, supply range, temperature, force, and vacuum. (Jake) 
 
 04/20/16 - Fixed ToC link error (Jake)
+
+04/21/16 - Moved to oresat repo and fixed ToC links (Jake)
 
 ### Introduction
 
