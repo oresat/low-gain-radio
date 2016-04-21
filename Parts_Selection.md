@@ -1,22 +1,23 @@
 # Parts Selection  
-## Table of Contents
-[Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#low-gain-radio)    
-[Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#microcontroller)   
-[RF Parts](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#rf-parts)  
-[Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#voltage-regulation)  
-[SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#spi-cache)  
+**Table of Contents**
+* [Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#low-gain-radio)    
+  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#microcontroller)   
+  * [RF Parts](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#rf-parts)  
+  * [Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#voltage-regulation)  
+  * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#spi-cache)  
   
-[System Controller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#system-controller)   
-[Microcontroller]  
-[Voltage Regulation]  
-[Digital Components]  
+* [System Controller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#system-controller)   
+  * [Microcontroller]  
+  * [Voltage Regulation]  
+  * [Digital Components]  
 
 
 ### Low Gain Radio 
 
 #### Microcontroller:
-**Microcontroller:**  
-Part No.: MKW01Z128  
+**Microcontroller:**    
+Part No.: MKW01Z128 
+Manufacturer: NXP  
 [Datasheet](http://cache.nxp.com/files/microcontrollers/doc/data_sheet/MKW01Z128.pdf)  
 Reasons: Requirement for the project  
 Rad-Hard Analog: N/A  
@@ -25,38 +26,46 @@ Rad-Hard Analog: N/A
   
 **PA:**  
 Part No.: SKY65116  
+Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
 Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.    
   
 **LNA:**  
 Part No.: MAAL-010704  
+Manufacturer: MAACOM  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
 Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
 Alternative: HMC616LP3  
+Manufacturer: Hittite  
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
 Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
 
 **RF Switch:**  
 Part No.: SKY13405_490F  
+Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons:  
 
 #### Voltage Regulation:
 **MCU LDO:**
 Part No.: AAT3215  
+Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Low noise rejection. Cheap. Available from practicum.  
+Reasons: Low noise rejection. Cheap. Works for other parts as well. 
 Alternative: TPS789xx  
+Manufacturer:  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
   
 **LNA LDO:**  
 Part No.: AAT3215  
+Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.  
   
 **PA LDO:**  
 Part No.: DM00102135  
+Manufacturer:     
 [Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
 Reasons:  
 
@@ -64,10 +73,12 @@ Reasons:
 #### SPI Cache:  
 **SPI Cache:**  
 Part No.: w25q80dv  
+Manufacturer: Winbond  
 [Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
 Reasons: 8MB worth of storage. Easy hardware implementation. 
 Alternative   
 Part No.: LE25FU406BMB 
+Manufacturer:  
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
 Reasons: 4MB storage. Unfortunately it was vaporware at the time. 
   
@@ -77,6 +88,7 @@ Reasons: 4MB storage. Unfortunately it was vaporware at the time.
 #### Microcontroller:  
 **Microcontroller:** 
 Part No.: ATmega128  
+Manufacturer: Atmel  
 [Non-hardened Datasheet](http://www.atmel.com/images/doc2467.pdf)  
 [Rad-hard Datasheet](http://aerosupport.atmel.com/Atmel/doc41036S.pdf)  
 Reasons: Microcontroller has analogoues radiation hardened version meaning we can test at a low price. MCU is easily programmable.  
