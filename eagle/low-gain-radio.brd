@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -23,7 +23,7 @@
 <layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
 <layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
 <layer number="15" name="Route15" color="14" fill="1" visible="no" active="yes"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
 <layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
@@ -76,7 +76,7 @@
 <layer number="97" name="Info" color="7" fill="1" visible="no" active="no"/>
 <layer number="98" name="Guide" color="6" fill="1" visible="no" active="no"/>
 <layer number="99" name="SpiceOrder" color="7" fill="1" visible="no" active="no"/>
-<layer number="100" name="TODO" color="12" fill="1" visible="no" active="yes"/>
+<layer number="100" name="TODO" color="12" fill="1" visible="yes" active="yes"/>
 <layer number="101" name="Hidden" color="7" fill="1" visible="no" active="yes"/>
 <layer number="102" name="Changes" color="7" fill="1" visible="no" active="yes"/>
 <layer number="103" name="tMap" color="7" fill="1" visible="no" active="yes"/>
@@ -177,6 +177,7 @@ James Heath, Will Harrington, Shan O'Dean, Michael Mathis
 <wire x1="76.1" y1="59.7" x2="76.1" y2="59.9" width="0.25" layer="41"/>
 <circle x="58.9" y="80.8" radius="2.7" width="0" layer="30"/>
 <circle x="72" y="83.7" radius="0.4" width="0" layer="30"/>
+<text x="71.2" y="20.1" size="1.778" layer="100">test</text>
 </plain>
 <libraries>
 <library name="rcl_custom">
