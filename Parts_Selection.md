@@ -24,21 +24,22 @@ Rad-Hard Analog: N/A
 #### RF Parts:  
   
 **PA:**  
-<http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf>
--Can provide 1W power output
--Low voltage rails, but this requires high current  
+Part No.: SKY65116  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
+Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.    
   
 **LNA:**  
-<http://cdn.macom.com/datasheets/MAAL-010704.pdf> or optimally <http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf>
-MAACOM
--Provides >0.7dB Noise level at space temperatures at 436.5MHz
-Hittite
--Provides >0.6dB Noise at all temperatures and at most frequencies.
--At space temperatures, around 0.3dB Noise level at 436.5MHz
--Bad thing: Vaporware in the USA. Looks like it has to be ordered from China
+Part No.: MAAL-010704  
+[Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
+Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
+Alternative: HMC616LP3  
+[Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
+Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
 
 **RF Switch:**  
-<http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf>  
+Part No.: SKY13405_490F  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
+Reasons:  
 
 #### Voltage Regulation:
 **MCU LDO:**
@@ -55,7 +56,9 @@ Part No.: AAT3215
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.  
   
 **PA LDO:**  
-<http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf>  
+Part No.: DM00102135  
+[Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
+Reasons:  
 
 
 #### SPI Cache:  
@@ -71,7 +74,8 @@ Reasons: 4MB storage. Unfortunately it was vaporware at the time.
 
 ### System Controller
 
-#### System Controller MCU:
+#### Microcontroller:  
+**Microcontroller:** 
 Part No.: ATmega128  
 [Non-hardened Datasheet](http://www.atmel.com/images/doc2467.pdf)  
 [Rad-hard Datasheet](http://aerosupport.atmel.com/Atmel/doc41036S.pdf)  
