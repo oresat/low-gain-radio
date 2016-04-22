@@ -175,8 +175,6 @@
 <text x="32.4" y="0.7" size="1" layer="21" font="vector" ratio="20">C3</text>
 <text x="35" y="0.6" size="1" layer="21" font="vector" ratio="20">C2</text>
 <text x="14.2" y="0.6" size="1" layer="21" font="vector" ratio="20">GND</text>
-<text x="65.45" y="30.4" size="0.4064" layer="100">TODO:
--Via stitching</text>
 <text x="5.05" y="68.85" size="1.2" layer="21" font="vector" ratio="20" rot="R270">Portland State Aerospace Society
 Oresat Low-Gain-Radio
 2016/4/8
