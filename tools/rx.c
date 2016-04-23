@@ -85,34 +85,6 @@ void initialize_gpio(void){
 
 	return;
 }
-#if 0
-void initialize_uart(void){
-	/* UART0 configuration */
-	struct uart_config myUART = {
-		/* pin for transmit = PTA1 */
-		.TX = {.port=&PORTA, .pin=1,},
-
-		/* pin for receive = PTA2 */
-		.RX = {.port=&PORTA, .pin=2,},
-
-		/* baud rate */
-		.baud = 115200,
-	};
-	uart0_init(&UART0, &myUART);
-}
-
-void initialize_tpm(void){
-  	/* procedure for initializing Timer/PWM module */
-
-	/* Clock mode select for each module, make TPM counter increment on every TPM counter clock */
-  	TPM0.SC = 0x8;
-	TPM1.SC = 0x8;
-	TPM2.SC = 0x8;
-
-	/* more needs to be done here, maybe? */
-  	return;
-}
-#endif
 
 int main(void) {
 
@@ -124,8 +96,6 @@ int main(void) {
 	initialize_clock();
 	initialize_gpio();
 
-	//initialize_uart();
-	//initialize_tpm();
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
