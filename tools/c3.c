@@ -19,10 +19,10 @@ void initialize_spi(void){
 	initialize_trans_spi(&SPI0);
 
 	/* Send to transceiver to get 32MHz clock signal on PTA18 */
-	//uint8_t RegDioMapping2Cfg = 0x0;
+	uint8_t RegDioMapping2Cfg = 0x0;
 
 	/* Send to transceiver to get 2MHz clock signal on PTA18 */
-	uint8_t RegDioMapping2Cfg = 0x4;
+	//uint8_t RegDioMapping2Cfg = 0x4;
 	trans_write_register(transceiver.RegDioMapping2, &RegDioMapping2Cfg, 1);
 
 	/* disable SPI module clock because theo said it would get mad if I didn't! */
@@ -38,13 +38,12 @@ void initialize_clock(void){
 	/* simple clock configuration that involves initializing the SPI so we can get the external clock reference from the transceiver */
 
 	/* set PLL external reference divider (PRDIV0) to 16, this will give us 2 MHz */
-	//MCG.C5 = 0xF;
+	MCG.C5 = 0xF;
 
 	/* enable MCGPLLCLK if system is in Normal Stop mode */
 	MCG.C5 |= 0x40;
 
 	/* select PLL instead of FLL, multiply signal by 24 to get 48MHz */
-	//MCG.C6 |= 0x40;
 	MCG.C6 |= 0x40;
 
 	/* wait for PLL lock */
@@ -94,10 +93,10 @@ void initialize_uart(void){
 	/* UART configuration */
 	struct uart_config myUART = {
 		/* pin for transmit = PTA1 */
-		.TX = {.port=&PORTA, .pin=19,},
+		.TX = {.port=&PORTC, .pin=4,},
 
 		/* pin for receive = PTA2 */
-		.RX = {.port=&PORTA, .pin=18,},
+		.RX = {.port=&PORTC, .pin=3,},
 
 		/* baud rate */
 		.baud = 115200,
@@ -155,19 +154,23 @@ int main(void) {
 
 	uint8_t txbyte = 0x55;
 	
-	uint8_t rxbyte = 0x0;
+	//uint8_t rxbyte = 0x0;
 
 	while(1) {
-          	//uart0_write(&UART0, 1, &txbyte);
+		//uart0_write(&UART0, 1, &txbyte);
 		//uart0_read(&UART0, 1, &rxbyte);
 
           	uart_write(&UART1, 1, &txbyte);
-          	uart_read(&UART1, 1, &rxbyte);
+          	//uart_read(&UART1, 1, &rxbyte);
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
 	       	/* toggle LED connected to PTB2 */
-		GPIOB.PTOR = 0x00004;
+		GPIOB.PTOR = 0x2;
+
+		//if(rxbyte == 0x55){
+                //GPIOB.PTOR = 0x20000;
+		//}
 	}
 	return 0;
 }
