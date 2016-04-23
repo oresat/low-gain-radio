@@ -117,7 +117,7 @@ void initialize_uart0(void){
 		/* baud rate */
 		.baud = 115200,
 	};
-	uart0_init(&UART0, &myUART);
+	uart_init(&UART0, &myUART);
 }
 
 #if 0
@@ -144,8 +144,8 @@ int main(void) {
 	initialize_clock();
 	initialize_gpio();
 
-	initialize_uart();
-	//initialize_uart0();
+	//initialize_uart();
+	initialize_uart0();
 	//initialize_tpm();
    	//asm volatile ("cpsie   i");
 
@@ -157,10 +157,7 @@ int main(void) {
 	//uint8_t rxbyte = 0x0;
 
 	while(1) {
-		//uart0_write(&UART0, 1, &txbyte);
-		//uart0_read(&UART0, 1, &rxbyte);
-
-          	uart_write(&UART1, 1, &txbyte);
+		uart_write(&UART0, 1, &txbyte);
           	//uart_read(&UART1, 1, &rxbyte);
 
 		for(uint32_t i = 0; i < 1000000; ++i);

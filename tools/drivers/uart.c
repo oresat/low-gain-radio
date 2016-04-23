@@ -54,19 +54,19 @@ void uart0_init(volatile struct uart0 * UART, const struct uart_config * config)
 
 	/* enable clock*/
 	SIM.SCGC4 |= SCGC_UART0;
-	uart_init((volatile struct uart *) UART, config);
+	uart12_init((volatile struct uart *) UART, config);
 }
 
 void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	uart_read((volatile struct uart *) UART, len, buffer);
+	uart12_read((volatile struct uart *) UART, len, buffer);
 }
 
 void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	uart_write((volatile struct uart *) UART, len, buffer);
+	uart12_write((volatile struct uart *) UART, len, buffer);
 }
 
 
-void uart_init(volatile struct uart * UART, const struct uart_config * config){
+void uart12_init(volatile struct uart * UART, const struct uart_config * config){
 	/* enable clock */
 	if(UART == &UART1)
 		SIM.SCGC4 |= SCGC_UART1;
@@ -92,7 +92,7 @@ void uart_init(volatile struct uart * UART, const struct uart_config * config){
 	UART->C2 = TE | RE;
 }
 
-void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
+void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
 	if(!len) return;
 
 	for(unsigned int i = 0; i < len; ++i){
@@ -103,7 +103,7 @@ void uart_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
 	}
 }
 
-void uart_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
+void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
 	if(!len) return;
 
 	/* write bytes to data register */
