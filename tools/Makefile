@@ -11,15 +11,17 @@ CPPFLAGS = -I. -Idrivers -I/usr/local/arm-none-eabi/include
 CFLAGS = -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3 -std=gnu11
 LDFLAGS = --specs=nosys.specs -mthumb -static -nostartfiles -T$(LINKER_SCRIPT)
 
+VPATH = drivers
+
 all: c3
 
-c3: crt0.o c3.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
+c3: crt0.o c3.o port.o spi.o uart.o transceiver.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-rx: crt0.o rx.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
+rx: crt0.o rx.o port.o spi.o uart.o transceiver.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-tx: crt0.o tx.o drivers/port.o drivers/spi.o drivers/uart.o drivers/transceiver.o
+tx: crt0.o tx.o port.o spi.o uart.o transceiver.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
