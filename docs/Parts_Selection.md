@@ -1,12 +1,12 @@
 # Parts Selection  
 **Table of Contents**
-* [Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#low-gain-radio)    
-  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#microcontroller)   
-  * [RF Parts](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#rf-parts)  
-  * [Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#voltage-regulation)  
-  * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#spi-cache)  
+* [Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#low-gain-radio)    
+  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#microcontroller)   
+  * [RF Parts](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-parts)  
+  * [Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#voltage-regulation)  
+  * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#spi-cache)  
   
-* [System Controller](https://github.com/oresat/low-gain-radio/blob/master/Parts_Selection.md#system-controller)   
+* [System Controller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#system-controller)   
   * [Microcontroller]  
   * [Voltage Regulation]  
   * [Digital Components]  
