@@ -82,13 +82,13 @@ void initialize_clock(void){
 #endif
 
 
-/* blue LED */
+/* green LED */
 #define PTB1 (1 << 1)
 
-/* green LED */
+/* red LED */
 #define PTB2 (1 << 2)
 
-/* red LED */
+/* blue LED */
 #define PTB17 (1 << 17)
 
 /* alternative function number */
