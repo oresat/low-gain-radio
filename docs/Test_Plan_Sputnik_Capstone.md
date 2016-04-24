@@ -249,7 +249,7 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 
 #### Command Test
 
-Send command to module, blink an LED or toggle GPIO pin
+The Command Test helps us understand whether the board is able to issue commands and update or respond based on these commands. To test this, the Microcontroller will send a command to an LED to light up. If the LED lights up, then the command was successful indicating that the board is able to issue commands.
 
                           |                              |
 ------------------------- | ---------------------------- |
