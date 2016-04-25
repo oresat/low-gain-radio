@@ -136,7 +136,7 @@ Eagle Part Reference: CM1
 [Datasheet](http://cnctech.us/pdfs/3220-XX-0100-00.pdf)  
 Reasons: Generic JTAG connector used from practicum.
 
-#### 40 Pin Header   
+#### 40 Pin Header:     
 Part No.: M50-3202045    
 Manufacturer: Harwin Inc.    
 Vendor: Digi-Key  
@@ -145,16 +145,16 @@ Eagle Part Reference: Y1
 [Datasheet](https://cdn.harwin.com/pdfs/60page104.pdf)  
 Reasons: Design requirement for communication from the Cubesat.
 
-#### MCX Connector     
+#### MCX Connector:       
 Part No.: CONMCX003.062    
 Manufacturer: Linx Technologies Inc.    
 Vendor: Digi-Key  
 Vendor Part No.: CONMCX003.062-ND  	  
-Eagle Part Reference: Y1  
+Eagle Part Reference: CF2
 [Datasheet](http://www.linxtechnologies.com/resources/documents/mcx_rp-mcx_specs.pdf)  
 Reasons: Connector for RF signal to the antenna on the back panel.
 
-#### LEDs    
+#### LEDs:      
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -164,7 +164,7 @@ Eagle Part Reference: Y1
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
-#### Inverter  
+#### Inverter:    
 Part No.: NC7SZ05P5X    
 Manufacturer: Fairchild Semiconductor    
 Vendor: Digi-Key  
@@ -173,7 +173,7 @@ Eagle Part Reference: U5A
 [Datasheet](https://www.fairchildsemi.com/datasheets/NC/NC7SZ05.pdf)  
 Reasons: Inverter was needed since the PA and LNA outputs from the KW0x is reverse that of the RF Switch. In order to not have the lines cross, the inverter was used to invert the switch so that there wouldn't be a constant high voltage to the switch when receiving.  
 
-#### Electrolytic Capacitor  
+#### Electrolytic Capacitor:    
 Part No.: TAJC107K010RNJ   
 Manufacturer: AVX    
 Vendor: Digi-Key  
@@ -182,7 +182,7 @@ Eagle Part Reference: C43
 [Datasheet](http://datasheets.avx.com/TAJ.pdf)  
 Reasons: Electrolytic capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet. 
 
-#### Capacitors     
+#### Capacitors:       
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -192,7 +192,7 @@ Eagle Part Reference: Y1
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
-#### Inductors    
+#### Inductors:      
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -202,7 +202,7 @@ Eagle Part Reference: Y1
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
-#### Resistors  
+#### Resistors:    
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -212,29 +212,29 @@ Eagle Part Reference: Y1
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO) 
 
-#### RF Shield Frame  
+#### RF Shield Frame:    
 Part No.: BMI-S-202-F      
 Manufacturer: Laird Technologies    
 Vendor: Digi-Key  
 Vendor Part No.: 903-1051-1-ND  	  	  
-Eagle Part Reference: Y1  
+Eagle Part Reference: SH1 & SH2  
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
 Reasons: 
 
-#### RF Shield 1   
+#### RF Shield 1:     
 Part No.: BMI-S-202-C    
 Manufacturer: Laird Technologies    
 Vendor: Digi-Key  
 Vendor Part No.: 903-1014-ND  	  
-Eagle Part Reference: Y1  
+Eagle Part Reference: SH1  
 [Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
 Reasons: 
 
-#### RF Shield 2   
+#### RF Shield 2:     
 Part No.: BMI-S-202-C    
 Manufacturer: Laird Technologies    
 Vendor: Digi-Key  
 Vendor Part No.: 903-1014-ND  	  
-Eagle Part Reference: Y1  
+Eagle Part Reference: SH2  
 [Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
 Reasons: 
