@@ -1,4 +1,4 @@
-# Parts Selection for Low Gain Radio 
+# Parts Selection for Low Gain Radio (Work in Progress)  
 **Table of Contents**
  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#microcontroller)   
  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#pa)  
@@ -12,14 +12,15 @@
  * [JTAG Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#jtag-connector)
  * [40 Pin Header](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#40-pin-header)
  * [MCX Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#mcx-connector)
- * [Debug Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#debug-connector)
  * [LEDs](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#leds)
  * [Inverter](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inverter)
  * [Electrolytic Capacitor](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#electrolytic-capacitor)
  * [Capacitors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#capacitors)
  * [Inductors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inductors)
  * [Resistors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#resistors)
- * [RF Shield](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield)
+ * [RF Shield Frame](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield-frame)
+ * [RF Shield (1)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield-1)
+ * [RF Shield (2)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield-2)
 
 #### Microcontroller:  
 Part No.: MKW01Z128   
@@ -135,34 +136,25 @@ Eagle Part Reference: CM1
 [Datasheet](http://cnctech.us/pdfs/3220-XX-0100-00.pdf)  
 Reasons: Generic JTAG connector used from practicum.
 
-#### 40 Pin Header  (TODO)  
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### 40 Pin Header   
+Part No.: M50-3202045    
+Manufacturer: Harwin Inc.    
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
+Vendor Part No.: 952-1381-5-ND  	  
 Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+[Datasheet](https://cdn.harwin.com/pdfs/60page104.pdf)  
 Reasons: Design requirement for communication from the Cubesat.
 
-#### MCX Connector  (TODO)  
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### MCX Connector     
+Part No.: CONMCX003.062    
+Manufacturer: Linx Technologies Inc.    
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
+Vendor Part No.: CONMCX003.062-ND  	  
 Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+[Datasheet](http://www.linxtechnologies.com/resources/documents/mcx_rp-mcx_specs.pdf)  
 Reasons: Connector for RF signal to the antenna on the back panel.
 
-#### Debug Connector (TODO)   
-Part No.: FA-20H  
-Manufacturer: Epson  
-Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
-Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Needed for programming via SWD interface.
-
-#### LEDs (TODO)   
+#### LEDs    
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -170,7 +162,7 @@ Vendor Part No.: SER4044CT-ND
 Eagle Part Reference: Y1  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
 #### Inverter  
 Part No.: NC7SZ05P5X    
@@ -188,9 +180,9 @@ Vendor: Digi-Key
 Vendor Part No.: 478-1704-1-ND  	  
 Eagle Part Reference: C43  
 [Datasheet](http://datasheets.avx.com/TAJ.pdf)  
-Reasons: Electrolytics capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet. 
+Reasons: Electrolytic capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet. 
 
-#### Capacitors  (TODO)   
+#### Capacitors     
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -198,9 +190,9 @@ Vendor Part No.: 490-1303-1-ND
 Eagle Part Reference: Y1  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
-#### Inductors  (TODO)  
+#### Inductors    
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -208,9 +200,9 @@ Vendor Part No.: SER4044CT-ND
 Eagle Part Reference: Y1  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
 
-#### Resistors (TODO)  
+#### Resistors  
 Part No.: FA-20H  
 Manufacturer: Epson  
 Vendor: Digi-Key  
@@ -218,14 +210,31 @@ Vendor Part No.: SER4044CT-ND
 Eagle Part Reference: Y1  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO) 
 
-#### RF Shield  (TODO)  
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### RF Shield Frame  
+Part No.: BMI-S-202-F      
+Manufacturer: Laird Technologies    
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
+Vendor Part No.: 903-1051-1-ND  	  	  
 Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.
+[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
+Reasons: 
+
+#### RF Shield 1   
+Part No.: BMI-S-202-C    
+Manufacturer: Laird Technologies    
+Vendor: Digi-Key  
+Vendor Part No.: 903-1014-ND  	  
+Eagle Part Reference: Y1  
+[Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+Reasons: 
+
+#### RF Shield 2   
+Part No.: BMI-S-202-C    
+Manufacturer: Laird Technologies    
+Vendor: Digi-Key  
+Vendor Part No.: 903-1014-ND  	  
+Eagle Part Reference: Y1  
+[Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+Reasons: 
