@@ -102,12 +102,12 @@ Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also ha
 Rad-Hard Analogue: N/A  
 
 #### SPI Cache:  
-Part No.: w25q80dv  
+Part No.: W25Q80DVSNIG TR  
 Manufacturer: Winbond  
 Vendor: Digi-Key  
-Vendor Part No.: W25Q80DVSSIG-ND    
+Vendor Part No.: W25Q80DVSNIG CT-ND    
 Eagle Part Reference: U3    
-[Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
+[Datasheet](http://www.winbond.com/resource-files/w25q80dv_revf_02112015.pdf)  
 Reasons: 8MB worth of storage. Easy hardware implementation.   
 Rad-Hard Analogue: N/A  
 **_Alternative_**       
