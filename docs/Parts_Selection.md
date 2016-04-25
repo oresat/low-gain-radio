@@ -1,4 +1,4 @@
-# Parts Selection  
+# Parts Selection for Low Gain Radio 
 **Table of Contents**
  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#microcontroller)   
  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#pa)  
@@ -9,8 +9,17 @@
  * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#lna-ldo)  
  * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#spi-cache)  
  * [Crystal](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#crystal)  
-
-### Low Gain Radio 
+ * [JTAG Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#jtag-connector)
+ * [40 Pin Header](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#40-pin-header)
+ * [MCX Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#mcx-connector)
+ * [Debug Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#debug-connector)
+ * [LEDs](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#leds)
+ * [Inverter](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inverter)
+ * [Electrolytic Capacitor](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#electrolytic-capacitor)
+ * [Capacitors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#capacitors)
+ * [Inductors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inductors)
+ * [Resistors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#resistors)
+ * [RF Shield](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield)
 
 #### Microcontroller:  
 Part No.: MKW01Z128   
@@ -115,4 +124,108 @@ Vendor Part No.: SER4044CT-ND
 Eagle Part Reference: Y1  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.
+
+#### JTAG Connector:  
+Part No.: 3220-10-0100-00 
+Manufacturer: CNC Tech    
+Vendor: Digi-Key  
+Vendor Part No.: 1175-1627-ND    
+Eagle Part Reference: CM1  
+[Datasheet](http://cnctech.us/pdfs/3220-XX-0100-00.pdf)  
+Reasons: Generic JTAG connector used from practicum.
+
+#### 40 Pin Header  (TODO)  
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Design requirement for communication from the Cubesat.
+
+#### MCX Connector  (TODO)  
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Connector for RF signal to the antenna on the back panel.
+
+#### Debug Connector (TODO)   
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Needed for programming via SWD interface.
+
+#### LEDs (TODO)   
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+
+#### Inverter  
+Part No.: NC7SZ05P5X    
+Manufacturer: Fairchild Semiconductor    
+Vendor: Digi-Key  
+Vendor Part No.: NC7SZ05P5XTR-ND  	  
+Eagle Part Reference: U5A  
+[Datasheet](https://www.fairchildsemi.com/datasheets/NC/NC7SZ05.pdf)  
+Reasons: Inverter was needed since the PA and LNA outputs from the KW0x is reverse that of the RF Switch. In order to not have the lines cross, the inverter was used to invert the switch so that there wouldn't be a constant high voltage to the switch when receiving.  
+
+#### Electrolytic Capacitor  
+Part No.: TAJC107K010RNJ   
+Manufacturer: AVX    
+Vendor: Digi-Key  
+Vendor Part No.: 478-1704-1-ND  	  
+Eagle Part Reference: C43  
+[Datasheet](http://datasheets.avx.com/TAJ.pdf)  
+Reasons: Electrolytics capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet. 
+
+#### Capacitors  (TODO)   
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: 490-1303-1-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+
+#### Inductors  (TODO)  
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+
+#### Resistors (TODO)  
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+
+#### RF Shield  (TODO)  
+Part No.: FA-20H  
+Manufacturer: Epson  
+Vendor: Digi-Key  
+Vendor Part No.: SER4044CT-ND	  
+Eagle Part Reference: Y1  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.
