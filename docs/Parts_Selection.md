@@ -61,7 +61,7 @@ Vendor: SkyWorks
 Vendor Part No.: SKY13405_490F  
 Eagle Part Reference: U9  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
-Reasons:  
+Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for thsi project (such as the PA). Small footprint, it has a low insertion loss and is within the desired frequency range.   
 Rad-Hard Analog: N/A  
 
 #### MCU LDO:
