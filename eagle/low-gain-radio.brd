@@ -32,7 +32,7 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -102,8 +102,8 @@
 <text x="35" y="0.6" size="1" layer="21" font="vector" ratio="20">C2</text>
 <text x="14.2" y="0.6" size="1" layer="21" font="vector" ratio="20">GND</text>
 <text x="5.05" y="68.85" size="1.2" layer="21" font="vector" ratio="15" rot="R270">Portland State Aerospace Society
-Oresat Low-Gain-Radio v1.1
-2016/04/24
+Oresat Low-Gain-Radio v1.2
+2016/04/25
 James Heath, Will Harrington, Shan O'Dean, Michael Mathis
 2016 Capstone</text>
 <wire x1="72.5" y1="83.5" x2="72.5" y2="83.9" width="0.1" layer="41"/>
@@ -5933,8 +5933,8 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="75.6" y1="60.8" x2="74.6" y2="59.8" width="0.343" layer="1"/>
 <wire x1="75.85" y1="62.1778" x2="75.85" y2="62.95" width="0.25" layer="1"/>
 <wire x1="75.85" y1="62.95" x2="75.8" y2="63" width="0.25" layer="1"/>
-<wire x1="74.85" y1="62.1778" x2="74.85" y2="63.05" width="0.25" layer="1"/>
-<wire x1="74.85" y1="63.05" x2="74.9" y2="63.1" width="0.25" layer="1"/>
+<wire x1="74.85" y1="62.1778" x2="74.85" y2="64.45" width="0.25" layer="1"/>
+<wire x1="74.85" y1="64.45" x2="75.4" y2="65" width="0.25" layer="1"/>
 <via x="64.6" y="65.8" extent="1-16" drill="0.254" diameter="0.245"/>
 <via x="69.9" y="71.7" extent="1-16" drill="0.254" diameter="0.245"/>
 <wire x1="72.95" y1="84.155" x2="73.255" y2="84.155" width="0.2" layer="1"/>
@@ -6190,6 +6190,11 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <approved hash="7,39,644e97b217b2e44e"/>
 <approved hash="7,39,78ce6432e432f8ce"/>
 <approved hash="7,39,c7f9f365736547f9"/>
+<approved hash="5,1,e5912d17bbf686ba"/>
+<approved hash="5,1,eeb07192b3a7477d"/>
+<approved hash="5,1,51b1a387873ac3b1"/>
+<approved hash="5,1,30aede050fe1c691"/>
+<approved hash="5,1,1bd4083f130463ea"/>
 <approved hash="3,1,5a658817880b5a79"/>
 <approved hash="3,1,b05ef3a2f260b19c"/>
 <approved hash="3,1,8a66881488838af1"/>
@@ -6411,15 +6416,14 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <approved hash="19,1,a0894bc844dc4a58"/>
 <approved hash="19,1,0f50a1398b001425"/>
 <approved hash="5,1,b52337596e86cdc3"/>
-<approved hash="5,1,e5912d17bbf686ba"/>
-<approved hash="5,1,eeb07192b3a7477d"/>
+<approved hash="5,1,fc4848d0767d31b6"/>
+<approved hash="5,1,e7ba7ed4b57b46fd"/>
 <approved hash="5,1,7ce34fafa582f47d"/>
 <approved hash="5,1,ec61dc79247b4c63"/>
 <approved hash="5,1,4924253cc3d2e889"/>
 <approved hash="5,1,2bd764ecce62c619"/>
-<approved hash="5,1,51b1a387873ac3b1"/>
 <approved hash="5,1,ced75a255069dcfe"/>
-<approved hash="5,1,30aede050fe1c691"/>
+<approved hash="5,1,31852bec6606eb9a"/>
 <approved hash="5,1,6c130567118ca91e"/>
 <approved hash="5,1,372ec62de0ee62a5"/>
 <approved hash="5,1,ba73ed45a721d872"/>
