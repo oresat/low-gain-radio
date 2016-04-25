@@ -2,9 +2,14 @@
 **Table of Contents**
 * [Low Gain Radio](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#low-gain-radio)    
   * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#microcontroller)   
-  * [RF Parts](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-parts)  
-  * [Voltage Regulation](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#voltage-regulation)  
+  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#pa)  
+  * [LNA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#lna)  
+  * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-switch)  
+  * [MCU LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#mcu-ldo)  
+  * [PA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#pa-ldo)  
+  * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#lna-ldo)  
   * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#spi-cache)  
+  * [Crystal](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#crystal)  
   
 * [System Controller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#system-controller)   
   * [Microcontroller]  
@@ -14,24 +19,21 @@
 
 ### Low Gain Radio 
 
-#### Microcontroller:
-**Microcontroller:**    
+#### Microcontroller:  
 Part No.: MKW01Z128 
 Manufacturer: NXP  
 [Datasheet](http://cache.nxp.com/files/microcontrollers/doc/data_sheet/MKW01Z128.pdf)  
 Reasons: Requirement for the project  
 Rad-Hard Analog: N/A  
   
-#### RF Parts:  
-  
-**PA:**  
+#### PA: 
 Part No.: SKY65116  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
 Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.  
 Rad-Hard Analog: N/A  
   
-**LNA:**  
+#### LNA:  
 Part No.: MAAL-010704  
 Manufacturer: MAACOM  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
@@ -43,15 +45,14 @@ Manufacturer: Hittite
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
 Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
 
-**RF Switch:**  
+#### RF Switch:    
 Part No.: SKY13405_490F  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons:  
 Rad-Hard Analog: N/A  
 
-#### Voltage Regulation:
-**MCU LDO:**
+#### MCU LDO:
 Part No.: AAT3215  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
@@ -62,24 +63,22 @@ Part No.: TPS789xx
 Manufacturer: Texas Instruments  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
-  
-**LNA LDO:**  
-Part No.: AAT3215  
-Manufacturer: SkyWorks  
-[Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.   
-Rad-Hard Analog: N/A  
-  
-**PA LDO:**  
+ 
+#### PA LDO:  
 Part No.: DM00102135  
 Manufacturer: ST Microelectronics  
 [Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
 Reasons:  
 Rad-Hard Analog: N/A  
 
+#### LNA LDO:  
+Part No.: AAT3215  
+Manufacturer: SkyWorks  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
+Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.   
+Rad-Hard Analog: N/A  
 
 #### SPI Cache:  
-**SPI Cache:**  
 Part No.: w25q80dv  
 Manufacturer: Winbond  
 [Datasheet](http://www.winbond-usa.com/resource-files/w25q80dv_revf_02112015.pdf)  
@@ -90,12 +89,18 @@ Part No.: LE25FU406BMB
 Manufacturer: SANYO      
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/ON%20Semiconductor%20PDFs/LE25FU406B.pdf)  
 Reasons: 4MB storage. Unfortunately it was vaporware at the time and has less storage.   
-  
+
+#### Crystal:  
+Part No.: FA-20H  
+Manufacturer: Epson  
+[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
+Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Rad-Hard Analog: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
+
 
 ### System Controller
 
 #### Microcontroller:  
-**Microcontroller:** 
 Part No.: ATmega128  
 Rad-Hard Part No.: ATmegaS128  
 Manufacturer: Atmel  
@@ -103,7 +108,6 @@ Manufacturer: Atmel
 [Rad-hard Datasheet](http://aerosupport.atmel.com/Atmel/doc41036S.pdf)  
 Reasons: Microcontroller has analogoues radiation hardened version meaning we can test at a low price. MCU is easily programmable.  
   
-
 #### Possible radhard MOSFET:
 <http://www.st.com/st-web-ui/static/active/en/resource/technical/document/datasheet/CD00295117.pdf>
 
