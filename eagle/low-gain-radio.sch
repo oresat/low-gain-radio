@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="2" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
@@ -18802,6 +18802,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <classes>
 <class number="0" name="default" width="0" drill="0">
 </class>
+<class number="1" name="RF" width="0.343" drill="0">
+<clearance class="1" value="0.4"/>
+</class>
 </classes>
 <parts>
 <part name="FRAME1" library="frames" deviceset="FRAME_C_L" device=""/>
@@ -20492,7 +20495,7 @@ RF_GND crossing</text>
 <label x="157.48" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="PA_BOOST" class="0">
+<net name="PA_BOOST" class="1">
 <segment>
 <pinref part="U1" gate="G$1" pin="PA_BOOST"/>
 <wire x1="134.62" y1="231.14" x2="208.28" y2="231.14" width="0.1524" layer="91"/>
@@ -20509,7 +20512,7 @@ RF_GND crossing</text>
 <label x="187.96" y="231.14" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="N$10" class="0">
+<net name="N$10" class="1">
 <segment>
 <pinref part="C5" gate="CE" pin="2"/>
 <pinref part="L3" gate="L" pin="1"/>
@@ -20521,7 +20524,7 @@ RF_GND crossing</text>
 <junction x="256.54" y="254"/>
 </segment>
 </net>
-<net name="N$16" class="0">
+<net name="N$16" class="1">
 <segment>
 <pinref part="L3" gate="L" pin="2"/>
 <pinref part="L5" gate="L" pin="1"/>
@@ -20537,7 +20540,7 @@ RF_GND crossing</text>
 <junction x="276.86" y="254"/>
 </segment>
 </net>
-<net name="N$17" class="0">
+<net name="N$17" class="1">
 <segment>
 <pinref part="L5" gate="L" pin="2"/>
 <pinref part="C11" gate="CE" pin="2"/>
@@ -20548,7 +20551,7 @@ RF_GND crossing</text>
 <junction x="294.64" y="254"/>
 </segment>
 </net>
-<net name="N$18" class="0">
+<net name="N$18" class="1">
 <segment>
 <pinref part="C6" gate="CE" pin="2"/>
 <pinref part="L4" gate="L" pin="1"/>
@@ -20560,7 +20563,7 @@ RF_GND crossing</text>
 <junction x="259.08" y="190.5"/>
 </segment>
 </net>
-<net name="N$19" class="0">
+<net name="N$19" class="1">
 <segment>
 <pinref part="L4" gate="L" pin="2"/>
 <pinref part="L6" gate="L" pin="1"/>
@@ -20576,7 +20579,7 @@ RF_GND crossing</text>
 <junction x="276.86" y="190.5"/>
 </segment>
 </net>
-<net name="LNA_OUT" class="0">
+<net name="LNA_OUT" class="1">
 <segment>
 <pinref part="L6" gate="L" pin="2"/>
 <pinref part="C12" gate="CE" pin="2"/>
@@ -20590,7 +20593,7 @@ RF_GND crossing</text>
 <label x="314.96" y="191.77" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="LNA_IN" class="0">
+<net name="LNA_IN" class="1">
 <segment>
 <pinref part="C23" gate="CE" pin="1"/>
 <label x="463.55" y="149.86" size="1.778" layer="95" rot="R180"/>
@@ -20599,14 +20602,14 @@ RF_GND crossing</text>
 <wire x1="487.68" y1="147.32" x2="487.68" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$25" class="0">
+<net name="N$25" class="1">
 <segment>
 <pinref part="C23" gate="CE" pin="2"/>
 <wire x1="398.78" y1="147.32" x2="393.7" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="U8" gate="G$1" pin="RFIN"/>
 </segment>
 </net>
-<net name="RFIO" class="0">
+<net name="RFIO" class="1">
 <segment>
 <pinref part="U1" gate="G$1" pin="RFIO"/>
 <wire x1="134.62" y1="228.6" x2="208.28" y2="228.6" width="0.1524" layer="91"/>
@@ -20635,7 +20638,7 @@ RF_GND crossing</text>
 <wire x1="374.65" y1="114.3" x2="205.74" y2="114.3" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$30" class="0">
+<net name="N$30" class="1">
 <segment>
 <pinref part="U9" gate="G$1" pin="RF1"/>
 <wire x1="505.46" y1="175.26" x2="520.7" y2="175.26" width="0.1524" layer="91"/>
@@ -20851,7 +20854,7 @@ RF_GND crossing</text>
 <wire x1="157.48" y1="358.14" x2="143.51" y2="358.14" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$7" class="0">
+<net name="N$7" class="1">
 <segment>
 <pinref part="L8" gate="L" pin="1"/>
 <pinref part="C25" gate="CE" pin="2"/>
@@ -20969,14 +20972,14 @@ RF_GND crossing</text>
 <junction x="342.9" y="185.42"/>
 </segment>
 </net>
-<net name="N$43" class="0">
+<net name="N$43" class="1">
 <segment>
 <pinref part="C14" gate="CE" pin="1"/>
 <wire x1="304.8" y1="254" x2="368.3" y2="254" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="RFIN"/>
 </segment>
 </net>
-<net name="PA_IN" class="0">
+<net name="PA_IN" class="1">
 <segment>
 <wire x1="393.7" y1="256.54" x2="487.68" y2="256.54" width="0.1524" layer="91"/>
 <wire x1="487.68" y1="190.5" x2="487.68" y2="256.54" width="0.1524" layer="91"/>
