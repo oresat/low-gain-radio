@@ -150,7 +150,7 @@ Part No.: CONMCX003.062
 Manufacturer: Linx Technologies Inc.    
 Vendor: Digi-Key  
 Vendor Part No.: CONMCX003.062-ND  	  
-Eagle Part Reference: CF2
+Eagle Part Reference: CF2  
 [Datasheet](http://www.linxtechnologies.com/resources/documents/mcx_rp-mcx_specs.pdf)  
 Reasons: Connector for RF signal to the antenna on the back panel.
 
