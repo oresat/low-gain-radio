@@ -1,4 +1,6 @@
 c3
+tx
+rx
 *.hex
 *.o
 *.s
