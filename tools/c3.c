@@ -124,26 +124,33 @@ void initialize_gpio(void){
 void initialize_uart(void){
 	/* UART configuration */
 	struct uart_config myUART = {
-		/* pin for transmit = PTA1 */
-		.TX = {.port=&PORTC, .pin=4,},
+		/* pin for transmit = PTC4 */
+		//.TX = {.port=&PORTC, .pin=4,},
 
-		/* pin for receive = PTA2 */
-		.RX = {.port=&PORTC, .pin=3,},
+		/* pin for transmit = PTD5 */
+		.TX = {.port=&PORTD, .pin=5,},
+
+		/* pin for receive = PTC3 */
+		//.RX = {.port=&PORTC, .pin=3,},
+
+		/* pin for receive = PTD4 */
+		.RX = {.port=&PORTD, .pin=4,},
 
 		/* baud rate */
 		.baud = 115200,
 	};
-	uart_init(&UART1, &myUART);
+	//uart_init(&UART1, &myUART);
+	uart_init(&UART2, &myUART);
 }
 
 
 void initialize_uart0(void){
 	/* UART0 configuration */
 	struct uart_config myUART = {
-		/* pin for transmit = PTA1 */
+		/* pin for transmit = PTA2 */
 		.TX = {.port=&PORTA, .pin=2,},
 
-		/* pin for receive = PTA2 */
+		/* pin for receive = PTA1 */
 		.RX = {.port=&PORTA, .pin=1,},
 
 		/* baud rate */
@@ -176,31 +183,41 @@ int main(void) {
 	initialize_clock();
 	initialize_gpio();
 
-	//initialize_uart();
-	initialize_uart0();
+	initialize_uart();
+	//initialize_uart0();
 	//initialize_tpm();
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver_tx();
 
-	//uint8_t txbyte = 0x55;
-	static uint8_t txbyte[3] = {0x55, 0xD, 0xA};
+	uint8_t txbyte = 0x55;
+	//static uint8_t txbyte[3] = {0x55, 0xD, 0xA};
 
-	//uint8_t rxbyte = 0x0;
+	uint8_t rxbyte = 0x0;
 
 	while(1) {
-		uart_write(&UART0, 3, txbyte);
+
+		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
+          	//uart_write(&UART0, 1, &txbyte);
+          	//uart_read(&UART0, 1, &rxbyte);
+
+          	/* test case 2: UART1 module, passed only when RDRF was not polled */
+		//uart_write(&UART1, 1, &txbyte);
           	//uart_read(&UART1, 1, &rxbyte);
+
+		/* test case 3: UART2 module, passed only when RDRF was not polled */
+		uart_write(&UART2, 1, &txbyte);
+          	uart_read(&UART2, 1, &rxbyte);
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
 	       	/* toggle LED connected to PTB2 */
-		GPIOB.PTOR = PTB1;
+		//GPIOB.PTOR = PTB1;
 
-		//if(rxbyte == 0x55){
-                //GPIOB.PTOR = 0x20000;
-		//}
+		if(rxbyte == 0x55){
+                	GPIOB.PTOR = PTB17;
+		}
 	}
 	return 0;
 }

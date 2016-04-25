@@ -29,22 +29,34 @@ static const struct pin_assign RX [] = {
 	{}
 };
 
-//SIM.SCGC4
+/* System integration module, system clock gating control register 4 */
 #define SCGC_UART0 (1 << 10)
 #define SCGC_UART1 (1 << 11)
 #define SCGC_UART2 (1 << 12)
-//SIM.SOPT2
+
+/* System integration module, system options register 2 */
 #define UART0SRC_MCGIRCLK (3 << 26)
 #define UART0SRC_MCGPLLFLLCLK (1 << 26)
-
 #define PLLFLLSEL (1 << 16)
 
-//
+/* UART status register 1 */
 #define TDRE (1 << 7)
 #define RDRF (1 << 5)
-//C2
+
+/* UART configuration register 1 */
+#define LOOPS (1 << 7)
+#define RSRC (1 << 5)
+#define nRSRC 0xDF
+
+/* UART configuration register 2 */
 #define TE (1 << 3)
 #define RE (1 << 2)
+
+/* UART configuration register 3 */
+#define TXDIR (1 << 5)
+
+/* set for debugging purposes, will configure UART for loops */
+#define DEBUG 1
 
 void uart0_init(volatile struct uart0 * UART, const struct uart_config * config){
 	/* select UART0 clock source to PLL */
@@ -84,10 +96,14 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 
 	   the calculation below assumes baud clock = 24MHz
 	*/
+
 	UART->BDH = 0x0;
 	UART->BDL = 0xD0;
-	//UART->BDH = 0x1d;
-	//UART->BDL = 0xb7;
+
+	if(DEBUG){
+		/* for debugging, set loop mode */
+		UART->C1 = LOOPS;
+        }
 
 	UART->C2 = TE | RE;
 }
@@ -97,7 +113,7 @@ void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
 
 	for(unsigned int i = 0; i < len; ++i){
 		/* poll receive data register full flag */
-		while(!(UART->S1 & RDRF));
+		//while(!(UART->S1 & RDRF));
 
 		buffer[i] = UART->D;
 	}
