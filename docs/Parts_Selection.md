@@ -47,7 +47,7 @@ Reasons: Able to provide 1W power output. Also has low voltage rails, but asks f
 Rad-Hard Analogue: N/A  
   
 #### U8 MAACOM MAAL-010704:  
-Part: Low Noise Amplifier 
+Part: Low Noise Amplifier  
 Vendor: MAACOM  
 Vendor Part No.: MAAL-010704    
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
@@ -61,15 +61,15 @@ Reasons: This part would be better than the one selected. Provides >0.6dB Noise 
 
 #### U9 SkyWorks SKY13405_490F:    
 Part: RF Switch   
-Vendor: SkyWorks  
+Vendor: SkyWorks   
 Vendor Part No.: SKY13405_490F  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for thsi project (such as the PA). Small footprint, it has a low insertion loss and is within the desired frequency range.   
 Rad-Hard Analogue: N/A  
 
 #### U4 SkyWorks AAT3215:
-Part: MCU LDO 
-Vendor: SkyWorks  
+Part: MCU LDO  
+Vendor: SkyWorks   
 Vendor Part No.: AAT3215    
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
 Reasons: Low noise rejection. Cheap. Works for other parts as well.     
@@ -81,7 +81,7 @@ Manufacturer: Texas Instruments
 Reasons: Works, but went with the same LDO as the LNA for simplicity and cost effectiveness.  
  
 #### U7 ST Microelectronics DM00102135:  
-Part: PA LDO 
+Part: PA LDO  
 Vendor: Digi-Key  
 Vendor Part No.: 497-15229-2-ND  
 [Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
