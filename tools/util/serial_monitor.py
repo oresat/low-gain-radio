@@ -6,6 +6,7 @@
 import serial
 import sys
 import signal
+import time
 
 def signal_handler(signal, frame):
     """Function handles signal interrupt (CTRL-C)
@@ -35,10 +36,15 @@ def main():
 		try:
 			# read bytes from serial port
 			with serial.Serial(port, 115200, timeout=2.5) as ser:
-				print 'Reading bytes...'
-				#x = ser.read(3)
-				x = ser.readline()
-				print 'Received %s' % x
+				cmd = raw_input('> ')
+				ser.write(cmd + '\r\n')
+				ret = ser.read(len(cmd)) # eat echo
+				time.sleep(.2)
+				while ser.inWaiting():
+					print 'Reading bytes...'
+					#x = ser.read(3)
+					x = ser.readline()
+					print 'Received %s' % x
 		except OSError:
 			# device not on port, exit out
 			print 'Device not connected to port. Exting...'
