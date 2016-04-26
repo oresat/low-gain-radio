@@ -22,6 +22,14 @@
  * [RF Shield (1)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield-1)
  * [RF Shield (2)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#rf-shield-2)
 
+#### Format note  
+EAGLE REF, MANF, MANF PART  
+Vend  
+Vend Part No  
+Datasheet  
+Reasons:  
+Rad-hard:  
+
 #### Microcontroller:  
 Part No.: MKW01Z128   
 Manufacturer: NXP  
