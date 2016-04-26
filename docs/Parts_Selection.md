@@ -18,8 +18,8 @@
  * [Capacitors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#capacitors)
  * [Inductors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inductors)
  * [Resistors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#resistors)
- * [RF Shield (1)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh1-laird-technologies-bmi-s-202-c)
- * [RF Shield (2)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh2-laird-technologies-bmi-s-202-c)
+ * [RF Shield (1)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh1-laird-technologies-bmi-s-202-c-bmi-s-202-f)
+ * [RF Shield (2)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh2-laird-technologies-bmi-s-202-c-bmi-s-202-f)
 
 #### Format note  
 EAGLE REF, MANF, MANF PART  
