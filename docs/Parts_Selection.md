@@ -18,7 +18,6 @@
  * [Capacitors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#capacitors)
  * [Inductors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#inductors)
  * [Resistors](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#resistors)
- * [RF Shield Frame](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh1--sh2-laird-technologies-bmi-s-202-f)
  * [RF Shield (1)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh1-laird-technologies-bmi-s-202-c)
  * [RF Shield (2)](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#sh2-laird-technologies-bmi-s-202-c)
 
@@ -192,23 +191,24 @@ Eagle Part Reference: Y1
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO) 
 
-#### SH1 & SH2 Laird Technologies BMI-S-202-F:    
-Part: RF Shield Mount(s)     
-Vendor: Digi-Key  
-Vendor Part No.: 903-1051-1-ND  	  	  
-[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
+	  	  
+  
 Reasons:  
 
-#### SH1 Laird Technologies BMI-S-202-C:     
+#### SH1 Laird Technologies BMI-S-202-C BMI-S-202-F:     
 Part: RF Shield 1    
 Vendor: Digi-Key  
-Vendor Part No.: 903-1014-ND  	  
-[Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+Vendor Part No. Shield: 903-1014-ND
+Vendor Part No. Mount: 903-1051-1-ND  
+[Datasheet Shield](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+[Datasheet Mount](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
 Reasons: 
 
-#### SH2 Laird Technologies BMI-S-202-C:     
+#### SH2 Laird Technologies BMI-S-202-C BMI-S-202-F:     
 Part: RF Shield 2   
 Vendor: Digi-Key  
-Vendor Part No.: 903-1014-ND  	  
-[Datasheet](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+Vendor Part No.: 903-1014-ND  	 
+Vendor Part No. Mount: 903-1051-1-ND   
+[Datasheet Shield](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
+[Datasheet Mount](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
 Reasons: 
