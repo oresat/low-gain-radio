@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -4225,8 +4225,8 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="VALUE" x="82.4" y="82.4" size="0.635" layer="27" font="vector" ratio="20" rot="R270"/>
 </element>
 <element name="R13" library="rcl_custom" package=".0603-B-NOSILK@1" value="DNP/0" x="82.8" y="63.5" smashed="yes" rot="MR90">
-<attribute name="MFG_PN" value="RC0603FR-071KL" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="DPN" value="311-1.00KHRCT-ND" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MFG_PN" value="RC0603JR-070RL" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="DPN" value="311-0.0GRTR-ND" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="DIST" value="Digi-Key" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MFG" value="Yageo" x="82.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="83.6" y="62.3" size="0.8" layer="26" font="vector" ratio="15" rot="MR90"/>
@@ -4243,8 +4243,8 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="NAME" x="84.1" y="65.2" size="0.2" layer="33" ratio="15" rot="R180" align="center"/>
 </element>
 <element name="R14" library="rcl_custom" package=".0603-B-NOSILK@1" value="DNP/0" x="86.8" y="63.5" smashed="yes" rot="MR90">
-<attribute name="MFG_PN" value="RC0603FR-071KL" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
-<attribute name="DPN" value="311-1.00KHRCT-ND" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="MFG_PN" value="RC0603JR-070RL" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
+<attribute name="DPN" value="311-0.0GRTR-ND" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="DIST" value="Digi-Key" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="MFG" value="Yageo" x="86.8" y="63.5" size="1.778" layer="28" rot="MR90" display="off"/>
 <attribute name="NAME" x="87.6" y="62.3" size="0.8" layer="26" font="vector" ratio="15" rot="MR90"/>

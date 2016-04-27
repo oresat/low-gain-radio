@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.4.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -19412,9 +19412,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U8" library="psas_c3_team05" deviceset="MAAL-010704" device=""/>
 <part name="R13" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="DNP/0">
 <attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="DPN" value="311-0.0GRTR-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MFG_PN" value="RC0603JR-070RL"/>
 </part>
 <part name="C50" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-key"/>
@@ -19425,9 +19425,9 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="U$1" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="R14" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="DNP/0">
 <attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="311-1.00KHRCT-ND"/>
+<attribute name="DPN" value="311-0.0GRTR-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MFG_PN" value="RC0603JR-070RL"/>
 </part>
 <part name="C51" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-key"/>
