@@ -55,6 +55,9 @@ static const struct pin_assign RX [] = {
 /* UART configuration register 3 */
 #define TXDIR (1 << 5)
 
+/* UART configuration register 4 */
+#define OSR_MASK 0x1F
+
 /* set for debugging purposes, will configure UART for loops */
 #define DEBUG 0
 
@@ -97,8 +100,20 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 	   the calculation below assumes baud clock = 24MHz and OSR of 15
 	*/
 
-	UART->BDH = 0x0;	
-	UART->BDL = 0x9C;
+	if((volatile struct uart0 *)UART == &UART0){
+		uint16_t BR = 24000000/(config->baud * ((UART->C4 & OSR_MASK) + 1));
+		uint8_t BDH = BR >> 8;
+		uint8_t BDL = BR & 0xFF;
+		UART->BDH = BDH;
+		UART->BDL = BDL;
+        }
+	else{
+		uint16_t BR = 24000000/(config->baud * 16);
+		uint8_t BDH = BR >> 8;
+		uint8_t BDL = BR & 0xFF;
+		UART->BDH = BDH;
+		UART->BDL = BDL;
+        }
 
 	if(DEBUG){
 		/* for debugging, set loop mode */
