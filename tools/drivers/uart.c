@@ -56,7 +56,7 @@ static const struct pin_assign RX [] = {
 #define TXDIR (1 << 5)
 
 /* set for debugging purposes, will configure UART for loops */
-#define DEBUG 1
+#define DEBUG 0
 
 void uart0_init(volatile struct uart0 * UART, const struct uart_config * config){
 	/* select UART0 clock source to PLL */
@@ -89,16 +89,16 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 	set_pin_alt(TX, UART, &config->TX);
 	set_pin_alt(RX, UART, &config->RX);
 
-	/* br = baud clock / concat(BDH[4:0], BDL[7:0]) */
+	/* br = baud clock / concat(BDH[4:0], BDL[7:0]) * (OSR + 1)*/
 	/* baud clock for UART[1,2] is the bus clock which is the system clock
 	   divided by 2. See UART section of data book for equation and section
 	   4 on clock distribution for clock definitions
 
-	   the calculation below assumes baud clock = 24MHz
+	   the calculation below assumes baud clock = 24MHz and OSR of 15
 	*/
 
-	UART->BDH = 0x0;
-	UART->BDL = 0xD0;
+	UART->BDH = 0x0;	
+	UART->BDL = 0x9C;
 
 	if(DEBUG){
 		/* for debugging, set loop mode */

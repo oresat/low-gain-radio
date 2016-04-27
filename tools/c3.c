@@ -183,8 +183,8 @@ int main(void) {
 	initialize_clock();
 	initialize_gpio();
 
-	initialize_uart();
-	//initialize_uart0();
+	//initialize_uart();
+	initialize_uart0();
 	//initialize_tpm();
    	//asm volatile ("cpsie   i");
 
@@ -199,7 +199,7 @@ int main(void) {
 	while(1) {
 
 		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-          	//uart_write(&UART0, 1, &txbyte);
+          	uart_write(&UART0, 1, &txbyte);
           	//uart_read(&UART0, 1, &rxbyte);
 
           	/* test case 2: UART1 module, passed only when RDRF was not polled */
@@ -207,13 +207,13 @@ int main(void) {
           	//uart_read(&UART1, 1, &rxbyte);
 
 		/* test case 3: UART2 module, passed only when RDRF was not polled */
-		uart_write(&UART2, 1, &txbyte);
-          	uart_read(&UART2, 1, &rxbyte);
+		//uart_write(&UART2, 1, &txbyte);
+          	//uart_read(&UART2, 1, &rxbyte);
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
 	       	/* toggle LED connected to PTB2 */
-		//GPIOB.PTOR = PTB1;
+		GPIOB.PTOR = PTB1;
 
 		if(rxbyte == 0x55){
                 	GPIOB.PTOR = PTB17;
