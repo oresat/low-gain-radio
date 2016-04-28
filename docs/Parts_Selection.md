@@ -123,7 +123,7 @@ Vendor Part No.: 1175-1627-ND
 [Datasheet](http://cnctech.us/pdfs/3220-XX-0100-00.pdf)  
 Reasons: Generic JTAG connector used from practicum.
 
-#### Y1 Harwin Inc. M50-3202045:     
+#### CF1 Harwin Inc. M50-3202045:     
 Part: 40-Pinout Header     
 Vendor: Digi-Key  
 Vendor Part No.: 952-1381-5-ND  	  
@@ -137,15 +137,19 @@ Vendor Part No.: CONMCX003.062-ND
 [Datasheet](http://www.linxtechnologies.com/resources/documents/mcx_rp-mcx_specs.pdf)  
 Reasons: Connector for RF signal to the antenna on the back panel. Set at the back of the board next to the 40-Pinout so it can hook-up easily to the back panel of the Cubesat.
 
-#### LEDs:      
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### LED1, LED2, LED3, LED4, Lite-On Inc. LTST-C191KGKT:      
+Part: Green LEDs    
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
-Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
+Vendor Part No.: 160-1446-1-ND  
+[Datasheet](http://optoelectronics.liteon.com/upload/download/DS22-2000-228/S_110_LTST-C191KGKT.pdf)  
+Reasons: (TODO)  
+
+#### LED5, LED6, LED7, LED8, Lite-On Inc. LTST-C191AKT:      
+Part: Amber LEDs    
+Vendor: Digi-Key  
+Vendor Part No.: 160-1440-1-ND  
+[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C191AKT.pdf)  
+Reasons: (TODO)  
 
 #### U5A Fairchild Semiconductor NC7SZ05P5X:    
 Part: Inverter       
@@ -155,45 +159,158 @@ Vendor Part No.: NC7SZ05P5XTR-ND
 Reasons: Inverter was needed since the PA and LNA outputs from the KW0x is reverse that of the RF Switch. In order to not have the lines cross, the inverter was used to invert the switch so that there wouldn't be a constant high voltage to the switch when receiving.  
 
 #### C43 AVX TAJC107K010RNJ:    
-Part: Electrolytic Capacitor  
+Part: Tantalum Capacitors - Solid SMD 10volts 100uF 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 478-1704-1-ND  	  
 [Datasheet](http://datasheets.avx.com/TAJ.pdf)  
 Reasons: Electrolytic capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet. 
 
-#### Capacitors:       
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### C1, C3, C16, C18, C20, C21, C37, C40 Murata GRM188R71H103KA01D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.01uF 50volts X7R 10%  
 Vendor: Digi-Key  
-Vendor Part No.: 490-1303-1-ND	  
-Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
+Vendor Part No.: 490-1512-2-ND  
+[Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
+Reasons: (TODO)  
 
-#### Inductors:      
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### C2, C4 Murata GRM1885C1H120JA01D:        
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 12pF 50volts C0G 5%  
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
-Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO)
+Vendor Part No.: 490-1405-2-ND  
+[Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
+Reasons: (TODO)  
 
-#### Resistors:    
-Part No.: FA-20H  
-Manufacturer: Epson  
+#### C5, C6, C9, C10 Murata GRM1885C1H150JA01D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 15pF 50volts C0G 5%  
 Vendor: Digi-Key  
-Vendor Part No.: SER4044CT-ND	  
-Eagle Part Reference: Y1  
-[Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  (TODO) 
+Vendor Part No.: 490-1407-2-ND  
+[Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
+Reasons: (TODO)  
 
-	  	  
-  
-Reasons:  
+#### C7, C8, C38, C41 Murata GRM1885C1H2R2CA01D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 2.2pF 50volts C0G +/-0.25pF  
+Vendor: Digi-Key  
+Vendor Part No.: 490-9668-2-ND  
+[Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
+Reasons: (TODO)  
+
+#### C11, C12 AVX 06031U8R2BAT2A:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 100volts 8.2pF ULTRA LOW ESR  
+Vendor: Digi-Key  
+Vendor Part No.: 06031U8R2BAT2A-ND  
+[Datasheet](http://datasheets.avx.com/AutoU_Series.pdf)  
+Reasons: (TODO)  
+
+#### C13, C15, C17, C19, C22, C52, C53 Murata GRM188R60J106ME47J:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-6405-2-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
+Reasons: (TODO)  
+
+#### C14, C26, C27, C28, C30, C31, C32, C33, C42, C45, C47, C48, C49 AVX 06035C104JAT2A:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 50volts 0.1uF 5% X7R  
+Vendor: Digi-Key  
+Vendor Part No.: 478-5778-1-ND  
+[Datasheet](http://datasheets.avx.com/X7RDielectric.pdf)  
+Reasons: (TODO)  
+
+#### C23, C24, C25 Murata GRM155R71H102KA01D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 1000pF 50volts X7R 10%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-1303-1-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H102KA01-01.pdf)  
+Reasons: (TODO)  
+
+#### C34, C35 Murata GQM1875C2E6R0BB12D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 6.0pF 250volts C0G +/-0.1pF  
+Vendor: Digi-Key  
+Vendor Part No.: GQM1875C2E6R0BB12D-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GQM1875C2E6R0BB12-01.pdf)  
+Reasons: (TODO)  
+
+#### C36, C39 Murata GRM188R61A105KA61D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 1uF 10volts X5R 10%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-1543-2-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R61A105KA61-01.pdf)  
+Reasons: (TODO)  
+
+#### C44 Murata GRM155R71H103KA88D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 0.01uF 50volts X7R 10%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-4516-1-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H103KA88-01.pdf)  
+Reasons: (TODO)  
+
+#### C46 Murata GRM188R60J106ME47J:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-6405-2-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
+Reasons: (TODO)  
+
+#### C50, C51, C54 Murata GRM155R71H102KA01D:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 1000pF 50volts X7R 10%  
+Vendor: Digi-Key  
+Vendor Part No.: 490-1303-1-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H102KA01-01.pdf)  
+Reasons: (TODO)  
+
+#### L1, L2 Murata LQW18AN22NG00D:  
+Part: Fixed Inductors 0603 22nH 2% 500mA  
+Vendor: Digi-Key  
+Vendor Part No.: 490-6874-1-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
+Reasons: (TODO)  
+
+#### L3, L4, L5, L6 Murata LQW18AN15NG00D:  
+Part: Fixed Inductors 0603 15nH  
+Vendor: Digi-Key  
+Vendor Part No.: 490-6866-1-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
+Reasons: (TODO)  
+
+#### L8 Murata LQW18AN82NG00D:  
+Part: Fixed Inductors 0603 82nH  
+Vendor: Digi-Key  
+Vendor Part No.: 490-6912-2-ND  
+[Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
+Reasons: (TODO)  
+
+#### R1	Samsung	RC1608F2490CS:      
+Part: RES SMD 249 OHM 1% 1/10W 0603  
+Vendor: Digi-Key  
+Vendor Part No.: 1276-4592-2-ND  
+[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf)  
+Reasons: (TODO)  
+
+#### R2, R3, R5	Yageo RC0603FR-0710KL:      
+Part: Thick Film Resistors - SMD 10K OHM 1%  
+Vendor: Digi-Key  
+Vendor Part No.: 311-10.0KHRCT-ND  
+[Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
+Reasons: (TODO)  
+
+#### R4, R8, R9, R10, R11, R12 Yageo RC0603FR-071KL:      
+Part: Thick Film Resistors - SMD 1K OHM 1%  
+Vendor: Digi-Key  
+Vendor Part No.: 311-1.00KHRCT-ND  
+[Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
+Reasons: (TODO)  
+
+#### R6, R7 Yageo RC0603FR-071KL:      
+Part: Thick Film Resistors - SMD 1K OHM 1%    
+Vendor: Digi-Key  
+Vendor Part No.: 311-1.00KHRCT-ND  
+[Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
+Reasons: (TODO)  
+
+#### R13, R14 Yageo RC0603JR-070RL:      
+Part: Thick Film Resistors - SMD ZERO OHM JUMPER  
+Vendor: Digi-Key  
+Vendor Part No.: 311-0.0GRTR-ND  
+[Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
+Reasons: (TODO)  
 
 #### SH1 Laird Technologies BMI-S-202-C BMI-S-202-F:     
 Part: RF Shield 1    
