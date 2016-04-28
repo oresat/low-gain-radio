@@ -40,16 +40,16 @@ Rad-Hard Analogue: N/A
   
 #### U2 SkyWorks SKY65116: 
 Part: Power Amplifier  
-Vendor: SkyWorks  
-Vendor Part No.: SKY65116  
+Vendor: Mouser    
+Vendor Part No.: 873-SKY65116-21  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
 Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.  
 Rad-Hard Analogue: N/A  
   
 #### U8 MAACOM MAAL-010704:  
 Part: Low Noise Amplifier  
-Vendor: MAACOM  
-Vendor Part No.: MAAL-010704    
+Vendor: Digi-Key    
+Vendor Part No.: 1465-1261-1-ND  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
 Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
 Rad-Hard Analogue: N/A  
@@ -61,8 +61,8 @@ Reasons: This part would be better than the one selected. Provides >0.6dB Noise 
 
 #### U9 SkyWorks SKY13405_490F:    
 Part: RF Switch   
-Vendor: SkyWorks   
-Vendor Part No.: SKY13405_490F  
+Vendor: Digi-Key  
+Vendor Part No.: 863-1649-1-ND  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for thsi project (such as the PA). Small footprint, it has a low insertion loss and is within the desired frequency range.   
 Rad-Hard Analogue: N/A  
@@ -178,11 +178,11 @@ Vendor Part No.: 160-1446-1-ND
 [Datasheet](http://optoelectronics.liteon.com/upload/download/DS22-2000-228/S_110_LTST-C191KGKT.pdf)  
 Reasons: (TODO)  
 
-**LED5, LED6, LED7, LED8, Lite-On Inc. LTST-C191AKT**:      
+**LED5, LED6, LED7, LED8, Broadcom Limited HSMA-C120**:      
 Part: Amber LEDs    
 Vendor: Digi-Key  
-Vendor Part No.: 160-1440-1-ND  
-[Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Lite-On%20PDFs/LTST-C191AKT.pdf)  
+Vendor Part No.: 516-2486-1-ND    
+[Datasheet](http://www.avagotech.com/docs/AV02-0975EN)  
 Reasons: (TODO) 
 
 ### Capacitors
@@ -217,8 +217,8 @@ Reasons: (TODO)
 
 **C11, C12 AVX 06031U8R2BAT2A**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 100volts 8.2pF ULTRA LOW ESR  
-Vendor: Digi-Key  
-Vendor Part No.: 06031U8R2BAT2A-ND  
+Vendor: Mouser  
+Vendor Part No.: 581-06031U8R2BAT2A  
 [Datasheet](http://datasheets.avx.com/AutoU_Series.pdf)  
 Reasons: (TODO)  
 
@@ -243,10 +243,10 @@ Vendor Part No.: 490-1303-1-ND
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H102KA01-01.pdf)  
 Reasons: (TODO)  
 
-**C34, C35 Murata GQM1875C2E6R0BB12D**:       
-Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 6.0pF 250volts C0G +/-0.1pF  
+**C34, C35 Murata GQM1885C2A6R0CB01D**:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 6.0pF 100volts C0G +/-0.25pF  
 Vendor: Digi-Key  
-Vendor Part No.: GQM1875C2E6R0BB12D-ND  
+Vendor Part No.: 490-3561-1-ND    
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GQM1875C2E6R0BB12-01.pdf)  
 Reasons: (TODO)  
 
