@@ -43,20 +43,21 @@ written by Shan Quinney, William Harrington, and James Heath
 
 04/29/16 - Changes based on Test Plan Review (Jake)
 
+04/29/16 - Changes based on proofreading the test plan (Will)
+
 ### Introduction
 
 #### Purpose
 
-The purpose of this document is to outline the essential testing that will be conducted to demonstrate the effectiveness of the Sputnik Capstone project. This test plan is not intended to be all inclusive and additional testing procedures will be added if deemed necessary by any of the parties involved in the project.
+The purpose of this document is to outline testing that will be essential for determining the effectiveness of the Sputnik Capstone project. This test plan is not intended to be all inclusive and additional testing procedures will be added if deemed necessary by any of the parties involved in the project.
 
 #### Testing Procedure
 
-All of the testing described in this document will be carried out by one or more than one member of the Sputnik capstone team. An effort will be made to have the entire group present for as many of the tests as possible.
+All of the testing procedures described in this document will be carried out by one or more of the Sputnik capstone team members. An effort will be made to have the entire team present for as many of the tests as possible.
 
 #### Recordings of Results, witnessing, and Authorities
 
-The results of all testing conducted in this test plan will be displayed on the project wiki. The tests will be conducted on a pass/fail basis and any tests that do not pass will be noted in the documentation with an explanation as to why they did not pass.
-No authorities or witnesses outside of the group will be required to be present during testing.
+The results of all testing will be posted in [this git respository](https://github.com/oresat/low-gain-radio) in the docs folder. The tests will be conducted on a pass/fail basis and any tests that do not pass will be noted along with an explanation/conjecture as to why they did not pass. No authorities or witnesses outside of the group will be required to be present during testing.
 
 ### Reference Documents
 
@@ -64,29 +65,28 @@ No authorities or witnesses outside of the group will be required to be present 
 
 ![Phase 1 Low Level Diagram](http://i.imgur.com/LNKEclE.png)
 
-The Sputnik Capstone project is composed of two separate modules: The radio module and the control module. The radio module is home to the microcontroller with integrated radio transceiver (kwox), while the control module is designed to eventually house a radiation hardened watchdog controller that will help reboot the system after debilitating radiation events. For this project, the radiation-hardened components of the control module will be replaced with off-the shelf components to help reduce cost.
+The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with integrated transceiver referred to as the KW0x (quakz) that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components be replaced with off-the shelf components to help reduce cost.
 
 
 ### Overview
 
 #### Operational Description
 
-The Portland State Aerospace Society is sponsoring this capstone based on the need for a command, control, and communications system for their CubeSat project. The focus of this capstone will be rapidly prototyping the radio module and the control module. Sputnik will eventually be responsible for long distance communications to and from a 400km low earth orbit, as well as, controlling and communicating with a payload that is housed within the CubeSat. On top of fulfilling these duties, once space bound, it will need to be able to deal with a temperature range of -40C to 80C and radiation events that could cause components to latch up.
+The Portland State Aerospace Society is sponsoring this capstone based on the need for a command, control, and communications system for their CubeSat project. The focus of this project will be rapidly prototyping the LGR and SysCon which compose what is referred to as [Sputnik](https://en.wikipedia.org/wiki/Sputnik_1) because of it's requirements to be a simple, reliable space system. Sputnik will be responsible for long distance communications to and from earth while the CubeSat is in orbit, as well as, controlling and communicating with a payload that is housed within the CubeSat. On top of fulfilling these duties, once space bound, it will need to be able to deal with a temperature range of -40C to 80C and radiation events that could cause components to latch up.
 
 ### Pre-test preparation
 
 #### Test equipment
 
 The equipment needed for the tests is as follows: 
-* Power Supply sufficient to maintain 1A of current at 3V for approximately 15 minutes
-* multimeter (voltmeter)
+* Power Supply
+    * Able to supply a minimum current of 1A at 3V for approximately 15 minutes
+* Multimeter
 * Oscilloscope
-* USB to micro-USB cable
-* Logic analyzer
-* AVR Dragon Debugger
+* Programmers for KW0x and SysCon
 * Environmental Chamber
 * Vacuum Chamber
-* Antennas for long range testing
+* Antennas
 
 #### Test setup and calibration
 
