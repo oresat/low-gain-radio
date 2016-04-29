@@ -168,7 +168,7 @@ Part: Tantalum Capacitors - Solid SMD 10volts 100uF 10%
 Vendor: Digi-Key  
 Vendor Part No.: 478-1704-1-ND  	  
 [Datasheet](http://datasheets.avx.com/TAJ.pdf)  
-Reasons: Electrolytic capacitor is used in the LNA schematic setup in accordance to the recommended circuit from the datasheet.
+Reasons: 100 uF Electrolytic capacitor is used in the LNA schematic setup in accordance to the recommended circuit from the datasheet for a <0.7dB noise figure.
 
 ### LEDs
 **LED1, LED2, LED3, LED4, Lite-On Inc. LTST-C191KGKT**:      
@@ -234,7 +234,7 @@ Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%
 Vendor: Digi-Key  
 Vendor Part No.: 490-6405-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
-Reasons: C13 is a bypass capacitor on the PA LDO in accordance to the datasheet. C15, C17, C19, and C22 are bypass capacitors on the PA voltage lines also in accordance to the datasheet. C53 is something I don't know Andrew did it!    
+Reasons: C13 is a bypass capacitor on the PA LDO in accordance to the datasheet. C15, C17, C19, and C22 are bypass capacitors on the PA voltage lines also in accordance to the datasheet. C53 is something Andrew did.      
 
 **C14, C26, C27, C28, C30, C31, C32, C33, C42, C45, C47, C48, C49 AVX 06035C104JAT2A**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 50volts 0.1uF 5% X7R  
@@ -276,14 +276,14 @@ Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%
 Vendor: Digi-Key  
 Vendor Part No.: 490-6405-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
-Reasons:   
+Reasons: Output bypass capacitor on the PA LDO in accordance to the recommended circuit from the datasheet.  
 
 **C50, C51, C54 Murata GRM155R71H102KA01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 1000pF 50volts X7R 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-1303-1-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H102KA01-01.pdf)  
-Reasons: (TODO)  
+Reasons: C50 and C51 are filters for the debugging LEDs. C54 isa filter between V+ and the RF_GND.   
 
 #### Inductors
 
