@@ -148,6 +148,11 @@ void configure_transceiver_tx(void){
 	   return is void
 	*/
 
+	/* Calibrate RC oscillator */
+	transceiver.RegOsc1 |= 0x80;			//Trigger calibration
+	while (transceiver.RegOsc1 & 0x40);		//Wait until done
+
+
 	/* Change to frequency synthesizer mode */
 	uint8_t OpModeCfg = 0x08;
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
