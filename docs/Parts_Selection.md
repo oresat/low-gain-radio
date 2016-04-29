@@ -23,19 +23,19 @@
 
 
 #### Format note  
-EAGLE REF, MANF, MANF PART  
-Vend  
-Vend Part No  
+Eagle Referance, Manufacturer, Manufacturer's Part Number  
+Vendor  
+Vendor Part No  
 Datasheet  
-Reasons:  
-Rad-hard:  
+Reasons  
+Rad-hard Analogue  
 
 #### U1 NXP MKW01Z128:  
 Part: Microcontroller  
 Vendor: Digi-Key  
 Vendor Part No.: MKW01Z128CHN-ND  
 [Datasheet](http://cache.nxp.com/files/microcontrollers/doc/data_sheet/MKW01Z128.pdf)  
-Reasons: Requirement for the project  
+Reasons: Requirement for the project.    
 Rad-Hard Analogue: N/A  
   
 #### U2 SkyWorks SKY65116: 
@@ -51,7 +51,7 @@ Part: Low Noise Amplifier
 Vendor: Digi-Key    
 Vendor Part No.: 1465-1261-1-ND  
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
-Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz.  
+Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz. At different temperatures, we see an increase of about .1~.2dBs at the same frequency, so it's not perfect though. 
 Rad-Hard Analogue: N/A  
 **_Alternative_**   
 Part No.: HMC616LP3    
@@ -64,7 +64,7 @@ Part: RF Switch
 Vendor: Digi-Key  
 Vendor Part No.: 863-1649-1-ND  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
-Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for thsi project (such as the PA). Small footprint, it has a low insertion loss and is within the desired frequency range.   
+Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for this project (such as the PA). Small footprint, it has a low insertion loss and works within the desired frequency range.   
 Rad-Hard Analogue: N/A  
 
 #### U4 SkyWorks AAT3215:
@@ -72,7 +72,7 @@ Part: MCU LDO
 Vendor: SkyWorks   
 Vendor Part No.: AAT3215    
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Low noise rejection. Cheap. Works for other parts as well.     
+Reasons: Low noise rejection. Cheap. Works for other parts as well. Has a good drop out voltage around 140mV at 150mA.    
 Rad-Hard Analogue:  
 **_Alternative_**  
 Part No.: TPS789xx      
@@ -84,8 +84,8 @@ Reasons: Works, but went with the same LDO as the LNA for simplicity and cost ef
 Part: PA LDO  
 Vendor: Digi-Key  
 Vendor Part No.: 497-15229-2-ND  
-[Datasheet](http://www.st.com/web/en/resource/technical/document/datasheet/DM00102135.pdf)  
-Reasons:  
+[Datasheet](http://www.mouser.com/ds/2/389/DM00102135-524580.pdf)  
+Reasons:  The PA requires a high current draw, much larger than the LNA or MCU so it required its own LDO. This LDO allows for up to 2A output, which is about 500mA above what's required. Also looking for a low drop-out voltage which this has a fairly decent value at 250mV at max.  
 Rad-Hard Analogue: N/A  
 
 #### U6 SkyWorks AAT3215:  
@@ -115,7 +115,7 @@ Vendor: Digi-Key
 Vendor Part No.: SER4044CT-ND	  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
-Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.
+Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
 
 #### CM1 CNC Tech 3220-10-0100-00:  
 Part: JTAG Connector    
@@ -129,14 +129,14 @@ Part: 40-Pinout Header
 Vendor: Digi-Key  
 Vendor Part No.: 952-1381-5-ND  	  
 [Datasheet](https://cdn.harwin.com/pdfs/60page104.pdf)  
-Reasons: Design requirement for communication from the Cubesat.
+Reasons: Design requirement for communication from the Cubesat and allows for communication between the LGR and the System Controller.  
 
 #### CF2 Linx Technologies Inc. CONMCX003.062:       
 Part: MCX Connector   
 Vendor: Digi-Key  
 Vendor Part No.: CONMCX003.062-ND  	  
 [Datasheet](http://www.linxtechnologies.com/resources/documents/mcx_rp-mcx_specs.pdf)  
-Reasons: Connector for RF signal to the antenna on the back panel. Set at the back of the board next to the 40-Pinout so it can hook-up easily to the back panel of the Cubesat.
+Reasons: Connector for RF signal to the antenna on the back panel. Set at the back of the board next to the 40-Pinout so it can hook-up easily to the back panel of the Cubesat.  
 
 #### U5A Fairchild Semiconductor NC7SZ05P5X:    
 Part: Inverter       
@@ -152,7 +152,7 @@ Vendor Part No. Shield: 903-1014-ND
 Vendor Part No. Mount: 903-1051-1-ND  
 [Datasheet Shield](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
 [Datasheet Mount](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
-Reasons: 
+Reasons: RF shielding for the PA portion of the RF part of the board to prevent interference from other signals.
 
 #### SH2 Laird Technologies BMI-S-202-C BMI-S-202-F:     
 Part: RF Shield 2   
@@ -161,14 +161,14 @@ Vendor Part No.: 903-1014-ND
 Vendor Part No. Mount: 903-1051-1-ND   
 [Datasheet Shield](http://cdn.lairdtech.com/home/brandworld/files/Board%20Level%20Shields%20Catalog%20Download.pdf)  
 [Datasheet Mount](http://media.digikey.com/pdf/Data%20Sheets/Laird%20Technologies/BMI-S-202.pdf)  
-Reasons:  
+Reasons: RF shielding for the LNA portion of the RF part of the board to prevent interference from other signals.
 
 #### C43 AVX TAJC107K010RNJ:    
 Part: Tantalum Capacitors - Solid SMD 10volts 100uF 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 478-1704-1-ND  	  
 [Datasheet](http://datasheets.avx.com/TAJ.pdf)  
-Reasons: Electrolytic capacitor was asked for at this point in accordance to the recommended circuit from the LNA datasheet.
+Reasons: Electrolytic capacitor is used in the LNA schematic setup in accordance to the recommended circuit from the datasheet.
 
 ### LEDs
 **LED1, LED2, LED3, LED4, Lite-On Inc. LTST-C191KGKT**:      
@@ -176,14 +176,14 @@ Part: Green LEDs
 Vendor: Digi-Key  
 Vendor Part No.: 160-1446-1-ND  
 [Datasheet](http://optoelectronics.liteon.com/upload/download/DS22-2000-228/S_110_LTST-C191KGKT.pdf)  
-Reasons: (TODO)  
+Reasons: Green LEDs are used for debugging power. The green LEDs are placed at the front of the board for easy viewing and when on represent that the power line of interest is working. There are LEDs for the 3.3V power supply from the LNA and MCU LDOs, V+ from the photovoltaic bus and for the LDO on the PA. These will be removed before the actual launch and are only used for debugging purposes.    
 
 **LED5, LED6, LED7, LED8, Broadcom Limited HSMA-C120**:      
 Part: Amber LEDs    
 Vendor: Digi-Key  
 Vendor Part No.: 516-2486-1-ND    
 [Datasheet](http://www.avagotech.com/docs/AV02-0975EN)  
-Reasons: (TODO) 
+Reasons: Amber LEDs are used for error checks during debugging and are placed on the debugging lines for PTC1-4. They will also be removed before actual launch.
 
 ### Capacitors
 
@@ -192,84 +192,91 @@ Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 0.01uF 50volts X7R 10%
 Vendor: Digi-Key  
 Vendor Part No.: 490-1512-2-ND  
 [Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
-Reasons: (TODO)  
+Reasons: C1 and C3 are used for the feed network filter to prevent RF feedback into the MCUs VR_PA pins. They are designated by the kw0x datasheet. C16, C18, C20, and C21 are bypass capacitors on the PA as designated by the PA datasheet. Both C37 and C40 are used for the bypass line on the AAT3215 LDOs for both the MCU and LNA and are also dictated by their datasheet.   
 
 **C2, C4 Murata GRM1885C1H120JA01D**:        
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 12pF 50volts C0G 5%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-1405-2-ND  
 [Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
-Reasons: (TODO)  
+Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.    
 
 **C5, C6, C9, C10 Murata GRM1885C1H150JA01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 15pF 50volts C0G 5%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-1407-2-ND  
 [Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
-Reasons: (TODO)  
+Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.   
 
-**C7, C8, C38, C41 Murata GRM1885C1H2R2CA01D**:       
+**C7, C8 Murata GRM1885C1H2R2CA01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 2.2pF 50volts C0G +/-0.25pF  
 Vendor: Digi-Key  
 Vendor Part No.: 490-9668-2-ND  
 [Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
-Reasons: (TODO)  
+Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.      
+
+**C38, C41 AVX SQCSVA2R2BAT1A**:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 250volts 2.2pF    
+Vendor: Digi-Key  
+Vendor Part No.: 478-3492-2-ND    
+[Datasheet](http://www.mouser.com/ds/2/40/sqcs-sqcf-776804.pdf)  
+Reasons: Used in the AAT3215s LDOs on the Vbias lines in accordance to the datasheet.  
 
 **C11, C12 AVX 06031U8R2BAT2A**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 100volts 8.2pF ULTRA LOW ESR  
 Vendor: Mouser  
 Vendor Part No.: 581-06031U8R2BAT2A  
 [Datasheet](http://datasheets.avx.com/AutoU_Series.pdf)  
-Reasons: (TODO)  
+Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.  
 
 **C13, C15, C17, C19, C22, C52, C53 Murata GRM188R60J106ME47J**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-6405-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
-Reasons: (TODO)  
+Reasons: C13 is a bypass capacitor on the PA LDO in accordance to the datasheet. C15, C17, C19, and C22 are bypass capacitors on the PA voltage lines also in accordance to the datasheet. C53 is something I don't know Andrew did it!    
 
 **C14, C26, C27, C28, C30, C31, C32, C33, C42, C45, C47, C48, C49 AVX 06035C104JAT2A**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 50volts 0.1uF 5% X7R  
 Vendor: Digi-Key  
 Vendor Part No.: 478-5778-1-ND  
 [Datasheet](http://datasheets.avx.com/X7RDielectric.pdf)  
-Reasons: (TODO)  
+Reasons: C14 is a coupling capacitor between the PA and the 436.5 MHz filter. All the other 100nF capacitors are used as bypass capacitors valued in accordance to the datasheets.    
 
 **C23, C24, C25 Murata GRM155R71H102KA01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 1000pF 50volts X7R 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-1303-1-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H102KA01-01.pdf)  
-Reasons: (TODO)  
+Reasons: The capacitors on the LNA are used in accordance to the datasheet. MACOM requested 0402s for these parts due to the LNAs possible sensitivity.    
 
 **C34, C35 Murata GQM1885C2A6R0CB01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 6.0pF 100volts C0G +/-0.25pF  
 Vendor: Digi-Key  
 Vendor Part No.: 490-3561-1-ND    
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GQM1875C2E6R0BB12-01.pdf)  
-Reasons: (TODO)  
+Reasons: Bypass capacitors on the Epson crystal for the MCU.    
 
 **C36, C39 Murata GRM188R61A105KA61D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0603 1uF 10volts X5R 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-1543-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R61A105KA61-01.pdf)  
-Reasons: (TODO)  
+Reasons: Bypass capacitors on the AAT3215 LDOs in accordance to their datasheet.    
 
 **C44 Murata GRM155R71H103KA88D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 0.01uF 50volts X7R 10%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-4516-1-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM155R71H103KA88-01.pdf)  
-Reasons: (TODO)  
+Reasons: Bypass capacitor for the LNA Vbias line. The values used here were suggested directly from the manufacturer allow for the proper noise factor at 436.5 MHz.    
 
 **C46 Murata GRM188R60J106ME47J**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-6405-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
-Reasons: (TODO)  
+Reasons:   
 
 **C50, C51, C54 Murata GRM155R71H102KA01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 0402 1000pF 50volts X7R 10%  
