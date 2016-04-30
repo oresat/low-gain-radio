@@ -53,11 +53,12 @@ Vendor Part No.: 1465-1261-1-ND
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
 Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz. At different temperatures, we see an increase of about .1~.2dBs at the same frequency, so it's not perfect though. 
 Rad-Hard Analogue: N/A  
-**_Alternative_**   
+**_Alternatives_**   
 Part No.: HMC616LP3    
 Manufacturer: Hittite  
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
 Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
+Mention this too!<http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf>  
 
 #### U9 SkyWorks SKY13405_490F:    
 Part: RF Switch   
@@ -222,10 +223,10 @@ Vendor Part No.: 478-3492-2-ND
 [Datasheet](http://www.mouser.com/ds/2/40/sqcs-sqcf-776804.pdf)  
 Reasons: Used in the AAT3215s LDOs on the Vbias lines in accordance to the datasheet.  
 
-**C11, C12 AVX 06031U8R2BAT2A**:       
-Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 100volts 8.2pF ULTRA LOW ESR  
+**C11, C12 Murata GQM1885C1H8R2CB01D**:       
+Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 25 volts 8.2pF ULTRA LOW ESR  
 Vendor: Mouser  
-Vendor Part No.: 581-06031U8R2BAT2A  
+Vendor Part No.: 81-GQM1885C1H8R2CB01    
 [Datasheet](http://datasheets.avx.com/AutoU_Series.pdf)  
 Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.  
 
@@ -292,21 +293,21 @@ Part: Fixed Inductors 0603 22nH 2% 500mA
 Vendor: Digi-Key  
 Vendor Part No.: 490-6874-1-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
-Reasons: (TODO)  
+Reasons: L1 and L2 are used for the feed network filter to prevent RF feedback into the MCUs VR_PA pins. They are designated by the kw0x datasheet.    
 
 **L3, L4, L5, L6 Murata LQW18AN15NG00D**:  
 Part: Fixed Inductors 0603 15nH  
 Vendor: Digi-Key  
 Vendor Part No.: 490-6866-1-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
-Reasons: (TODO)  
+Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.  
 
 **L8 Murata LQW18AN82NG00D**:  
 Part: Fixed Inductors 0603 82nH  
 Vendor: Digi-Key  
 Vendor Part No.: 490-6912-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/PDF/ENG/L0075S0080LQW18A_00.pdf)  
-Reasons: (TODO)  
+Reasons: Used in the LNA Vbias to the output. Value was suggested by manufacturer for optimum Noise Factor (<0.7dB) at desired frequency of 436.5 MHz.  
 
 #### Resistors
 
@@ -315,34 +316,34 @@ Part: RES SMD 249 OHM 1% 1/10W 0603
 Vendor: Digi-Key  
 Vendor Part No.: 1276-4592-2-ND  
 [Datasheet](http://media.digikey.com/pdf/Data%20Sheets/Samsung%20PDFs/RC_Series_ds.pdf)  
-Reasons: (TODO)  
+Reasons: Used in the LNA Vbias to the output. Value was suggested by manufacturer for optimum Noise Factor (<0.7dB) at desired frequency of 436.5 MHz.    
 
 **R2, R3, R5	Yageo RC0603FR-0710KL**:      
 Part: Thick Film Resistors - SMD 10K OHM 1%  
 Vendor: Digi-Key  
 Vendor Part No.: 311-10.0KHRCT-ND  
 [Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
-Reasons: (TODO)  
+Reasons: Pull-up resistors on the power lines for the LDO and the SPI Cache's !HOLD and !WP.
 
 **R4, R8, R9, R10, R11, R12 Yageo RC0603FR-071KL**:      
 Part: Thick Film Resistors - SMD 1K OHM 1%  
 Vendor: Digi-Key  
 Vendor Part No.: 311-1.00KHRCT-ND  
 [Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
-Reasons: (TODO)  
+Reasons: LED current limiting resistors. DNPs for launch.
 
 **R6, R7 Yageo RC0603FR-071KL**:      
 Part: Thick Film Resistors - SMD 1K OHM 1%    
 Vendor: Digi-Key  
 Vendor Part No.: 311-1.00KHRCT-ND  
 [Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
-Reasons: (TODO)  
+Reasons: Current limiting resistor for PA and LNA LDO LEDs. DNPs for launch.
 
 **R13, R14 Yageo RC0603JR-070RL**:      
 Part: Thick Film Resistors - SMD ZERO OHM JUMPER  
 Vendor: Digi-Key  
 Vendor Part No.: 311-0.0GRTR-ND  
 [Datasheet](http://www.yageo.com/documents/recent/PYu-RC_Group_51_RoHS_L_04.pdf)  
-Reasons: (TODO)  
+Reasons: Used for the separate ground between the signal and the LEDs for debugging. DNPs for launch. 
 
 
