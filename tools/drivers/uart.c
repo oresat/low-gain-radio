@@ -69,6 +69,9 @@ void uart0_init(volatile struct uart0 * UART, const struct uart_config * config)
 
 	/* enable clock*/
 	SIM.SCGC4 |= SCGC_UART0;
+	// for uart0 baud is multiplied by (OSR + 1), but in 1 and 2 is multiplied by 16
+        // Set OSR to 15 so that uart0, 1, 2 behavior is the same.
+	UART->C4 |= (OSR_MASK & 15);
 	uart12_init((volatile struct uart *) UART, config);
 }
 
@@ -92,7 +95,7 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 	set_pin_alt(TX, UART, &config->TX);
 	set_pin_alt(RX, UART, &config->RX);
 
-	/* br = baud clock / concat(BDH[4:0], BDL[7:0]) * (OSR + 1)*/
+	/* br = baud clock / concat(BDH[4:0], BDL[7:0]) * 16/
 	/* baud clock for UART[1,2] is the bus clock which is the system clock
 	   divided by 2. See UART section of data book for equation and section
 	   4 on clock distribution for clock definitions
@@ -100,20 +103,11 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 	   the calculation below assumes baud clock = 24MHz and OSR of 15
 	*/
 
-	if((volatile struct uart0 *)UART == &UART0){
-		uint16_t BR = 24000000/(config->baud * ((UART->C4 & OSR_MASK) + 1));
-		uint8_t BDH = BR >> 8;
-		uint8_t BDL = BR & 0xFF;
-		UART->BDH = BDH;
-		UART->BDL = BDL;
-        }
-	else{
-		uint16_t BR = 24000000/(config->baud * 16);
-		uint8_t BDH = BR >> 8;
-		uint8_t BDL = BR & 0xFF;
-		UART->BDH = BDH;
-		UART->BDL = BDL;
-        }
+	uint16_t BR = 24000000/(config->baud * 16);
+	uint8_t BDH = BR >> 8;
+	uint8_t BDL = BR & 0xFF;
+	UART->BDH = BDH;
+	UART->BDL = BDL;
 
 	if(DEBUG){
 		/* for debugging, set loop mode */
