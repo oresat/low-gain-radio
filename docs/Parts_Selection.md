@@ -58,7 +58,10 @@ Part No.: HMC616LP3
 Manufacturer: Hittite  
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
 Reasons: This part would be better than the one selected. Provides >0.6dB Noise at all temperatures and at most frequencies. At average space temperatures, around 0.3dB Noise level at 436.5MHz. However it is vaporware in the USA. It might be available from China, however shipping and part price is expensive/long.  
-Mention this too!<http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf>  
+Part No.: SKY67110_396LF  
+Manufacturer: SkyWorks  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf)  
+Reasons: Brand new part from Skyworks. Would work better than what we have. Has a gain of ~21dB at desired frequency and a noise figure of 0.65dB at 25C and around 0.5dB at 40C.  
 
 #### U9 SkyWorks SKY13405_490F:    
 Part: RF Switch   
