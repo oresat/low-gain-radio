@@ -137,7 +137,7 @@ void initialize_uart(void){
 		.RX = {.port=&PORTD, .pin=4,},
 
 		/* baud rate */
-		.baud = 115200,
+		.baud = 9600,
 	};
 	//uart_init(&UART1, &myUART);
 	uart_init(&UART2, &myUART);
@@ -154,7 +154,7 @@ void initialize_uart0(void){
 		.RX = {.port=&PORTA, .pin=1,},
 
 		/* baud rate */
-		.baud = 115200,
+		.baud = 9600,
 	};
 	uart_init(&UART0, &myUART);
 }

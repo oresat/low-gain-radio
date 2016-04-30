@@ -149,9 +149,8 @@ void configure_transceiver_tx(void){
 	*/
 
 	/* Calibrate RC oscillator */
-	transceiver.RegOsc1 |= 0x80;			//Trigger calibration
-	while (transceiver.RegOsc1 & 0x40);		//Wait until done
-
+	transceiver.RegOsc1 |= 0x80; //Trigger calibration
+	while (transceiver.RegOsc1 & 0x40);//Wait until done
 
 	/* Change to frequency synthesizer mode */
 	uint8_t OpModeCfg = 0x08;
@@ -204,6 +203,10 @@ void configure_transceiver_rx(void){
 
 	   return is void
 	*/
+
+	/* Calibrate RC oscillator */
+	transceiver.RegOsc1 |= 0x80; //Trigger calibration
+	while (transceiver.RegOsc1 & 0x40);//Wait until done
 
 	/* Change to frequency synthesizer mode */
 	uint8_t OpModeCfg = 0x08;

@@ -103,11 +103,13 @@ void uart12_init(volatile struct uart * UART, const struct uart_config * config)
 	   the calculation below assumes baud clock = 24MHz and OSR of 15
 	*/
 
-	uint16_t BR = 24000000/(config->baud * 16);
-	uint8_t BDH = BR >> 8;
+	uint16_t BR = (24000000/16)/config->baud;
+	uint8_t BDH = (BR >> 8) & 0x1F;
 	uint8_t BDL = BR & 0xFF;
 	UART->BDH = BDH;
 	UART->BDL = BDL;
+	//UART->BDH = 0x0;
+	//UART->BDL = 0x9C;
 
 	if(DEBUG){
 		/* for debugging, set loop mode */
