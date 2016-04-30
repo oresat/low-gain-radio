@@ -214,11 +214,11 @@ int main(void) {
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-	       	/* toggle LED connected to PTB2 */
-		GPIOB.PTOR = PTB1;
-
 		if(rxbyte == 0x55){
-                	GPIOB.PTOR = PTB17;
+                	GPIOB.PTOR = PTB1;
+		}
+		else{
+			GPIOB.PTOR = PTB2;
 		}
 	}
 	return 0;
