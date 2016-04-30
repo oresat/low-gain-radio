@@ -9,7 +9,7 @@ CC = $(ARCH)-gcc
 AS = $(ARCH)-as
 CPPFLAGS = -I. -Idrivers -I/usr/local/arm-none-eabi/include
 CFLAGS = -mthumb -mcpu=cortex-m0 -ffreestanding -fno-common -ggdb3 -std=gnu11
-LDFLAGS = --specs=nosys.specs -mthumb -static -nostartfiles -T$(LINKER_SCRIPT)
+LDFLAGS = --specs=nosys.specs -mthumb -mcpu=cortex-m0 -static -nostartfiles -T$(LINKER_SCRIPT)
 
 VPATH = drivers
 
