@@ -45,6 +45,8 @@ written by Shan Quinney, William Harrington, and James Heath
 
 04/29/16 - Changes based on proofreading the test plan (Will)
 
+04/30/16 - More proofreading changes. Changed crystal test to make it explicit that it will be performed on BOTH microcontrollers. Changed Supply Range Test to encompass BOTH modules. Changed Temperature Range Test to encompass BOTH modules and changed steps, actions, and expected results. Revised Acceleration test.
+
 ### Introduction
 
 #### Purpose
@@ -65,7 +67,7 @@ The results of all testing will be posted in [this git respository](https://gith
 
 ![Phase 1 Low Level Diagram](http://i.imgur.com/LNKEclE.png)
 
-The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with integrated transceiver referred to as the KW0x (quakz) that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components be replaced with off-the shelf components to help reduce cost.
+The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with integrated transceiver referred to as the KW0x (quakz) that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components will be replaced with off-the shelf components to help reduce cost.
 
 
 ### Overview
@@ -83,7 +85,7 @@ The equipment needed for the tests is as follows:
     * Able to supply a minimum current of 1A at 3V for approximately 15 minutes
 * Multimeter
 * Oscilloscope
-* Programmers for KW0x and SysCon
+* Programmers for KW0x and ATMega128
 * Environmental Chamber
 * Vacuum Chamber
 * Antennas
@@ -94,17 +96,17 @@ The testing setup will be discussed for each case along with any necessary calib
 
 ### Component Tests
 
-Component Tests will test the different basic components on the board. These are usually small simple tests that ensure the board is working properly before attempting any tests for functionality of the C3 modules. Some examples of these tests are power, crystal oscillations, and environmental testing. 
+The Component Tests will test components that are imperative to the core operation of intergrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
 
 #### Crystal Test
 
-Use the oscilloscope to see if the crystal on board is receiving power and running at correct frequency as programmed.
+The purpose of this test is to see if the crystal for each microcontroller (KW0x, ATMega128) is receiving power and oscillating at the proper frequency.
 
                           |                              |
 ------------------------- | ---------------------------- |
-Test Case Name            | Crystal Test          |
-Test ID#                  | Crystal_1.00                    |
-Test Writer               | James Heath                  | 
+Test Case Name            | Crystal Test          	 |
+Test ID#                  | Crystal_1.00                 |
+Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to check the frequency and operation of the crystal oscillator. |
 Tester Information        |    |
 Name of Tester            |    |
@@ -114,17 +116,18 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Use Oscilloscope to check crystal frequency through the test point | Desire frequency is shown on oscilloscope  |  |  |
+1 | Use Oscilloscope to check crystal frequency through the test point for KW0x | Desired frequency is shown on oscilloscope  |  |  |
+2 | Use Oscilloscope to check crystal frequency through the test point for ATMega128 | Desired frequency is shown on oscilloscope  |  |  |
 
 #### Supply Range Test
 
-Run a range of voltages across the board and see if board still functions. Since the board will be receiving a range of voltage from the power management system, it is imperative to see if the board will be able to operate within these ranges. This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates.
+The Supply Range Test is for testing the voltage range for operation of the LGR and SysCon. This is needed since both modules will be receiving a range of voltage from the power management system (another module in the CubeSat). This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates.
 
                           |                              |
 ------------------------- | ---------------------------- |
-Test Case Name            | Supply Range Test           |
-Test ID#                  | Supply_1.00                    |
-Test Writer               | James Heath                  | 
+Test Case Name            | Supply Range Test            |
+Test ID#                  | Supply_1.00                  |
+Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to demonstrate the functionality of the boards at the required supply range limits. |
 Tester Information        |    |
 Name of Tester            |    |
@@ -134,19 +137,24 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3V Transmit radio and/or toggle LED or GPIO | Other module receives and/or LED/GPIO is toggled  |  |  |
-2 | Set voltage supply to 5V Transmit radio and/or toggle LED or GPIO | Other module receives and/or LED/GPIO is toggled  |  |  |
-
+1 | Set voltage supply to 3.3V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
+5 | Set voltage supply to 3.3V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
+6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
+7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  |  |  |
+8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
 
 #### Temperature Range Test
 
-The requirements state that the board must be operable within the temperature ranges from -40C-85C. To show this, the board will be inserted into an environmental chamber and chilled/heated to the extremes of these ranges. Once at the extremes, again operations on the boards will be tested to see if it works within these ranges.
+The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements (-40C - 85C). To test this, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Once at the min/max, operations on the modules will be tested.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Temperature Range Test       |
 Test ID#                  | Temp_1.00                    |
-Test Writer               | James Heath                  | 
+Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to demonstrate the functionality of the board at the requirement range limits. |
 Tester Information        |    |
 Name of Tester            |    |
@@ -156,18 +164,20 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set Environmental temperature to -40C and Transmit radio and/or toggle LED or GPIO | Other module receives and/or LED/GPIO is toggled  |  |  |
-2 | Set Environmental temperature to 80C and Transmit radio and/or toggle LED or GPIO | Other module receives and/or LED/GPIO is toggled  |  |  |
+1 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+2 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to -40C. | UART LEDs blink while in chamber  |  |  |
+3 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to 85C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+4 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to 85C. | UART LEDs blink while in chamber  |  |  |
 
 #### Acceleration Test
 
-Since the sputnik module will be launched into space, it will need to be able to withstand the force provided by extreme acceleration. To test this we will tie a rope to the board and run C3 procedures while swinging the board in a circle until at least reaching 15Gs. We will perform these operations once a consistent force has been applied for a small duration of time.
+The Acceleration Test is for making sure that the LGR and SysCon can operate while under at least 15Gs of force as specified in the sputnik project requirements. To do this we will tie a rope to the module while operating and swing it in a circle until 15Gs are reached.
 
                           |                              |
 ------------------------- | ---------------------------- |
-Test Case Name            | Acceleration Test                   |
-Test ID#                  | F=MA_1.00                   |
-Test Writer               | James Heath                  | 
+Test Case Name            | Acceleration Test            |
+Test ID#                  | F=MA_1.00                    |
+Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to demonstrate the functionality of the boards at a relatively high level of force (~15Gs). |
 Tester Information        |    |
 Name of Tester            |    |
@@ -177,8 +187,10 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Transmit packet after board has been swinging at 15Gs for 30 seconds | Transmission is received on other module  |  |  |
-
+1 | Tie rope to LGR while it is setup to transmit packet. | Transmission is received on other module  |  |  |
+2 | Swing LGR in circle until 15Gs is reached. | Transmission is received on other module while at 15Gs |  |  |
+3 | Tie rope to SysCon while it is setup for normal operation. | UART LEDs observed  |  |  |
+4 | Swing SysCon in circle until 15Gs is reachedn. | UART LEDs observed while at 15Gs  |  |  |
 
 #### Vacuum Test
 
