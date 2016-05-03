@@ -195,10 +195,10 @@ int main(void) {
 	//static uint8_t txbyte[3] = {0x55, 0xD, 0xA};
 
 	uint8_t rxbyte = 0x0;
-
+	uint8_t alive = 'G';
 	while(1) {
-		uart_write('G'); //I'm alive signal for the sys controller
-		
+		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+
 		/*Start a correction and wait until the calibration is done*/
 		transceiver.RegAfcFei &= 0x1;	//trigger a frequency correction
 		while(!(transceiver.RegAfcFei & 0x40));
