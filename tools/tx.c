@@ -197,7 +197,11 @@ int main(void) {
 
 	uint8_t rxbyte = 0x0;
 
+	uint8_t alive = 'G';
+	
 	while(1) {
+			uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+
           	trans_write_register(transceiver.RegFifo, &txbyte, 1);
 
 		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
