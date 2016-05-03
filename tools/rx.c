@@ -197,6 +197,10 @@ int main(void) {
 	uint8_t rxbyte = 0x0;
 
 	while(1) {
+		/*Start a correction and wait until the calibration is done*/
+		transceiver.RegAfcFei &= 0x1;	//trigger a frequency correction
+		while(!(transceiver.RegAfcFei & 0x40));
+	
 		/* read fifo register in transceiver block */
 		trans_read_register(transceiver.RegFifo, &rxbyte, 1);
 
