@@ -19,7 +19,6 @@ written by Shan Quinney, William Harrington, and James Heath
      * [Crystal Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#crystal-test)
      * [Supply Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#supply-range-test)
      * [Temperature Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#temperature-range-test)
-     * [Force Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#force-test)
      * [Vacuum Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#vacuum-test)
 * [System Tests](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#system-tests)
     * [Radio Communication Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#radio-communication-test)
@@ -168,29 +167,6 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 2 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to -40C. | UART LEDs blink while in chamber  |  |  |
 3 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to 85C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
 4 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to 85C. | UART LEDs blink while in chamber  |  |  |
-
-#### Acceleration Test
-
-The Acceleration Test is for making sure that the LGR and SysCon can operate while under at least 15Gs of force as specified in the sputnik project requirements. To do this we will tie a rope to the module while operating and swing it in a circle until 15Gs are reached.
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Acceleration Test            |
-Test ID#                  | F=MA_1.00                    |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards at a relatively high level of force (~15Gs). |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Tie rope to LGR while it is setup to transmit packet. | Transmission is received on other module  |  |  |
-2 | Swing LGR in circle until 15Gs is reached. | Transmission is received on other module while at 15Gs |  |  |
-3 | Tie rope to SysCon while it is setup for normal operation. | UART LEDs observed  |  |  |
-4 | Swing SysCon in circle until 15Gs is reachedn. | UART LEDs observed while at 15Gs  |  |  |
 
 #### Vacuum Test
 
