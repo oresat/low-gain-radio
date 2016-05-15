@@ -46,6 +46,8 @@ written by Shan Quinney, William Harrington, and James Heath
 
 04/30/16 - More proofreading changes. Changed crystal test to make it explicit that it will be performed on BOTH microcontrollers. Changed Supply Range Test to encompass BOTH modules. Changed Temperature Range Test to encompass BOTH modules and changed steps, actions, and expected results. Revised Acceleration test.
 
+05/14/16 - Grammar corrections in introduction.
+
 ### Introduction
 
 #### Purpose
@@ -56,7 +58,7 @@ The purpose of this document is to outline testing that will be essential for de
 
 All of the testing procedures described in this document will be carried out by one or more of the Sputnik capstone team members. An effort will be made to have the entire team present for as many of the tests as possible.
 
-#### Recordings of Results, witnessing, and Authorities
+#### Recordings of Results, Witnessing, and Authorities
 
 The results of all testing will be posted in [this git respository](https://github.com/oresat/low-gain-radio) in the docs folder. The tests will be conducted on a pass/fail basis and any tests that do not pass will be noted along with an explanation/conjecture as to why they did not pass. No authorities or witnesses outside of the group will be required to be present during testing.
 
@@ -66,8 +68,7 @@ The results of all testing will be posted in [this git respository](https://gith
 
 ![Phase 1 Low Level Diagram](http://i.imgur.com/LNKEclE.png)
 
-The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with integrated transceiver referred to as the KW0x (quakz) that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components will be replaced with off-the shelf components to help reduce cost.
-
+The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with an integrated transceiver referred to as the KW0x that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components will be replaced with off-the shelf components to help reduce cost.
 
 ### Overview
 
@@ -176,18 +177,19 @@ To ensure application in space, the sputnik board will need to be able to run wi
 ------------------------- | ---------------------------- |
 Test Case Name            | Vacuum Test                  |
 Test ID#                  | Vacuum_1.00                  |
-Test Writer               | James Heath                  | 
+Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to demonstrate the functionality of the boards in a vacuum. |
-Tester Information        |    |
+Tester Information        | Need to make sure power supply can supply modules with power while inside of chamber  |
 Name of Tester            |    |
 Time/Date                 |    |
 Hardware Version          |    |
-Setup                     |    |
+Setup                     | Power supply for powering modules |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Attempt radio transmission and reception while within vacuum chamber | Other module receives transmitted data and blinks LED/toggles GPIO |  |  |
-
+1 | Hook up LGR and SysCon as specified in schematic | Power LEDs on for both modules  |  |  |
+2 | Setup modules inside of vacuum chamber | Power LEDs on for both modules  |  |  |
+3 | Commence vacuum test in chamber | Power LEDs remain on for both modules  |  |  |
 
 ### System Tests
 
@@ -266,23 +268,20 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 
 #### Functionality Test
 
-This is the final test for the board. This will test the complete functionality of the board over a long distance, indicating operability as desired by the requirements. The test consists of sending a command to the radio via UART and transmiting the signal across 10km to another module's receiver. The receiver will then send the command via UART to the system controller to initiate a power cycle, testing reset capability.
-
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Functionality Test           |
 Test ID#                  | Func_1.00                    |
-Test Writer               | James Heath                  | 
-Description               | The purpose of this test is to demonstrate the fully functional board capabilities, by using all modules in a single test. |
-Tester Information        |    |
+Test Writer               | James Heath, Will Harrington | 
+Description               | The purpose of this test is to observe the desired functionality as outlined in the project requirements of the LGR and SysCon. |
+Tester Information        | The test needs to be performed over a distance of 10km. Two LGR/SysCon setups will be needed we refer to them as Setup A and Setup B. By configure Setup X for TX, we mean that it is to send a command to the other module that will cause it to power cycle. By configure Setup X for RX, we mean that it is to listen for a command that will cause it to power cycle.  |
 Name of Tester            |    |
 Time/Date                 |    |
 Hardware Version          |    |
-Setup                     |    |
+Setup                     | Directional Antennas, Power supply, Test sites that are 10km a part   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Send data from LGR via UART to LGR | LED lights up  |  |  |
-2 | Transmit data across 10km gap | LED lights up on transmitting board  |  |  |
-3 | Receive Data | GPIO toggle or LED lights up on receiving board  |  |  |
-4 | Send data via UART to System Controller | SC causes power cycle  |  |  |
+1 | Record GPS coordinates of Setup A and Setup B. Use Coordinate Distance Calculator to get distance.  | Distance is at least 10km  |  |  |
+2 | Configure Setup A for TX and Setup B for RX. | Setup B power cycles  |  |  |
+3 | Configure Setup B for TX and Setup A for RX. | Setup A power cycles  |  |  |
