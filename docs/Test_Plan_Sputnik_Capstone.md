@@ -48,6 +48,8 @@ written by Shan Quinney, William Harrington, and James Heath
 
 05/14/16 - Grammar corrections in introduction.
 
+05/16/16 - Removed "Test Setup and Calibration" from the document (Shan)
+
 ### Introduction
 
 #### Purpose
@@ -89,10 +91,6 @@ The equipment needed for the tests is as follows:
 * Environmental Chamber
 * Vacuum Chamber
 * Antennas
-
-#### Test setup and calibration
-
-The testing setup will be discussed for each case along with any necessary calibration needed prior to testing.
 
 ### Component Tests
 
