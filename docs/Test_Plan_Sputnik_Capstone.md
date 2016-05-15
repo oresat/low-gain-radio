@@ -164,8 +164,8 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
 1 | Setup LGR for transmit operation. Place LGR in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
 2 | Setup SysCon for operation. Place SysCon in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C.| UART LEDs blink while in chamber  |  |  |
-3 | Setup LGR for transmit operation.  Place LGR in oven.| Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-4 | Setup SysCon for operation. Set temperature on Oven to 85C. Place SysCon in oven.| UART LEDs blink while in chamber  |  |  |
+3 | Setup LGR for transmit operation.  Set oven temperature to 80C. Place LGR board in oven.| Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+4 | Setup SysCon for operation. Set oven temperatrue to 80C. Place SysCon board in oven.| UART LEDs blink while in chamber  |  |  |
 
 #### Vacuum Test
 
