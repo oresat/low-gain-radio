@@ -162,8 +162,8 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Setup LGR for transmit operation. Place LGR in waterproof conatiner. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-2 | Setup SysCon for operation. Place LGR in waterproof conatiner. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C.| UART LEDs blink while in chamber  |  |  |
+1 | Setup LGR for transmit operation. Place LGR in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+2 | Setup SysCon for operation. Place LGR in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C.| UART LEDs blink while in chamber  |  |  |
 3 | Setup LGR for transmit operation. Place LGR in oven. Set temperature to 85C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
 4 | Setup SysCon for operation. Place SysCon in oven. Set temperature to 85C. | UART LEDs blink while in chamber  |  |  |
 
