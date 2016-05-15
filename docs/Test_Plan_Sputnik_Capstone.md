@@ -146,7 +146,7 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 
 #### Temperature Range Test
 
-The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements. To test this, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Once at the min/max, operations on the modules will be tested.
+The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements. Ideally, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Because of time and resources, we will instead use an oven to test the boards at 80 degrees Celsius and a mixture of dry ice and conventinal ice to test the boards at -40 degrees Celsius. 
 
                           |                              |
 ------------------------- | ---------------------------- |
