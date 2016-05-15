@@ -48,7 +48,7 @@ written by Shan Quinney, William Harrington, and James Heath
 
 05/14/16 - Grammar corrections in introduction.
 
-05/16/16 - Removed "Test Setup and Calibration" from the document (Shan)
+05/16/16 - Removed "Test Setup and Calibration" section from the document. (Shan)
 
 ### Introduction
 
@@ -146,7 +146,7 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 
 #### Temperature Range Test
 
-The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements (-40C - 85C). To test this, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Once at the min/max, operations on the modules will be tested.
+The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements. To test this, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Once at the min/max, operations on the modules will be tested.
 
                           |                              |
 ------------------------- | ---------------------------- |
