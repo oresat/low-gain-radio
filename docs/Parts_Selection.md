@@ -79,10 +79,10 @@ Vendor Part No.: 296-38557-1-ND
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
 Rad-Hard Analogue: N/A    
 **_Alternatives_**    
-Part No.: AAT3215 
-Manufacturer: Skyworks  
+Part No.: AAT3215    
+Manufacturer: Skyworks    
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: This was the original choice, but manufacturing stopped during the design period, meaning we could only purchase parts by the 3,000 instead of 1 at a time. 
+Reasons: This was the original choice, but manufacturing stopped during the design period, meaning we could only purchase parts by the 3,000 instead of 1 at a time.   
 Part No.: TPS789xx      
 Manufacturer: Texas Instruments  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
@@ -102,10 +102,10 @@ Vendor: Digi-Key
 Vendor Part No.: 296-38557-1-ND      
 [Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
-Rad-Hard Analogue: N/A  
+Rad-Hard Analogue: N/A    
 **_Alternatives_**    
-Part No.: AAT3215 
-Manufacturer: Skyworks  
+Part No.: AAT3215   
+Manufacturer: Skyworks    
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
 Reasons: This was the original choice, but manufacturing stopped during the design period, meaning we could only purchase parts by the 3,000 instead of 1 at a time.  
 
