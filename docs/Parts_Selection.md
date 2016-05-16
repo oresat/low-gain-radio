@@ -77,7 +77,7 @@ Vendor: Digi-Key
 Vendor Part No.: 296-38557-1-ND      
 [Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
-Rad-Hard Analogue: N/A 
+Rad-Hard Analogue: N/A    
 **_Alternatives_**    
 Part No.: AAT3215 
 Manufacturer: Skyworks  
@@ -102,7 +102,7 @@ Vendor: Digi-Key
 Vendor Part No.: 296-38557-1-ND      
 [Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
-Rad-Hard Analogue: N/A
+Rad-Hard Analogue: N/A  
 **_Alternatives_**    
 Part No.: AAT3215 
 Manufacturer: Skyworks  
