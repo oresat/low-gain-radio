@@ -48,7 +48,7 @@ written by Shan Quinney, William Harrington, and James Heath
 
 05/14/16 - Grammar corrections in introduction.
 
-05/16/16 - Removed "Test Setup and Calibration" section from the document. (Shan)
+05/16/16 - Removed "Test Setup and Calibration" section from the document. Revised Temperature Test with updated procedure. (Shan)
 
 ### Introduction
 
@@ -152,7 +152,7 @@ The Temperature Range Test is for checking that the LGR and SysCon operate in th
 ------------------------- | ---------------------------- |
 Test Case Name            | Temperature Range Test       |
 Test ID#                  | Temp_1.00                    |
-Test Writer               | James Heath, Will Harrington | 
+Test Writer               | James Heath, Will Harrington, Shan Quinney | 
 Description               | The purpose of this test is to demonstrate the functionality of the board at the requirement range limits. |
 Tester Information        |    |
 Name of Tester            |    |
@@ -162,10 +162,10 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-2 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to -40C. | UART LEDs blink while in chamber  |  |  |
-3 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to 85C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-4 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to 85C. | UART LEDs blink while in chamber  |  |  |
+1 | Setup LGR for transmit operation. Place LGR in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+2 | Setup SysCon for operation. Place SysCon in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C.| UART LEDs blink while in chamber  |  |  |
+3 | Setup LGR for transmit operation.  Set oven temperature to 80C. Place LGR board in oven.| Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
+4 | Setup SysCon for operation. Set oven temperatrue to 80C. Place SysCon board in oven.| UART LEDs blink while in chamber  |  |  |
 
 #### Vacuum Test
 
