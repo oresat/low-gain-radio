@@ -3853,13 +3853,13 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="VALUE" x="46.6" y="83" size="0.8" layer="27" font="vector" ratio="15"/>
 <attribute name="NAME" x="47.8" y="84.6" size="0.3" layer="33" ratio="15" align="center"/>
 </element>
-<element name="U4" library="psas_c3_team05" package="SOT23-5" value="AAT3215" x="60" y="57.1" smashed="yes">
+<element name="U4" library="psas_c3_team05" package="SOT23-5" value="LP5907MFX-3.3" x="60" y="57.1" smashed="yes">
 <attribute name="MFN" value="Texas Instruments" x="60" y="57.1" size="1.778" layer="27" display="off"/>
 <attribute name="MFN-PN" value="LP5907MFX-3.3" x="60" y="57.1" size="1.778" layer="27" display="off"/>
 <attribute name="DIST" value="Digi-Key" x="60" y="57.1" size="1.778" layer="27" display="off"/>
 <attribute name="DPN" value="296-38557-1-ND" x="60" y="57.1" size="1.778" layer="27" display="off"/>
 </element>
-<element name="U6" library="psas_c3_team05" package="SOT23-5" value="AAT3215" x="84.8" y="79.1" smashed="yes" rot="R180">
+<element name="U6" library="psas_c3_team05" package="SOT23-5" value="LP5907MFX-3.3" x="84.8" y="79.1" smashed="yes" rot="R180">
 <attribute name="MFN" value="Texas Instruments" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="MFN-PN" value="LP5907MFX-3.3" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="DIST" value="Digi-Key" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
