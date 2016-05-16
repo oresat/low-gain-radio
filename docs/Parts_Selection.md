@@ -71,14 +71,18 @@ Vendor Part No.: 863-1649-1-ND
 Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for this project (such as the PA). Small footprint, it has a low insertion loss and works within the desired frequency range.   
 Rad-Hard Analogue: N/A  
 
-#### U4 SkyWorks AAT3215:
-Part: MCU LDO  
-Vendor: SkyWorks   
-Vendor Part No.: AAT3215    
+#### U4 Texas Instruments LP5907MFX-3.3:  
+Part: LNA LDO  
+Vendor: Digi-Key    
+Vendor Part No.: 296-38557-1-ND      
+[Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
+Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
+Rad-Hard Analogue: N/A 
+**_Alternatives_**  
+Part No.: AAT3215 
+Manufacturer: Skyworks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Low noise rejection. Cheap. Works for other parts as well. Has a good drop out voltage around 140mV at 150mA.    
-Rad-Hard Analogue:  
-**_Alternative_**  
+Reasons: This was the original choice, but manufacturing stopped during the design period, meaning we could only purchase parts by the 3,000 instead of 1 at a time. 
 Part No.: TPS789xx      
 Manufacturer: Texas Instruments  
 [Datasheet](http://www.mouser.com/ds/2/405/tps789-558350.pdf)  
@@ -92,13 +96,18 @@ Vendor Part No.: 497-15229-2-ND
 Reasons:  The PA requires a high current draw, much larger than the LNA or MCU so it required its own LDO. This LDO allows for up to 2A output, which is about 500mA above what's required. Also looking for a low drop-out voltage which this has a fairly decent value at 250mV at max.  
 Rad-Hard Analogue: N/A  
 
-#### U6 SkyWorks AAT3215:  
+#### U6 Texas Instruments LP5907MFX-3.3:  
 Part: LNA LDO  
-Vendor: SkyWorks  
-Vendor Part No.: AAT3215    
+Vendor: Digi-Key    
+Vendor Part No.: 296-38557-1-ND      
+[Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
+Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
+Rad-Hard Analogue: N/A
+**_Alternative_**  
+Part No.: AAT3215 
+Manufacturer: Skyworks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
-Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection.   
-Rad-Hard Analogue: N/A  
+Reasons: This was the original choice, but manufacturing stopped during the design period, meaning we could only purchase parts by the 3,000 instead of 1 at a time.  
 
 #### U3 Winbond W25Q80DVSNIG TR:  
 Part: SPI Cache  
@@ -116,7 +125,7 @@ Reasons: 4MB storage. Unfortunately it was vaporware at the time and has less st
 #### Y1 Epson FA-20H:  
 Part: MCU Crystal  
 Vendor: Digi-Key   
-Vendor Part No.: SER4044CT-ND	  
+Vendor Part No.: SER4044CT-ND	  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz for bumping up the integrated transceiver to 48MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
@@ -219,13 +228,6 @@ Vendor Part No.: 490-9668-2-ND
 [Datasheet](http://www.murata.com/~/media/webrenewal/support/library/catalog/products/capacitor/mlcc/c02e.ashx)  
 Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.      
 
-**C38, C41 AVX SQCSVA2R2BAT1A**:       
-Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 250volts 2.2pF    
-Vendor: Digi-Key  
-Vendor Part No.: 478-3492-2-ND    
-[Datasheet](http://www.mouser.com/ds/2/40/sqcs-sqcf-776804.pdf)  
-Reasons: Used in the AAT3215s LDOs on the Vbias lines in accordance to the datasheet.  
-
 **C11, C12 Murata GQM1885C1H8R2CB01D**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 25 volts 8.2pF ULTRA LOW ESR  
 Vendor: Mouser  
@@ -233,12 +235,12 @@ Vendor Part No.: 81-GQM1885C1H8R2CB01
 [Datasheet](http://datasheets.avx.com/AutoU_Series.pdf)  
 Reasons: Used in part of the filter for both the Tx and Rx lines in effort to filter the signal to 436.5 MHz.  
 
-**C13, C15, C17, C19, C22, C52, C53 Murata GRM188R60J106ME47J**:       
+**C13, C15, C17, C19, C22, C38, C41, C52, C53 Murata GRM188R60J106ME47J**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 10uF 6.3Volts 20%  
 Vendor: Digi-Key  
 Vendor Part No.: 490-6405-2-ND  
 [Datasheet](http://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM188R60J106ME47-01.pdf)  
-Reasons: C13 is a bypass capacitor on the PA LDO in accordance to the datasheet. C15, C17, C19, and C22 are bypass capacitors on the PA voltage lines also in accordance to the datasheet. C53 is something Andrew did.      
+Reasons: C13 is a bypass capacitor on the PA LDO in accordance to the datasheet. C15, C17, C19, and C22 are bypass capacitors on the PA voltage lines also in accordance to the datasheet. Used as bypass caps on the LDO's vbias lines for the kw0x and LNA in accordance to the datasheet. C53 is something Andrew did.      
 
 **C14, C26, C27, C28, C30, C31, C32, C33, C42, C45, C47, C48, C49 AVX 06035C104JAT2A**:       
 Part: Multilayer Ceramic Capacitors MLCC - SMD/SMT 50volts 0.1uF 5% X7R  
