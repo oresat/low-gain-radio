@@ -53,7 +53,7 @@ Vendor Part No.: 1465-1261-1-ND
 [Datasheet](http://cdn.macom.com/datasheets/MAAL-010704.pdf)  
 Reasons: Provides >0.7dB Noise level at average space temperatures (~-40C) at 436.5MHz. At different temperatures, we see an increase of about .1~.2dBs at the same frequency, so it's not perfect though. 
 Rad-Hard Analogue: N/A  
-**_Alternatives_**   
+**_Alternatives_**     
 Part No.: HMC616LP3    
 Manufacturer: Hittite  
 [Datasheet](http://www.radiant.su/other/hittite/pdf/hmc616lp3.pdf)  
@@ -78,7 +78,7 @@ Vendor Part No.: 296-38557-1-ND
 [Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
 Rad-Hard Analogue: N/A 
-**_Alternatives_**  
+**_Alternatives_**    
 Part No.: AAT3215 
 Manufacturer: Skyworks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
@@ -103,7 +103,7 @@ Vendor Part No.: 296-38557-1-ND
 [Datasheet](http://www.ti.com/lit/ds/symlink/lp5907.pdf)  
 Reasons: Same LDO as MCU so easy to access and cheaper to buy. Again, it also has low noise rejection. Also has internal pull-down resistors and the same footprint as the AAT3215 which is what we originally designed the board to use.    
 Rad-Hard Analogue: N/A
-**_Alternative_**  
+**_Alternatives_**    
 Part No.: AAT3215 
 Manufacturer: Skyworks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/AAT3215_202408B.pdf)  
