@@ -1,4 +1,3 @@
-
 /*
 	Example code of lighting LEDs on c3 board
 
@@ -45,43 +44,66 @@ void initialize_spi(void){
 	SIM.SCGC5 &= SCGC_PORTAE_CLK_OFF;
 }
 
+/* PLL External Reference Divider values in MCG.C5 */
+#define PRDIV0_0 0x0
+#define PRDIV0_16 0xF
+
+/* PLL Clock Enable bit in MCG.C5 */
+#define PLLCLKEN (1 << 6)
+
+/* PLL Select in MCG.C6 */
+#define PLLS (1 << 6)
+
+/* PLL VCO Divide Factor */
+#define VDIV0_24 0x0
+
+/* PLL Lock Bit in MCG.S */
+#define LOCK0 (1 << 6)
+
+/* Frequency range select encoding in MCG.C2 */
+#define RANGE0_HF (1 << 4)
+#define RANGE0_VHF (1 << 5)
+
+/* External Reference Select in MCG.C2 */
+#define EREFS0 (1 << 2)
+
+/* External Referance Enable bit in OSC0.CR */
+#define ERCLKEN (1 << 7)
 
 void initialize_clock(void){
 	/* simple clock configuration that involves initializing the SPI so we can get the external clock reference from the transceiver */
 
 	/* set PLL external reference divider (PRDIV0) to 16, this will give us 2 MHz */
-	MCG.C5 = 0xF;
+	MCG.C5 = PRDIV0_16;
 
 	/* enable MCGPLLCLK if system is in Normal Stop mode */
-	MCG.C5 |= 0x40;
+	MCG.C5 |= PLLCLKEN;
 
 	/* select PLL instead of FLL, multiply signal by 24 to get 48MHz */
-	MCG.C6 |= 0x40;
+	MCG.C6 |= (1 << 6) | VDIV0_24;
 
 	/* wait for PLL lock */
-	while(!(MCG.S & (1 << 6)));
+	while(!(MCG.S & LOCK0));
 
 	/* set frequency range select to high frequency range for oscillator
 	   and select external reference clock
 	*/
-	MCG.C2 |= 0x14;
+	MCG.C2 |= RANGE0_HF | EREFS0;
 
 	/* enable external oscillator */
-	OSC0.CR = 0x80;
+	OSC0.CR = ERCLKEN;
 
 	/* now enable clock for SPI modules, AGAIN! */
-	SIM.SCGC4 |= 0xC00000;
+	SIM.SCGC4 |= SCGC_SPI1_CLK | SCGC_SPI0_CLK;
 
 	/* enable clock for all ports */
-	SIM.SCGC5 |= 0x3E00;
+	SIM.SCGC5 |= SCGC_PORTAE_CLK;
 
 	/* enable clock for TPM, RTC modules */
-	SIM.SCGC6 |= 0x27000000;
+	//SIM.SCGC6 |= 0x27000000;
 
 	return;
 }
-#endif
-
 
 /* green LED */
 #define PTB1 (1 << 1)
@@ -159,6 +181,7 @@ void initialize_uart0(void){
 	};
 	uart_init(&UART0, &myUART);
 }
+#endif
 
 #if 0
 void initialize_tpm(void){
@@ -200,7 +223,7 @@ int main(void) {
 	uint8_t alive = 'G';
 	
 	while(1) {
-			uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 
           	trans_write_register(transceiver.RegFifo, &txbyte, 1);
 
