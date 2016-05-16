@@ -35,7 +35,7 @@ Part: Microcontroller
 Vendor: Digi-Key  
 Vendor Part No.: MKW01Z128CHN-ND  
 [Datasheet](http://cache.nxp.com/files/microcontrollers/doc/data_sheet/MKW01Z128.pdf)  
-Reasons: Requirement for the project.    
+Reasons: Requirement for the project. Chosen since it has an integrated transceiver, needed peripherals and meets JDEC standards.     
 Rad-Hard Analogue: N/A  
   
 #### U2 SkyWorks SKY65116: 
@@ -105,7 +105,7 @@ Part: SPI Cache
 Vendor: Digi-Key  
 Vendor Part No.: W25Q80DVSNIG CT-ND    
 [Datasheet](http://www.winbond.com/resource-files/w25q80dv_revf_02112015.pdf)  
-Reasons: 8MB worth of storage. Easy hardware implementation.   
+Reasons: 8MB worth of storage for a boot loader. Easy hardware implementation.   
 Rad-Hard Analogue: N/A  
 **_Alternative_**       
 Part No.: LE25FU406BMB     
@@ -118,7 +118,7 @@ Part: MCU Crystal
 Vendor: Digi-Key   
 Vendor Part No.: SER4044CT-ND	  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
-Reasons: Fits the frequency we wanted at 32MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
+Reasons: Fits the frequency we wanted at 32MHz for bumping up the integrated transceiver to 48MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
 
 #### CM1 CNC Tech 3220-10-0100-00:  
@@ -126,7 +126,7 @@ Part: JTAG Connector
 Vendor: Digi-Key  
 Vendor Part No.: 1175-1627-ND    
 [Datasheet](http://cnctech.us/pdfs/3220-XX-0100-00.pdf)  
-Reasons: Generic JTAG connector used from practicum.
+Reasons: Supports serial wire debug interface which is the only one supported by our MCU.
 
 #### CF1 Harwin Inc. M50-3202045:     
 Part: 40-Pinout Header     
