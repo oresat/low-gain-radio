@@ -6,7 +6,7 @@
  * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-skyworks-sky13405_490f)  
  * [MCU LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u4-texas-instruments-lp5907mfx-33)  
  * [PA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u7-st-microelectronics-dm00102135)
- * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u6-texas-instruments-LP5907MFX-33)  
+ * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u6-texas-instruments-lp5907mfx-33)  
  * [SPI Cache](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u3-winbond-w25q80dvsnig-tr)  
  * [Crystal](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#y1-epson-fa-20h)  
  * [JTAG Connector](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#cm1-cnc-tech-3220-10-0100-00)
