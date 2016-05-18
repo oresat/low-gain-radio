@@ -113,9 +113,9 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.0V at 3.0V supply |
 2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.3V at 5.0V supply. Thsi is because of the wrong LDO being used, but it's not an issue for this rev. |
 4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
 5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
 6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
