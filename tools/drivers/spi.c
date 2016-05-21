@@ -50,7 +50,8 @@ static const struct pin_assign MOSI [] = {
 #define ENABLE_IN_MASTER (5 << 4)
 #define SS_OE (1 << 1)
 #define MASTER_MODE_FAULT_EN (1 << 4)
-
+#define PTD0 (1 << 0)
+#define alt1 (1 << 8)
 
 void initialize_trans_spi(volatile struct spi * SPI){
 	/* configuration for SPI0, see Chapter 8.1 */
@@ -78,11 +79,13 @@ void initialize_trans_spi(volatile struct spi * SPI){
 
 	/* Select desired pin functionality */
 	set_pin_alt(SCK,  SPI, &config.SCK);
+
 	/* We need to control the slave select manually with PTD0 set as GPIO to 
 	perform SPI operations longer than one byte*/
-	PORTD.PCR[0] |= 0x100; 	//Enable PTD0 as a GPIO
-	GPIOD.PSOR = 0x1;		//Set the output signal to high
-	GPIOD.PDDR |= 0x1;		//Set PTD0 data direction to output
+	//PORTD.PCR[0] |= alt1;		//Enable PTD0 as a GPIO
+	//GPIOD.PDDR |= PTD0;		//Set PTD0 data direction to output
+	//GPIOD.PTOR = PTD0;		//Set the output signal to high
+	set_pin_alt(PCS0, SPI, &config.SS);
 	set_pin_alt(MOSI, SPI, &config.MOSI);
 	set_pin_alt(MISO, SPI, &config.MISO);
 
@@ -172,6 +175,5 @@ void spi_transaction_8(volatile struct spi * SPI, size_t len, uint8_t * send, ui
 		/* grab data into buffer.... The first byte will be garbage */
 		recv[i] = SPI->DL;
 	}
-	
 	GPIOD.PSOR = 0x1;	//Assert high to start the transaction
 }

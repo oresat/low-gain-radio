@@ -24,6 +24,9 @@ rx: crt0.o rx.o port.o spi.o uart.o transceiver.o
 tx: crt0.o tx.o port.o spi.o uart.o transceiver.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
+lgr: crt0.o lgr.o port.o spi.o uart.o transceiver.o
+	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
 %.s: %.c
 	$(CC) $(CPPFLAGS) $(CFLAGS) -S $^ -o $@
 %.o: %.s
@@ -39,6 +42,9 @@ write_tx: tx.hex
 	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
 write_rx: rx.hex
+	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
+
+write_lgr: lgr.hex
 	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
 gdb: c3

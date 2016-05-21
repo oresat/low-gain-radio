@@ -244,3 +244,50 @@ void configure_transceiver_rx(void){
 	OpModeCfg = Mode_RX;
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 }
+
+void configure_transceiver_lgr_tx(void){
+	/* This function configures the transceiver for transmitting */
+
+	/* Change to frequency synthesizer mode */
+	uint8_t OpModeCfg = Mode_FS;
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+
+	/* Set the carrier frequency to 436.5MHz assuming transceiver PLL at 32MHz 
+		See Table 7-5 in the reference manual
+	*/
+	
+	/* RegFrfMsb */
+	static uint8_t FrfCfg[3] = {0x6D, 0x20, 0x00};
+
+	/* WRITE configuration to appropriate registers */
+	trans_write_register(transceiver.RegFrfMsb, FrfCfg, 3);
+
+	/* turn modulation to frequency shift keying */
+	uint8_t RegDataModulCfg = DataModul_FSK;
+	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
+
+	/* frequency deviation settings */
+	static uint8_t RegFDevCfg[2] = {0x00, 0x29};
+	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
+
+	/* adjust PLL bandwidth to 75kHz */
+	uint8_t RegTestPLLCfg = PLLBandwidth_75kHz;
+	trans_write_register(transceiver.RegTestPLL, &RegTestPLLCfg, 1);
+
+	/* bitrate settings = 2.4 kbps */
+	static uint8_t RegBitrateCfg[2] = {0x34, 0x15};
+	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
+
+	/* configure PA output power */
+	/* 0x9F = ~13dBm, 0x92 = ~0dBm, 0x80 = ~-18dBm */
+	uint8_t RegPAOutputCfg = 0x40;
+	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+
+        /* 2 bytes in payload */
+	uint8_t RegPayloadLengthCfg = 0x2;
+	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
+
+	/* Set transceiver to transmit mode by writing to op mode register */
+	OpModeCfg = Mode_TX;
+	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+}

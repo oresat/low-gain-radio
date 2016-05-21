@@ -105,5 +105,6 @@ void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void configure_transceiver_tx(void);
 void configure_transceiver_rx(void);
+void configure_transceiver_lgr_tx(void);
 
 #endif
