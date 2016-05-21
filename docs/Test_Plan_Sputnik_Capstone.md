@@ -16,7 +16,6 @@ written by Shan Quinney, William Harrington, and James Heath
     * [Test Equipment](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#test-equipment)
     * [Test setup and calibration](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#test-setup-and-calibration)
 * [Component Tests](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#component-tests)
-     * [Crystal Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#crystal-test)
      * [Supply Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#supply-range-test)
      * [Temperature Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#temperature-range-test)
      * [Vacuum Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#vacuum-test)
@@ -96,37 +95,16 @@ The equipment needed for the tests is as follows:
 
 The Component Tests will test components that are imperative to the core operation of intergrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
 
-#### Crystal Test
-
-The purpose of this test is to see if the crystal for each microcontroller (KW0x, ATMega128) is receiving power and oscillating at the proper frequency.
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Crystal Test          	 |
-Test ID#                  | Crystal_1.00                 |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to check the frequency and operation of the crystal oscillator. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Use Oscilloscope to check crystal frequency through the test point for KW0x | Desired frequency is shown on oscilloscope  |  |  |
-2 | Use Oscilloscope to check crystal frequency through the test point for ATMega128 | Desired frequency is shown on oscilloscope  |  |  |
-
 #### Supply Range Test
 
-The Supply Range Test is for testing the voltage range for operation of the LGR and SysCon. This is needed since both modules will be receiving a range of voltage from the power management system (another module in the CubeSat). This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates.
+The Supply Range Test is for testing the voltage range operation of the LGR and SysCon. This is needed since both modules will be receiving a range of voltages from 3-5V from the power management system (another module in the CubeSat). This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates. This test also doubles as a test for the crystal, since by checking the crystal we can ensure that the MCU on either board is on.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Supply Range Test            |
 Test ID#                  | Supply_1.00                  |
 Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards at the required supply range limits. |
+Description               | The purpose of this test is to demonstrate the functionality of the boards and their crystals at the required supply range limits. |
 Tester Information        |    |
 Name of Tester            |    |
 Time/Date                 |    |
@@ -135,14 +113,14 @@ Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3.3V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.0V at 3.0V supply |
 2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.3V at 5.0V supply. Thsi is because of the wrong LDO being used, but it's not an issue for this rev. |
 4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-5 | Set voltage supply to 3.3V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
+5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
 6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
 7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  |  |  |
-8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
+8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |  
 
 #### Temperature Range Test
 
@@ -191,17 +169,16 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 
 ### System Tests
 
-#### Radio Communication Test
+#### Radio Test
 
-The radio is fundamental to the functionality of the Sputnik project. It provides the communication channel that will link the satellite to the ground station. Eventually, the radio will need to receive and transmit data over a distance of approximately 400km; however, for this project, a transmission distance of 10km is required (See Functionality Test).
-The purpose of this test is to confirm that the radio is capable of transmission and reception, as well as switching between the Tx and Rx lines. This test will be performed from one radio board to another and the testers will verify the distance covered during the test by collection GPS location data. The test locations will be predetermined based on both convenience and also where the least restricted signal propagation path will occur.
+The purpose of this test is to confirm that the radio is capable of transmission and reception, as well as switching between the Tx and Rx lines. This test will be performed by sending a carrier signal from one board to the other and lighting an LED when receiving the signal. The test locations will be predetermined based on both convenience and also where the least restricted signal propagation path will occur.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Radio Communication          |
 Test ID#                  | RadCom_1.00                  |
 Test Writer               | Shan Quinney/James Heath     | 
-Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving data at this distance. |
+Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving signals. |
 Tester Information        |    |
 Name of Tester            |    |
 Time/Date                 |    |
@@ -210,8 +187,8 @@ Setup                     | Have boards at some short distance apart. Each locat
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Radio at location A is made to transmit data. | Team member at location B confirms receiving data transmitted from location A.  |  |  |
-2 | Radio at location B sends confirmation signal. | Team member at location A confirms receiving data from radio at location B.  |  |  |
+1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by blinking LED.  |  |  |
+2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by blinking LED.  |  |  |
 
 **Overall Test Result:**
 

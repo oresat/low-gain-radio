@@ -3853,17 +3853,17 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="VALUE" x="46.6" y="83" size="0.8" layer="27" font="vector" ratio="15"/>
 <attribute name="NAME" x="47.8" y="84.6" size="0.3" layer="33" ratio="15" align="center"/>
 </element>
-<element name="U4" library="psas_c3_team05" package="SOT23-5" value="AAT3215" x="60" y="57.1" smashed="yes">
-<attribute name="MFN" value="Skyworks" x="60" y="57.1" size="1.778" layer="27" display="off"/>
-<attribute name="MFN-PN" value="AAT3215" x="60" y="57.1" size="1.778" layer="27" display="off"/>
-<attribute name="DIST" value="Skyworks" x="60" y="57.1" size="1.778" layer="27" display="off"/>
-<attribute name="DPN" value="AAT3215" x="60" y="57.1" size="1.778" layer="27" display="off"/>
+<element name="U4" library="psas_c3_team05" package="SOT23-5" value="LP5907MFX-3.3" x="60" y="57.1" smashed="yes">
+<attribute name="MFN" value="Texas Instruments" x="60" y="57.1" size="1.778" layer="27" display="off"/>
+<attribute name="MFN-PN" value="LP5907MFX-3.3" x="60" y="57.1" size="1.778" layer="27" display="off"/>
+<attribute name="DIST" value="Digi-Key" x="60" y="57.1" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="296-38557-1-ND" x="60" y="57.1" size="1.778" layer="27" display="off"/>
 </element>
-<element name="U6" library="psas_c3_team05" package="SOT23-5" value="AAT3215" x="84.8" y="79.1" smashed="yes" rot="R180">
-<attribute name="MFN" value="Skyworks" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MFN-PN" value="AAT3215" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DIST" value="Skyworks" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DPN" value="AAT3215" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
+<element name="U6" library="psas_c3_team05" package="SOT23-5" value="LP5907MFX-3.3" x="84.8" y="79.1" smashed="yes" rot="R180">
+<attribute name="MFN" value="Texas Instruments" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFN-PN" value="LP5907MFX-3.3" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DIST" value="Digi-Key" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="296-38557-1-ND" x="84.8" y="79.1" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="83.205" y="77.795" size="0.635" layer="25" font="vector" ratio="20" rot="R180"/>
 <attribute name="VALUE" x="86.705" y="82.475" size="0.8" layer="27" font="vector" ratio="20" rot="R180"/>
 </element>
@@ -4122,11 +4122,11 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="VALUE" x="56" y="57.8" size="0.8" layer="27" font="vector" ratio="15" rot="R270"/>
 <attribute name="NAME" x="57.6" y="56.6" size="0.3" layer="33" ratio="15" rot="R270" align="center"/>
 </element>
-<element name="C41" library="rcl_custom" package=".0603-B-NOSILK" value="2.2uF" x="62.5" y="56.5" smashed="yes" rot="R270">
+<element name="C41" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="62.5" y="56.5" smashed="yes" rot="R270">
 <attribute name="DIST" value="Digi-Key" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="DPN" value="478-3492-2-ND" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MFG" value="AVX" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
-<attribute name="MFG_PN" value="SQCSVA2R2BAT1A" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG" value="Murata" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="62.5" y="56.5" size="1.778" layer="27" rot="R270" display="off"/>
 <attribute name="NAME" x="63.4" y="56.8" size="0.635" layer="25" font="vector" ratio="20" rot="R270"/>
 <attribute name="VALUE" x="60.9" y="57.7" size="0.8" layer="27" font="vector" ratio="15" rot="R270"/>
 <attribute name="NAME" x="62.5" y="56.5" size="0.3" layer="33" ratio="15" rot="R270" align="center"/>
@@ -4149,11 +4149,11 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="VALUE" x="88.9" y="78.4" size="0.8" layer="27" font="vector" ratio="15" rot="R90"/>
 <attribute name="NAME" x="87.3" y="79.6" size="0.3" layer="33" ratio="15" rot="R90" align="center"/>
 </element>
-<element name="C38" library="rcl_custom" package=".0603-B-NOSILK" value="2.2uF" x="87.5" y="82.5" smashed="yes" rot="R180">
+<element name="C38" library="rcl_custom" package=".0603-B-NOSILK" value="10uF" x="87.5" y="82.5" smashed="yes" rot="R180">
 <attribute name="DIST" value="Digi-Key" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="DPN" value="478-3492-2-ND" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MFG" value="AVX" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="MFG_PN" value="SQCSVA2R2BAT1A" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DPN" value="490-6405-2-ND" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="87.5" y="82.5" size="1.778" layer="27" rot="R180" display="off"/>
 <attribute name="NAME" x="86.3" y="81.2" size="0.635" layer="25" font="vector" ratio="20"/>
 <attribute name="VALUE" x="88.7" y="84.1" size="0.8" layer="27" font="vector" ratio="15" rot="R180"/>
 <attribute name="NAME" x="87.5" y="82.5" size="0.3" layer="33" ratio="15" rot="R180" align="center"/>
@@ -4265,6 +4265,10 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="NAME" x="84.6" y="50.7" size="0.8" layer="25" font="vector" ratio="15" rot="R180"/>
 <attribute name="VALUE" x="84.3" y="53.5" size="0.8" layer="27" font="vector" ratio="15" rot="R180"/>
 <attribute name="NAME" x="82.8" y="51.7" size="0.4" layer="33" ratio="15" rot="R180" align="center"/>
+<attribute name="DPN" value="490-6405-2-ND" x="82.8" y="51.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J" x="82.8" y="51.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="DIST" value="Digi-Key" x="82.8" y="51.7" size="1.778" layer="27" rot="R180" display="off"/>
+<attribute name="MFG" value="Murata" x="82.8" y="51.7" size="1.778" layer="27" rot="R180" display="off"/>
 </element>
 <element name="C54" library="rcl_custom" package=".0402-B-NOSILK" value="10nF" x="65.2" y="64.8" smashed="yes">
 <attribute name="MFG_PN" value="GRM155R71H102KA01D" x="65.2" y="64.8" size="1.778" layer="27" display="off"/>
