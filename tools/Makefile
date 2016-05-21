@@ -50,6 +50,9 @@ write_lgr: lgr.hex
 gdb: c3
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
 
+lgr_gdb: lgr
+	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
+
 clean:
 	$(RM) c3 *.o *.hex *.s ./drivers/*.o
 
