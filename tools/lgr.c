@@ -184,7 +184,7 @@ int main(void) {
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver_lgr_tx();
 	GPIOB.PTOR = PTB1;
-	//GPIOB.PTOR = PTB0;
+	GPIOB.PTOR = PTB0;
 
 	uint8_t alive = 'G';
 	uint8_t txbyte = 0x55;

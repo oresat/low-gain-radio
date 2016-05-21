@@ -82,10 +82,10 @@ void initialize_trans_spi(volatile struct spi * SPI){
 
 	/* We need to control the slave select manually with PTD0 set as GPIO to 
 	perform SPI operations longer than one byte*/
-	//PORTD.PCR[0] |= alt1;		//Enable PTD0 as a GPIO
-	//GPIOD.PDDR |= PTD0;		//Set PTD0 data direction to output
-	//GPIOD.PTOR = PTD0;		//Set the output signal to high
-	set_pin_alt(PCS0, SPI, &config.SS);
+	PORTD.PCR[0] |= alt1;		//Enable PTD0 as a GPIO
+	GPIOD.PDDR |= PTD0;		//Set PTD0 data direction to output
+	GPIOD.PTOR = PTD0;		//Set the output signal to high
+	//set_pin_alt(PCS0, SPI, &config.SS);
 	set_pin_alt(MOSI, SPI, &config.MOSI);
 	set_pin_alt(MISO, SPI, &config.MISO);
 

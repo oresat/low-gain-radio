@@ -110,10 +110,20 @@ void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	write_data[0] = address;
 	memset(write_data + 1, 0, length);
 
+	//for (int i = 1; i < length + 1; i++){
+	//	write_data[i] = 0x0;
+	//}
+
 	spi_transaction(&SPI0, length + 1, write_data, recv);
 
 	/* Copy the received data back into the user's buffer */
 	memcpy(buffer, recv + 1, length);
+
+	//for (int i = 0; i < length + 1; i++){
+	//	if(i > 0){
+	//		buffer[i-1] = recv[i];
+	//	}
+	//}
 }
 
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
@@ -131,6 +141,11 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 
 	/* copy data to remaining elements in array */
 	memcpy(addr_buf + 1, buffer, length);
+
+	/* copy data to remaining elements in array */
+	//for (int i = 0; i < length; i++){
+	//	addr_buf[i + 1] = buffer[i];
+	//}
 
 	/* dummy array for receive part of transaction */ 
 	uint8_t recv[length + 1];
