@@ -110,20 +110,11 @@ void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	write_data[0] = address;
 	memset(write_data + 1, 0, length);
 
-	//for (int i = 1; i < length + 1; i++){
-	//	write_data[i] = 0x0;
-	//}
-
 	spi_transaction(&SPI0, length + 1, write_data, recv);
 
 	/* Copy the received data back into the user's buffer */
 	memcpy(buffer, recv + 1, length);
 
-	//for (int i = 0; i < length + 1; i++){
-	//	if(i > 0){
-	//		buffer[i-1] = recv[i];
-	//	}
-	//}
 }
 
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
@@ -202,6 +193,5 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
 
 	/* Set transceiver to transmit mode by writing to op mode register */
-	OpModeCfg = Mode_TX;
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 }
