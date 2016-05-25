@@ -182,7 +182,7 @@ int main(void) {
 	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver_lgr_tx();
+	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
 	GPIOB.PTOR = PTB1;
 	GPIOB.PTOR = PTB0;
 

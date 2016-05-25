@@ -100,11 +100,19 @@ struct TRANSCEIVER {
 /* allow for external access to struct */
 extern struct TRANSCEIVER transceiver;
 
+#define Mode_RX (1 << 4)
+#define Mode_TX (3 << 2)
+
+#define PA0 (1 << 7)
+#define PA1 (1 << 6)
+#define PA2 (1 << 5)
+
+#define PAOutputCfg(pa, power) (((pa) & (PA0 | PA1 | PA2)) | ((power) & 0x1F))
+
+
 void initialize_trans_spi(volatile struct spi * SPI);
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
 void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length);
-void configure_transceiver_tx(void);
-void configure_transceiver_rx(void);
-void configure_transceiver_lgr_tx(void);
+void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg);
 
 #endif

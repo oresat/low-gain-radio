@@ -213,7 +213,7 @@ int main(void) {
    	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver_tx();
+	configure_transceiver(Mode_TX, PAOutputCfg(PA0, 0x1F));
 
 	uint8_t txbyte = 0x55;
 	//static uint8_t txbyte[3] = {0x55, 0xD, 0xA};
