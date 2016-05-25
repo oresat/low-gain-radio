@@ -23,7 +23,6 @@
 #define CLK_DIVIDE_0 0x0
 #define CLK_DIVIDE_16 (1 << 2)
 
-#if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
 	SIM.SCGC4 |= SCGC_SPI1_CLK | SCGC_SPI0_CLK;
@@ -144,29 +143,6 @@ void initialize_gpio(void){
 	return;
 }
 
-void initialize_uart(void){
-	/* UART configuration */
-	struct uart_config myUART = {
-		/* pin for transmit = PTC4 */
-		//.TX = {.port=&PORTC, .pin=4,},
-
-		/* pin for transmit = PTD5 */
-		.TX = {.port=&PORTD, .pin=5,},
-
-		/* pin for receive = PTC3 */
-		//.RX = {.port=&PORTC, .pin=3,},
-
-		/* pin for receive = PTD4 */
-		.RX = {.port=&PORTD, .pin=4,},
-
-		/* baud rate */
-		.baud = 115200,
-	};
-	//uart_init(&UART1, &myUART);
-	uart_init(&UART2, &myUART);
-}
-
-
 void initialize_uart0(void){
 	/* UART0 configuration */
 	struct uart_config myUART = {
@@ -181,21 +157,6 @@ void initialize_uart0(void){
 	};
 	uart_init(&UART0, &myUART);
 }
-#endif
-
-#if 0
-void initialize_tpm(void){
-  	/* procedure for initializing Timer/PWM module */
-
-	/* Clock mode select for each module, make TPM counter increment on every TPM counter clock */
-  	TPM0.SC = 0x8;
-	TPM1.SC = 0x8;
-	TPM2.SC = 0x8;
-
-	/* more needs to be done here, maybe? */
-  	return;
-}
-#endif
 
 int main(void) {
 
@@ -206,47 +167,25 @@ int main(void) {
 	initialize_spi();
 	initialize_clock();
 	initialize_gpio();
-
-	//initialize_uart();
 	initialize_uart0();
-	//initialize_tpm();
-   	//asm volatile ("cpsie   i");
 
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_TX, PAOutputCfg(PA0, 0x1F));
 
 	uint8_t txbyte = 0x55;
-	//static uint8_t txbyte[3] = {0x55, 0xD, 0xA};
-
-	uint8_t rxbyte = 0x0;
-
 	uint8_t alive = 'G';
 	
 	while(1) {
 		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
-
-          	trans_write_register(transceiver.RegFifo, &txbyte, 1);
+		
+		trans_write_register(transceiver.RegFifo, &txbyte, 1);
 
 		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-          	uart_write(&UART0, 1, &txbyte);
-          	//uart_read(&UART0, 1, &rxbyte);
-
-          	/* test case 2: UART1 module, passed only when RDRF was not polled */
-		//uart_write(&UART1, 1, &txbyte);
-          	//uart_read(&UART1, 1, &rxbyte);
-
-		/* test case 3: UART2 module, passed only when RDRF was not polled */
-		//uart_write(&UART2, 1, &txbyte);
-          	//uart_read(&UART2, 1, &rxbyte);
-
+		uart_write(&UART0, 1, &txbyte);
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-	       	/* toggle LED connected to PTB2 */
+		/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = PTB1;
-
-		if(rxbyte == 0x55){
-                	GPIOB.PTOR = PTB17;
-		}
 	}
 	return 0;
 }
