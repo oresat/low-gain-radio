@@ -1,6 +1,7 @@
 c3
 tx
 rx
+lgr
 *.hex
 *.o
 *.s
