@@ -144,9 +144,6 @@ void initialize_gpio(void){
 	GPIOB.PDDR |= PTB1 | PTB0;
 	GPIOC.PDDR |= PTC4 | PTC3 | PTC2 | PTC1;
 
-	/* turn all LEDs of by pulling pins high */
-	//GPIOC.PTOR = PTC4 | PTC3 | PTC2 | PTC1;
-
 	return;
 }
 
@@ -185,15 +182,14 @@ int main(void) {
 	uint8_t txbyte = 0x55;
 
 	while(1) {
-          	uart_write(&UART0, 1, &alive);
+		uart_write(&UART0, 1, &alive);
 
-		/* memcpy is causing crash here */
 		//trans_write_register(transceiver.RegFifo, &alive, 1);
 		//trans_write_register(transceiver.RegFifo, &txbyte, 1);
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-	       	/* toggle LED connected to PTB2 */
+		/* toggle LED connected to PTB2 */
 		GPIOC.PTOR = PTC1;
 	}
 	return 0;

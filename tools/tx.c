@@ -168,9 +168,9 @@ int main(void) {
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_TX, PAOutputCfg(PA0, 0x1F));
 
-	uint8_t txbyte = 0x55;
 	uint8_t alive = 'G';
-	
+	uint8_t txbyte = 0x55;
+
 	while(1) {
 		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 		
