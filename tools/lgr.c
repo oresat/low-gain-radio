@@ -23,7 +23,6 @@
 #define CLK_DIVIDE_0 0x0
 #define CLK_DIVIDE_16 (1 << 2)
 
-#if 1
 void initialize_spi(void){
 	/* enable clock for SPI modules */
 	SIM.SCGC4 |= SCGC_SPI1_CLK | SCGC_SPI0_CLK;
@@ -35,8 +34,7 @@ void initialize_spi(void){
 	initialize_trans_spi(&SPI0);
 
 	/* Send to transceiver to divide clock signal on PTA18 */
-	//uint8_t RegDioMapping2Cfg = CLK_DIVIDE_0;
-        uint8_t RegDioMapping2Cfg = CLK_DIVIDE_16;
+	uint8_t RegDioMapping2Cfg = CLK_DIVIDE_16;
 	trans_write_register(transceiver.RegDioMapping2, &RegDioMapping2Cfg, 1);
 
 	/* disable the clocks we enabled for this as we are going to mess with the clock settings now */
@@ -72,9 +70,6 @@ void initialize_spi(void){
 
 void initialize_clock(void){
 	/* simple clock configuration that involves initializing the SPI so we can get the external clock reference from the transceiver */
-
-	/* set PLL external reference divider (PRDIV0) to 16, this will give us 2 MHz */
-	//MCG.C5 = PRDIV0_16;
 
 	/* enable MCGPLLCLK if system is in Normal Stop mode */
 	MCG.C5 |= PLLCLKEN;
@@ -203,4 +198,3 @@ int main(void) {
 	}
 	return 0;
 }
-#endif
