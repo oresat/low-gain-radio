@@ -3,7 +3,6 @@
 
 	Programmed by William Harrington
 */
-#include "uart.h"
 #include "transceiver.h"
 #include "clksetup.h"
 
@@ -61,26 +60,10 @@ void initialize_gpio(void){
 	return;
 }
 
-void initialize_uart0(void){
-	/* UART0 configuration */
-	struct uart_config myUART = {
-		/* pin for transmit = PTA2 */
-		.TX = {.port=&PORTA, .pin=2,},
-
-		/* pin for receive = PTA1 */
-		.RX = {.port=&PORTA, .pin=1,},
-
-		/* baud rate */
-		.baud = 9600,
-	};
-	uart_init(&UART0, &myUART);
-}
-
 int main(void) {
 	/* call initialization procedures */
 	initialize_clock();
 	initialize_gpio();
-	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
