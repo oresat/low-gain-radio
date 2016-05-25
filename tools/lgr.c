@@ -13,6 +13,9 @@
 /* PA Enable */
 #define PTB1 (1 << 1)
 
+/* RF Reset */
+#define PTE2 (1 << 2)
+
 /* LED5 */
 #define PTC1 (1 << 1)
 
@@ -47,10 +50,14 @@ void initialize_gpio(void){
 	PORTC.PCR[3] |= alt1;
 	PORTC.PCR[4] |= alt1;
 
+	PORTE.PCR[2] |= alt1;
+
 	/* set data direction as output */
 	GPIOB.PDDR |= PTB1 | PTB0;
 	GPIOC.PDDR |= PTC4 | PTC3 | PTC2 | PTC1;
+	GPIOE.PDDR |= PTE2;
 
+	GPIOE.PCOR = PTE2;
 	return;
 }
 
@@ -77,20 +84,19 @@ int main(void) {
 
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
-	GPIOB.PTOR = PTB1;
-	GPIOB.PTOR = PTB0;
+	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high on 
+	 * packet transmit, leading to as soon as the transmitter starting to send
+	 * it resets itself
+	 */
+	uint8_t DIOMapping = 0x80;
+	trans_write_register(transceiver.RegDioMapping1, &DIOMapping, 1);
+//	GPIOB.PTOR = PTB1;
+//	GPIOB.PTOR = PTB0;
 
-	uint8_t alive = 'G';
-	uint8_t txbyte = 0x55;
-
+	uint8_t tx = 0x55;
 	while(1) {
-		uart_write(&UART0, 1, &alive);
-
-		//trans_write_register(transceiver.RegFifo, &alive, 1);
-		//trans_write_register(transceiver.RegFifo, &txbyte, 1);
-
+		trans_write_register(transceiver.RegFifo, &tx, 1);
 		for(uint32_t i = 0; i < 1000000; ++i);
-
 		/* toggle LED connected to PTB2 */
 		GPIOC.PTOR = PTC1;
 	}
