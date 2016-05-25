@@ -35,22 +35,10 @@ lgr: crt0.o lgr.o port.o spi.o uart.o transceiver.o clksetup.o
 %.hex: %
 	$(ARCH)-objcopy -O ihex $^ $@
 
-write: c3.hex
+write_%: %.hex
 	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
-write_tx: tx.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
-
-write_rx: rx.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
-
-write_lgr: lgr.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
-
-gdb: c3
-	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
-
-lgr_gdb: lgr
+gdb_%: %
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
 
 clean:
