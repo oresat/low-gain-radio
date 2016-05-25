@@ -148,12 +148,6 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 #define PLLBandwidth_75kHz 0x0
 
 void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
-	/* This function configures the transceiver for transmitting */
-
-	/* Calibrate RC oscillator, tested and has no impact on RX/TX (Will, 4/30/16) */
-       	//transceiver.RegOsc1 |= RcCalStart;
-	//while (!((transceiver.RegOsc1 >> 1) & RcCalDone)); //this hangs?
-
 	/* Change to frequency synthesizer mode */
 	uint8_t OpModeFS = Mode_FS;
 	trans_write_register(transceiver.RegOpMode, &OpModeFS, 1);
@@ -161,11 +155,7 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* Set the carrier frequency to 436.5MHz assuming transceiver PLL at 32MHz 
 		See Table 7-5 in the reference manual
 	*/
-	
-	/* RegFrfMsb */
 	static uint8_t FrfCfg[3] = {0x6D, 0x20, 0x00};
-
-	/* WRITE configuration to appropriate registers */
 	trans_write_register(transceiver.RegFrfMsb, FrfCfg, 3);
 
 	/* turn modulation to frequency shift keying */
@@ -184,14 +174,15 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	static uint8_t RegBitrateCfg[2] = {0x34, 0x15};
 	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
 
-	/* configure PA output power */
-	/* 0x9F = ~13dBm, 0x92 = ~0dBm, 0x80 = ~-18dBm */
-	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+	if(OpModeCfg == Mode_TX){
+		/* configure PA output power */
+		trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+        }
 
         /* 2 bytes in payload */
 	uint8_t RegPayloadLengthCfg = 0x2;
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
 
-	/* Set transceiver to transmit mode by writing to op mode register */
+	/* Set transceiver mode */
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
 }
