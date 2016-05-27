@@ -66,7 +66,7 @@ int main(void) {
 	initialize_gpio();
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
+	configure_transceiver(Mode_RX, PAOutputCfg(PA1, 0));
 
 	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high on 
 	 * packet transmit, leading to as soon as the transmitter starting to send
@@ -75,18 +75,44 @@ int main(void) {
 	uint8_t DIOMapping = 0x80;
 	trans_write_register(transceiver.RegDioMapping1, &DIOMapping, 1);
 
-	/* turn on LNA and PA */
-	GPIOB.PTOR = PTB1;
-	GPIOB.PTOR = PTB0;
+
+	/* check transceiver mode */
+	uint8_t trans_mode;
+	trans_read_register(transceiver.RegOpMode, &trans_mode, 1);
+
+	if(trans_mode == Mode_TX){
+		/* enable PA */
+		GPIOB.PTOR = PTB1;
+        }
+	if(trans_mode == Mode_RX){
+		/* Enable LNA */
+		GPIOB.PTOR = PTB0;
+        }
 
 	uint8_t tx = 0x55;
+	uint8_t rx;
+
 	while(1) {
-		trans_write_register(transceiver.RegFifo, &tx, 1);
+
+		/* transmit byte if in TX mode */
+		if(trans_mode == Mode_TX){
+			trans_write_register(transceiver.RegFifo, &tx, 1);
+			GPIOC.PTOR = PTC1;
+                }
+
+		/* check fifo for received bytes in RX mode */
+		if(trans_mode == Mode_RX){
+			trans_read_register(transceiver.RegFifo, &rx, 1);
+			GPIOC.PTOR = PTC2;
+
+			/* if we received 0x55 toggle LED */
+			if(rx == 0x55){
+				GPIOC.PTOR = PTC3;
+			}
+                }
 
 		for(uint32_t i = 0; i < 1000000; ++i);
 
-		/* toggle LED connected to PTB2 */
-		GPIOC.PTOR = PTC1;
 	}
 	return 0;
 }
