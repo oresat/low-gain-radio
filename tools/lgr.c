@@ -5,6 +5,7 @@
 */
 #include "transceiver.h"
 #include "clksetup.h"
+#include "uart.h"
 
 /* LNA Enable */
 #define PTB0 (1 << 0)
@@ -60,10 +61,26 @@ void initialize_gpio(void){
 	return;
 }
 
+void initialize_uart0(void){
+	/* UART0 configuration */
+	struct uart_config myUART = {
+		/* pin for transmit = PTA2 */
+		.TX = {.port=&PORTA, .pin=2,},
+
+		/* pin for receive = PTA1 */
+		.RX = {.port=&PORTA, .pin=1,},
+
+		/* baud rate */
+		.baud = 9600,
+	};
+	uart_init(&UART0, &myUART);
+}
+
 int main(void) {
 	/* call initialization procedures */
 	initialize_clock();
 	initialize_gpio();
+	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_RX, PAOutputCfg(PA1, 0));
@@ -75,7 +92,6 @@ int main(void) {
 	uint8_t DIOMapping = 0x80;
 	trans_write_register(transceiver.RegDioMapping1, &DIOMapping, 1);
 
-
 	/* check transceiver mode */
 	uint8_t trans_mode;
 	trans_read_register(transceiver.RegOpMode, &trans_mode, 1);
@@ -83,27 +99,43 @@ int main(void) {
 	if(trans_mode == Mode_TX){
 		/* enable PA */
 		GPIOB.PTOR = PTB1;
-        }
+       	}
 	if(trans_mode == Mode_RX){
 		/* Enable LNA */
 		GPIOB.PTOR = PTB0;
-        }
+       	}
 
 	uint8_t tx = 0x55;
 	uint8_t rx;
+	uint8_t alive = 'G';
 
 	while(1) {
+		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 
 		/* transmit byte if in TX mode */
 		if(trans_mode == Mode_TX){
+
+			/* write to transceiver fifoe to transmit data */
 			trans_write_register(transceiver.RegFifo, &tx, 1);
+
+			/* blink status LED */
 			GPIOC.PTOR = PTC1;
+
+			/* transmit byte written over UART for debugging */
+			uart_write(&UART0, 1, &tx);
                 }
 
 		/* check fifo for received bytes in RX mode */
 		if(trans_mode == Mode_RX){
+
+			/* read transceiver fifo to grab received data */
 			trans_read_register(transceiver.RegFifo, &rx, 1);
+
+			/* blink status LED */
 			GPIOC.PTOR = PTC2;
+
+			/* transmit received data over UART for debugging */
+			uart_write(&UART0, 1, &rx);
 
 			/* if we received 0x55 toggle LED */
 			if(rx == 0x55){

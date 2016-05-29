@@ -140,6 +140,7 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	spi_transaction_8(&SPI0, (length + 1), addr_buf, recv);
 }
 
+#define LnaZin50 0x08
 #define RcCalStart (1 << 7)
 #define RcCalDone (1 << 6)
 #define Mode_FS (1 << 3)
@@ -174,13 +175,17 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	static uint8_t RegBitrateCfg[2] = {0x34, 0x15};
 	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
 
+	/* set LNA's input impedance to 50 ohm */
+	uint8_t LnaImpedanceConfig = LnaZin50;
+	trans_write_register(transceiver.RegLna, &LnaImpedanceConfig, 1); 	
+
 	if(OpModeCfg == Mode_TX){
 		/* configure PA output power */
 		trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
         }
 
-        /* 2 bytes in payload */
-	uint8_t RegPayloadLengthCfg = 0x2;
+        /* 1 byte in payload */
+	uint8_t RegPayloadLengthCfg = 0x1;
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
 
 	/* Set transceiver mode */
