@@ -108,14 +108,14 @@ Description               | The purpose of this test is to demonstrate the funct
 Tester Information        |  N/A  |
 Name of Tester            |  James Heath for LGR portion.  |
 Time/Date                 |  5/29/2016  |
-Hardware Version          |  1.00-1.02  |
+Hardware Version          |  LGR1.00  |
 Setup                     |  Oscilloscope and Power supply in LID  |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS all 3 | 3.0V at 3.0V supply |
-2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS all 3  | 32 MHz |
-3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS all 3 | 3.0V at 5.0V supply. |
+1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS (all 3) | 3.0V at 3.0V supply |
+2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS (all 3)  | 32 MHz |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS (all 3) | 3.0V at 5.0V supply. |
 4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS all 3 | 32 MHz |
 5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
 6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
