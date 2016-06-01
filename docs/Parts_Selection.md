@@ -70,6 +70,11 @@ Vendor Part No.: 863-1649-1-ND
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
 Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for this project (such as the PA). Small footprint, it has a low insertion loss and works within the desired frequency range.   
 Rad-Hard Analogue: N/A  
+**_Alternatives_**     
+Part No.: PE42723A-Z      
+Manufacturer: Peregrine-Semiconductor    
+[Datasheet](http://www.psemi.com/pdf/datasheets/pe42723ds.pdf)  
+Reasons: Better footprint for the way the kw0x outputs Tx and Rx. This would get rid of the need for an inverter. Also has a better insertion loss and similar footprint. This switch is a possibility for the next revision of the LGR.  
 
 #### U4 Texas Instruments LP5907MFX-3.3:  
 Part: LNA LDO  
