@@ -1,4 +1,4 @@
-# Parts Selection for Low Gain Radio (Work in Progress)  
+# Parts Selection for Low Gain Radio  
 **Table of Contents**
  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U1-NXP-MKW01Z128)   
  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U2-SkyWorks-SKY65116)  
