@@ -70,20 +70,41 @@ int main(void) {
 	/* this function is in transceiver.c if you want more details */
 	configure_transceiver(Mode_TX, PAOutputCfg(PA0, 0x1F));
 
-	uint8_t alive = 'G';
-	uint8_t txbyte = 0x55;
+	static uint8_t alive = 0x7;
+	//static uint8_t txbytes[] = {0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44};
+	static uint8_t txbytes[] = {0xF0, 0xF0, 0x00};
+	static uint8_t txbyte = 0xF0;
+	static uint8_t sleep = 0x4;
+	static uint8_t transmit = 0xC;
+	static uint8_t tx_ready = 0;
+
+	trans_write_register(transceiver.RegOpMode, &sleep, 1);
 
 	while(1) {
-		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 		
-		trans_write_register(transceiver.RegFifo, &txbyte, 1);
+		/* write to transceiver fifoe to transmit data */
+		//trans_write_register(transceiver.RegOpMode, &transmit, 1);
 
-		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-		uart_write(&UART0, 1, &txbyte);
-		for(uint32_t i = 0; i < 1000000; ++i);
-
+		
+		/*while((tx_ready & 0x20) != 32){
+			trans_read_register(transceiver.RegIrqFlags1, &tx_ready, 1);
+		}
+		tx_ready = 0;*/
+		
+		
+		GPIOB.PTOR = PTB2;
+		trans_write_register(transceiver.RegFifo, txbytes, 3);
+		//for(uint32_t i = 0; i < 500000; ++i);
 		/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = PTB1;
+		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
+		//uart_write(&UART0, 1, &txbyte);
+		
+	
+		for(uint32_t i = 0; i < 10000000; ++i);
+
+		
 	}
 	return 0;
 }

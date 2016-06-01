@@ -37,6 +37,8 @@ void initialize_gpio(void){
 	PORTB.PCR[2] |= alt1;
 	PORTB.PCR[17] |= alt1;
 
+	PORTD.PCR[5] |= alt1; //used as an input for detecting the transceivers fifonotempty sig
+
 	/* set data direction as output */
 	GPIOB.PDDR |= PTB17 | PTB2 | PTB1;
 
@@ -71,22 +73,44 @@ int main(void) {
 	configure_transceiver(Mode_RX, PAOutputCfg(PA0, 0x1F));
 
 	uint8_t rxbyte = 0x0;
-	uint8_t alive = 'G';
+	uint8_t alive = 0x44;
+
+	uint8_t auto_afc_off;
+	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	auto_afc_off &= 0xFD;
+	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+
+
+	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	auto_afc_off |= 0x1;
+	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	auto_afc_off = 0;
+	while (auto_afc_off){
+		trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+		auto_afc_off &= 0x10;
+	}
 
 	while(1) {
-		uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+		if (GPIOD.PDIR & 0x10){
+			/* read fifo register in transceiver block */
+			trans_read_register(transceiver.RegFifo, &rxbyte, 1);
 
-		/* read fifo register in transceiver block */
-		trans_read_register(transceiver.RegFifo, &rxbyte, 1);
+			/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
+			uart_write(&UART0, 1, &rxbyte);	
 
-		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-		uart_write(&UART0, 1, &rxbyte);
-
-		for(uint32_t i = 0; i < 1000000; ++i);
-
-		if(rxbyte == 0x55){
-			GPIOB.PTOR = PTB1;
+			if(rxbyte == 0x44){
+				GPIOB.PTOR = PTB1;
+			}
 		}
+
+
+		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+
+		
+
+		
+
+		
 	}
 	return 0;
 }

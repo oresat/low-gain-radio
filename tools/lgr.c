@@ -83,7 +83,7 @@ int main(void) {
 	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver(Mode_RX, PAOutputCfg(PA1, 0));
+	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
 
 	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high on 
 	 * packet transmit, leading to as soon as the transmitter starting to send
@@ -99,15 +99,24 @@ int main(void) {
 	if(trans_mode == Mode_TX){
 		/* enable PA */
 		GPIOB.PTOR = PTB1;
+		/* Enable LNA in order to power inverter on rx/tx switch*/
+		GPIOB.PTOR = PTB0;
        	}
 	if(trans_mode == Mode_RX){
 		/* Enable LNA */
 		GPIOB.PTOR = PTB0;
        	}
 
-	uint8_t tx = 0x55;
+	uint8_t tx = 0x44;
 	uint8_t rx;
-	uint8_t alive = 'G';
+	uint8_t alive = 0x7;
+	uint8_t sleep = 0x4;
+	uint8_t transmit = 0xC;
+
+	uint8_t auto_afc_off;
+	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	auto_afc_off &= 0xFD;
+	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
 
 	while(1) {
 		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
@@ -116,17 +125,29 @@ int main(void) {
 		if(trans_mode == Mode_TX){
 
 			/* write to transceiver fifoe to transmit data */
+			trans_write_register(transceiver.RegOpMode, &transmit, 1);
+			for(uint32_t i = 0; i < 10000; ++i);
 			trans_write_register(transceiver.RegFifo, &tx, 1);
-
+			for(uint32_t i = 0; i < 10000; ++i);
+			trans_write_register(transceiver.RegOpMode, &sleep, 1);
 			/* blink status LED */
 			GPIOC.PTOR = PTC1;
-
+			for(uint32_t i = 0; i < 10000000; ++i);
 			/* transmit byte written over UART for debugging */
-			uart_write(&UART0, 1, &tx);
-                }
+			//uart_write(&UART0, 1, &tx);
+        }
 
 		/* check fifo for received bytes in RX mode */
 		if(trans_mode == Mode_RX){
+
+			trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+			auto_afc_off |= 0x1;
+			trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+			auto_afc_off = 0;
+			while (auto_afc_off){
+				trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+				auto_afc_off &= 0x10;
+			}
 
 			/* read transceiver fifo to grab received data */
 			trans_read_register(transceiver.RegFifo, &rx, 1);
@@ -138,12 +159,12 @@ int main(void) {
 			uart_write(&UART0, 1, &rx);
 
 			/* if we received 0x55 toggle LED */
-			if(rx == 0x55){
+			if(rx == 0x44){
 				GPIOC.PTOR = PTC3;
 			}
                 }
 
-		for(uint32_t i = 0; i < 1000000; ++i);
+		
 
 	}
 	return 0;

@@ -182,11 +182,36 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	if(OpModeCfg == Mode_TX){
 		/* configure PA output power */
 		trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
-        }
+		/*Setup automodes for transmitting*/
+		uint8_t auto_mode = 0x3B;
+		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
+    }
+    else{
 
+    }
+
+    /*Sync word setup*/
+    static uint8_t sync_word[] = {'B', 'E', 'E', 'F'};
         /* 1 byte in payload */
-	uint8_t RegPayloadLengthCfg = 0x1;
+    
+    //trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
+
+    /*Setup the packet config*/
+    static uint8_t encode_fixed_length = 0x00; //no encoding no crc
+	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
+	
+
+
+	trans_write_register(transceiver.RegSyncConfig, &encode_fixed_length, 1); //No sync
+
+	uint8_t preamble_size = 0x1;
+	trans_write_register(transceiver.RegPreambleLsb, &preamble_size, 1);
+	static uint8_t RegPayloadLengthCfg = 0x1;
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
+
+	//Trigger tx on fifo thresh of 2 bytes
+	uint8_t fifo_thresh = 2;
+	trans_write_register(transceiver.RegFifoThresh, &fifo_thresh, 1);
 
 	/* Set transceiver mode */
 	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
