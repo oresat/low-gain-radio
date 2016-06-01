@@ -61,7 +61,7 @@ Reasons: This part would be better than the one selected. Provides >0.6dB Noise 
 Part No.: SKY67110_396LF  
 Manufacturer: SkyWorks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf)  
-Reasons: Brand new part from Skyworks. Would work better than what we have. Has a gain of ~21dB at desired frequency and a noise figure of 0.65dB at 25C and around 0.5dB at 40C.  
+Reasons: Brand new part from Skyworks. Would work better than what we have. Has a gain of ~21dB at desired frequency and a noise figure of 0.65dB at 25C and around 0.5dB at 40C. Seems like a slightly more complicated setup however.   
 
 #### U9 SkyWorks SKY13405_490F:    
 Part: RF Switch   
