@@ -43,7 +43,7 @@ Part: Power Amplifier
 Vendor: Mouser    
 Vendor Part No.: 873-SKY65116-21  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY65116_200510I.pdf)  
-Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw.  
+Reasons: Able to provide 1W power output. Also has low voltage rails, but asks for a higher current draw (~1-1.3A).  
 Rad-Hard Analogue: N/A  
   
 #### U8 MAACOM MAAL-010704:  
