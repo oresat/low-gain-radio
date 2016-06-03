@@ -4,17 +4,32 @@
 	Programmed by William Harrington, Michael Mathis, and Theo Hill
  */
 #include "uart.h"
+#include "led.h"
 #include "transceiver.h"
 #include "clksetup.h"
 
 /* green LED */
 #define PTB1 (1 << 1)
+struct LED green = {
+	.gpio = &GPIOB,
+	.pin = PTB1,
+	.active_level = 1
+};
 
 /* red LED */
 #define PTB2 (1 << 2)
-
+struct LED red = {
+	.gpio = &GPIOB,
+	.pin = PTB2,
+	.active_level = 1
+};
 /* blue LED */
 #define PTB17 (1 << 17)
+struct LED blue = {
+	.gpio = &GPIOB,
+	.pin = PTB17,
+	.active_level = 1
+};
 
 /* alternative function number */
 #define pin_disable (0 << 8)
@@ -97,18 +112,20 @@ int main(void) {
 			uart_write(&UART0, 1, &rxbyte);	
 
 			if(rxbyte == 0x44){
-				GPIOB.PTOR = PTB1;
 			}
+				led(TOGGLE, green);
 		}
 
 
 		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 
 		
+		led(TOGGLE, red);
+		for(uint32_t i = 0; i < 500000; ++i)
+			if(GPIOE.PDIR)
+				led(TOGGLE, blue);
+;
 
-		
-
-		
 	}
 	return 0;
 }
