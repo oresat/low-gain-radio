@@ -195,11 +195,11 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 		uint8_t rxbw = 0x53;
 		trans_write_register(transceiver.RegRxBw, &rxbw, 1);
 
-		uint8_t rssi_thresh = 0x25;
+		uint8_t rssi_thresh = 0x8A;
 		trans_write_register(transceiver.RegRssiThresh, &rssi_thresh, 1);
 
-		//uint8_t auto_mode = 0x85;
-		//trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
+		uint8_t auto_mode = 0x85;
+		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
 
     }
 	
@@ -213,7 +213,7 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
     trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
 
     /*Setup the packet config*/
-    static uint8_t encode_fixed_length = 0x00; //no encoding no crc
+    static uint8_t encode_fixed_length = 0x08; //no encoding no crc
 	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
 	
 	
