@@ -85,40 +85,22 @@ int main(void) {
 	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver(Mode_RX, PAOutputCfg(PA0, 0x1F));
+	configure_transceiver(Mode_RX, PAOutputCfg(PA0, 0));
+
+	trans_write_register(transceiver.RegDioMapping1, (uint8_t[]){0x65}, 1);
+	trans_write_register(transceiver.RegDioMapping2, (uint8_t[]){0x80 | (1<<2)}, 1);
 
 	uint8_t rxbyte = 0x0;
 	uint8_t alive = 0x44;
 
-	uint8_t auto_afc_on;
-	trans_write_register(transceiver.RegAfcFei, &auto_afc_on, 1);
-
-
-	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-	auto_afc_off |= 0x1;
-	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-	auto_afc_off = 0;
-	while (auto_afc_off){
-		trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-		auto_afc_off &= 0x10;
-	}
-
 	while(1) {
-		if (GPIOD.PDIR & 0x10){
-			/* read fifo register in transceiver block */
-			trans_read_register(transceiver.RegFifo, &rxbyte, 1);
-
-			/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-			uart_write(&UART0, 1, &rxbyte);	
-
-			if(rxbyte == 0x44){
-			}
-				led(TOGGLE, green);
+		/* read fifo register in transceiver block */
+		trans_read_register(transceiver.RegFifo, &rxbyte, 1);
+		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
+		uart_write(&UART0, 1, &rxbyte);
+		if(rxbyte == 0){
+			led(TOGGLE, green);
 		}
-
-
-		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
-
 		
 		led(TOGGLE, red);
 		for(uint32_t i = 0; i < 500000; ++i)
