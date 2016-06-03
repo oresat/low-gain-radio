@@ -18,7 +18,7 @@ all: c3
 c3: crt0.o c3.o port.o spi.o uart.o transceiver.o clksetup.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-rx: crt0.o rx.o port.o spi.o uart.o transceiver.o clksetup.o
+rx: crt0.o rx.o port.o spi.o uart.o transceiver.o clksetup.o led.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 tx: crt0.o tx.o port.o spi.o uart.o transceiver.o clksetup.o
