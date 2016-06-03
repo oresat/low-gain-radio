@@ -11,7 +11,6 @@ struct LED {
 	bool active_level;
 };
 
-
 void led(enum mode mode, struct LED led);
 
 #endif

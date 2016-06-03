@@ -150,73 +150,60 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 
 void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* Change to frequency synthesizer mode */
-	uint8_t OpModeFS = Mode_FS;
-	trans_write_register(transceiver.RegOpMode, &OpModeFS, 1);
+	trans_write_register(transceiver.RegOpMode, (uint8_t[]){Mode_FS}, 1);
 
 	/* Set the carrier frequency to 436.5MHz assuming transceiver PLL at 32MHz 
 		See Table 7-5 in the reference manual
 	*/
-	static uint8_t FrfCfg[3] = {0x6D, 0x20, 0x00};
-	trans_write_register(transceiver.RegFrfMsb, FrfCfg, 3);
+	trans_write_register(transceiver.RegFrfMsb, (uint8_t[]){0x6D, 0x20, 0x00}, 3);
 
 	/* turn modulation to frequency shift keying */
-	uint8_t RegDataModulCfg = DataModul_FSK;
-	trans_write_register(transceiver.RegDataModul, &RegDataModulCfg, 1);
+	trans_write_register(transceiver.RegDataModul, (uint8_t[]){DataModul_FSK}, 1);
 
 	/* frequency deviation settings */
-	static uint8_t RegFDevCfg[2] = {0x00, 0x29};
-	trans_write_register(transceiver.RegFdevMsb, RegFDevCfg, 2);
+	trans_write_register(transceiver.RegFdevMsb, (uint8_t[]){0x00, 0x29}, 2);
 
 	/* adjust PLL bandwidth to 75kHz */
-	uint8_t RegTestPLLCfg = PLLBandwidth_75kHz;
-	trans_write_register(transceiver.RegTestPLL, &RegTestPLLCfg, 1);
+	trans_write_register(transceiver.RegTestPLL, (uint8_t[]){PLLBandwidth_75kHz}, 1);
 
 	/* bitrate settings = 2.4 kbps */
-	static uint8_t RegBitrateCfg[2] = {0x34, 0x15};
-	trans_write_register(transceiver.RegBitrateMsb, RegBitrateCfg, 2);
+	trans_write_register(transceiver.RegBitrateMsb, (uint8_t[]){0x34, 0x15}, 2);
 
 	/* set LNA's input impedance to 50 ohm */
-	uint8_t LnaImpedanceConfig = LnaZin50;
-	trans_write_register(transceiver.RegLna, &LnaImpedanceConfig, 1); 	
+	trans_write_register(transceiver.RegLna, (uint8_t[]){LnaZin50}, 1); 
 	
 	/* configure PA output power */
-	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
+	trans_write_register(transceiver.RegPaLevel, (uint8_t[]){RegPAOutputCfg}, 1);
 
 	if(OpModeCfg == Mode_TX){
 		/*Setup automodes for transmitting*/
-		uint8_t auto_mode = 0x3B;
-		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
-    }
-    else if (OpModeCfg == Mode_RX){
+		trans_write_register(transceiver.RegAutoModes, (uint8_t[]){0x3B}, 1);
+	}
+	else if (OpModeCfg == Mode_RX){
 		/*Setup RX specific configurations*/
-		uint8_t auto_afc_on = 0x04;
-		trans_write_register(transceiver.RegAfcFei, &auto_afc_on, 1);
 
-		uint8_t rxbw = 0x53;
-		trans_write_register(transceiver.RegRxBw, &rxbw, 1);
+		trans_write_register(transceiver.RegRxBw, (uint8_t[]){0x55}, 1);
 
-		uint8_t rssi_thresh = 0x8A;
+		uint8_t rssi_thresh = 0xE4;
 		trans_write_register(transceiver.RegRssiThresh, &rssi_thresh, 1);
 
 		uint8_t auto_mode = 0x85;
 		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
 
-    }
-	
+	}
+
 	//0x00 No sync
 	//0x98 Sync with 4 bytes
-	static uint8_t sync = 0x98; 
+	static uint8_t sync = 0x00; 
 	trans_write_register(transceiver.RegSyncConfig, &sync, 1); 
 
-    /*Sync word setup*/
-    static uint8_t sync_word[] = {0x0F, 0x0F, 0x0F, 0x0F};
-    trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
+	/*Sync word setup*/
+	static uint8_t sync_word[] = {0x0F, 0x0F, 0x0F, 0x0F};
+	trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
 
-    /*Setup the packet config*/
-    static uint8_t encode_fixed_length = 0x08; //no encoding no crc
+	/*Setup the packet config*/
+	static uint8_t encode_fixed_length = 0x08; //no encoding no crc
 	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
-	
-	
 
 	//Sets preamble size
 	uint8_t preamble_size = 0x6;
