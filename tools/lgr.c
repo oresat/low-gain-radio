@@ -7,6 +7,8 @@
 #include "clksetup.h"
 #include "uart.h"
 
+#define PAYLOAD_READY_MASK 0x04
+
 /* LNA Enable */
 #define PTB0 (1 << 0)
 
@@ -83,7 +85,7 @@ int main(void) {
 	initialize_uart0();
 
 	/* this function is in transceiver.c if you want more details */
-	configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
+	configure_transceiver(Mode_RX, PAOutputCfg(PA1, 0));
 
 	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high on 
 	 * packet transmit, leading to as soon as the transmitter starting to send
@@ -95,41 +97,53 @@ int main(void) {
 	/* check transceiver mode */
 	uint8_t trans_mode;
 	trans_read_register(transceiver.RegOpMode, &trans_mode, 1);
+	
+	static uint8_t standby = 0x4;
 
 	if(trans_mode == Mode_TX){
 		/* enable PA */
 		GPIOB.PTOR = PTB1;
 		/* Enable LNA in order to power inverter on rx/tx switch*/
 		GPIOB.PTOR = PTB0;
-       	}
+		/* Enter standby mode*/
+		trans_write_register(transceiver.RegOpMode, &trans_mode, 1); 
+    }
 	if(trans_mode == Mode_RX){
 		/* Enable LNA */
 		GPIOB.PTOR = PTB0;
-       	}
+		/* Enter receive mode */
+		trans_write_register(transceiver.RegOpMode, &trans_mode, 1); 
+    }
 
+    /*
+
+	Be sure that trans_mode is Mode_RX or Mode_TX so that the appropriate
+	branch is taken in the while loop. The actual opmode may be different.
+		
+    */
+    
 	uint8_t tx = 0x44;
-	uint8_t rx;
+	static uint8_t rx[PACKET_LENGTH];
+	
 	uint8_t alive = 0x7;
 	uint8_t sleep = 0x4;
-	uint8_t transmit = 0xC;
+	
+	static uint8_t payload_ready[2];
 
-	uint8_t auto_afc_off;
-	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-	auto_afc_off &= 0xFD;
-	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	static uint8_t txbytes[] = {0, 1, 2, 3, 4, 5, 0};
+
+	uint8_t test = 0;
 
 	while(1) {
-		//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+		
 
 		/* transmit byte if in TX mode */
 		if(trans_mode == Mode_TX){
 
 			/* write to transceiver fifoe to transmit data */
-			trans_write_register(transceiver.RegOpMode, &transmit, 1);
-			for(uint32_t i = 0; i < 10000; ++i);
-			trans_write_register(transceiver.RegFifo, &tx, 1);
-			for(uint32_t i = 0; i < 10000; ++i);
-			trans_write_register(transceiver.RegOpMode, &sleep, 1);
+			trans_write_register(transceiver.RegFifo, txbytes, 6);
+			
+			
 			/* blink status LED */
 			GPIOC.PTOR = PTC1;
 			for(uint32_t i = 0; i < 10000000; ++i);
@@ -139,33 +153,47 @@ int main(void) {
 
 		/* check fifo for received bytes in RX mode */
 		if(trans_mode == Mode_RX){
+			//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+				
 
-			trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-			auto_afc_off |= 0x1;
-			trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-			auto_afc_off = 0;
-			while (auto_afc_off){
-				trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-				auto_afc_off &= 0x10;
+			trans_read_register(transceiver.RegRssiValue, &test, 1);
+			
+			for(uint32_t i = 0; i < 1000000; ++i);	
+			
+			/* blink status LED */
+			GPIOC.PTOR = PTC4;
+
+			/*Check if the payload is ready*/
+			trans_read_register(transceiver.RegIrqFlags1, payload_ready, 2);
+
+			//trans_read_register(transceiver.RegRssiValue, &trans_mode, 1);
+
+			if (payload_ready[1] & 0x40){
+				GPIOC.PSOR = PTC1;
+			}
+			else{
+				GPIOC.PCOR = PTC1;
 			}
 
-			/* read transceiver fifo to grab received data */
-			trans_read_register(transceiver.RegFifo, &rx, 1);
+			if (payload_ready[1] & 0x04){
+				GPIOC.PSOR = PTC2;
+			}
+			else{
+				GPIOC.PCOR = PTC2;
+			}
 
-			/* blink status LED */
-			GPIOC.PTOR = PTC2;
 
-			/* transmit received data over UART for debugging */
-			uart_write(&UART0, 1, &rx);
+			
+			if (payload_ready[1] & 0x04){
 
-			/* if we received 0x55 toggle LED */
-			if(rx == 0x44){
+				/* read transceiver fifo to grab received data */
+				trans_read_register(transceiver.RegFifo, rx, PACKET_LENGTH);	
+				/* Write the packet received out to UART */
+				uart_write(&UART0, PACKET_LENGTH, rx);		
+				/* Packet received LED toggle */
 				GPIOC.PTOR = PTC3;
 			}
-                }
-
-		
-
+        }
 	}
 	return 0;
 }

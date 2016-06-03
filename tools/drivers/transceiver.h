@@ -13,6 +13,8 @@
 #ifndef _TRANSCEIVER_H_
 #define _TRANSCEIVER_H_
 
+#define PACKET_LENGTH 6
+
 /* struct to hold transceiver register addresses*/
 struct TRANSCEIVER {
   	uint8_t RegFifo; /* FIFO read/write access */

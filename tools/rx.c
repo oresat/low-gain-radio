@@ -75,10 +75,8 @@ int main(void) {
 	uint8_t rxbyte = 0x0;
 	uint8_t alive = 0x44;
 
-	uint8_t auto_afc_off;
-	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);
-	auto_afc_off &= 0xFD;
-	trans_write_register(transceiver.RegAfcFei, &auto_afc_off, 1);
+	uint8_t auto_afc_on;
+	trans_write_register(transceiver.RegAfcFei, &auto_afc_on, 1);
 
 
 	trans_read_register(transceiver.RegAfcFei, &auto_afc_off, 1);

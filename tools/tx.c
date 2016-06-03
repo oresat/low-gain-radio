@@ -72,7 +72,7 @@ int main(void) {
 
 	static uint8_t alive = 0x7;
 	//static uint8_t txbytes[] = {0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44, 0x44};
-	static uint8_t txbytes[] = {0xF0, 0xF0, 0x00};
+	static uint8_t txbytes[] = {0, 1, 2, 3, 4, 5};
 	static uint8_t txbyte = 0xF0;
 	static uint8_t sleep = 0x4;
 	static uint8_t transmit = 0xC;
@@ -94,7 +94,7 @@ int main(void) {
 		
 		
 		GPIOB.PTOR = PTB2;
-		trans_write_register(transceiver.RegFifo, txbytes, 3);
+		trans_write_register(transceiver.RegFifo, txbytes, 6);
 		//for(uint32_t i = 0; i < 500000; ++i);
 		/* toggle LED connected to PTB2 */
 		GPIOB.PTOR = PTB1;

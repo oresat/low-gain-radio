@@ -183,34 +183,59 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 		/* configure PA output power */
 		trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 		/*Setup automodes for transmitting*/
-		uint8_t auto_mode = 0x3B;
-		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
+		//uint8_t auto_mode = 0x3B;
+		//trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
     }
-    else{
+    else if (OpModeCfg == Mode_RX){
+		/*Setup RX specific configurations*/
+		uint8_t auto_afc_on = 0x04;
+		trans_write_register(transceiver.RegAfcFei, &auto_afc_on, 1);
+
+		uint8_t rxbw = 0x53;
+		trans_write_register(transceiver.RegRxBw, &rxbw, 1);
+
+		uint8_t rssi_thresh = 0xF5;
+		trans_write_register(transceiver.RegRssiThresh, &rssi_thresh, 1);
+
+		//uint8_t auto_mode = 0x85;
+		//trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
 
     }
 
     /*Sync word setup*/
-    static uint8_t sync_word[] = {'B', 'E', 'E', 'F'};
-        /* 1 byte in payload */
-    
+    //static uint8_t sync_word[] = {'B', 'E', 'E', 'F'};
     //trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
 
     /*Setup the packet config*/
     static uint8_t encode_fixed_length = 0x00; //no encoding no crc
 	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
 	
+	//No sync
+	static uint8_t no_sync = 0x00; 
+	trans_write_register(transceiver.RegSyncConfig, &no_sync, 1); 
 
-
-	trans_write_register(transceiver.RegSyncConfig, &encode_fixed_length, 1); //No sync
-
-	uint8_t preamble_size = 0x1;
+	//Sets preamble size
+	uint8_t preamble_size = 0x6;
 	trans_write_register(transceiver.RegPreambleLsb, &preamble_size, 1);
-	static uint8_t RegPayloadLengthCfg = 0x1;
+
+	//Sets the payload length
+	/*
+		The payload length needs to be equal to the buffer of data to be sent 
+		when the tx ready signal is produces on fifo_not_empty. If the tx 
+		ready signal is received from a fifo threshold reached condition
+		then the payload length needs to be the same as the fifo threshold and 
+		the buffer needs to be one larger than the payload size.
+
+		When using auto modes be sure to set the transceiver into standby mode
+		it will wake and do its thing automagically.
+
+	*/
+	static uint8_t RegPayloadLengthCfg = PACKET_LENGTH; //PACKET_LENGTH is in transceiver.h
 	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
 
-	//Trigger tx on fifo thresh of 2 bytes
-	uint8_t fifo_thresh = 2;
+	/* To trigger on a fifo threshhold set RegFifoThresh to PACKET_LENGTH*/
+	/* Trigger on fifo not empty */
+	uint8_t fifo_thresh = 0x0;
 	trans_write_register(transceiver.RegFifoThresh, &fifo_thresh, 1);
 
 	/* Set transceiver mode */
