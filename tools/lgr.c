@@ -80,7 +80,7 @@ void initialize_uart0(void){
 
 int main(void) {
 	/* check transceiver mode */
-	uint8_t trans_mode = Mode_RX;
+	uint8_t trans_mode = Mode_TX;
 	
 
 	/* call initialization procedures */
@@ -106,10 +106,12 @@ int main(void) {
 		GPIOB.PTOR = PTB1;
 		/* Enable LNA in order to power inverter on rx/tx switch*/
 		GPIOB.PTOR = PTB0;
+
+		configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
 		/* Enter standby mode*/
 		trans_write_register(transceiver.RegOpMode, &standby, 1); 
 
-		configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
+		
     }
 	if(trans_mode == Mode_RX){
 		/* Enable LNA */
@@ -141,7 +143,7 @@ int main(void) {
 	static uint8_t test = 0;
 	static uint8_t one = 0x1;
 
-
+/*
 
 	while(1){
 
@@ -164,7 +166,7 @@ int main(void) {
 		if (test){
 		GPIOC.PTOR = PTC2;
 		}
-	}
+	}*/
 	
 
 	
