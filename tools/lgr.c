@@ -79,13 +79,16 @@ void initialize_uart0(void){
 }
 
 int main(void) {
+	/* check transceiver mode */
+	uint8_t trans_mode = Mode_RX;
+	
+
 	/* call initialization procedures */
 	initialize_clock();
 	initialize_gpio();
 	initialize_uart0();
 
-	/* this function is in transceiver.c if you want more details */
-	configure_transceiver(Mode_RX, PAOutputCfg(PA1, 0));
+	
 
 	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high on 
 	 * packet transmit, leading to as soon as the transmitter starting to send
@@ -94,9 +97,7 @@ int main(void) {
 	uint8_t DIOMapping = 0x80;
 	trans_write_register(transceiver.RegDioMapping1, &DIOMapping, 1);
 
-	/* check transceiver mode */
-	uint8_t trans_mode;
-	trans_read_register(transceiver.RegOpMode, &trans_mode, 1);
+	
 	
 	static uint8_t standby = 0x4;
 
@@ -106,13 +107,18 @@ int main(void) {
 		/* Enable LNA in order to power inverter on rx/tx switch*/
 		GPIOB.PTOR = PTB0;
 		/* Enter standby mode*/
-		trans_write_register(transceiver.RegOpMode, &trans_mode, 1); 
+		trans_write_register(transceiver.RegOpMode, &standby, 1); 
+
+		configure_transceiver(Mode_TX, PAOutputCfg(PA1, 0));
     }
 	if(trans_mode == Mode_RX){
 		/* Enable LNA */
 		GPIOB.PTOR = PTB0;
 		/* Enter receive mode */
 		trans_write_register(transceiver.RegOpMode, &trans_mode, 1); 
+		/* this function is in transceiver.c if you want more details */
+
+		configure_transceiver(Mode_RX, PAOutputCfg(0, 0));
     }
 
     /*
@@ -130,9 +136,39 @@ int main(void) {
 	
 	static uint8_t payload_ready[2];
 
-	static uint8_t txbytes[] = {0, 1, 2, 3, 4, 5, 0};
+	static uint8_t txbytes[] = {0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD};
 
-	uint8_t test = 0;
+	static uint8_t test = 0;
+	static uint8_t one = 0x1;
+
+
+
+	while(1){
+
+		for(uint32_t i = 0; i < 500000; ++i){
+			trans_read_register(transceiver.RegIrqFlags1, &test, 1);
+			if (test & 0x8){
+				GPIOC.PSOR = PTC2;
+			}
+			else{
+				GPIOC.PCOR = PTC2;
+			}
+		}
+
+		trans_write_register(transceiver.RegRssiConfig, &one, 1);
+		uint8_t rssi_done = 0;
+		while (!(rssi_done & 0x2)){
+			trans_read_register(transceiver.RegRssiConfig, &rssi_done, 1);
+		}
+		trans_read_register(transceiver.RegRssiValue, &test, 1);
+		if (test){
+		GPIOC.PTOR = PTC2;
+		}
+	}
+	
+
+	
+
 
 	while(1) {
 		
@@ -141,24 +177,24 @@ int main(void) {
 		if(trans_mode == Mode_TX){
 
 			/* write to transceiver fifoe to transmit data */
-			trans_write_register(transceiver.RegFifo, txbytes, 6);
+			trans_write_register(transceiver.RegFifo, txbytes, PACKET_LENGTH);
 			
 			
 			/* blink status LED */
 			GPIOC.PTOR = PTC1;
-			for(uint32_t i = 0; i < 10000000; ++i);
+			for(uint32_t i = 0; i < 5000000; ++i);
 			/* transmit byte written over UART for debugging */
 			//uart_write(&UART0, 1, &tx);
         }
 
 		/* check fifo for received bytes in RX mode */
 		if(trans_mode == Mode_RX){
-			//uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
+			uart_write(&UART0, 1, &alive); //I'm alive signal for the sys controller
 				
 
-			trans_read_register(transceiver.RegRssiValue, &test, 1);
 			
-			for(uint32_t i = 0; i < 1000000; ++i);	
+
+			for(uint32_t i = 0; i < 500000; ++i);	
 			
 			/* blink status LED */
 			GPIOC.PTOR = PTC4;

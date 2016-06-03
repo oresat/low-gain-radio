@@ -13,7 +13,7 @@
 #ifndef _TRANSCEIVER_H_
 #define _TRANSCEIVER_H_
 
-#define PACKET_LENGTH 6
+#define PACKET_LENGTH 5
 
 /* struct to hold transceiver register addresses*/
 struct TRANSCEIVER {

@@ -178,13 +178,14 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* set LNA's input impedance to 50 ohm */
 	uint8_t LnaImpedanceConfig = LnaZin50;
 	trans_write_register(transceiver.RegLna, &LnaImpedanceConfig, 1); 	
+	
+	/* configure PA output power */
+	trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 
 	if(OpModeCfg == Mode_TX){
-		/* configure PA output power */
-		trans_write_register(transceiver.RegPaLevel, &RegPAOutputCfg, 1);
 		/*Setup automodes for transmitting*/
-		//uint8_t auto_mode = 0x3B;
-		//trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
+		uint8_t auto_mode = 0x3B;
+		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
     }
     else if (OpModeCfg == Mode_RX){
 		/*Setup RX specific configurations*/
@@ -194,25 +195,28 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 		uint8_t rxbw = 0x53;
 		trans_write_register(transceiver.RegRxBw, &rxbw, 1);
 
-		uint8_t rssi_thresh = 0xF5;
+		uint8_t rssi_thresh = 0x25;
 		trans_write_register(transceiver.RegRssiThresh, &rssi_thresh, 1);
 
 		//uint8_t auto_mode = 0x85;
 		//trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
 
     }
+	
+	//0x00 No sync
+	//0x98 Sync with 4 bytes
+	static uint8_t sync = 0x98; 
+	trans_write_register(transceiver.RegSyncConfig, &sync, 1); 
 
     /*Sync word setup*/
-    //static uint8_t sync_word[] = {'B', 'E', 'E', 'F'};
-    //trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
+    static uint8_t sync_word[] = {0x0F, 0x0F, 0x0F, 0x0F};
+    trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
 
     /*Setup the packet config*/
     static uint8_t encode_fixed_length = 0x00; //no encoding no crc
 	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
 	
-	//No sync
-	static uint8_t no_sync = 0x00; 
-	trans_write_register(transceiver.RegSyncConfig, &no_sync, 1); 
+	
 
 	//Sets preamble size
 	uint8_t preamble_size = 0x6;
