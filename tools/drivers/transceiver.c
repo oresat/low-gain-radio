@@ -95,6 +95,91 @@ struct TRANSCEIVER transceiver = {
 };
 
 
+static struct TRANSCEIVER defaults = {
+	.RegFifo = 0x00,
+	.RegOpMode = 0x04,
+	.RegDataModul = 0x00,
+	.RegBitrateMsb = 0x1A,
+	.RegBitrateLsb = 0x0B,
+	.RegFdevMsb = 0x00,
+	.RegFdevLsb = 0x52,
+	.RegFrfMsb = 0xD4,
+	.RegFrfMid = 0xC0,
+	.RegFrfLsb = 0x00,
+	.RegOsc1 = 0x41,
+	.RegAfcCtrl = 0x00,
+	.RegLowBat = 0x02,
+	.RegListen1 = 0x92,
+	.RegListen2 = 0xF5,
+	.RegListen3 = 0x20,
+	.RegVersion = 0x23,
+	.RegPaLevel = 0x9F,
+	.RegPaRamp = 0x09,
+	.RegOcp = 0x1A,
+	.RegLna = 0x08,
+	.RegRxBw = 0x86,
+	.RegAfcBw = 0x8A,
+	.RegOokPeak = 0x40,
+	.RegOokAvg = 0x80,
+	.RegOokFix = 0x06,
+	.RegAfcFei = 0x10,
+	.RegAfcMsb = 0x00,
+	.RegAfcLsb = 0x00,
+	.RegFeiMsb = 0x00,
+	.RegFeiLsb = 0x00,
+	.RegRssiConfig = 0x02,
+	.RegRssiValue = 0xFF,
+	.RegDioMapping1 = 0x00,
+	.RegDioMapping2 = 0x05,
+	.RegIrqFlags1 = 0x80,
+	.RegIrqFlags2 = 0x00,
+	.RegRssiThresh = 0xFF,
+	.RegRxTimeout1 = 0x00,
+	.RegRxTimeout2 = 0x00,
+	.RegPreambleMsb = 0x00,
+	.RegPreambleLsb = 0x03,
+	.RegSyncConfig = 0x98,
+	.RegSyncValue1 = 0x00,
+	.RegSyncValue2 = 0x00,
+	.RegSyncValue3 = 0x00,
+	.RegSyncValue4 = 0x00,
+	.RegSyncValue5 = 0x00,
+	.RegSyncValue6 = 0x00,
+	.RegSyncValue7 = 0x00,
+	.RegSyncValue8 = 0x00,
+	.RegPacketConfig1 = 0x10,
+	.RegPayloadLength = 0x40,
+	.RegNodeAdrs = 0x00,
+	.RegBroadcastAdrs = 0x00,
+	.RegAutoModes = 0x00,
+	.RegFifoThresh = 0x0F,
+	.RegPacketConfig2 = 0x02,
+	.RegAesKey1 = 0x00,
+	.RegAesKey2 = 0x00,
+	.RegAesKey3 = 0x00,
+	.RegAesKey4 = 0x00,
+	.RegAesKey5 = 0x00,
+	.RegAesKey6 = 0x00,
+	.RegAesKey7 = 0x00,
+	.RegAesKey8 = 0x00,
+	.RegAesKey9 = 0x00,
+	.RegAesKey10 = 0x00,
+	.RegAesKey11 = 0x00,
+	.RegAesKey12 = 0x00,
+	.RegAesKey13 = 0x00,
+	.RegAesKey14 = 0x00,
+	.RegAesKey15 = 0x00,
+	.RegAesKey16 = 0x00,
+	.RegTemp1 = 0x01,
+	.RegTemp2 = 0x00,
+	.RegTestLna = 0x1B,
+	.RegTestPLL = 0x00,
+	.RegTestDagc = 0x00,
+	.RegTestAfc = 0x00,
+};
+
+
+
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length){
 	/*
 	   This function initiates a SPI transaction for reading
@@ -181,33 +266,23 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	}
 	else if (OpModeCfg == Mode_RX){
 		/*Setup RX specific configurations*/
-
 		trans_write_register(transceiver.RegRxBw, (uint8_t[]){0x55}, 1);
-
-		uint8_t rssi_thresh = 0xE4;
-		trans_write_register(transceiver.RegRssiThresh, &rssi_thresh, 1);
-
-		uint8_t auto_mode = 0x85;
-		trans_write_register(transceiver.RegAutoModes, &auto_mode, 1);
-
+		trans_write_register(transceiver.RegRssiThresh, (uint8_t[]){0x70}, 1);
+		trans_write_register(transceiver.RegAutoModes, (uint8_t[]){0x85} , 1);
 	}
 
 	//0x00 No sync
 	//0x98 Sync with 4 bytes
-	static uint8_t sync = 0x00; 
-	trans_write_register(transceiver.RegSyncConfig, &sync, 1); 
+	trans_write_register(transceiver.RegSyncConfig, (uint8_t[]){0xC1}, 1); 
 
 	/*Sync word setup*/
-	static uint8_t sync_word[] = {0x0F, 0x0F, 0x0F, 0x0F};
-	trans_write_register(transceiver.RegSyncValue1, sync_word, 4);
+	trans_write_register(transceiver.RegSyncValue1, (uint8_t[]){0x0F, 0x0F, 0x0F, 0x0F}, 4);
 
-	/*Setup the packet config*/
-	static uint8_t encode_fixed_length = 0x08; //no encoding no crc
-	trans_write_register(transceiver.RegPacketConfig1, &encode_fixed_length , 1);
+	/*Setup the packet config: no encoding no crc*/
+	trans_write_register(transceiver.RegPacketConfig1, (uint8_t[]){0x08}, 1);
 
 	//Sets preamble size
-	uint8_t preamble_size = 0x6;
-	trans_write_register(transceiver.RegPreambleLsb, &preamble_size, 1);
+	trans_write_register(transceiver.RegPreambleLsb, (uint8_t[]){0x06}, 1);
 
 	//Sets the payload length
 	/*
@@ -221,14 +296,12 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 		it will wake and do its thing automagically.
 
 	*/
-	static uint8_t RegPayloadLengthCfg = PACKET_LENGTH; //PACKET_LENGTH is in transceiver.h
-	trans_write_register(transceiver.RegPayloadLength, &RegPayloadLengthCfg, 1);
+	trans_write_register(transceiver.RegPayloadLength, (uint8_t[]){5}, 1);
 
 	/* To trigger on a fifo threshhold set RegFifoThresh to PACKET_LENGTH*/
 	/* Trigger on fifo not empty */
-	uint8_t fifo_thresh = 0x0;
-	trans_write_register(transceiver.RegFifoThresh, &fifo_thresh, 1);
+	trans_write_register(transceiver.RegFifoThresh, (uint8_t[]){0x04}, 1);
 
 	/* Set transceiver mode */
-	trans_write_register(transceiver.RegOpMode, &OpModeCfg, 1);
+	trans_write_register(transceiver.RegOpMode, (uint8_t[]){OpModeCfg}, 1);
 }

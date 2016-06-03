@@ -13,7 +13,7 @@
 struct LED green = {
 	.gpio = &GPIOB,
 	.pin = PTB1,
-	.active_level = 1
+	.active_level = 0
 };
 
 /* red LED */
@@ -21,14 +21,14 @@ struct LED green = {
 struct LED red = {
 	.gpio = &GPIOB,
 	.pin = PTB2,
-	.active_level = 1
+	.active_level = 0
 };
 /* blue LED */
 #define PTB17 (1 << 17)
 struct LED blue = {
 	.gpio = &GPIOB,
 	.pin = PTB17,
-	.active_level = 1
+	.active_level = 0
 };
 
 /* alternative function number */
@@ -91,23 +91,40 @@ int main(void) {
 	trans_write_register(transceiver.RegDioMapping2, (uint8_t[]){0x80 | (1<<2)}, 1);
 
 	uint8_t rxbyte = 0x0;
-	uint8_t alive = 0x44;
-
+	uint8_t rssi = 0;
+	uint8_t scratch = 0;
 	while(1) {
 		/* read fifo register in transceiver block */
-		trans_read_register(transceiver.RegFifo, &rxbyte, 1);
-		/* test case 1: UART0 module, passed, passes when RDRF not polled as well */
-		uart_write(&UART0, 1, &rxbyte);
-		if(rxbyte == 0){
-			led(TOGGLE, green);
+		while(!(scratch & (1 << 6)))
+			trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
+
+		while(scratch & (1 << 6)) {
+			trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
+			uart_write(&UART0, 1, &rxbyte);
+			trans_read_register(transceiver.RegFifo, &rxbyte, 1);
+			led(ON, green);
 		}
-		
-		led(TOGGLE, red);
-		for(uint32_t i = 0; i < 500000; ++i)
+		uart_write(&UART0, 1, (uint8_t[]){0});
+		led(OFF, green);
+	//	led(TOGGLE, red);
+
+		//for(uint32_t i = 0; i < 50; ++i) {
+			//trans_read_register(transceiver.RegRssiValue, &rssi, 1);
+			//trans_write_register(transceiver.RegRssiConfig, (uint8_t[]){0x01}, 1);
+			//trans_read_register(transceiver.RegOpMode, &scratch, 1);
+			//uart_write(&UART0, 1, &scratch);
+			//trans_read_register(transceiver.RegIrqFlags1, &scratch, 1);
+			//uart_write(&UART0, 1, &scratch);
+			//trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
+			//uart_write(&UART0, 1, &scratch);
+			//uart_write(&UART0, 1, (uint8_t[]){0});
+			//if (rssi < 0x70)
+			//	uart_write(&UART0, 1, &rssi);
+
+		//	for(uint32_t i = 0; i < 50000; ++i);
 			if(GPIOE.PDIR)
 				led(TOGGLE, blue);
-;
-
+		//}
 	}
 	return 0;
 }
