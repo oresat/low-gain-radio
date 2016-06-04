@@ -6,6 +6,10 @@ The Low Gain Radio module is part of the sputnik capstone project and is the com
 
 ## Contents
 
+datasheets - datasheets for components used
+
+docs - documentation
+
 eagle - contains Schematic and PCB layout for the Low Gain Radio
 
 tools - contains firmware and tools for compiling/debugging
