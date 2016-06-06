@@ -8,17 +8,18 @@
 #include "uart.h"
 #include "led.h"
 
-#define PAYLOAD_READY_MASK 0x04
-
-/* LNA Enable */
+/* LNA */
 #define PTB0 (1 << 0)
 void LNAEnable(void) {
-	GPIOB.PTOR = PTB0;
+	GPIOB.PSOR = PTB0;
 }
-/* PA Enable */
+/* PA */
 #define PTB1 (1 << 1)
 void PAEnable(void) {
-	GPIOB.PTOR = PTB1;
+	GPIOB.PSOR = PTB1;
+}
+void PADisable(void) {
+	GPIOB.PCOR = PTB1;
 }
 
 
@@ -104,17 +105,34 @@ void modeTX(void) {
 	trans_write_register(transceiver.RegOpMode, &standby, 1); 
 
 	uint8_t txbytes[] = {0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD};
+	uint8_t cmdbytes[PACKET_LENGTH] = {0};
+	uint32_t i;
 	while(1) {
+		uint8_t command;
+		if(uart_char(&UART0, &command)){
+			memset(cmdbytes, command, PACKET_LENGTH);
+			trans_write_register(transceiver.RegFifo, cmdbytes, PACKET_LENGTH);
+		}
+
 		/* write to transceiver fifoe to transmit data */
-		trans_write_register(transceiver.RegFifo, txbytes, PACKET_LENGTH);
-		led(TOGGLE, led5);
-		for(uint32_t i = 0; i < 5000000; ++i);
+		++i;
+		if(i > 1000000) {
+			led(TOGGLE, led5);
+			trans_write_register(transceiver.RegFifo, txbytes, PACKET_LENGTH);
+			i = 0;
+		}
 	}
 }
 
 void modeRX(void) {
 	LNAEnable();
+	PADisable();
 	configure_transceiver(Mode_RX, PAOutputCfg(PA0, 0));
+	/* Due to a hardware error, DIO0 is hooked to RF reset, but goes high in 
+	 * most rx modes, leading to the receiver resetting itself on receiving a
+	 * packet. Set it to CrcOk and make sure CRC checking is off */
+	uint8_t DIOMapping = 0x00;
+	trans_write_register(transceiver.RegDioMapping1, &DIOMapping, 1);
 
 	uint32_t ledcount = 0;
 	uint8_t rxbyte = 0x0;
@@ -172,6 +190,6 @@ int main(void) {
 	uart_write(&UART0, 11, "\r\nRestart\r\n");
 
 
-//	modeTX();
-	modeRX();
+	modeTX();
+//	modeRX();
 }
