@@ -228,32 +228,63 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 #define LnaZin50 0x08
 #define RcCalStart (1 << 7)
 #define RcCalDone (1 << 6)
-#define Mode_FS (1 << 3)
 
 #define DataModul_FSK 0x0
 #define PLLBandwidth_75kHz 0x0
 
+// RegOpMode
+#define SequencerOff (1 << 7)
+#define ListenAbort (1 << 5)
+#define ModeListen (1 << 6)
+#define ModeSleep (0 << 2)
+#define ModeStdby (1 << 2)
+#define ModeFS    (2 << 2)
+#define ModeTX    (3 << 2)
+#define ModeRX    (4 << 2)
+// RegDataModul
+#define Packet (0 << 5)
+#define Continuous (2 << 5)
+#define ContinuousNoSync (3 << 5)
+#define FSK (0 << 3)
+#define OOK (1 << 3)
+#define NoShaping (0 << 0)
+
+
+#define FXOSC (32000000) //32MHz
+#define Fstep (FXOSC/(1<<19))
+#define FstepMul (1 << 8)
+#define FstepDiv (15625)
+
+static void setCarrierFrequency(uint32_t carrierHz) {
+	uint64_t frf = (carrierHz * FstepMul) / FstepDiv;
+	uint8_t RegFrf[3] = {(frf >> 16) & 0xff, (frf >> 8) & 0xff, frf & 0xff};
+	trans_write_register(transceiver.RegFrfMsb, RegFrf, 3);
+}
+
+static void setFrequencyDeviation(uint32_t deviationHz) {
+	uint64_t fdev = (deviationHz * FstepMul) / FstepDiv;
+	uint8_t RegFdev[2] = {(fdev >> 8) & 0x3F, fdev & 0xFF};
+	trans_write_register(transceiver.RegFdevMsb, RegFdev, 2);
+}
+
+static void setBitrate(uint32_t bitrateHz) {
+	uint16_t rate = FXOSC/bitrateHz;
+	uint8_t RegBitrate[2] = {(rate >> 8) & 0xff, rate & 0xff};
+	trans_write_register(transceiver.RegBitrateMsb, RegBitrate, 2);
+}
+
 void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* Change to frequency synthesizer mode */
-	trans_write_register(transceiver.RegOpMode, (uint8_t[]){Mode_FS}, 1);
-
-	/* Set the carrier frequency to 436.5MHz assuming transceiver PLL at 32MHz 
-		See Table 7-5 in the reference manual
-	*/
-	trans_write_register(transceiver.RegFrfMsb, (uint8_t[]){0x6D, 0x20, 0x00}, 3);
-
+	trans_write_register(transceiver.RegOpMode, (uint8_t[]){ModeFS}, 1);
 	/* turn modulation to frequency shift keying */
-	trans_write_register(transceiver.RegDataModul, (uint8_t[]){DataModul_FSK}, 1);
+	//setCarrierFrequency(436500000);
+	setCarrierFrequency(436248576);
+	setFrequencyDeviation(2500);
+	setBitrate(2400);
 
-	/* frequency deviation settings */
-	trans_write_register(transceiver.RegFdevMsb, (uint8_t[]){0x00, 0x29}, 2);
-
+	trans_write_register(transceiver.RegDataModul, (uint8_t[]){Packet | FSK | NoShaping}, 1);
 	/* adjust PLL bandwidth to 75kHz */
 	trans_write_register(transceiver.RegTestPLL, (uint8_t[]){PLLBandwidth_75kHz}, 1);
-
-	/* bitrate settings = 2.4 kbps */
-	trans_write_register(transceiver.RegBitrateMsb, (uint8_t[]){0x34, 0x15}, 2);
-
 	/* set LNA's input impedance to 50 ohm */
 	trans_write_register(transceiver.RegLna, (uint8_t[]){LnaZin50}, 1); 
 	
@@ -276,13 +307,13 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	trans_write_register(transceiver.RegSyncConfig, (uint8_t[]){0xC1}, 1); 
 
 	/*Sync word setup*/
-	trans_write_register(transceiver.RegSyncValue1, (uint8_t[]){0x0F, 0x0F, 0x0F, 0x0F}, 4);
+	trans_write_register(transceiver.RegSyncValue1, (uint8_t[]){0xE7, 0xE7, 0xE7, 0xE7}, 4);
 
 	/*Setup the packet config: no encoding no crc*/
 	trans_write_register(transceiver.RegPacketConfig1, (uint8_t[]){0x08}, 1);
 
 	//Sets preamble size
-	trans_write_register(transceiver.RegPreambleLsb, (uint8_t[]){0x06}, 1);
+	trans_write_register(transceiver.RegPreambleMsb, (uint8_t[]){0x00, 0x06}, 2);
 
 	//Sets the payload length
 	/*
