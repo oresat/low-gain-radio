@@ -180,15 +180,15 @@ Test ID#                  | RadCom_1.00                  |
 Test Writer               | Shan Quinney/James Heath     | 
 Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving signals. |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |  Sputnik radio board version 1.00  |
+Name of Tester            |    | James Heath & Shan Quinney
+Time/Date                 |    | 6/5/2016
+Hardware Version          |  LGR1.00  |
 Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify GPS and time (cell phone).   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by blinking LED.  |  |  |
-2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by blinking LED.  |  |  |
+1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by blinking LED.  | PASS | N/A |
+2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by blinking LED.  | PASS | N/A |
 
 **Overall Test Result:**
 
@@ -229,15 +229,15 @@ Test ID#                  | CMD_1.00                     |
 Test Writer               | Will Harrington              | 
 Description               | The purpose of this test is to demonstrate the effectiveness of the system controller to execute commands |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
+Name of Tester            |  Michael Mathis & Shan Quinney  |
+Time/Date                 |  6/2/2016  |
+Hardware Version          |  SC1.00  |
 Setup                     |    |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Send command | Successful send  |  |  |
-2 | Observe LED on prototype | LED lights up  |  |  |
+1 | Send command | Successful send  | PASS |  |
+2 | Observe LED on prototype | LED lights up  | PASS |  |
 
 **Overall Test Result:**
 
