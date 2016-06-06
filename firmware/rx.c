@@ -103,43 +103,30 @@ int main(void) {
 	trans_write_register(transceiver.RegDioMapping2, (uint8_t[]){0x80 | (1<<2)}, 1);
 
 	uint8_t rxbyte = 0x0;
-	uint8_t rssi = 0;
-	uint8_t scratch = 0;
+	uint8_t IrqFlags[2] = {0, 0};
+	uint8_t OldFlags[2] = {0xFF, 0xFF};
+	uart_write(&UART0, 9, "Restart\r\n");
 	while(1) {
-		/* read fifo register in transceiver block */
-		while(!(scratch & (1 << 6)))
-			trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
-
-		while(scratch & (1 << 6)) {
-			trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
-			trans_read_register(transceiver.RegFifo, &rxbyte, 1);
-			uint8_t chars[3] = {0,0,' '};
-			toHex(rxbyte, chars);
-
-			uart_write(&UART0, 3, chars);
-			led(ON, green);
+		trans_read_register(transceiver.RegIrqFlags1, IrqFlags, 2);
+		if (IrqFlags[0] != OldFlags[0] || IrqFlags[1] != OldFlags[1]) {
+			uint8_t chars[7] = {0, 0, ' ', 0, 0, '\r', '\n'};
+			toHex(IrqFlags[0], chars);
+			toHex(IrqFlags[1], chars + 3);
+			uart_write(&UART0, sizeof(chars), chars);
+			OldFlags[0] = IrqFlags[0];
+			OldFlags[1] = IrqFlags[1];
 		}
-		uart_write(&UART0, 2, (uint8_t[]){"\r\n"});
-		led(OFF, green);
-	//	led(TOGGLE, red);
-
-		//for(uint32_t i = 0; i < 50; ++i) {
-			//trans_read_register(transceiver.RegRssiValue, &rssi, 1);
-			//trans_write_register(transceiver.RegRssiConfig, (uint8_t[]){0x01}, 1);
-			//trans_read_register(transceiver.RegOpMode, &scratch, 1);
-			//uart_write(&UART0, 1, &scratch);
-			//trans_read_register(transceiver.RegIrqFlags1, &scratch, 1);
-			//uart_write(&UART0, 1, &scratch);
-			//trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
-			//uart_write(&UART0, 1, &scratch);
-			//uart_write(&UART0, 1, (uint8_t[]){0});
-			//if (rssi < 0x70)
-			//	uart_write(&UART0, 1, &rssi);
-
-		//	for(uint32_t i = 0; i < 50000; ++i);
-			if(GPIOE.PDIR)
-				led(TOGGLE, blue);
-		//}
+		if(IrqFlags[1] & PayloadReady) {
+			uart_write(&UART0, 9, "Payload: ");
+			while(IrqFlags[1] & FifoNotEmpty) {
+				trans_read_register(transceiver.RegFifo, &rxbyte, 1);
+				uint8_t data[3] = {0, 0, ' '};
+				toHex(rxbyte, data);
+				uart_write(&UART0, 3, data);
+				trans_read_register(transceiver.RegIrqFlags2, &IrqFlags[1], 1);
+			}
+			uart_write(&UART0, 2, "\r\n");
+		}
 	}
 	return 0;
 }

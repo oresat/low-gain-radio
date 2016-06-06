@@ -111,6 +111,24 @@ extern struct TRANSCEIVER transceiver;
 
 #define PAOutputCfg(pa, power) (((pa) & (PA0 | PA1 | PA2)) | ((power) & 0x1F))
 
+// RegIrqFlags1
+#define ModeReady (1 << 7)
+#define RxReady (1 << 6)
+#define TxReady (1 << 5)
+#define PllLock (1 << 4)
+#define Rssi (1 << 3)
+#define Timeout (1 << 2)
+#define AutoMode (1 << 1)
+#define SyncAddressMatch (1 << 0)
+// RegIrqFlags2
+#define FifoFull (1 << 7)
+#define FifoNotEmpty (1 << 6)
+#define FifoLevel (1 << 5)
+#define FifoOverrun (1 << 4)
+#define PacketSent (1 << 3)
+#define PayloadReady (1 << 2)
+#define CrcOk (1 << 1)
+#define LowBat (1 << 0)
 
 void initialize_trans_spi(volatile struct spi * SPI);
 void trans_read_register(uint8_t address, uint8_t * buffer, uint8_t length);
