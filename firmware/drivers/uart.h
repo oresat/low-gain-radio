@@ -18,10 +18,12 @@ struct uart_config {
 
 void uart0_init(volatile struct uart0 * UART, const struct uart_config * config);
 void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer);
+bool uart0_char(volatile struct uart0 * UART, uint8_t * buffer);
 void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer);
 
 void uart12_init(volatile struct uart * UART, const struct uart_config * config);
 void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer);
+bool uart12_char(volatile struct uart * UART, uint8_t * buffer);
 void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer);
 
 #define uart_init(UART, config) _Generic((UART), \
@@ -32,6 +34,11 @@ void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer);
 	volatile struct uart0 *: uart0_read, \
 	volatile struct uart *: uart12_read  \
 	)(UART, len, buffer)
+#define uart_char(UART, buffer) _Generic((UART), \
+	volatile struct uart0 *: uart0_char, \
+	volatile struct uart *: uart12_char  \
+	)(UART, buffer)
+
 #define uart_write(UART, len, buffer) _Generic((UART), \
 	volatile struct uart0 *: uart0_write, \
 	volatile struct uart *: uart12_write  \

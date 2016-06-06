@@ -79,6 +79,10 @@ void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
 	uart12_read((volatile struct uart *) UART, len, buffer);
 }
 
+bool uart0_char(volatile struct uart0 * UART,  uint8_t * buffer){
+	return uart12_char((volatile struct uart *) UART, buffer);
+}
+
 void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
 	uart12_write((volatile struct uart *) UART, len, buffer);
 }
@@ -124,10 +128,18 @@ void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
 
 	for(unsigned int i = 0; i < len; ++i){
 		/* poll receive data register full flag */
-		//while(!(UART->S1 & RDRF));
+		while(!(UART->S1 & RDRF));
 
 		buffer[i] = UART->D;
 	}
+}
+
+bool uart12_char(volatile struct uart * UART, uint8_t * buffer) {
+	/* check receive data register full flag */
+	if (!(UART->S1 & RDRF))
+		return false;
+	*buffer = UART->D;
+	return true;
 }
 
 void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
