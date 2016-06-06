@@ -24,7 +24,7 @@ rx: crt0.o rx.o port.o spi.o uart.o transceiver.o clksetup.o led.o
 tx: crt0.o tx.o port.o spi.o uart.o transceiver.o clksetup.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-lgr: crt0.o lgr.o port.o spi.o uart.o transceiver.o clksetup.o
+lgr: crt0.o lgr.o port.o spi.o uart.o transceiver.o clksetup.o led.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
