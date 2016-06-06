@@ -78,6 +78,18 @@ void initialize_uart0(void){
 	uart_init(&UART0, &myUART);
 }
 
+void toHex(uint8_t byte, uint8_t * chars) {
+	if(((byte >> 4) & 0xf)  <= 9)
+		chars[0] = '0' + ((byte >> 4) & 0xf);
+	else
+		chars[0] = '7' + ((byte >> 4) & 0xf);
+
+	if((byte & 0xf) <= 9)
+		chars[1] = '0' + (byte & 0xf);
+	else
+		chars[1] = '7' + (byte & 0xf);
+}
+
 int main(void) {
 	/* call initialization procedures */
 	initialize_clock();
@@ -100,11 +112,14 @@ int main(void) {
 
 		while(scratch & (1 << 6)) {
 			trans_read_register(transceiver.RegIrqFlags2, &scratch, 1);
-			uart_write(&UART0, 1, &rxbyte);
 			trans_read_register(transceiver.RegFifo, &rxbyte, 1);
+			uint8_t chars[3] = {0,0,' '};
+			toHex(rxbyte, chars);
+
+			uart_write(&UART0, 3, chars);
 			led(ON, green);
 		}
-		uart_write(&UART0, 1, (uint8_t[]){0});
+		uart_write(&UART0, 2, (uint8_t[]){"\r\n"});
 		led(OFF, green);
 	//	led(TOGGLE, red);
 
