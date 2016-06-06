@@ -141,3 +141,17 @@ void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
 		while(!(UART->S1 & TDRE));
 	}
 }
+
+void toHex(uint8_t * dest, uint8_t byte) {
+	if(((byte >> 4) & 0xf)  <= 9)
+		dest[0] = '0' + ((byte >> 4) & 0xf);
+	else
+		dest[0] = '7' + ((byte >> 4) & 0xf);
+
+	if((byte & 0xf) <= 9)
+		dest[1] = '0' + (byte & 0xf);
+	else
+		dest[1] = '7' + (byte & 0xf);
+}
+
+

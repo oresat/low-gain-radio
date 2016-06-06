@@ -78,18 +78,6 @@ void initialize_uart0(void){
 	uart_init(&UART0, &myUART);
 }
 
-void toHex(uint8_t byte, uint8_t * chars) {
-	if(((byte >> 4) & 0xf)  <= 9)
-		chars[0] = '0' + ((byte >> 4) & 0xf);
-	else
-		chars[0] = '7' + ((byte >> 4) & 0xf);
-
-	if((byte & 0xf) <= 9)
-		chars[1] = '0' + (byte & 0xf);
-	else
-		chars[1] = '7' + (byte & 0xf);
-}
-
 int main(void) {
 	/* call initialization procedures */
 	initialize_clock();
@@ -110,8 +98,8 @@ int main(void) {
 		trans_read_register(transceiver.RegIrqFlags1, IrqFlags, 2);
 		if (IrqFlags[0] != OldFlags[0] || IrqFlags[1] != OldFlags[1]) {
 			uint8_t chars[7] = {0, 0, ' ', 0, 0, '\r', '\n'};
-			toHex(IrqFlags[0], chars);
-			toHex(IrqFlags[1], chars + 3);
+			toHex(chars, IrqFlags[0]);
+			toHex(chars + 3, IrqFlags[1]);
 			uart_write(&UART0, sizeof(chars), chars);
 			OldFlags[0] = IrqFlags[0];
 			OldFlags[1] = IrqFlags[1];
@@ -121,7 +109,7 @@ int main(void) {
 			while(IrqFlags[1] & FifoNotEmpty) {
 				trans_read_register(transceiver.RegFifo, &rxbyte, 1);
 				uint8_t data[3] = {0, 0, ' '};
-				toHex(rxbyte, data);
+				toHex(data, rxbyte);
 				uart_write(&UART0, 3, data);
 				trans_read_register(transceiver.RegIrqFlags2, &IrqFlags[1], 1);
 			}

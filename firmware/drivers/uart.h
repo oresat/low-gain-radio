@@ -36,5 +36,6 @@ void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer);
 	volatile struct uart0 *: uart0_write, \
 	volatile struct uart *: uart12_write  \
 	)(UART, len, buffer)
-
+//util function that shouldn't be here, but until we get a util module...
+void toHex(uint8_t * dest, uint8_t byte);
 #endif
