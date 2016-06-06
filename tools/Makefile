@@ -42,5 +42,5 @@ gdb_%: %
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
 
 clean:
-	$(RM) c3 *.o *.hex *.s ./drivers/*.o
+	$(RM) c3 lgr tx rx *.o *.hex *.s ./drivers/*.o
 
