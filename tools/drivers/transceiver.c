@@ -248,6 +248,37 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 #define FSK (0 << 3)
 #define OOK (1 << 3)
 #define NoShaping (0 << 0)
+// RegAutoModes
+#define EnterNone         (0b000 << 5)
+#define EnterFifoNotEmpty (0b001 << 5)
+#define EnterFifoLevel    (0b010 << 5)
+#define EnterCrcOk        (0b011 << 5)
+#define EnterPayloadReady (0b100 << 5)
+#define EnterSyncAddress  (0b101 << 5)
+#define EnterPacketSent   (0b110 << 5)
+#define EnterFifoEmpty    (0b111 << 5)
+#define ExitNone         (0b000 << 2)
+#define ExitFifoEmpty    (0b001 << 2)
+#define ExitFifoLevel    (0b010 << 2)
+#define ExitCrcOk        (0b011 << 2)
+#define ExitPayloadReady (0b100 << 2)
+#define ExitSyncAddress  (0b101 << 2)
+#define ExitPacketSent   (0b110 << 2)
+#define ExitTimeout      (0b111 << 2)
+#define InterSleep (0b00 << 0)
+#define InterStdby (0b01 << 0)
+#define InterRX    (0b10 << 0)
+#define InterTX    (0b11 << 0)
+// RegSyncConfig
+#define SyncOn (1 << 7)
+#define FifoFillSyncAddress (0 << 6)
+#define FifoFillCondition (1 << 6)
+#define SyncSize(bytes) ((((bytes) - 1) & 0x7) << 3)
+#define SyncTol(errors) ((errors) & 0x7)
+// RegAfcFei
+#define AfcAutoOn (1 << 2)
+#define AfcAutoclearOn (1 << 3)
+
 
 
 #define FXOSC (32000000) //32MHz
@@ -285,25 +316,27 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* adjust PLL bandwidth to 75kHz */
 	trans_write_register(transceiver.RegTestPLL, (uint8_t[]){PLLBandwidth_75kHz}, 1);
 	/* set LNA's input impedance to 50 ohm */
-	trans_write_register(transceiver.RegLna, (uint8_t[]){LnaZin50}, 1); 
+	trans_write_register(transceiver.RegLna, (uint8_t[]){LnaZin50}, 1);
 	
 	/* configure PA output power */
 	trans_write_register(transceiver.RegPaLevel, (uint8_t[]){RegPAOutputCfg}, 1);
 
-	if(OpModeCfg == Mode_TX){
-		/*Setup automodes for transmitting*/
-		trans_write_register(transceiver.RegAutoModes, (uint8_t[]){0x3B}, 1);
-	}
-	else if (OpModeCfg == Mode_RX){
-		/*Setup RX specific configurations*/
-		trans_write_register(transceiver.RegRxBw, (uint8_t[]){0x55}, 1);
-		trans_write_register(transceiver.RegRssiThresh, (uint8_t[]){0x70}, 1);
-		trans_write_register(transceiver.RegAutoModes, (uint8_t[]){0x85} , 1);
-	}
+	uint8_t autoModes = 0;
+	if(OpModeCfg == Mode_TX)
+		autoModes = EnterFifoNotEmpty | InterTX | ExitPacketSent;
+	else
+		autoModes = EnterNone | InterSleep | ExitNone;
+		//autoModes = EnterSyncAddress | InterRX | ExitFifoNotEmpty;
+		//autoModes = EnterPayloadReady | InterSleep | ExitFifoEmpty;
+	trans_write_register(transceiver.RegAutoModes, &autoModes, 1);
+
+	trans_write_register(transceiver.RegRxBw, (uint8_t[]){0x55}, 1);
+	trans_write_register(transceiver.RegRssiThresh, (uint8_t[]){0x70}, 1);
 
 	//0x00 No sync
 	//0x98 Sync with 4 bytes
-	trans_write_register(transceiver.RegSyncConfig, (uint8_t[]){0xC1}, 1); 
+	uint8_t SyncConfig = SyncOn | FifoFillCondition | SyncSize(1) | SyncTol(0);
+	trans_write_register(transceiver.RegSyncConfig, &SyncConfig, 1);
 
 	/*Sync word setup*/
 	trans_write_register(transceiver.RegSyncValue1, (uint8_t[]){0xE7, 0xE7, 0xE7, 0xE7}, 4);
@@ -312,7 +345,7 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	trans_write_register(transceiver.RegPacketConfig1, (uint8_t[]){0x08}, 1);
 
 	//Sets preamble size
-	trans_write_register(transceiver.RegPreambleMsb, (uint8_t[]){0x00, 0x06}, 2);
+	trans_write_register(transceiver.RegPreambleMsb, (uint8_t[]){0x00, 0x10}, 2);
 
 	//Sets the payload length
 	/*
