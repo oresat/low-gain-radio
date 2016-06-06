@@ -252,17 +252,17 @@ void trans_write_register(uint8_t address, uint8_t * buffer, uint8_t length){
 
 #define FXOSC (32000000) //32MHz
 #define Fstep (FXOSC/(1<<19))
-#define FstepMul (1 << 8)
-#define FstepDiv (15625)
+#define FstepMul ((uint64_t)(1 << 8))
+#define FstepDiv ((uint64_t)(15625))
 
 static void setCarrierFrequency(uint32_t carrierHz) {
-	uint64_t frf = (carrierHz * FstepMul) / FstepDiv;
+	uint64_t frf = ((uint64_t)carrierHz * FstepMul) / FstepDiv;
 	uint8_t RegFrf[3] = {(frf >> 16) & 0xff, (frf >> 8) & 0xff, frf & 0xff};
 	trans_write_register(transceiver.RegFrfMsb, RegFrf, 3);
 }
 
 static void setFrequencyDeviation(uint32_t deviationHz) {
-	uint64_t fdev = (deviationHz * FstepMul) / FstepDiv;
+	uint64_t fdev = ((uint64_t)deviationHz * FstepMul) / FstepDiv;
 	uint8_t RegFdev[2] = {(fdev >> 8) & 0x3F, fdev & 0xFF};
 	trans_write_register(transceiver.RegFdevMsb, RegFdev, 2);
 }
