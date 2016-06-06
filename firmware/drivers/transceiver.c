@@ -333,9 +333,7 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	trans_write_register(transceiver.RegRxBw, (uint8_t[]){0x55}, 1);
 	trans_write_register(transceiver.RegRssiThresh, (uint8_t[]){0x70}, 1);
 
-	//0x00 No sync
-	//0x98 Sync with 4 bytes
-	uint8_t SyncConfig = SyncOn | FifoFillCondition | SyncSize(1) | SyncTol(0);
+	uint8_t SyncConfig = SyncOn | FifoFillSyncAddress | SyncSize(1) | SyncTol(0);
 	trans_write_register(transceiver.RegSyncConfig, &SyncConfig, 1);
 
 	/*Sync word setup*/
@@ -364,6 +362,8 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* To trigger on a fifo threshhold set RegFifoThresh to PACKET_LENGTH*/
 	/* Trigger on fifo not empty */
 	trans_write_register(transceiver.RegFifoThresh, (uint8_t[]){0x04}, 1);
+
+	trans_write_register(transceiver.RegAfcFei, (uint8_t[]){AfcAutoOn | AfcAutoclearOn}, 1);
 
 	/* Set transceiver mode */
 	trans_write_register(transceiver.RegOpMode, (uint8_t[]){OpModeCfg}, 1);
