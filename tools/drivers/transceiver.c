@@ -277,8 +277,7 @@ void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	/* Change to frequency synthesizer mode */
 	trans_write_register(transceiver.RegOpMode, (uint8_t[]){ModeFS}, 1);
 	/* turn modulation to frequency shift keying */
-	//setCarrierFrequency(436500000);
-	setCarrierFrequency(436248576);
+	setCarrierFrequency(436500000);
 	setFrequencyDeviation(2500);
 	setBitrate(2400);
 
