@@ -1,6 +1,7 @@
 /*
 	Low Gain Radio firmware
 */
+#include <ctype.h>
 #include <string.h>
 
 #include "transceiver.h"
@@ -87,6 +88,33 @@ void initialize_gpio(void){
 	return;
 }
 
+void toggle_power_level(void) {
+	static uint8_t power_level = 0;
+	if(power_level == 0) {
+		power_level = 18;
+		uart_write(&UART0, 19, "High Power (0dBm)\r\n");
+		//uart_write(&UART0, 14, "Over 9000dBm\r\n");
+	} else {
+		power_level = 0;
+		uart_write(&UART0, 20, "Low Power (-18dBm)\r\n");
+	}
+	uint8_t cfg = PAOutputCfg(PA1, power_level);
+	trans_write_register(transceiver.RegPaLevel, (uint8_t[]){cfg}, 1);
+	led(TOGGLE, led8);
+}
+
+uint8_t fromHexChar(uint8_t ascii) {
+	if (ascii >= '0' && ascii <= '9')
+		return ascii - '0';
+	if (ascii >= 'a' && ascii <= 'f')
+		return ascii - 'a' + 10;
+	return ascii - 'A' + 10;
+}
+
+uint8_t fromHex(uint8_t * ascii) {
+	return (fromHexChar(ascii[0]) << 4) + fromHexChar(ascii[1]);
+}
+
 void modeTX(void) {
 	// LNA should be off in txonly, but because of a hardware quirk it
 	// powers rx/tx switch too and must always be on.
@@ -112,6 +140,27 @@ void modeTX(void) {
 		if(uart_char(&UART0, &command)){
 			memset(cmdbytes, command, PACKET_LENGTH);
 			trans_write_register(transceiver.RegFifo, cmdbytes, PACKET_LENGTH);
+
+			uint8_t hex[2] = {0};
+			uint8_t rssi;
+			switch(command) {
+			case 'h':
+				toggle_power_level();
+				break;
+			case 'r':
+				uart_read(&UART0, 2, hex);
+				if(!(isxdigit(hex[0]) && isxdigit(hex[1]))){
+					uart_write(&UART0, 43,"Could not convert from ascii hex to value: ");
+					uart_write(&UART0, 2, hex);
+					uart_write(&UART0, 2, "\r\n");
+				}
+				uart_write(&UART0, 1, "r");
+				uart_write(&UART0, 2, hex);
+				uart_write(&UART0, 2, "\r\n");
+				rssi = fromHex(hex);
+				trans_write_register(transceiver.RegRssiThresh, &rssi, 1);
+				break;
+			}
 		}
 
 		/* write to transceiver fifoe to transmit data */
