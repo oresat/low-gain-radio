@@ -153,6 +153,7 @@ void modeTX(void) {
 					uart_write(&UART0, 43,"Could not convert from ascii hex to value: ");
 					uart_write(&UART0, 2, hex);
 					uart_write(&UART0, 2, "\r\n");
+					break;
 				}
 				uart_write(&UART0, 1, "r");
 				uart_write(&UART0, 2, hex);
