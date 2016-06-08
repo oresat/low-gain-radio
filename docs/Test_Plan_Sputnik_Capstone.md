@@ -242,8 +242,8 @@ Setup                     |  Sent commands across JTAG interface, viewed LEDs fo
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by ouputting payload to terminal via UART.  | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal  |
-2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by ouputting payload to terminal via UART.   | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal |
+1 | Send command | Successful send  | PASS | LED successfully lights up indicating the signal was sent |
+2 | Observe LED on prototype | LED lights up  | PASS | LED successfully lights up |
 
 **Overall Test Result:**
 
