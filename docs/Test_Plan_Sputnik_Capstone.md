@@ -49,6 +49,12 @@ written by Shan Quinney, William Harrington, and James Heath
 
 05/16/16 - Removed "Test Setup and Calibration" section from the document. Revised Temperature Test with updated procedure. (Shan)
 
+06/01/16 - Added test results for some of the tests (Jake)  
+
+06/05/16 - More updated test results (Jake)  
+
+06/08/16 - Removed untested tests (Jake)  
+
 ### Introduction
 
 #### Purpose
@@ -113,14 +119,14 @@ Setup                     |  Oscilloscope and Power supply in LID  |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS (all 3) | 3.0V at 3.0V supply |
-2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS (all 3)  | 32 MHz |
-3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS (all 3) | 3.0V at 5.0V supply. |
-4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS (all 3) | 32 MHz |
-5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  | PASS (all 2) | 3.0V at 3.0V |
-6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS (all 2) | 8 MHz |
-7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  | PASS (all 2) | 3.0V at 5.0V |
-8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS (all 2) | 8 MHz |  
+1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.0V at 3.0V supply |
+2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 32 MHz |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.3V at 5.0V supply |
+4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 32 MHz |
+5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  | PASS | 3.0 V at 3.0 V supply |
+6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |
+7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  | PASS | 3.3V at 5.0V supply. |
+8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |   
 
 #### Temperature Range Test
 
@@ -232,12 +238,12 @@ Tester Information        |    |
 Name of Tester            |  Michael Mathis & Shan Quinney  |
 Time/Date                 |  6/2/2016  |
 Hardware Version          |  SC1.00  |
-Setup                     |    |
+Setup                     |  Sent commands across JTAG interface, viewed LEDs for results |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Send command | Successful send  | PASS |  |
-2 | Observe LED on prototype | LED lights up  | PASS |  |
+1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by ouputting payload to terminal via UART.  | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal  |
+2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by ouputting payload to terminal via UART.   | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal |
 
 **Overall Test Result:**
 
