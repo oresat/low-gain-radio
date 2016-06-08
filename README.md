@@ -1,6 +1,6 @@
 # OreSat "Low Gain Radio" board
 
-![LGR Finished Board](http://i.imgur.com/klZEZaP.png)
+![LGR Finished Board](http://i.imgur.com/KYydhJP.png)
 
 ## Overview
 
