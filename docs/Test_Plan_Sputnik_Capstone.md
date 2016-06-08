@@ -189,7 +189,7 @@ Tester Information        |    |
 Name of Tester            |  James Heath & Shan Quinney  | 
 Time/Date                 |   6/5/2016  |
 Hardware Version          |  LGR1.00  |
-Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify GPS and time (cell phone).   |
+Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify payload data.   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
