@@ -186,15 +186,15 @@ Test ID#                  | RadCom_1.00                  |
 Test Writer               | Shan Quinney/James Heath     | 
 Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving signals. |
 Tester Information        |    |
-Name of Tester            |    | James Heath & Shan Quinney
-Time/Date                 |    | 6/5/2016
+Name of Tester            |  James Heath & Shan Quinney  | 
+Time/Date                 |   6/5/2016  |
 Hardware Version          |  LGR1.00  |
 Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify GPS and time (cell phone).   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by blinking LED.  | PASS | N/A |
-2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by blinking LED.  | PASS | N/A |
+1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by ouputting payload to terminal via UART.  | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal  |
+2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by ouputting payload to terminal via UART.   | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal |
 
 **Overall Test Result:**
 
