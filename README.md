@@ -1,10 +1,12 @@
 # OreSat "Low Gain Radio" board
 
+![LGR Finished Board](http://i.imgur.com/klZEZaP.png)
+
 ## Overview
 
 The Low Gain Radio module is part of the sputnik capstone project and is the communications pipeline for the CubeSat.  
 
-![OreSAT to LGR block diagram](http://i.imgur.com/t1GpLoK.png)  
+![OreSat to LGR block diagram](http://i.imgur.com/t1GpLoK.png)  
 
 The module is centered around a microcontroller with an integrated transceiver and RF front end. Commands will be sent and received through this module. In most cases the system controller will assist in executing those commands. Communication with the system controller is done via a UART connection between the two modules.
 
