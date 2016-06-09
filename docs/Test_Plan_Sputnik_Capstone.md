@@ -57,6 +57,8 @@ written by Shan Quinney, William Harrington, and James Heath
 
 06/09/16 - Added final test results (Jake)  
 
+06/09/16 - Added Control test results (Jake)
+
 ### Introduction
 
 #### Purpose
@@ -166,19 +168,20 @@ To test the control system, a method to simulate a latch-up event will be used t
 ------------------------- | ---------------------------- |
 Test Case Name            | Control Test       |
 Test ID#                  | ATM_1.00                     |
-Test Writer               | Shan Quinney                 | 
-Description               | The purpose of this test is to demonstrate the effectiveness of the watchdog to restart key system functionality after radiation events. |
+Test Writer               | Shan Quinney, Michael Mathis         | 
+Description               | The purpose of this test is to demonstrate the effectiveness of the system controller to restart key systems when UART "I'm alive" signals are lost. |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |  Board Rev.1, Filter Rev.1, Wire antenna  |
-Setup                     |    |
+Name of Tester            |  Michael Mathis  |
+Time/Date                 |  6/1/2016  |
+Hardware Version          |  Board Rev.1, Filter Rev.1 |
+Setup                     |  Laptop and portable programmer  |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Use a metal tool to cause a short across the crystal | The kw0x will loose the signal from the crystal.  |  |  |
-2 | Probe the UART line between the controller and the kw0x to determine that the life line signal is lost | The UART line will be free of any signal between the kw0x and the controller.  |  |  |
-3 | Monitor the controller to ensure that the reset line on the kw0x has been activated | The reset line on the kw0x will be activated in an effort to reboot the device.  |  |  |
+1 | Remove the wire connecting the system controller UART rx and the LGR tx | The system controller will loose the signal from the LGR.  | PASS | Signal is lost |
+2 | Probe the UART line between the controller and the LGR to determine that the life line signal is lost | The UART line will be free of any signal between the LGR and the controller.  | PASS | No signal detected |
+3 | Monitor the controller to ensure that the reset line on the kw0x has been activated | The reset line on the kw0x will be activated in an effort to reboot the device.  | PASS | Reset line is active |
+4 | After 4 seconds make sure that the "I'm alive" signal from the LGR is found again  | The system controller will be receiving the life line signal from the LGR   | PASS |  LGR is restarted and signaling again  |
 
 **Overall Test Result:** Success  
 
