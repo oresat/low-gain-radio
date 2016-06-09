@@ -47,13 +47,15 @@ written by Shan Quinney, William Harrington, and James Heath
 
 05/14/16 - Grammar corrections in introduction.
 
-05/16/16 - Removed "Test Setup and Calibration" section from the document. Revised Temperature Test with updated procedure. (Shan)
+05/16/16 - Removed "Test Setup and Calibration" section from the document. Revised Temperature Test with updated procedure. (Shan)  
 
 06/01/16 - Added test results for some of the tests (Jake)  
 
 06/05/16 - More updated test results (Jake)  
 
-06/08/16 - Removed untested tests (Jake)  
+06/08/16 - Removed untested tests (Jake)
+
+06/09/16 - Added final test results (Jake)  
 
 ### Introduction
 
@@ -99,7 +101,7 @@ The equipment needed for the tests is as follows:
 
 ### Component Tests
 
-The Component Tests will test components that are imperative to the core operation of intergrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
+The Component Tests will test components that are imperative to the core operation of integrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
 
 #### Supply Range Test
 
@@ -111,8 +113,8 @@ Test Case Name            | Supply Range Test            |
 Test ID#                  | Supply_1.00                  |
 Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to demonstrate the functionality of the boards and their crystals at the required supply range limits. |
-Tester Information        |  N/A  |
-Name of Tester(s)            |  James Heath (LGR), Shan Quinney & Michael Mathis (SC) |
+Tester Information        |    |
+Name of Tester            |  James Heath (LGR), Shan Quinney & Michael Mathis (SC)  |
 Time/Date                 |  5/29/2016, 5/29/2016  |
 Hardware Version          |  LGR1.00, SC1.00  |
 Setup                     |  Oscilloscope and Power supply in LID  |
@@ -126,52 +128,8 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  | PASS | 3.0 V at 3.0 V supply |
 6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |
 7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  | PASS | 3.3V at 5.0V supply. |
-8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |   
+8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |  
 
-#### Temperature Range Test
-
-The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements. Ideally, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Because of time and resources, we will instead use an oven to test both the LGR and SC boards at the upper temperature bound and a mixture of dry ice and conventinal ice to test both boards at the lower temperature bounds. 
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Temperature Range Test       |
-Test ID#                  | Temp_1.00                    |
-Test Writer               | James Heath, Will Harrington, Shan Quinney | 
-Description               | The purpose of this test is to demonstrate the functionality of the board at the requirement range limits. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Setup LGR for transmit operation. Place LGR in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-2 | Setup SysCon for operation. Place SysCon in waterproof container. Place container in styrofoam cooler filled with mixture of dry ice and conventional ice to approximate -40C.| UART LEDs blink while in chamber  |  |  |
-3 | Setup LGR for transmit operation.  Set oven temperature to 80C. Place LGR board in oven.| Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-4 | Setup SysCon for operation. Set oven temperatrue to 80C. Place SysCon board in oven.| UART LEDs blink while in chamber  |  |  |
-
-#### Vacuum Test
-
-To ensure application in space, the sputnik board will need to be able to run within a vacuum. For this test, the board will be set in a vacuum chamber and again have its operations tested. 
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Vacuum Test                  |
-Test ID#                  | Vacuum_1.00                  |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards in a vacuum. |
-Tester Information        | Need to make sure power supply can supply modules with power while inside of chamber  |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     | Power supply for powering modules |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Hook up LGR and SysCon as specified in schematic | Power LEDs on for both modules  |  |  |
-2 | Setup modules inside of vacuum chamber | Power LEDs on for both modules  |  |  |
-3 | Commence vacuum test in chamber | Power LEDs remain on for both modules  |  |  |
 
 ### System Tests
 
@@ -186,17 +144,17 @@ Test ID#                  | RadCom_1.00                  |
 Test Writer               | Shan Quinney/James Heath     | 
 Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving signals. |
 Tester Information        |    |
-Name of Tester            |  James Heath & Shan Quinney  | 
-Time/Date                 |   6/5/2016  |
-Hardware Version          |  LGR1.00  |
-Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify payload data.   |
+Name of Tester            |  James Heath, Shan Quinney   |
+Time/Date                 |  6/6/2016  |
+Hardware Version          |  Sputnik radio board version 1.00  |
+Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify sent payload data.   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
 1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by ouputting payload to terminal via UART.  | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal  |
 2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by ouputting payload to terminal via UART.   | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Control Test
 
@@ -222,7 +180,7 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 2 | Probe the UART line between the controller and the kw0x to determine that the life line signal is lost | The UART line will be free of any signal between the kw0x and the controller.  |  |  |
 3 | Monitor the controller to ensure that the reset line on the kw0x has been activated | The reset line on the kw0x will be activated in an effort to reboot the device.  |  |  |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Command Test
 
@@ -245,7 +203,7 @@ Step | Action | Expected Result | Pass/Fail | Comments |
 1 | Send command | Successful send  | PASS | LED successfully lights up indicating the signal was sent |
 2 | Observe LED on prototype | LED lights up  | PASS | LED successfully lights up |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Functionality Test
 
@@ -255,14 +213,14 @@ Test Case Name            | Functionality Test           |
 Test ID#                  | Func_1.00                    |
 Test Writer               | James Heath, Will Harrington | 
 Description               | The purpose of this test is to observe the desired functionality as outlined in the project requirements of the LGR and SysCon. |
-Tester Information        | The test needs to be performed over a distance of 10km. Two LGR/SysCon setups will be needed we refer to them as Setup A and Setup B. By configure Setup X for TX, we mean that it is to send a command to the other module that will cause it to power cycle. By configure Setup X for RX, we mean that it is to listen for a command that will cause it to power cycle.  |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
+Tester Information        | The test needs to be performed over a distance of at least 10km. Two LGR setups will be needed we refer to them as Board Tx and Board Rx. By configure Board TX, we mean that it is to send a command to the other module that will cause it to output desired payload. By configure Setup X for RX, we mean that it is to listen for a command that will cause it to output the payload on a computer terminal via UART.  |
+Name of Tester            |  Full team  |
+Time/Date                 |  6/9/2016  |
+Hardware Version          |  LGR1.00, SC1.00  |
 Setup                     | Directional Antennas, Power supply, Test sites that are 10km a part   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Record GPS coordinates of Setup A and Setup B. Use Coordinate Distance Calculator to get distance.  | Distance is at least 10km  |  |  |
-2 | Configure Setup A for TX and Setup B for RX. | Setup B power cycles  |  |  |
-3 | Configure Setup B for TX and Setup A for RX. | Setup A power cycles  |  |  |
+1 | Record GPS coordinates of Setup A and Setup B. Use Coordinate Distance Calculator to get distance.  | Distance is at least 10km  | PASS | Distance around 10.57km from OHSU to Rocky Butte |
+2 | Tx Board transmits packet at high power. | High Power LED lights up, terminal reading from UART indicates 0 dBm output from kw0x  | PASS | LED lit up and terminal indicated 0 dBm |
+3 | Rx Board receives and outputs to terminal via UART. | Terminal reads payload  | PASS | Terminal read payload: 0x01 0x23 0x45 0x67 0x89 |
