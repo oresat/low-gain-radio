@@ -136,35 +136,18 @@ void modeTX(void) {
 	uint8_t cmdbytes[PACKET_LENGTH] = {0};
 	uint32_t i;
 	while(1) {
+		// look for UART byte to send
 		uint8_t command;
 		if(uart_char(&UART0, &command)){
 			memset(cmdbytes, command, PACKET_LENGTH);
 			trans_write_register(transceiver.RegFifo, cmdbytes, PACKET_LENGTH);
-
-			uint8_t hex[2] = {0};
-			uint8_t rssi;
 			switch(command) {
 			case 'h':
 				toggle_power_level();
 				break;
-			case 'r':
-				uart_read(&UART0, 2, hex);
-				if(!(isxdigit(hex[0]) && isxdigit(hex[1]))){
-					uart_write(&UART0, 43,"Could not convert from ascii hex to value: ");
-					uart_write(&UART0, 2, hex);
-					uart_write(&UART0, 2, "\r\n");
-					break;
-				}
-				uart_write(&UART0, 1, "r");
-				uart_write(&UART0, 2, hex);
-				uart_write(&UART0, 2, "\r\n");
-				rssi = fromHex(hex);
-				trans_write_register(transceiver.RegRssiThresh, &rssi, 1);
-				break;
 			}
 		}
-
-		/* write to transceiver fifoe to transmit data */
+		// write to transceiver fifo to transmit data
 		++i;
 		if(i > 1000000) {
 			led(TOGGLE, led5);
@@ -189,6 +172,29 @@ void modeRX(void) {
 	uint8_t IrqFlags[2] = {0, 0};
 	uint8_t OldFlags[2] = {0xFF, 0xFF};
 	while(1) {
+		// Look for UART command
+		uint8_t command;
+		if(uart_char(&UART0, &command)){
+			uint8_t hex[2] = {0};
+			uint8_t rssi;
+			switch(command) {
+			case 'r':
+				uart_read(&UART0, 2, hex);
+				if(!(isxdigit(hex[0]) && isxdigit(hex[1]))){
+					uart_write(&UART0, 43,"Could not convert from ascii hex to value: ");
+					uart_write(&UART0, 2, hex);
+					uart_write(&UART0, 2, "\r\n");
+					break;
+				}
+				uart_write(&UART0, 1, "r");
+				uart_write(&UART0, 2, hex);
+				uart_write(&UART0, 2, "\r\n");
+				rssi = fromHex(hex);
+				trans_write_register(transceiver.RegRssiThresh, &rssi, 1);
+				break;
+			}
+		}
+		// Report changes in transceiver IRQ flags
 		trans_read_register(transceiver.RegIrqFlags1, IrqFlags, 2);
 		if (memcmp(IrqFlags, OldFlags, 2)) {
 			uint8_t chars[7] = {0, 0, ' ', 0, 0, '\r', '\n'};
@@ -197,6 +203,7 @@ void modeRX(void) {
 			uart_write(&UART0, sizeof(chars), chars);
 			memcpy(OldFlags, IrqFlags, 2);
 		}
+		// If there's a packet received, send it out over UART
 		if(IrqFlags[1] & PayloadReady) {
 			led(ON, led6);
 			uart_write(&UART0, 9, "Payload: ");
@@ -210,6 +217,7 @@ void modeRX(void) {
 			uart_write(&UART0, 2, "\r\n");
 			led(OFF, led6);
 		}
+		// Heartbeat LED
 		ledcount += 1;
 		if (ledcount > 5000) {
 			led(TOGGLE, led5);
@@ -239,7 +247,6 @@ int main(void) {
 	initialize_uart0();
 	uart_write(&UART0, 11, "\r\nRestart\r\n");
 
-
-	modeTX();
-//	modeRX();
+	//modeTX();
+	modeRX();
 }
