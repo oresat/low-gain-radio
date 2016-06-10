@@ -16,9 +16,9 @@ This folder contains resources for the toolchain we are using for programming th
 * toolchain -- contains linker script, config for OpenOCD
 
 **Files**
-* c3.c -- some really simple c code to inject into the microcontroller
-* crt0.c -- stuff needed to initialize the MCU
-* kw0x.h -- register definitions, needed for bit banging
+* lgr.c -- firmware for LGR
+* rx.c -- firmware for KW0x breakout board, receiver configuration for KW0x
+* tx.c -- firmware for KW0x breakout board, transmitter configuration for KW0x
 * Makefile -- make utility for easy compiling
 
 
@@ -28,13 +28,12 @@ This folder contains resources for the toolchain we are using for programming th
 
         > make
 
-* To compile and write to the flash on the MCU
-
-        > make write
+* To compile and write to the flash on the LGR
+        > make write_lgr
 
 * To compile, write to the flash on the MCU, and start up a gdb session
 
-        > make gdb
+        > make gdb_lgr
 
 * To clean up
 
