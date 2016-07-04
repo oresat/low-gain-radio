@@ -16,11 +16,9 @@ written by Shan Quinney, William Harrington, and James Heath
     * [Test Equipment](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#test-equipment)
     * [Test setup and calibration](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#test-setup-and-calibration)
 * [Component Tests](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#component-tests)
-     * [Crystal Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#crystal-test)
      * [Supply Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#supply-range-test)
-     * [Temperature Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#temperature-range-test)
-     * [Force Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#force-test)
-     * [Vacuum Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#vacuum-test)
+     * [Temperature Range Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#temperature-range-test) (For future designs)
+     * [Vacuum Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#vacuum-test) (For future designs)
 * [System Tests](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#system-tests)
     * [Radio Communication Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#radio-communication-test)
     * [Control Test](https://github.com/oresat/low-gain-radio/blob/master/docs/Test_Plan_Sputnik_Capstone.md#control-test)
@@ -47,6 +45,20 @@ written by Shan Quinney, William Harrington, and James Heath
 
 04/30/16 - More proofreading changes. Changed crystal test to make it explicit that it will be performed on BOTH microcontrollers. Changed Supply Range Test to encompass BOTH modules. Changed Temperature Range Test to encompass BOTH modules and changed steps, actions, and expected results. Revised Acceleration test.
 
+05/14/16 - Grammar corrections in introduction.
+
+05/16/16 - Removed "Test Setup and Calibration" section from the document. Revised Temperature Test with updated procedure. (Shan)  
+
+06/01/16 - Added test results for some of the tests (Jake)  
+
+06/05/16 - More updated test results (Jake)  
+
+06/08/16 - Removed untested tests (Jake)
+
+06/09/16 - Added final test results (Jake)  
+
+06/09/16 - Added Control test results (Jake)
+
 ### Introduction
 
 #### Purpose
@@ -57,7 +69,7 @@ The purpose of this document is to outline testing that will be essential for de
 
 All of the testing procedures described in this document will be carried out by one or more of the Sputnik capstone team members. An effort will be made to have the entire team present for as many of the tests as possible.
 
-#### Recordings of Results, witnessing, and Authorities
+#### Recordings of Results, Witnessing, and Authorities
 
 The results of all testing will be posted in [this git respository](https://github.com/oresat/low-gain-radio) in the docs folder. The tests will be conducted on a pass/fail basis and any tests that do not pass will be noted along with an explanation/conjecture as to why they did not pass. No authorities or witnesses outside of the group will be required to be present during testing.
 
@@ -67,8 +79,7 @@ The results of all testing will be posted in [this git respository](https://gith
 
 ![Phase 1 Low Level Diagram](http://i.imgur.com/LNKEclE.png)
 
-The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with integrated transceiver referred to as the KW0x (quakz) that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components will be replaced with off-the shelf components to help reduce cost.
-
+The Sputnik Capstone project is composed of two separate modules: The low-gain-radio (LGR) module and the system-controller (SysCon) module. The LGR is contains a microcontroller with an integrated transceiver referred to as the KW0x that facilitates wireless communication. The SysCon contains a radiation hardened watchdog controller that will be responsible for power cycling components after [Single-Event Upsets](https://en.wikipedia.org/wiki/Single_event_upset) happen. It will also contain only radiation hardened parts to ensure that its power domain is secure. However, for this project, the radiation-hardened components will be replaced with off-the shelf components to help reduce cost.
 
 ### Overview
 
@@ -90,154 +101,62 @@ The equipment needed for the tests is as follows:
 * Vacuum Chamber
 * Antennas
 
-#### Test setup and calibration
-
-The testing setup will be discussed for each case along with any necessary calibration needed prior to testing.
-
 ### Component Tests
 
-The Component Tests will test components that are imperative to the core operation of intergrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
-
-#### Crystal Test
-
-The purpose of this test is to see if the crystal for each microcontroller (KW0x, ATMega128) is receiving power and oscillating at the proper frequency.
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Crystal Test          	 |
-Test ID#                  | Crystal_1.00                 |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to check the frequency and operation of the crystal oscillator. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Use Oscilloscope to check crystal frequency through the test point for KW0x | Desired frequency is shown on oscilloscope  |  |  |
-2 | Use Oscilloscope to check crystal frequency through the test point for ATMega128 | Desired frequency is shown on oscilloscope  |  |  |
+The Component Tests will test components that are imperative to the core operation of integrated circuits (microcontrollers, voltage regulators, etc.) that implement the desired functionality for the module they are a part of. These are usually small simple tests that ensure that everything is working properly before attempting any tests for functionality.
 
 #### Supply Range Test
 
-The Supply Range Test is for testing the voltage range for operation of the LGR and SysCon. This is needed since both modules will be receiving a range of voltage from the power management system (another module in the CubeSat). This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates.
+The Supply Range Test is for testing the voltage range operation of the LGR and SysCon. This is needed since both modules will be receiving a range of voltages from 3-5V from the power management system (another module in the CubeSat). This test will be done by gradually changing the output voltage on the power supply from 3V-5V and checking that the board still operates. This test also doubles as a test for the crystal, since by checking the crystal we can ensure that the MCU on either board is on.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Supply Range Test            |
 Test ID#                  | Supply_1.00                  |
 Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards at the required supply range limits. |
+Description               | The purpose of this test is to demonstrate the functionality of the boards and their crystals at the required supply range limits. |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
+Name of Tester            |  James Heath (LGR), Shan Quinney & Michael Mathis (SC)  |
+Time/Date                 |  5/29/2016, 5/29/2016  |
+Hardware Version          |  LGR1.00, SC1.00  |
+Setup                     |  Oscilloscope and Power supply in LID  |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Set voltage supply to 3.3V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
-2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  |  |  |
-4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-5 | Set voltage supply to 3.3V for SysCon | Measure V+ at 3.3V with multimeter  |  |  |
-6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  |  |  |
-8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  |  |  |
-
-#### Temperature Range Test
-
-The Temperature Range Test is for checking that the LGR and SysCon operate in the range specified within the sputnik project requirements (-40C - 85C). To test this, the LGR and SysCon will be inserted into an environmental chamber and chilled/heated to the min/max of this range. Once at the min/max, operations on the modules will be tested.
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Temperature Range Test       |
-Test ID#                  | Temp_1.00                    |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the board at the requirement range limits. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to -40C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-2 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to -40C. | UART LEDs blink while in chamber  |  |  |
-3 | Setup LGR for transmit operation. Place LGR in chamber. Set temperature to 85C. | Power LEDs remain on while in chamber and bytes received outside of chamber by another LGR module |  |  |
-4 | Setup SysCon for operation. Place SysCon in chamber. Set temperature to 85C. | UART LEDs blink while in chamber  |  |  |
-
-#### Acceleration Test
-
-The Acceleration Test is for making sure that the LGR and SysCon can operate while under at least 15Gs of force as specified in the sputnik project requirements. To do this we will tie a rope to the module while operating and swing it in a circle until 15Gs are reached.
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Acceleration Test            |
-Test ID#                  | F=MA_1.00                    |
-Test Writer               | James Heath, Will Harrington | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards at a relatively high level of force (~15Gs). |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Tie rope to LGR while it is setup to transmit packet. | Transmission is received on other module  |  |  |
-2 | Swing LGR in circle until 15Gs is reached. | Transmission is received on other module while at 15Gs |  |  |
-3 | Tie rope to SysCon while it is setup for normal operation. | UART LEDs observed  |  |  |
-4 | Swing SysCon in circle until 15Gs is reachedn. | UART LEDs observed while at 15Gs  |  |  |
-
-#### Vacuum Test
-
-To ensure application in space, the sputnik board will need to be able to run within a vacuum. For this test, the board will be set in a vacuum chamber and again have its operations tested. 
-
-                          |                              |
-------------------------- | ---------------------------- |
-Test Case Name            | Vacuum Test                  |
-Test ID#                  | Vacuum_1.00                  |
-Test Writer               | James Heath                  | 
-Description               | The purpose of this test is to demonstrate the functionality of the boards in a vacuum. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
-
-Step | Action | Expected Result | Pass/Fail | Comments |
----- | ------ | --------------- | --------- | -------- |
-1 | Attempt radio transmission and reception while within vacuum chamber | Other module receives transmitted data and blinks LED/toggles GPIO |  |  |
+1 | Set voltage supply to 3.0V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.0V at 3.0V supply |
+2 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 32 MHz |
+3 | Set voltage supply to 5V for LGR | Power LEDs light up (LED1, LED4 on LGR schematic)  | PASS | 3.3V at 5.0V supply |
+4 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 32 MHz |
+5 | Set voltage supply to 3.0V for SysCon | Measure V+ at 3.3V with multimeter  | PASS | 3.0 V at 3.0 V supply |
+6 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |
+7 | Set voltage supply to 5V for SysCon | Measure V+ at 5V with multimeter  | PASS | 3.3V at 5.0V supply. |
+8 | Check that XTAL is operating with oscillscope | Desired frequency is shown on oscilloscope  | PASS | 8 MHz |  
 
 
 ### System Tests
 
-#### Radio Communication Test
+#### Radio Test
 
-The radio is fundamental to the functionality of the Sputnik project. It provides the communication channel that will link the satellite to the ground station. Eventually, the radio will need to receive and transmit data over a distance of approximately 400km; however, for this project, a transmission distance of 10km is required (See Functionality Test).
-The purpose of this test is to confirm that the radio is capable of transmission and reception, as well as switching between the Tx and Rx lines. This test will be performed from one radio board to another and the testers will verify the distance covered during the test by collection GPS location data. The test locations will be predetermined based on both convenience and also where the least restricted signal propagation path will occur.
+The purpose of this test is to confirm that the radio is capable of transmission and reception, as well as switching between the Tx and Rx lines. This test will be performed by sending a carrier signal from one board to the other and lighting an LED when receiving the signal. The test locations will be predetermined based on both convenience and also where the least restricted signal propagation path will occur.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Radio Communication          |
 Test ID#                  | RadCom_1.00                  |
 Test Writer               | Shan Quinney/James Heath     | 
-Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving data at this distance. |
+Description               | The purpose of this test is to ensure that the radio is capable of transmitting and receiving signals. |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
+Name of Tester            |  James Heath, Shan Quinney   |
+Time/Date                 |  6/6/2016  |
 Hardware Version          |  Sputnik radio board version 1.00  |
-Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify GPS and time (cell phone).   |
+Setup                     | Have boards at some short distance apart. Each location will have a Sputnik radio board with sufficient power supply. Each location will also have a method to verify sent payload data.   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Radio at location A is made to transmit data. | Team member at location B confirms receiving data transmitted from location A.  |  |  |
-2 | Radio at location B sends confirmation signal. | Team member at location A confirms receiving data from radio at location B.  |  |  |
+1 | Board A is made to transmit carrier signal. | Board B confirms receiving signal from board A by ouputting payload to terminal via UART.  | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal  |
+2 | Board B is made to transmit carrier signal. | Board A confirms receiving signal from board B by ouputting payload to terminal via UART.   | PASS | 0x01 0x23 0x45 0x67 0x89 appears on terminal |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Control Test
 
@@ -249,21 +168,22 @@ To test the control system, a method to simulate a latch-up event will be used t
 ------------------------- | ---------------------------- |
 Test Case Name            | Control Test       |
 Test ID#                  | ATM_1.00                     |
-Test Writer               | Shan Quinney                 | 
-Description               | The purpose of this test is to demonstrate the effectiveness of the watchdog to restart key system functionality after radiation events. |
+Test Writer               | Shan Quinney, Michael Mathis         | 
+Description               | The purpose of this test is to demonstrate the effectiveness of the system controller to restart key systems when UART "I'm alive" signals are lost. |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |  Board Rev.1, Filter Rev.1, Wire antenna  |
-Setup                     |    |
+Name of Tester            |  Michael Mathis  |
+Time/Date                 |  6/1/2016  |
+Hardware Version          |  Board Rev.1, Filter Rev.1 |
+Setup                     |  Laptop and portable programmer  |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Use a metal tool to cause a short across the crystal | The kw0x will loose the signal from the crystal.  |  |  |
-2 | Probe the UART line between the controller and the kw0x to determine that the life line signal is lost | The UART line will be free of any signal between the kw0x and the controller.  |  |  |
-3 | Monitor the controller to ensure that the reset line on the kw0x has been activated | The reset line on the kw0x will be activated in an effort to reboot the device.  |  |  |
+1 | Remove the wire connecting the system controller UART rx and the LGR tx | The system controller will loose the signal from the LGR.  | PASS | Signal is lost |
+2 | Probe the UART line between the controller and the LGR to determine that the life line signal is lost | The UART line will be free of any signal between the LGR and the controller.  | PASS | No signal detected |
+3 | Monitor the controller to ensure that the reset line on the kw0x has been activated | The reset line on the kw0x will be activated in an effort to reboot the device.  | PASS | Reset line is active |
+4 | After 4 seconds make sure that the "I'm alive" signal from the LGR is found again  | The system controller will be receiving the life line signal from the LGR   | PASS |  LGR is restarted and signaling again  |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Command Test
 
@@ -276,37 +196,34 @@ Test ID#                  | CMD_1.00                     |
 Test Writer               | Will Harrington              | 
 Description               | The purpose of this test is to demonstrate the effectiveness of the system controller to execute commands |
 Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
+Name of Tester            |  Michael Mathis & Shan Quinney  |
+Time/Date                 |  6/2/2016  |
+Hardware Version          |  SC1.00  |
+Setup                     |  Sent commands across JTAG interface, viewed LEDs for results |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Send command | Successful send  |  |  |
-2 | Observe LED on prototype | LED lights up  |  |  |
+1 | Send command | Successful send  | PASS | LED successfully lights up indicating the signal was sent |
+2 | Observe LED on prototype | LED lights up  | PASS | LED successfully lights up |
 
-**Overall Test Result:**
+**Overall Test Result:** Success  
 
 #### Functionality Test
-
-This is the final test for the board. This will test the complete functionality of the board over a long distance, indicating operability as desired by the requirements. The test consists of sending a command to the radio via UART and transmiting the signal across 10km to another module's receiver. The receiver will then send the command via UART to the system controller to initiate a power cycle, testing reset capability.
 
                           |                              |
 ------------------------- | ---------------------------- |
 Test Case Name            | Functionality Test           |
 Test ID#                  | Func_1.00                    |
-Test Writer               | James Heath                  | 
-Description               | The purpose of this test is to demonstrate the fully functional board capabilities, by using all modules in a single test. |
-Tester Information        |    |
-Name of Tester            |    |
-Time/Date                 |    |
-Hardware Version          |    |
-Setup                     |    |
+Test Writer               | James Heath, Will Harrington | 
+Description               | The purpose of this test is to observe the desired functionality as outlined in the project requirements of the LGR and SysCon. |
+Tester Information        | The test needs to be performed over a distance of at least 10km. Two LGR setups will be needed we refer to them as Board Tx and Board Rx. By configure Board TX, we mean that it is to send a command to the other module that will cause it to output desired payload. By configure Setup X for RX, we mean that it is to listen for a command that will cause it to output the payload on a computer terminal via UART.  |
+Name of Tester            |  Full team  |
+Time/Date                 |  6/9/2016  |
+Hardware Version          |  LGR1.00, SC1.00  |
+Setup                     | Directional Antennas, Power supply, Test sites that are 10km a part   |
 
 Step | Action | Expected Result | Pass/Fail | Comments |
 ---- | ------ | --------------- | --------- | -------- |
-1 | Send data from LGR via UART to LGR | LED lights up  |  |  |
-2 | Transmit data across 10km gap | LED lights up on transmitting board  |  |  |
-3 | Receive Data | GPIO toggle or LED lights up on receiving board  |  |  |
-4 | Send data via UART to System Controller | SC causes power cycle  |  |  |
+1 | Record GPS coordinates of Setup A and Setup B. Use Coordinate Distance Calculator to get distance.  | Distance is at least 10km  | PASS | Distance around 10.57km from OHSU to Rocky Butte |
+2 | Tx Board transmits packet at high power. | High Power LED lights up, terminal reading from UART indicates 0 dBm output from kw0x  | PASS | LED lit up and terminal indicated 0 dBm |
+3 | Rx Board receives and outputs to terminal via UART. | Terminal reads payload  | PASS | Terminal read payload: 0x01 0x23 0x45 0x67 0x89 |

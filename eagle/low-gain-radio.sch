@@ -8,34 +8,34 @@
 </settings>
 <grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
-<layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
-<layer number="2" name="Route2" color="1" fill="3" visible="no" active="no"/>
-<layer number="3" name="Route3" color="4" fill="3" visible="no" active="no"/>
-<layer number="4" name="Route4" color="1" fill="4" visible="no" active="no"/>
-<layer number="5" name="Route5" color="4" fill="4" visible="no" active="no"/>
-<layer number="6" name="Route6" color="1" fill="8" visible="no" active="no"/>
-<layer number="7" name="Route7" color="4" fill="8" visible="no" active="no"/>
-<layer number="8" name="Route8" color="1" fill="2" visible="no" active="no"/>
-<layer number="9" name="Route9" color="4" fill="2" visible="no" active="no"/>
-<layer number="10" name="Route10" color="1" fill="7" visible="no" active="no"/>
-<layer number="11" name="Route11" color="4" fill="7" visible="no" active="no"/>
-<layer number="12" name="Route12" color="1" fill="5" visible="no" active="no"/>
-<layer number="13" name="Route13" color="4" fill="5" visible="no" active="no"/>
-<layer number="14" name="Route14" color="1" fill="6" visible="no" active="no"/>
-<layer number="15" name="Route15" color="4" fill="6" visible="no" active="no"/>
-<layer number="16" name="Bottom" color="1" fill="1" visible="no" active="no"/>
-<layer number="17" name="Pads" color="2" fill="1" visible="no" active="no"/>
-<layer number="18" name="Vias" color="2" fill="1" visible="no" active="no"/>
-<layer number="19" name="Unrouted" color="6" fill="1" visible="no" active="no"/>
-<layer number="20" name="Dimension" color="15" fill="1" visible="no" active="no"/>
-<layer number="21" name="tPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="22" name="bPlace" color="7" fill="1" visible="no" active="no"/>
-<layer number="23" name="tOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="24" name="bOrigins" color="15" fill="1" visible="no" active="no"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="no" active="no"/>
-<layer number="27" name="tValues" color="7" fill="1" visible="no" active="no"/>
-<layer number="28" name="bValues" color="7" fill="1" visible="no" active="no"/>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="no"/>
+<layer number="2" name="Route2" color="15" fill="1" visible="yes" active="no"/>
+<layer number="3" name="Route3" color="4" fill="3" visible="yes" active="no"/>
+<layer number="4" name="Route4" color="1" fill="4" visible="yes" active="no"/>
+<layer number="5" name="Route5" color="4" fill="4" visible="yes" active="no"/>
+<layer number="6" name="Route6" color="1" fill="8" visible="yes" active="no"/>
+<layer number="7" name="Route7" color="4" fill="8" visible="yes" active="no"/>
+<layer number="8" name="Route8" color="1" fill="2" visible="yes" active="no"/>
+<layer number="9" name="Route9" color="4" fill="2" visible="yes" active="no"/>
+<layer number="10" name="Route10" color="1" fill="7" visible="yes" active="no"/>
+<layer number="11" name="Route11" color="4" fill="7" visible="yes" active="no"/>
+<layer number="12" name="Route12" color="1" fill="5" visible="yes" active="no"/>
+<layer number="13" name="Route13" color="4" fill="5" visible="yes" active="no"/>
+<layer number="14" name="Route14" color="1" fill="6" visible="yes" active="no"/>
+<layer number="15" name="Route15" color="14" fill="1" visible="yes" active="no"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="no"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="no"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="no"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="no"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="no"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="no"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="no"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="no"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="no"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="no"/>
 <layer number="29" name="tStop" color="7" fill="3" visible="no" active="no"/>
 <layer number="30" name="bStop" color="7" fill="6" visible="no" active="no"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="no"/>
@@ -44,8 +44,8 @@
 <layer number="34" name="bFinish" color="6" fill="6" visible="no" active="no"/>
 <layer number="35" name="tGlue" color="7" fill="4" visible="no" active="no"/>
 <layer number="36" name="bGlue" color="7" fill="5" visible="no" active="no"/>
-<layer number="37" name="tTest" color="7" fill="1" visible="no" active="no"/>
-<layer number="38" name="bTest" color="7" fill="1" visible="no" active="no"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="yes" active="no"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="yes" active="no"/>
 <layer number="39" name="tKeepout" color="4" fill="11" visible="no" active="no"/>
 <layer number="40" name="bKeepout" color="1" fill="11" visible="no" active="no"/>
 <layer number="41" name="tRestrict" color="4" fill="10" visible="no" active="no"/>
@@ -53,20 +53,20 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="no"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="no"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="no"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="no"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="no" active="no"/>
-<layer number="48" name="Document" color="7" fill="1" visible="no" active="no"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="no" active="no"/>
-<layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="52" name="bDocu" color="7" fill="1" visible="no" active="no"/>
-<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="no" active="no"/>
-<layer number="56" name="wert" color="7" fill="1" visible="no" active="no"/>
-<layer number="57" name="tCAD" color="7" fill="1" visible="no" active="no"/>
-<layer number="58" name="b3D" color="7" fill="1" visible="no" active="no"/>
-<layer number="59" name="Invisible" color="7" fill="1" visible="no" active="no"/>
-<layer number="61" name="stand" color="7" fill="1" visible="no" active="no"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="no"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="no"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="no"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="no"/>
+<layer number="50" name="dxf" color="7" fill="1" visible="yes" active="no"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="no"/>
+<layer number="53" name="tGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="54" name="bGND_GNDA" color="7" fill="1" visible="yes" active="no"/>
+<layer number="56" name="wert" color="7" fill="1" visible="yes" active="no"/>
+<layer number="57" name="tCAD" color="7" fill="1" visible="yes" active="no"/>
+<layer number="58" name="b3D" color="7" fill="1" visible="yes" active="no"/>
+<layer number="59" name="Invisible" color="7" fill="1" visible="yes" active="no"/>
+<layer number="61" name="stand" color="7" fill="1" visible="yes" active="no"/>
 <layer number="90" name="Modules" color="5" fill="1" visible="yes" active="yes"/>
 <layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
 <layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
@@ -19121,19 +19121,19 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="SUPPLY1" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="3.3V1" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND34" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="U4" library="psas_c3_team05" deviceset="AAT3215" device="">
-<attribute name="DIST" value="Skyworks"/>
-<attribute name="DPN" value="AAT3215"/>
-<attribute name="MFN" value="Skyworks"/>
-<attribute name="MFN-PN" value="AAT3215"/>
+<part name="U4" library="psas_c3_team05" deviceset="AAT3215" device="" value="LP5907MFX-3.3">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="296-38557-1-ND"/>
+<attribute name="MFN" value="Texas Instruments"/>
+<attribute name="MFN-PN" value="LP5907MFX-3.3"/>
 </part>
 <part name="GND35" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="3.3V3" library="psas_c3_team05" deviceset="V+" device=""/>
-<part name="U6" library="psas_c3_team05" deviceset="AAT3215" device="">
-<attribute name="DIST" value="Skyworks"/>
-<attribute name="DPN" value="AAT3215"/>
-<attribute name="MFN" value="Skyworks"/>
-<attribute name="MFN-PN" value="AAT3215"/>
+<part name="U6" library="psas_c3_team05" deviceset="AAT3215" device="" value="LP5907MFX-3.3">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="296-38557-1-ND"/>
+<attribute name="MFN" value="Texas Instruments"/>
+<attribute name="MFN-PN" value="LP5907MFX-3.3"/>
 </part>
 <part name="U3" library="psas_c3_team05" deviceset="W25Q80DV" device="">
 <attribute name="DIST" value="Digi-Key"/>
@@ -19360,11 +19360,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG" value="Murata"/>
 <attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
 </part>
-<part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF">
+<part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="478-3492-2-ND"/>
-<attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="SQCSVA2R2BAT1A"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C36" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF">
 <attribute name="DIST" value="Digi-Key"/>
@@ -19378,11 +19378,11 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <attribute name="MFG" value="Murata"/>
 <attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
 </part>
-<part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="2.2uF">
+<part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="478-3492-2-ND"/>
-<attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="SQCSVA2R2BAT1A"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C49" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
@@ -19437,7 +19437,12 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 </part>
 <part name="U$7" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="C52" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10 uF"/>
-<part name="C53" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10 uF"/>
+<part name="C53" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10 uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+</part>
 <part name="C54" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
@@ -20297,7 +20302,12 @@ RF_GND crossing</text>
 </instance>
 <instance part="U$7" gate="1" x="441.96" y="170.18"/>
 <instance part="C52" gate="CE" x="43.18" y="50.8"/>
-<instance part="C53" gate="CE" x="157.48" y="347.98"/>
+<instance part="C53" gate="CE" x="157.48" y="347.98">
+<attribute name="DPN" x="157.48" y="347.98" size="1.778" layer="96" display="off"/>
+<attribute name="MFG_PN" x="157.48" y="347.98" size="1.778" layer="96" display="off"/>
+<attribute name="DIST" x="157.48" y="347.98" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="157.48" y="347.98" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C54" gate="CE" x="256.54" y="142.24" smashed="yes" rot="R180">
 <attribute name="DIST" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>

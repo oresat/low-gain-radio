@@ -15,13 +15,16 @@ VPATH = drivers
 
 all: c3
 
-c3: crt0.o c3.o port.o spi.o uart.o transceiver.o
+c3: crt0.o c3.o port.o spi.o uart.o transceiver.o clksetup.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-rx: crt0.o rx.o port.o spi.o uart.o transceiver.o
+rx: crt0.o rx.o port.o spi.o uart.o transceiver.o clksetup.o led.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-tx: crt0.o tx.o port.o spi.o uart.o transceiver.o
+tx: crt0.o tx.o port.o spi.o uart.o transceiver.o clksetup.o
+	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
+
+lgr: crt0.o lgr.o port.o spi.o uart.o transceiver.o clksetup.o led.o
 	$(CC) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
 %.s: %.c
@@ -32,18 +35,12 @@ tx: crt0.o tx.o port.o spi.o uart.o transceiver.o
 %.hex: %
 	$(ARCH)-objcopy -O ihex $^ $@
 
-write: c3.hex
+write_%: %.hex
 	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
 
-write_tx: tx.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
-
-write_rx: rx.hex
-	openocd -s $(OPENOCD_DIR) -f $(OOCD_CFG) -c "program $^ verify reset exit"
-
-gdb: c3
+gdb_%: %
 	$(ARCH)-gdb -q $^ -x $(GDB_CFG)
 
 clean:
-	$(RM) c3 *.o *.hex *.s ./drivers/*.o
+	$(RM) c3 lgr tx rx *.o *.hex *.s ./drivers/*.o
 

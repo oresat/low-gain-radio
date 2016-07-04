@@ -79,6 +79,10 @@ void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
 	uart12_read((volatile struct uart *) UART, len, buffer);
 }
 
+bool uart0_char(volatile struct uart0 * UART,  uint8_t * buffer){
+	return uart12_char((volatile struct uart *) UART, buffer);
+}
+
 void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
 	uart12_write((volatile struct uart *) UART, len, buffer);
 }
@@ -124,10 +128,18 @@ void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
 
 	for(unsigned int i = 0; i < len; ++i){
 		/* poll receive data register full flag */
-		//while(!(UART->S1 & RDRF));
+		while(!(UART->S1 & RDRF));
 
 		buffer[i] = UART->D;
 	}
+}
+
+bool uart12_char(volatile struct uart * UART, uint8_t * buffer) {
+	/* check receive data register full flag */
+	if (!(UART->S1 & RDRF))
+		return false;
+	*buffer = UART->D;
+	return true;
 }
 
 void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
@@ -141,3 +153,17 @@ void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
 		while(!(UART->S1 & TDRE));
 	}
 }
+
+void toHex(uint8_t * dest, uint8_t byte) {
+	if(((byte >> 4) & 0xf)  <= 9)
+		dest[0] = '0' + ((byte >> 4) & 0xf);
+	else
+		dest[0] = '7' + ((byte >> 4) & 0xf);
+
+	if((byte & 0xf) <= 9)
+		dest[1] = '0' + (byte & 0xf);
+	else
+		dest[1] = '7' + (byte & 0xf);
+}
+
+
