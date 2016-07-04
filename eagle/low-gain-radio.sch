@@ -19447,6 +19447,20 @@ Source: http://products.nichicon.co.jp/en/pdf/XJA043/e-ud.pdf</description>
 <part name="3.3V6" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="U$8" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="TP1" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="R15" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+</part>
+<part name="U$9" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
+<part name="R16" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="10k">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="311-10.0KHRCT-ND"/>
+<attribute name="MFG" value="Yageo"/>
+<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+</part>
+<part name="U$33" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -20297,6 +20311,20 @@ RF_GND crossing</text>
 <instance part="TP1" gate="G$1" x="208.28" y="55.88" smashed="yes">
 <attribute name="NAME" x="201.93" y="55.88" size="1.778" layer="95" font="vector"/>
 </instance>
+<instance part="R15" gate="R" x="358.14" y="304.8" rot="R270">
+<attribute name="DIST" x="358.14" y="304.8" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="358.14" y="304.8" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="358.14" y="304.8" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG_PN" x="358.14" y="304.8" size="1.778" layer="96" rot="R270" display="off"/>
+</instance>
+<instance part="U$9" gate="1" x="358.14" y="297.18"/>
+<instance part="R16" gate="R" x="353.06" y="180.34" rot="R270">
+<attribute name="DIST" x="353.06" y="180.34" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="353.06" y="180.34" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="353.06" y="180.34" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG_PN" x="353.06" y="180.34" size="1.778" layer="96" rot="R270" display="off"/>
+</instance>
+<instance part="U$33" gate="1" x="353.06" y="172.72"/>
 </instances>
 <busses>
 <bus name="PTA4,PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -20949,9 +20977,12 @@ RF_GND crossing</text>
 </segment>
 <segment>
 <pinref part="U7" gate="G$1" pin="EN"/>
-<label x="365.76" y="304.8" size="1.778" layer="95" rot="R180" xref="yes"/>
-<wire x1="370.84" y1="320.04" x2="370.84" y2="304.8" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="304.8" x2="365.76" y2="304.8" width="0.1524" layer="91"/>
+<label x="347.98" y="309.88" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="370.84" y1="320.04" x2="370.84" y2="309.88" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="309.88" x2="358.14" y2="309.88" width="0.1524" layer="91"/>
+<pinref part="R15" gate="R" pin="1"/>
+<wire x1="358.14" y1="309.88" x2="347.98" y2="309.88" width="0.1524" layer="91"/>
+<junction x="358.14" y="309.88"/>
 </segment>
 </net>
 <net name="LNA_EN" class="0">
@@ -20965,11 +20996,14 @@ RF_GND crossing</text>
 <wire x1="365.76" y1="193.04" x2="363.22" y2="193.04" width="0.1524" layer="91"/>
 <label x="339.09" y="185.42" size="1.778" layer="95" rot="R180" xref="yes"/>
 <wire x1="363.22" y1="193.04" x2="363.22" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="363.22" y1="185.42" x2="342.9" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="363.22" y1="185.42" x2="353.06" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="C48" gate="CE" pin="2"/>
+<wire x1="353.06" y1="185.42" x2="342.9" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="185.42" x2="339.09" y2="185.42" width="0.1524" layer="91"/>
 <wire x1="342.9" y1="184.15" x2="342.9" y2="185.42" width="0.1524" layer="91"/>
 <junction x="342.9" y="185.42"/>
+<pinref part="R16" gate="R" pin="1"/>
+<junction x="353.06" y="185.42"/>
 </segment>
 </net>
 <net name="N$43" class="1">
@@ -21684,6 +21718,14 @@ RF_GND crossing</text>
 <pinref part="U$8" gate="1" pin="RF_GND"/>
 <pinref part="C54" gate="CE" pin="1"/>
 <wire x1="256.54" y1="138.43" x2="256.54" y2="139.7" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="R15" gate="R" pin="2"/>
+<pinref part="U$9" gate="1" pin="RF_GND"/>
+</segment>
+<segment>
+<pinref part="R16" gate="R" pin="2"/>
+<pinref part="U$33" gate="1" pin="RF_GND"/>
 </segment>
 </net>
 <net name="N$2" class="0">
