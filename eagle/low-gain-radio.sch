@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="15" fill="1" visible="no" active="no"/>
@@ -19547,7 +19547,7 @@ them this way though to conserve space.</text>
 <wire x1="157.48" y1="101.6" x2="157.48" y2="7.62" width="0.1524" layer="97" style="longdash"/>
 <text x="223.52" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
 <text x="7.62" y="154.94" size="1.778" layer="97" rot="R90">ORESAT BACKPLANE</text>
-<text x="140.97" y="257.81" size="1.778" layer="97">DIO0 pin controls 
+<text x="140.97" y="257.81" size="1.778" layer="97">PTE0 pin controls 
 transceiver RESET
 if needed</text>
 <text x="387.35" y="102.87" size="1.778" layer="97">Inverter prevents RF 
@@ -21239,6 +21239,14 @@ RF_GND crossing</text>
 <label x="33.02" y="114.3" size="1.778" layer="95"/>
 <pinref part="CF1" gate="G$1" pin="11"/>
 </segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="RESET(RF)"/>
+<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="246.38" x2="139.7" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="139.7" y1="276.86" x2="43.18" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="43.18" y1="276.86" x2="43.18" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="76.2" y1="160.02" x2="43.18" y2="160.02" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="PTE17" class="0">
 <segment>
@@ -21385,21 +21393,6 @@ RF_GND crossing</text>
 <pinref part="U1" gate="G$1" pin="DIO4"/>
 <wire x1="134.62" y1="185.42" x2="147.32" y2="185.42" width="0.1524" layer="91"/>
 <pinref part="DIO4" gate="G$1" pin="1"/>
-</segment>
-</net>
-<net name="DIO0" class="0">
-<segment>
-<pinref part="U1" gate="G$1" pin="RESET(RF)"/>
-<wire x1="134.62" y1="246.38" x2="139.7" y2="246.38" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="246.38" x2="139.7" y2="276.86" width="0.1524" layer="91"/>
-<wire x1="139.7" y1="276.86" x2="43.18" y2="276.86" width="0.1524" layer="91"/>
-<wire x1="43.18" y1="276.86" x2="43.18" y2="165.1" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="PTE2"/>
-<wire x1="93.98" y1="165.1" x2="58.42" y2="165.1" width="0.1524" layer="91"/>
-<label x="78.74" y="165.1" size="1.778" layer="95"/>
-<wire x1="43.18" y1="165.1" x2="58.42" y2="165.1" width="0.1524" layer="91"/>
-<pinref part="DIO0" gate="G$1" pin="1"/>
-<junction x="58.42" y="165.1"/>
 </segment>
 </net>
 <net name="DIO1" class="0">
@@ -21982,6 +21975,14 @@ RF_GND crossing</text>
 <pinref part="LED10" gate="LED" pin="A"/>
 <pinref part="R18" gate="R" pin="1"/>
 <wire x1="109.22" y1="76.2" x2="109.22" y2="78.74" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="N$11" class="0">
+<segment>
+<pinref part="DIO0" gate="G$1" pin="1"/>
+<pinref part="U1" gate="G$1" pin="PTE2"/>
+<wire x1="93.98" y1="165.1" x2="58.42" y2="165.1" width="0.1524" layer="91"/>
+<label x="78.74" y="165.1" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
