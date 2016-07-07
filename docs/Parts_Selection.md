@@ -130,7 +130,7 @@ Reasons: 4MB storage. Unfortunately it was vaporware at the time and has less st
 #### Y1 Epson FA-20H:  
 Part: MCU Crystal  
 Vendor: Digi-Key   
-Vendor Part No.: SER4044CT-ND	  
+Vendor Part No.: SER4044CT-ND  
 [Datasheet](https://support.epson.biz/td/api/doc_check.php?dl=brief_FA-20H_en.pdf)  
 Reasons: Fits the frequency we wanted at 32MHz for bumping up the integrated transceiver to 48MHz. High bit rate operations for 600kbits on the KW0x needed a crystal of maximum +- 15ppm, which this is 10ppm. Also fits within the temperature range of -40C-85C.    
 Rad-Hard Analogue: Swept quartz is likely required for space operation. From some searching there seem to be none that fit the footprint of normal devices.  
