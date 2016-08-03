@@ -1,169 +1,276 @@
-/* 
-	Universal asynchronous receiver/transmitter driver for MKW01Z128
-
-	Programmed by William Harrington
+/*!
+ * \file    uart.c
+ * \brief   UART API
+ *
+ * \defgroup uart
+ * @{
  */
 
+/*
+
+Transmitting:
+   TIE  - (UARTx_C2) Transmit Interrupt Enable for TDRE
+   TCIE - (UARTx_C2) Transmit Complete Interrupt Enable for TC
+   TDRE - (UARTx_S1) Transmit Data Register Empty Flag
+   TC   - (UARTx_S1) Transmit Complete flag
+
+ */
+
+#include "v1_2.h"
+#include "lgr_vector.h"
+#include "core_cm0plus.h"
+#include "cmsis_gcc.h"
+
+#include "led.h"
+#include "clocks.h"
+#include "ringbuffer.h"
+
 #include "uart.h"
-
-static const struct pin_assign TX [] = {
-	{.module=&UART0, .pin={&PORTA, 2}, .alt=2},
-	{.module=&UART0, .pin={&PORTB, 17}, .alt=3},
-	{.module=&UART0, .pin={&PORTD, 7}, .alt=3},
-	{.module=&UART1, .pin={&PORTA, 19}, .alt=3},
-	{.module=&UART1, .pin={&PORTC, 4}, .alt=3},
-	{.module=&UART1, .pin={&PORTE, 0}, .alt=3},
-	{.module=&UART2, .pin={&PORTD, 5}, .alt=3},
-	{.module=&UART2, .pin={&PORTE, 16}, .alt=3},
+static const struct pin_assign TX [] =
+{
+	{.module = &UART0, .pin = {&PORTA, 2},  .alt = 2},
+	{.module = &UART0, .pin = {&PORTB, 17}, .alt = 3},
+	{.module = &UART0, .pin = {&PORTD, 7},  .alt = 3},
+	{.module = &UART1, .pin = {&PORTA, 19}, .alt = 3},
+	{.module = &UART1, .pin = {&PORTC, 4},  .alt = 3},
+	{.module = &UART1, .pin = {&PORTE, 0},  .alt = 3},
+	{.module = &UART2, .pin = {&PORTD, 5},  .alt = 3},
+	{.module = &UART2, .pin = {&PORTE, 16}, .alt = 3},
 	{}
 };
 
-static const struct pin_assign RX [] = {
-	{.module=&UART0, .pin={&PORTA, 1}, .alt=2},
-	{.module=&UART0, .pin={&PORTD, 6}, .alt=3},
-	{.module=&UART1, .pin={&PORTA, 18}, .alt=3},
-	{.module=&UART1, .pin={&PORTC, 3}, .alt=3},
-	{.module=&UART1, .pin={&PORTE, 1}, .alt=3},
-	{.module=&UART2, .pin={&PORTD, 4}, .alt=3},
-	{.module=&UART2, .pin={&PORTE, 17}, .alt=3},
+static const struct pin_assign RX [] =
+{
+	{.module = &UART0, .pin = {&PORTA, 1},  .alt = 2},
+	{.module = &UART0, .pin = {&PORTD, 6},  .alt = 3},
+	{.module = &UART1, .pin = {&PORTA, 18}, .alt = 3},
+	{.module = &UART1, .pin = {&PORTC, 3},  .alt = 3},
+	{.module = &UART1, .pin = {&PORTE, 1},  .alt = 3},
+	{.module = &UART2, .pin = {&PORTD, 4},  .alt = 3},
+	{.module = &UART2, .pin = {&PORTE, 17}, .alt = 3},
 	{}
 };
 
-/* System integration module, system clock gating control register 4 */
-#define SCGC_UART0 (1 << 10)
-#define SCGC_UART1 (1 << 11)
-#define SCGC_UART2 (1 << 12)
 
-/* System integration module, system options register 2 */
-#define UART0SRC_MCGIRCLK (3 << 26)
-#define UART0SRC_MCGPLLFLLCLK (1 << 26)
-#define PLLFLLSEL (1 << 16)
+bool uart0_intr_initialized_g = false;
 
-/* UART status register 1 */
-#define TDRE (1 << 7)
-#define RDRF (1 << 5)
+Ringbuffer uart0_tx_buff;
+Ringbuffer uart0_rx_buff;
 
-/* UART configuration register 1 */
-#define LOOPS (1 << 7)
-#define RSRC (1 << 5)
-#define nRSRC 0xDF
+bool  uart0_intr_flag_g  = false; // For testing
+// bool  uart1_intr_flag_g  = false;
+// bool  uart2_intr_flag_g  = false;
 
-/* UART configuration register 2 */
-#define TE (1 << 3)
-#define RE (1 << 2)
+void isr_uart0(void)
+{
+	uart0_intr_flag_g = true;
 
-/* UART configuration register 3 */
-#define TXDIR (1 << 5)
+	// // is it TDRE?
+	if(UART0.S1 & UART_TIE_SR1_TDRE)
+	{
+		if(!rb_is_empty(&uart0_tx_buff))
+		{
+			char c;
+			if(rb_get_elem(&c, &uart0_tx_buff))
+			{
+				UART0.D = c;
+			}
+		}
+		else
+		{
+			UART0.C2 &= ~(UART_TIE_SR1_TDRE);
+		}
+	}
+	// // is it RDRF?
+	if(UART0.S1 & UART_RIE_SR1_RDRF)
+	{
+		if(!rb_is_full(&uart0_rx_buff))
+		{
+			uint8_t c;
+			c = UART0.D;
+			rb_put_elem(c, &uart0_rx_buff) ;
+			led_action(TOGGLE, led8);
+		}
+	}
+}
 
-/* UART configuration register 4 */
-#define OSR_MASK 0x1F
-
-/* set for debugging purposes, will configure UART for loops */
-#define DEBUG 0
-
-void uart0_init(volatile struct uart0 * UART, const struct uart_config * config){
-	/* select UART0 clock source to PLL */
-	/* note: this step isn't needed for UART1/UART2
-           since they are run off the bus clock */
-	SIM.SOPT2 |= UART0SRC_MCGPLLFLLCLK | PLLFLLSEL;
-
-	/* enable clock*/
-	SIM.SCGC4 |= SCGC_UART0;
-	// for uart0 baud is multiplied by (OSR + 1), but in 1 and 2 is multiplied by 16
-        // Set OSR to 15 so that uart0, 1, 2 behavior is the same.
+void uart0_init_poll(volatile struct uart0 * UART, const struct uart_config * config)
+{
+	enable_uart0_clock();
 	UART->C4 |= (OSR_MASK & 15);
-	uart12_init((volatile struct uart *) UART, config);
+	uart12_init_poll((volatile struct uart *) UART, config);
 }
 
-void uart0_read(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	uart12_read((volatile struct uart *) UART, len, buffer);
+void uart0_read_poll(volatile struct uart0 * UART, size_t len, uint8_t * buffer)
+{
+	uart12_read_poll((volatile struct uart *) UART, len, buffer);
 }
 
-bool uart0_char(volatile struct uart0 * UART,  uint8_t * buffer){
-	return uart12_char((volatile struct uart *) UART, buffer);
+bool uart0_char_poll(volatile struct uart0 * UART,  uint8_t * buffer)
+{
+	return uart12_char_poll((volatile struct uart *) UART, buffer);
 }
 
-void uart0_write(volatile struct uart0 * UART, size_t len, uint8_t * buffer){
-	uart12_write((volatile struct uart *) UART, len, buffer);
+void uart0_write_poll(volatile struct uart0 * UART, size_t len, uint8_t * buffer)
+{
+	uart12_write_poll((volatile struct uart *) UART, len, buffer);
 }
 
-
-void uart12_init(volatile struct uart * UART, const struct uart_config * config){
-	/* enable clock */
+void uart12_init_poll(volatile struct uart * UART, const struct uart_config * config)
+{
 	if(UART == &UART1)
-		SIM.SCGC4 |= SCGC_UART1;
+	{
+		enable_uart1_clock();
+	}
 	if(UART == &UART2)
-		SIM.SCGC4 |= SCGC_UART2;
+	{
+		enable_uart2_clock();
+	}
 
-	/* setup pins */
 	set_pin_alt(TX, UART, &config->TX);
 	set_pin_alt(RX, UART, &config->RX);
 
 	/* br = baud clock / concat(BDH[4:0], BDL[7:0]) * 16/
-	/* baud clock for UART[1,2] is the bus clock which is the system clock
+	   baud clock for UART[1,2] is the bus clock which is the system clock
 	   divided by 2. See UART section of data book for equation and section
 	   4 on clock distribution for clock definitions
-
-	   the calculation below assumes baud clock = 24MHz and OSR of 15
 	*/
 
-	uint16_t BR = (24000000/16)/config->baud;
-	uint8_t BDH = (BR >> 8) & 0x1F;
-	uint8_t BDL = BR & 0xFF;
+	uint16_t        BR  = (uart_clock_input / OSRVAL) / config->baud;
+	uint8_t         BDH = (BR >> 8) & 0x1F;
+	uint8_t         BDL = BR & 0xFF;
+
 	UART->BDH = BDH;
 	UART->BDL = BDL;
-	//UART->BDH = 0x0;
-	//UART->BDL = 0x9C;
 
-	if(DEBUG){
-		/* for debugging, set loop mode */
-		UART->C1 = LOOPS;
-        }
+	#ifdef DEBUG_UART
+	UART->C1 = UART_CR1_LOOPS;
+	#endif
 
-	UART->C2 = TE | RE;
+	UART->C2 = UART_CR2_TE | UART_CR2_RE;
 }
 
-void uart12_read(volatile struct uart * UART, size_t len, uint8_t * buffer){
-	if(!len) return;
+void uart12_read_poll(volatile struct uart * UART, size_t len, uint8_t * buffer)
+{
+	if(!len)
+	{
+		return;
+	}
 
-	for(unsigned int i = 0; i < len; ++i){
+	for(unsigned int i = 0; i < len; ++i)
+	{
 		/* poll receive data register full flag */
-		while(!(UART->S1 & RDRF));
+		while(!(UART->S1 & UART_RIE_SR1_RDRF));
 
 		buffer[i] = UART->D;
 	}
 }
 
-bool uart12_char(volatile struct uart * UART, uint8_t * buffer) {
+bool uart12_char_poll(volatile struct uart * UART, uint8_t * buffer)
+{
 	/* check receive data register full flag */
-	if (!(UART->S1 & RDRF))
+	if (!(UART->S1 & UART_RIE_SR1_RDRF))
+	{
 		return false;
+	}
 	*buffer = UART->D;
 	return true;
 }
 
-void uart12_write(volatile struct uart * UART, size_t len, uint8_t * buffer){
-	if(!len) return;
+void uart12_write_poll(volatile struct uart * UART, size_t len, uint8_t * buffer)
+{
+	if(!len)
+	{
+		return;
+	}
 
 	/* write bytes to data register */
-	for(unsigned int i = 0; i < len; ++i){
+	for(unsigned int i = 0; i < len; ++i)
+	{
 		UART->D = buffer[i];
 
 		/* poll transmit data register empty flag */
-		while(!(UART->S1 & TDRE));
+		while(!(UART->S1 & UART_TIE_SR1_TDRE));
 	}
 }
 
-void toHex(uint8_t * dest, uint8_t byte) {
-	if(((byte >> 4) & 0xf)  <= 9)
-		dest[0] = '0' + ((byte >> 4) & 0xf);
-	else
-		dest[0] = '7' + ((byte >> 4) & 0xf);
+/*!  \warn __enable_irq();  &&  NVIC_EnableIRQ(UART0_IRQn);  Must be called
+ * somewhere else or no interrupt
+ */
+void uart0_init_intr(const struct uart_config * config)
+{
+	rb_initialize(&uart0_tx_buff);
+	rb_initialize(&uart0_rx_buff);
 
-	if((byte & 0xf) <= 9)
-		dest[1] = '0' + (byte & 0xf);
-	else
-		dest[1] = '7' + (byte & 0xf);
+	set_pin_alt(RX, &UART0, &config->RX);
+	uart0_init_poll(&UART0, config);
+
+	// Enable rx interrupts on RIE
+	UART0.C2 |= UART_RIE_SR1_RDRF;
+
+	uart0_intr_initialized_g = true;
 }
 
+
+inline uint16_t num_uart0_rx_chars_avail() {
+	return uart0_rx_buff.num_entries;
+}
+
+bool uart0_getchar_intr(char * c)
+{
+	if(rb_is_empty(&uart0_rx_buff))
+	{
+		return false;
+	}
+	if(!rb_get_elem(c, &uart0_rx_buff))
+	{
+		return false;
+	}
+	return true;
+}
+
+bool uart0_writechar_intr(char c)
+{
+	if(!uart0_intr_initialized_g)
+	{
+		return false;
+	}
+
+	__disable_irq();
+	NVIC_DisableIRQ(UART0_IRQn);
+	UART0.C2 |= UART_TIE_SR1_TDRE;  // use TDRE flag to govern ready for next char
+	if(!rb_put_elem(c, &uart0_tx_buff))
+	{
+		return(false);
+	}
+	NVIC_EnableIRQ(UART0_IRQn);
+	__enable_irq();
+	return(true);
+}
+
+bool uart0_writestr_intr(char * s)
+{
+	if((s == NULL) || !uart0_intr_initialized_g)
+	{
+		return false;
+	}
+
+	__disable_irq();
+	NVIC_DisableIRQ(UART0_IRQn);
+	UART0.C2 |= UART_TIE_SR1_TDRE;  // use TDRE flag to govern ready for next char
+	do
+	{
+		if(!rb_put_elem(*s, &uart0_tx_buff))
+		{
+			return(false);
+		}
+		++s;
+	}
+	while(*s != '\0');
+
+	NVIC_EnableIRQ(UART0_IRQn);
+	__enable_irq();
+	return(true);
+}
+/*! @} */
 
