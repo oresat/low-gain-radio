@@ -1,10 +1,10 @@
 /*!
  * \file    port.c
- * \brief   PORT API 
+ * \brief   PORT API
  *
  * \defgroup ports
  * @{
- */ 
+ */
 
 /*
  * \file port.c
@@ -14,7 +14,9 @@
 #include "port.h"
 #include "clocks.h"
 
-/* Use with a pin assign structure to manage multiplexed pins */
+/* Use with a pin assign structure to manage multiplexed pins
+ * Ref: Table 3-3. MKW01 Pin Assignments and Signal Multiplexing
+ */
 void set_pin_alt(const struct pin_assign list[], volatile void * module, const struct pin * pin)
 {
 	for(int i = 0; list[i].module != NULL; ++i)
@@ -81,12 +83,14 @@ void initialize_gpio(void)
 
 	/* PORT D pins */
 	// Port D 4 should be high
-		// turns off U3, spi flash chip.
-	// #CS 
+	// turns off U3, spi flash chip.
+	// #CS
 
 	/* port E pins */
-	PORTE.PCR[2] |= ALT1;
-	PORTE.PCR[2] &= PCR_ISF_Clr;    // no interrupt
+	PORTE.PCR[2]  |= ALT1;
+	PORTE.PCR[2]  &= PCR_ISF_Clr;    // no interrupt
+	PORTE.PCR[30] |= ALT1;
+	PORTE.PCR[30] &= PCR_ISF_Clr;
 
 	/* set data direction as output */
 	/* PA_EN & LNA_EN */
@@ -117,8 +121,15 @@ void initialize_gpio(void)
 	PORTE.PCR[2] &= ~(0b1);
 	GPIOE.PDDR |= PTE2;
 
+	/* enable pulls (PE=1)... */
+	PORTE.PCR[30] |= 0b10;
+	/* ... and set pulldown (PS=0)  */
+	PORTE.PCR[30] &= ~(0b1);
+	GPIOE.PDDR |= PTE30;
+
 	/* Initialize to zero */
 	GPIOE.PCOR =  PTE2;
+	GPIOE.PCOR =  PTE30;
 
 	return;
 }
