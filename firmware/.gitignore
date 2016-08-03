@@ -1,0 +1,11 @@
+doxydocs
+.filter.awk*
+.cscope.*
+.filter.*
+tagit.bash*
+cscope.files
+tags
+cscope.po.out
+cscope.out
+cscope.in.out
+
