@@ -10,7 +10,7 @@
 #include "led.h"
 
 
-struct LED led5 =
+/*struct LED led5 =
 {
 	.gpio = &GPIOC,
 	.pin = PTC1,
@@ -35,6 +35,28 @@ struct LED led8 =
 {
 	.gpio = &GPIOC,
 	.pin = PTC4,
+	.active_level = 1
+};
+*/
+
+struct LED green =
+{
+	.gpio = &GPIOB,
+	.pin = PTB1,
+	.active_level = 1
+};
+
+struct LED red =
+{
+	.gpio = &GPIOB,
+	.pin = PTB2,
+	.active_level = 1
+};
+
+struct LED blue =
+{
+	.gpio = &GPIOB,
+	.pin = PTB17,
 	.active_level = 1
 };
 

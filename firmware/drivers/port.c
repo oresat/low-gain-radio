@@ -52,7 +52,7 @@ void set_pin_alt(const struct pin_assign list[], volatile void * module, const s
 /* \todo Tue 12 July 2016 12:50:31 (PDT) More signals need to be reviewed for initialization */
 void initialize_gpio(void)
 {
-	/* port A pins */
+// ***************port A pins *******************
 	PORTA.PCR[1] &= PIN_CLEAR;
 	PORTA.PCR[1] |= ALT2;           // UART0_rx, set as ALT1 for now
 	PORTA.PCR[2] &= PIN_CLEAR;
@@ -61,51 +61,69 @@ void initialize_gpio(void)
 	PORTA.PCR[2] |= 0b11;           // PE && PS, pullup enabled
 	PORTA.PCR[1] &= PCR_ISF_Clr;    // no interrupt
 	PORTA.PCR[2] &= PCR_ISF_Clr;    // no interrupt
+// **********************************************
 
-	/* port B pins */
+// ***************port B pins *******************
 	PORTB.PCR[0] |= ALT1;
 	PORTB.PCR[1] |= ALT1;
+	PORTB.PCR[2] |= ALT1;
+	PORTB.PCR[17] |= ALT1;
 	PORTB.PCR[0] &= PCR_ISF_Clr;    // no interrupt
 	PORTB.PCR[1] &= PCR_ISF_Clr;    // no interrupt
+	PORTB.PCR[2] &= PCR_ISF_Clr;    // no interrupt
+	PORTB.PCR[17] &= PCR_ISF_Clr;    // no interrupt
 
-	/* port C pins */
+	/* set data direction as output */
+	GPIOB.PDDR   |= PTB17 | PTB2 | PTB1;
+
+	/* pull pins high */
+	GPIOB.PCOR   =  PTB17 | PTB2 | PTB1;
+// **********************************************
+
+// ***************port C pins *******************
 	PORTC.PCR[1] |= ALT1;
 	PORTC.PCR[2] |= ALT1;
 	PORTC.PCR[3] |= ALT1;
 	PORTC.PCR[4] |= ALT1;
+	PORTC.PCR[5] |= ALT1;
+	PORTC.PCR[6] |= ALT1;
+	PORTC.PCR[7] |= ALT1;
 	PORTC.PCR[1] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[2] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[3] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[4] &= PCR_ISF_Clr;    // no interrupt
-
-
-	/* PORT D pins */
-	// Port D 4 should be high
-		// turns off U3, spi flash chip.
-	// #CS 
-
-	/* port E pins */
-	PORTE.PCR[2] |= ALT1;
-	PORTE.PCR[2] &= PCR_ISF_Clr;    // no interrupt
-
-	/* set data direction as output */
-	/* PA_EN & LNA_EN */
-	GPIOB.PDDR   |= PTB1 | PTB0;
-
-	/* Turn off the Amplifiers */
-	GPIOB.PCOR   =  PTB1 | PTB0;
-
+	PORTC.PCR[5] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[6] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[7] &= PCR_ISF_Clr;    // no interrupt
 	/* LEDs 5, 6, 7, 8
 	 * disable pulls and configure as pulldown
 	 */
-	PORTC.PCR[1] &= ~(0b11);
-	PORTC.PCR[2] &= ~(0b11);
-	PORTC.PCR[3] &= ~(0b11);
-	PORTC.PCR[4] &= ~(0b11);
-	GPIOC.PDDR   |= PTC4 | PTC3 | PTC2 | PTC1;
+	//PORTC.PCR[1] &= ~(0b11);
+	//PORTC.PCR[2] &= ~(0b11);
+	//PORTC.PCR[3] &= ~(0b11);
+	//PORTC.PCR[4] &= ~(0b11);
+	//GPIOC.PDDR   |= PTC4 | PTC3 | PTC2 | PTC1;
 
 	/* Turn off the LEDs */
-	GPIOC.PCOR   =  PTC4 | PTC3 | PTC2 | PTC1;
+	//GPIOC.PCOR   =  PTC4 | PTC3 | PTC2 | PTC1;
+// **********************************************
+
+// ***************port D pins *******************
+	PORTC.PCR[0] |= ALT1;
+	PORTC.PCR[4] |= ALT1;
+	PORTC.PCR[5] |= ALT1;
+	PORTC.PCR[6] |= ALT1;
+	PORTC.PCR[7] |= ALT1;
+	PORTC.PCR[0] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[4] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[5] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[6] &= PCR_ISF_Clr;    // no interrupt
+	PORTC.PCR[7] &= PCR_ISF_Clr;    // no interrupt
+// **********************************************
+
+// ***************port E pins *******************
+	PORTE.PCR[2] |= ALT1;
+	PORTE.PCR[2] &= PCR_ISF_Clr;    // no interrupt
 
 	/* \todo Thu 21 July 2016 17:15:42 (PDT): PTE2 is DIO0 and shouldn't have been connected to xvcr-reset! */
 
@@ -119,6 +137,7 @@ void initialize_gpio(void)
 
 	/* Initialize to zero */
 	GPIOE.PCOR =  PTE2;
+// **********************************************
 
 	return;
 }

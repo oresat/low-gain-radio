@@ -89,7 +89,7 @@ void isr_uart0(void)
 			uint8_t c;
 			c = UART0.D;
 			rb_put_elem(c, &uart0_rx_buff) ;
-			led_action(TOGGLE, led8);
+			led_action(TOGGLE, blue);
 		}
 	}
 }

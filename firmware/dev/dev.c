@@ -1,16 +1,15 @@
 /* \file dev.c
- * Low Gain Radio firmware
+
+	Firmware for KW0x breakout boards
+
+	Programmed by William Harrington
  */
 
 #include <string.h>
-
 #include "v1_2.h"
-
 #include "lgr_vector.h"
-
 #include "core_cm0plus.h"
 #include "cmsis_gcc.h"
-
 #include "lgr_util.h"
 #include "port.h"
 #include "clocks.h"
@@ -20,7 +19,6 @@
 #include "xcvr.h"
 #include "ringbuffer.h"
 #include "em-printf.h"
-
 #include "dev.h"
 
 struct spi_config spi0_config =
@@ -46,17 +44,17 @@ struct spi_config spi0_config =
  */
 void NMIVector(void)
 {
-	led_action(TOGGLE, led6);
+	led_action(TOGGLE, blue);
 }
 
 void isr_porta(void)
 {
-	led_action(TOGGLE, led7);
+	led_action(TOGGLE, blue);
 };
 
 void isr_portcd(void)
 {
-	led_action(TOGGLE, led8);
+	led_action(TOGGLE, blue);
 };
 
 /*  When something goes wrong
@@ -105,10 +103,11 @@ static void initialize_uart0_init(void)
 
 void main_loop(void)
 {
-	led_action(ON, led5);
-	led_action(ON, led6);
-	led_action(OFF, led7);
-	led_action(ON, led8);
+	led_action(ON, green);
+	//led_action(ON, led6);
+	led_action(OFF, red);
+	led_action(OFF, blue);
+	//led_action(ON, led8);
 
 	__enable_irq();
 	// NVIC_EnableIRQ(PORTA_IRQn);
@@ -133,7 +132,7 @@ void main_loop(void)
 			{
 				uart0_intr_flag_g = false;
 			}
-			led_action(TOGGLE, led5);
+			led_action(TOGGLE, green);
 			NVIC_SetPendingIRQ(PORTA_IRQn);
 			if(!uart0_writestr_intr("NUM CHARS: "))
 			{
@@ -176,17 +175,17 @@ int main(void)
 
 	if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
 	{
-		error_spin_led(led5);
+		error_spin_led(red);
 	}
 
 	if(vers != 0x23)
 	{
-		error_spin_led(led7);
+		error_spin_led(red);
 	}
 
 	if(!xcvr_set_outclk_div(XCVR_CLK_DIV16))
 	{
-		error_spin_led(led6);
+		error_spin_led(red);
 	}
 
 	enable_pll_48();
