@@ -38,12 +38,17 @@
 #define PTA4        (1 << 4)
 
 #define PTB0        (1 << 0)
-#define PTB1        (1 << 0)
+#define PTB1        (1 << 1)
+#define PTB2	    (1 << 2)
+#define PTB17       (1 << 17)
 
 #define PTC1        (1 << 1)
 #define PTC2        (1 << 2)
 #define PTC3        (1 << 3)
 #define PTC4        (1 << 4)
+#define PTC5        (1 << 5)
+#define PTC6        (1 << 6)
+#define PTC7        (1 << 7)
 
 #define PTD0        (1 << 0)
 #define PTD4        (1 << 4)
@@ -88,8 +93,7 @@ struct pin_assign
 {
 	volatile void * module;
 	struct pin pin;
-	/* \todo Tue 12 July 2016 12:50:21 (PDT) Should this be uint32_t? */
-	int alt;
+	uint8_t alt;
 };
 
 
