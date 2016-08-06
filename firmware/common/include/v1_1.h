@@ -1,10 +1,10 @@
-/*! \file v1_2.h
+/*! \file v1_1.h
  */
 
 /* Board specific defines in this file */
 
-#ifndef _V1_2_H_
-#define _V1_2_H_
+#ifndef _V1_1_H_
+#define _V1_1_H_
 
 extern const char _lgr_version[10];
 

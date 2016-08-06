@@ -16,7 +16,7 @@ Transmitting:
 
  */
 
-#include "v1_2.h"
+#include "v1_1.h"
 #include "lgr_vector.h"
 #include "core_cm0plus.h"
 #include "cmsis_gcc.h"

@@ -6,7 +6,7 @@
  */
 
 #include <string.h>
-#include "v1_2.h"
+#include "v1_1.h"
 #include "lgr_vector.h"
 #include "core_cm0plus.h"
 #include "cmsis_gcc.h"
@@ -103,11 +103,6 @@ static void initialize_uart0_init(void)
 
 void main_loop(void)
 {
-	led_action(ON, green);
-	//led_action(ON, led6);
-	led_action(OFF, red);
-	led_action(OFF, blue);
-	//led_action(ON, led8);
 
 	__enable_irq();
 	// NVIC_EnableIRQ(PORTA_IRQn);
@@ -173,15 +168,15 @@ int main(void)
 
 	uint8_t vers = 0xff;
 
-	if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
-	{
-		error_spin_led(red);
-	}
+	//if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
+	//{
+	//	error_spin_led(red);
+	//}
 
-	if(vers != 0x23)
-	{
-		error_spin_led(red);
-	}
+	//if(vers != 0x23)
+	//{
+	//	error_spin_led(red);
+	//}
 
 	if(!xcvr_set_outclk_div(XCVR_CLK_DIV16))
 	{

@@ -15,7 +15,7 @@
 
 #include <stdbool.h>
 
-#include "v1_2.h"
+#include "v1_1.h"
 
 #include "lgr_vector.h"
 #include "core_cm0plus.h"
@@ -113,15 +113,7 @@ void initialize_spi0(struct spi_config * cfg)
 	 */
 	// Can't do this for SPI0 on this chip: set_pin_alt(PCS0, SPI, &cfg->SS);
 
-	PORTD.PCR[0] |= ALT1;       // Enable PTD0 as a GPIO
-	PORTD.PCR[0] |= 0b11;       // Enable pullup
-	GPIOD.PDDR   |= PTD0;       // Set PTD0 payload direction to output
-	GPIOD.PTOR   =  PTD0;       // Set the output signal to high
-
 	/* \todo Thu 21 July 2016 17:16:11 (PDT) finish this and rethink it after PTE2 reconnection
-	PORTE.PCR[2] |= ALT1;
-	PORTE.PCR[3] |= ALT1;
-	GPIOE.PDDR   &= ~(PTE2 | PTE3); // set to input
 	*/
 
 	enable_spi0_clock();

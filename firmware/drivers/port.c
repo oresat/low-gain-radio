@@ -77,7 +77,7 @@ void initialize_gpio(void)
 	GPIOB.PDDR   |= PTB17 | PTB2 | PTB1;
 
 	/* pull pins high */
-	GPIOB.PCOR   =  PTB17 | PTB2 | PTB1;
+	GPIOB.PTOR   =  PTB17 | PTB2 | PTB1;
 // **********************************************
 
 // ***************port C pins *******************
@@ -109,23 +109,29 @@ void initialize_gpio(void)
 // **********************************************
 
 // ***************port D pins *******************
-	PORTC.PCR[0] |= ALT1;
-	PORTC.PCR[4] |= ALT1;
-	PORTC.PCR[5] |= ALT1;
-	PORTC.PCR[6] |= ALT1;
-	PORTC.PCR[7] |= ALT1;
-	PORTC.PCR[0] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[4] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[5] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[6] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[7] &= PCR_ISF_Clr;    // no interrupt
+	PORTD.PCR[0] |= ALT1;
+	PORTD.PCR[4] |= ALT1;
+	PORTD.PCR[5] |= ALT1;
+	PORTD.PCR[6] |= ALT1;
+	PORTD.PCR[7] |= ALT1;
+
+	PORTD.PCR[0] |= 0b11;       // Enable pullup
+
+	PORTD.PCR[0] &= PCR_ISF_Clr;    // no interrupt
+	PORTD.PCR[4] &= PCR_ISF_Clr;    // no interrupt
+	PORTD.PCR[5] &= PCR_ISF_Clr;    // no interrupt
+	PORTD.PCR[6] &= PCR_ISF_Clr;    // no interrupt
+	PORTD.PCR[7] &= PCR_ISF_Clr;    // no interrupt
+
+	GPIOD.PDDR   |= PTD0;       // Set PTD0 payload direction to output
+	GPIOD.PTOR   =  PTD0;       // Set the output signal to high
+
 // **********************************************
 
 // ***************port E pins *******************
 	PORTE.PCR[2] |= ALT1;
+	PORTE.PCR[3] |= ALT1;
 	PORTE.PCR[2] &= PCR_ISF_Clr;    // no interrupt
-
-	/* \todo Thu 21 July 2016 17:15:42 (PDT): PTE2 is DIO0 and shouldn't have been connected to xvcr-reset! */
 
 	/* Transceiver  reset  is ACTIVE HIGH for min 100µs */
 	/* Ref: 4.3.2.2 Transceiver Hardware Reset in Ref manual */
@@ -133,10 +139,11 @@ void initialize_gpio(void)
 	PORTE.PCR[2] |= 0b10;
 	/* ... and set pulldown (PS=0)  */
 	PORTE.PCR[2] &= ~(0b1);
-	GPIOE.PDDR |= PTE2;
+	//GPIOE.PDDR |= PTE2;
+	GPIOE.PDDR   &= ~(PTE2 | PTE3); // set to input
 
 	/* Initialize to zero */
-	GPIOE.PCOR =  PTE2;
+	//GPIOE.PCOR =  PTE2;
 // **********************************************
 
 	return;
