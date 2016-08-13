@@ -168,15 +168,15 @@ int main(void)
 
 	uint8_t vers = 0xff;
 
-	//if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
-	//{
-	//	error_spin_led(red);
-	//}
+	if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
+	{
+		error_spin_led(red);
+	}
 
-	//if(vers != 0x23)
-	//{
-	//	error_spin_led(red);
-	//}
+	if(vers != 0x23)
+	{
+		error_spin_led(red);
+	}
 
 	if(!xcvr_set_outclk_div(XCVR_CLK_DIV16))
 	{
