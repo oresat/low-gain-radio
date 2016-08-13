@@ -85,16 +85,10 @@ void initialize_gpio(void)
 	PORTC.PCR[2] |= ALT1;
 	PORTC.PCR[3] |= ALT1;
 	PORTC.PCR[4] |= ALT1;
-	PORTC.PCR[5] |= ALT1;
-	PORTC.PCR[6] |= ALT1;
-	PORTC.PCR[7] |= ALT1;
 	PORTC.PCR[1] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[2] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[3] &= PCR_ISF_Clr;    // no interrupt
 	PORTC.PCR[4] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[5] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[6] &= PCR_ISF_Clr;    // no interrupt
-	PORTC.PCR[7] &= PCR_ISF_Clr;    // no interrupt
 	/* LEDs 5, 6, 7, 8
 	 * disable pulls and configure as pulldown
 	 */
