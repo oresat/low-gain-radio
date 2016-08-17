@@ -1,7 +1,7 @@
 # Parts Selection for Low Gain Radio  
 **Table of Contents**
  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U1-NXP-MKW01Z128)   
- * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U2-SkyWorks-SKY65116)  
+ * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u2-skyworks-sky65116)  
  * [LNA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U8-MAACOM-MAAL-010704)  
  * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-skyworks-sky13405_490f)  
  * [MCU LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u4-texas-instruments-lp5907mfx-33)  
