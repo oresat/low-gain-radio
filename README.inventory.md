@@ -11,18 +11,18 @@
 #### Board A
 
 * DIO0 Modwire	PTE30 -> RESET (RF)    Wed 02 August 2016
-* Location: K Wilson
+* Location: Jake Heath
 
 #### Board B
 
-* DIO0 Modwire Attempted Wed 02 August 2016
- * Failed test on Wed 03 August 2016
-
-* Location: A Greenberg
+* DIO0 Modwire
+* Fails to program flash. Thu 18 August 2016 13:12:48 (PDT)
+* Location: K Wilson 
 
 #### Board C
 
-* Waiting for DIO0 Modwire Wed 03 August 2016 15:50:09 (PDT)
-* Location: A Greenberg
+* DIO0 Modwire
+* Program flash but fails at switch to PLL clock. Thu 18 August 2016 13:13:02 (PDT)
+* Location: K Wilson
 
 
