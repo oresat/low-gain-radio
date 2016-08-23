@@ -89,7 +89,7 @@ static void initialize_uart0_poll(void)
 	uart_init_poll(&UART0, &myUART);
 }
 
-static void initialize_uart0_init(void)
+static void initialize_uart0(void)
 {
 	/* UART0 configuration */
 	struct uart_config myUART =
@@ -193,7 +193,7 @@ int main(void)
 
 	/* UART */
 	// initialize_uart0_poll();
-	initialize_uart0_init();
+	initialize_uart0();
 
 	main_loop();
 

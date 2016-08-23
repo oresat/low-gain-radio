@@ -38,7 +38,7 @@
 #define PTA4        (1 << 4)
 
 #define PTB0        (1 << 0)
-#define PTB1        (1 << 0)
+#define PTB1        (1 << 1)
 
 #define PTC1        (1 << 1)
 #define PTC2        (1 << 2)

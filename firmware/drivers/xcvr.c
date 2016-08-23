@@ -4,6 +4,7 @@
     Original Programmed by William Harrington and Michael Mathis
  */
 
+#include <stdbool.h>
 #include "xcvr.h"
 
 struct TRANSCEIVER xcvr_addrs =
