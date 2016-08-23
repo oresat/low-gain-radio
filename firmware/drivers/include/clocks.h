@@ -32,6 +32,11 @@
 #define     SCGC_PORTE_CLK      (1  << 13)
 #define     SCGC_PORTAE_CLK     (31 <<  9)
 
+#define		TPMSRC_DISABLE		(0b11 << 24)
+#define		TPMSRC_MCG_CLK		(0b01 << 24)
+#define		TPMSRC_OSC_ER_CLK	(0b10 << 24)
+#define		TPMSRC_MCG_IR_CLK	(0b11 << 24)
+
 /* XCVR Clock */
 #define XCVR_REF_CLK_DIVIDE_0   (0x0)
 #define XCVR_REF_CLK_DIVIDE_16  (1  << 2)
@@ -56,6 +61,12 @@ void enable_all_port_clocks(void) ;
 void disable_all_port_clocks(void) ;
 void enable_port_clock_x(IO_Port port) ;
 void disable_port_clock_x(IO_Port port) ;
+
+/* TPM */
+void enable_tpm_mcg_clock(void);
+void enable_tpm_osc_er_clock(void);
+void enable_tpm_mcg_ir_clock(void);
+void disable_tpm_clocks(void);
 
 /* PLL */
 void enable_pll_48(void);
