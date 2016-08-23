@@ -33,7 +33,7 @@ void set_pin_alt(const struct pin_assign list[], volatile void * module, const s
 		{
 			continue;
 		}
-
+		pin->port->PCR[pin->pin] &= PIN_CLEAR;
 		pin->port->PCR[pin->pin] |= list[i].alt << 8;
 		return;
 	}
