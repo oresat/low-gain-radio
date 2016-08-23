@@ -32,7 +32,7 @@
 #define     SCGC_PORTE_CLK      (1  << 13)
 #define     SCGC_PORTAE_CLK     (31 <<  9)
 
-#define		TPMSRC_DISABLE		(0b11 << 24)
+#define		TPMSRC_DISABLE		(~(0b11 << 24))
 #define		TPMSRC_MCG_CLK		(0b01 << 24)
 #define		TPMSRC_OSC_ER_CLK	(0b10 << 24)
 #define		TPMSRC_MCG_IR_CLK	(0b11 << 24)

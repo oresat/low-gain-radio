@@ -138,17 +138,14 @@ void disable_port_clock_x(IO_Port port)
 /* TPM Clocks */
 void enable_tpm_mcg_clock()
 {
-	SIM.SOPT2 &= TPMSRC_DISABLE;
 	SIM.SOPT2 |= TPMSRC_MCG_CLK;
 }
 void enable_tpm_osc_er_clock()
 {
-	SIM.SOPT2 &= TPMSRC_DISABLE;
 	SIM.SOPT2 |= TPMSRC_OSC_ER_CLK;
 }
 void enable_tpm_mcg_ir_clock()
 {
-	SIM.SOPT2 &= TPMSRC_DISABLE;
 	SIM.SOPT2 |= TPMSRC_MCG_IR_CLK;
 }
 void disable_tpm_clocks()
