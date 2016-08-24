@@ -20,6 +20,7 @@
 #include "ringbuffer.h"
 #include "em-printf.h"
 #include "dev.h"
+#include "xcvr.h"
 
 struct spi_config spi0_config =
 {
@@ -103,6 +104,8 @@ static void initialize_uart0_init(void)
 
 void main_loop(void)
 {
+	configure_transceiver(ModeTX, PAOutputCfg(PA0, 0x1F));
+
 
 	__enable_irq();
 	// NVIC_EnableIRQ(PORTA_IRQn);
