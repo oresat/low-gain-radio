@@ -179,9 +179,28 @@ void test_xcvr_outclock(void)
 /* If we make it through the tests play a unique pattern of leds */
 static void test_pass_led_pattern(void)
 {
+	uint16_t n = 0;
+	char     c = 'x';
+	bool     gotchar = false;
 	uint32_t i = 0;
+	printf("*I* Type a char to test get char\r\n");
 	while(1)
 	{
+		n = num_uart0_rx_chars_avail();
+		while(n > 0)
+		{
+			gotchar = uart0_getchar_intr(&c);
+			if (gotchar)
+			{
+				if(c == '\r')
+				{
+					printf("\n");
+				}
+				printf("%c", c);
+			}
+			n = num_uart0_rx_chars_avail();
+		}
+
 		++i;
 		if(i == 100000)
 		{
@@ -199,6 +218,7 @@ static void test_pass_led_pattern(void)
 		{
 			led_action(TOGGLE, led8);
 			i = 0;
+			printf("*");
 		}
 	}
 }
@@ -266,12 +286,13 @@ int main(void)
 	// test_xcvr_PaLevel(); // register not consistent value and doesn't match POR from Ref Manual.
 
 	/* CLOCKS */
-
 	enable_pll_48();  // \todo clever way to check? beyond not crashing...
 
 	/* UART */
 	initialize_uart0_poll();
 
+	test_write_uart0_poll("\r\n\n---\r\n");
+	test_write_uart0_poll("---\n\n");
 	test_write_uart0_poll("\r\nTest...Test...Test...\n");
 	test_write_uart0_poll("\r\nUART0 Polling Mode...\n");
 
@@ -279,10 +300,8 @@ int main(void)
 
 	uart0_writestr_intr("UART0 Interrupt Mode...\r\n");
 
-	// testing get characters is awkward.
-
-    lgr_version(LGR_GITVERSION);	
-	printf("Git version:\t%s\r\n", LGR_GITVERSION);
+	lgr_version(LGR_GITVERSION);
+	printf("Built with version(Git hash):\t%s\r\n", LGR_GITVERSION);
 	printf("Char 'c':\t%c\r\n", 'c');
 	printf("Decimal 10:\t%d\r\n", 10);
 	printf("Hex 10:\t\t0x%x\r\n", 10);
@@ -291,7 +310,7 @@ int main(void)
 
 	/* End of tests */
 	printf("\r\nTests Passed\r\n");
-	test_pass_led_pattern();
+	test_pass_led_pattern();  // test get chars here interactively
 
 	return(-1);
 }

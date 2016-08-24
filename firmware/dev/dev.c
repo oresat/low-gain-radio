@@ -155,8 +155,6 @@ void main_loop(void)
 			printf("Hex 10:\t\t0x%x\r\n", 10);
 			printf("Bin 10:\t\t0b%b\r\n", 10);
 			printf("\r\nHello\tTab\nnewline\ttab...Yay!\r\n");
-			// uart0_writechar_intr('x');
-			// uart0_writechar_intr(' ');
 			i = 0;
 		}
 	}
@@ -192,7 +190,6 @@ int main(void)
 	enable_pll_48();
 
 	/* UART */
-	// initialize_uart0_poll();
 	initialize_uart0();
 
 	main_loop();
