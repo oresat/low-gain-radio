@@ -11,6 +11,19 @@
 #include <stdbool.h>
 #include "spi.h"
 
+//Modes
+#define ModeListen (1 << 6)
+#define ModeSleep (0 << 2)
+#define ModeStdby (1 << 2)
+#define ModeFS    (2 << 2)
+#define ModeTX    (3 << 2)
+#define ModeRX    (4 << 2)
+
+//Internal PAs
+#define PA0 (1 << 7)
+#define PA1 (1 << 6)
+#define PA2 (1 << 5)
+
 #define PAOutputCfg(pa, power) (((pa) & (PA0 | PA1 | PA2)) | ((power) & 0x1F))
 
 typedef enum xcvr_outdivs

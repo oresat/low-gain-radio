@@ -205,12 +205,7 @@ bool xcvr_set_outclk_div(XCVR_outdivs d)
 // RegOpMode
 #define SequencerOff (1 << 7)
 #define ListenAbort (1 << 5)
-#define ModeListen (1 << 6)
-#define ModeSleep (0 << 2)
-#define ModeStdby (1 << 2)
-#define ModeFS    (2 << 2)
-#define ModeTX    (3 << 2)
-#define ModeRX    (4 << 2)
+// Modes moved to xcvr.h
 
 // RegDataModul
 #define Packet (0 << 5)
