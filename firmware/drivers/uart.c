@@ -57,13 +57,17 @@ bool uart0_intr_initialized_g = false;
 Ringbuffer uart0_tx_buff;
 Ringbuffer uart0_rx_buff;
 
+#ifdef DEBUG_UART
 bool  uart0_intr_flag_g  = false; // For testing
 // bool  uart1_intr_flag_g  = false;
 // bool  uart2_intr_flag_g  = false;
+#endif
 
 void isr_uart0(void)
 {
+#ifdef DEBUG_UART
 	uart0_intr_flag_g = true;
+#endif
 
 	// // is it TDRE?
 	if(UART0.S1 & UART_TIE_SR1_TDRE)
@@ -89,7 +93,7 @@ void isr_uart0(void)
 			uint8_t c;
 			c = UART0.D;
 			rb_put_elem(c, &uart0_rx_buff) ;
-			led_action(TOGGLE, led8);
+			// led_action(TOGGLE, led8);
 		}
 	}
 }

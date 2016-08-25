@@ -127,12 +127,14 @@ void main_loop(void)
 	while(1)
 	{
 		++i;
-		if(i > 3000000)
+		if(i > 5000000)
 		{
+#ifdef DEBUG_UART
 			if(uart0_intr_flag_g)
 			{
 				uart0_intr_flag_g = false;
 			}
+#endif
 			led_action(TOGGLE, led5);
 			NVIC_SetPendingIRQ(PORTA_IRQn);
 			if(!uart0_writestr_intr("NUM CHARS: "))
@@ -150,6 +152,7 @@ void main_loop(void)
 			{
 				uart_write_poll(&UART0, len,(uint8_t *) " OUCH\n");
 			}
+			printf("\r\nBuilt with version(Git hash):\t%s\r\n", LGR_GITVERSION);
 			printf("Char 'c':\t%c\r\n", 'c');
 			printf("Decimal 10:\t%d\r\n", 10);
 			printf("Hex 10:\t\t0x%x\r\n", 10);
@@ -191,6 +194,8 @@ int main(void)
 
 	/* UART */
 	initialize_uart0();
+
+	lgr_version(LGR_GITVERSION);
 
 	main_loop();
 

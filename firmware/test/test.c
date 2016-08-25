@@ -292,6 +292,7 @@ int main(void)
 	initialize_uart0_poll();
 
 	test_write_uart0_poll("\r\n\n---\r\n");
+	test_write_uart0_poll("\t\tTEST\r\n");
 	test_write_uart0_poll("---\n\n");
 	test_write_uart0_poll("\r\nTest...Test...Test...\n");
 	test_write_uart0_poll("\r\nUART0 Polling Mode...\n");
