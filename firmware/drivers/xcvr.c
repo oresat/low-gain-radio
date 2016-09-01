@@ -179,9 +179,23 @@ bool xcvr_read_8bit_reg(uint8_t regaddr, uint8_t * d)
 	return(spi0_read_8_poll(regaddr, d));
 }
 
+bool xcvr_read_8bit_reg_burst(uint8_t regaddr, uint8_t * d, uint16_t len){
+	for(uint16_t i = 0; i < len; i++){
+		if(!xcvr_read_8bit_reg(regaddr + i, d + i)) return false;
+	}
+	return true;
+}
+
 bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload)
 {
 	return(spi0_write_8_poll(regaddr, payload));
+}
+
+bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len){
+	for(uint16_t i = 0; i < len; i++){
+		if(!xcvr_write_8bit_reg(regaddr + i, payload + i)) return false;
+	}
+	return true;
 }
 
 
