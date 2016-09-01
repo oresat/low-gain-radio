@@ -104,8 +104,7 @@ static void initialize_uart0_init(void)
 
 void main_loop(void)
 {
-	configure_transceiver(ModeTX, PAOutputCfg(PA0, 0x1F));
-
+	if(!configure_transceiver(ModeTX, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
 
 	__enable_irq();
 	// NVIC_EnableIRQ(PORTA_IRQn);
