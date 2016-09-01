@@ -132,6 +132,6 @@ bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload);
 bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len);
 
 bool xcvr_set_outclk_div(XCVR_outdivs d);
-void configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg);
+bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg);
 
 #endif
