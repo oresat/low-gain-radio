@@ -19,8 +19,8 @@ void isr_tpm0(void)
 		//GPIOB.PTOR = PTE0;
 		//reset TOF bit
 		led_action(TOGGLE, green);
-	//}
-	//else return;
+	}
+	else return;
 }
 
 void reset_counter()
@@ -44,9 +44,4 @@ void tpm_init()
 	reset_counter();
 	tpm_mod_init();
 	tpm_sc_init();
-}
-
-void wait_ms(int ms)
-{
-	
 }
