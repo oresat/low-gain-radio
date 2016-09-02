@@ -123,6 +123,8 @@ void initialize_gpio(void)
 // **********************************************
 
 // ***************port E pins *******************
+	//PORTE.PCR[0] |= ALT1;
+	
 	PORTE.PCR[2] |= ALT1;
 	PORTE.PCR[3] |= ALT1;
 	PORTE.PCR[2] &= PCR_ISF_Clr;    // no interrupt

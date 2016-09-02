@@ -161,7 +161,7 @@ int main(void)
 	after_POR_pause();
 
 	enable_all_port_clocks();
-
+	
 	initialize_gpio();
 
 	initialize_spi0(&spi0_config);

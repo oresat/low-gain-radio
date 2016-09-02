@@ -53,7 +53,7 @@ void isr_uart0(void)   __attribute__((interrupt("IRQ")));
 // void isr_uart0(void)   __attribute__((interrupt("IRQ")));
 
 //! \todo This seems clumsy, but I don't want to expose uart*_rx_buff outside API, I think.
-uint16_t num_uart0_rx_chars_avail(void) ;
+uint16_t num_uart0_rx_chars_avail(void);
 
 void uart0_init_intr(const struct uart_config * config);
 bool uart0_getchar_intr(char *);

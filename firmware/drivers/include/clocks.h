@@ -34,8 +34,6 @@
 
 #define		TPMSRC_DISABLE		(~(0b11 << 24))
 #define		TPMSRC_MCG_CLK		(0b01 << 24)
-#define		TPMSRC_OSC_ER_CLK	(0b10 << 24)
-#define		TPMSRC_MCG_IR_CLK	(0b11 << 24)
 
 /* XCVR Clock */
 #define XCVR_REF_CLK_DIVIDE_0   (0x0)
@@ -64,8 +62,6 @@ void disable_port_clock_x(IO_Port port) ;
 
 /* TPM */
 void enable_tpm_mcg_clock(void);
-void enable_tpm_osc_er_clock(void);
-void enable_tpm_mcg_ir_clock(void);
 void disable_tpm_clocks(void);
 
 /* PLL */
