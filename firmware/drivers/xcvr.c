@@ -193,7 +193,7 @@ bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload)
 
 bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len){
 	for(uint16_t i = 0; i < len; i++){
-		if(!xcvr_write_8bit_reg(regaddr + i, payload + i)) return false;
+          if(!xcvr_write_8bit_reg(regaddr + i, *(payload + i))) return false;
 	}
 	return true;
 }
@@ -309,7 +309,7 @@ static bool changeMode(uint8_t mode)
 	   (mode != ModeStdby) &
 	   (mode != ModeFS) &
 	   (mode != ModeTX) &
-	   (mode != ModeRX)) return;
+	   (mode != ModeRX)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegOpMode, mode);
 }
@@ -319,10 +319,10 @@ static bool changeDataModulation(uint8_t dataMode, uint8_t modulationType, uint8
 	/* only accept RegDataModul constants */
 	if((dataMode != Packet) &
 	   (dataMode != Continuous) &
-	   (dataMode != ContinuousNoSync)) return;
+	   (dataMode != ContinuousNoSync)) return false;
         if((modulationType != FSK) &
-	   (modulationType != OOK)) return;
-        if((modulationShaping != NoShaping)) return;
+	   (modulationType != OOK)) return false;
+        if((modulationShaping != NoShaping)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegDataModul, dataMode | modulationType | modulationShaping);
 }
@@ -333,14 +333,14 @@ static bool adjustPLLBandwidth(uint8_t bandwidth)
 	if((bandwidth != PLLBandwidth_75kHz) &
            (bandwidth != PLLBandwidth_150kHz) &
            (bandwidth != PLLBandwidth_300kHz) &
-           (bandwidth != PLLBandwidth_600kHz)) return;
+           (bandwidth != PLLBandwidth_600kHz)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegTestPLL, bandwidth);
 }
 
 static bool setLNAInputImpedance(uint8_t zin)
 {
-	if((zin != LNA_Zin_50)) return;
+	if((zin != LNA_Zin_50)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegLna, zin);
 }
@@ -450,6 +450,8 @@ bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	if(!setAfcFei((uint8_t[]){AfcAutoOn | AfcAutoclearOn})) return 0;
 
 	if(!changeMode(OpModeCfg)) return 0;
+
+	return 1;
 }
 
 
