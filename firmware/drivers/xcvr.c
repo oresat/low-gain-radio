@@ -193,7 +193,7 @@ bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload)
 
 bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len){
 	for(uint16_t i = 0; i < len; i++){
-          if(!xcvr_write_8bit_reg(regaddr + i, *(payload + i))) return false;
+		if(!xcvr_write_8bit_reg(regaddr + i, *(payload + i))) return false;
 	}
 	return true;
 }
