@@ -302,7 +302,7 @@ static bool setBitrate(uint32_t bitrateHz)
 	return xcvr_write_8bit_reg_burst(xcvr_addrs.RegBitrateMsb, RegBitrate, 2);
 }
 
-static bool changeMode(uint8_t mode)
+bool changeMode(uint8_t mode)
 {
 	/* only accept mode constants */
 	if((mode != ModeSleep) &
