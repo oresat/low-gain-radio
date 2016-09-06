@@ -393,6 +393,20 @@ static bool setAfcFei(uint8_t * cfg)
 	return xcvr_write_8bit_reg_burst(xcvr_addrs.RegAfcFei, cfg, 2);
 }
 
+static bool calibrateRC(){
+	uint8_t calStatus = 0x0;
+
+	/* trigger cal */
+	if(!xcvr_write_8bit_reg(xcvr_addrs.RegOsc1, RcCalStart)) return false;
+
+	/* wait until cal is done */
+	while(calStatus != RcCalDone){
+		if(!xcvr_read_8bit_reg(xcvr_addrs.RegOsc1, &calStatus)) return false;
+        }
+
+	return true;
+}
+
 bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	if(!changeMode(ModeFS)) return 0;
 	if(!setCarrierFrequency(436500000)) return 0;
@@ -448,6 +462,8 @@ bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 	if(!xcvr_write_8bit_reg(xcvr_addrs.RegFifoThresh, 0x4)) return 0;
 
 	if(!setAfcFei((uint8_t[]){AfcAutoOn | AfcAutoclearOn})) return 0;
+
+	if(!calibrateRC()) return 0;
 
 	if(!changeMode(OpModeCfg)) return 0;
 
