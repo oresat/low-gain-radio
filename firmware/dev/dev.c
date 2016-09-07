@@ -190,8 +190,10 @@ int main(void)
 	/* UART */
 	// initialize_uart0_poll();
 	initialize_uart0_init();
-
-	main_loop();
+	
+	//tpm init is broken ATM
+	//tpm_init();
+	//main_loop();
 
 	return(-1);
 }

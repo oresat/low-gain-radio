@@ -14,7 +14,7 @@ void isr_tpm0(void)
 	//read TOF register, if bit in tfo is set, then proceed.
 	if (TPM0.SC & TPM_SC_TOF)
 	{
-		TPM0.CNT = 0;
+		reset_counter();
 		//toggle io pin
 		//GPIOB.PTOR = PTE0;
 		//reset TOF bit
@@ -25,7 +25,8 @@ void isr_tpm0(void)
 
 void reset_counter()
 {
-	TPM0.CNT = TPM_CNT_RESET;
+	//write anything to counter register to clear it
+	TPM0.CNT = 1;
 }
 
 void tpm_mod_init()
@@ -37,11 +38,20 @@ void tpm_sc_init()
 {
 	TPM0.SC = TPM_SC;
 }
+void tpm_conf_init()
+{
+	TPM0.CONF = TPM_CONF;
+}
+
 
 void tpm_init()
 {
 	enable_tpm_mcg_clock();
-	reset_counter();
+	tpm_conf_init();
 	tpm_mod_init();
 	tpm_sc_init();
+	
+	
+	
+	
 }
