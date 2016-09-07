@@ -24,6 +24,28 @@
 #define PA1 (1 << 6)
 #define PA2 (1 << 5)
 
+// RegIrqFlags1
+#define ModeReady (1 << 7)
+#define RxReady (1 << 6)
+#define TxReady (1 << 5)
+#define PllLock (1 << 4)
+#define Rssi (1 << 3)
+#define Timeout (1 << 2)
+#define AutoMode (1 << 1)
+#define SyncAddressMatch (1 << 0)
+
+// RegIrqFlags2
+#define FifoFull (1 << 7)
+#define FifoNotEmpty (1 << 6)
+#define FifoLevel (1 << 5)
+#define FifoOverrun (1 << 4)
+#define PacketSent (1 << 3)
+#define PayloadReady (1 << 2)
+#define CrcOk (1 << 1)
+#define LowBat (1 << 0)
+
+#define PACKET_LENGTH 5
+
 #define PAOutputCfg(pa, power) (((pa) & (PA0 | PA1 | PA2)) | ((power) & 0x1F))
 
 typedef enum xcvr_outdivs
@@ -132,6 +154,7 @@ bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload);
 bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len);
 
 bool xcvr_set_outclk_div(XCVR_outdivs d);
+bool changeMode(uint8_t mode);
 bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg);
 
 #endif

@@ -104,7 +104,19 @@ static void initialize_uart0_init(void)
 
 void main_loop(void)
 {
-	if(!configure_transceiver(ModeTX, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
+	if(USE_XCVR_TX_MODE){
+		if(!configure_transceiver(ModeTX, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
+	        changeMode(ModeStdby);
+        }
+	else if(USE_XCVR_RX_MODE){
+		if(!configure_transceiver(ModeRX, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
+        }
+
+	uint8_t IrqFlags[2] = {0, 0};
+	uint8_t OldFlags[2] = {0xFF, 0xFF};
+	uint8_t rxbyte;
+        uint8_t txbytes[] = {0x01, 0x23, 0x45, 0x67, 0x89, 0xAB, 0xCD};
+
 
 	__enable_irq();
 	// NVIC_EnableIRQ(PORTA_IRQn);
@@ -123,13 +135,39 @@ void main_loop(void)
 	while(1)
 	{
 		++i;
+
+		if(USE_XCVR_RX_MODE){
+			// check transceiver irq flags
+			xcvr_read_8bit_reg_burst(xcvr_addrs.RegIrqFlags1, IrqFlags, 2);
+
+			// packet received, spit it out on UART0
+			if(IrqFlags[1] & PayloadReady){
+				led_action(TOGGLE, green);
+
+				// read until fifo empty
+                        	while(IrqFlags[1] & FifoNotEmpty) {
+					xcvr_read_8bit_reg(xcvr_addrs.RegFifo, &rxbyte);
+					uint8_t data[3] = {0, 0, ' '};
+					toHex(data, rxbyte);
+					uart_write_poll(&UART0, sizeof(data), data);
+					xcvr_read_8bit_reg(xcvr_addrs.RegIrqFlags2, &IrqFlags[1]);
+                        	}
+				led_action(TOGGLE, green);
+			}
+                }
+
 		if(i > 3000000)
 		{
+			if(USE_XCVR_TX_MODE){
+				for(uint8_t j = 0; j < PACKET_LENGTH; j++){
+	                                xcvr_write_8bit_reg(xcvr_addrs.RegFifo, *(txbytes + j));
+				}
+                	}
 			if(uart0_intr_flag_g)
 			{
 				uart0_intr_flag_g = false;
 			}
-			led_action(TOGGLE, green);
+			led_action(TOGGLE, red);
 			NVIC_SetPendingIRQ(PORTA_IRQn);
 			if(!uart0_writestr_intr("NUM CHARS: "))
 			{

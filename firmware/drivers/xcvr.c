@@ -193,7 +193,7 @@ bool xcvr_write_8bit_reg(uint8_t regaddr, uint8_t payload)
 
 bool xcvr_write_8bit_reg_burst(uint8_t regaddr, uint8_t * payload, uint16_t len){
 	for(uint16_t i = 0; i < len; i++){
-		if(!xcvr_write_8bit_reg(regaddr + i, payload + i)) return false;
+		if(!xcvr_write_8bit_reg(regaddr + i, *(payload + i))) return false;
 	}
 	return true;
 }
@@ -218,6 +218,7 @@ bool xcvr_set_outclk_div(XCVR_outdivs d)
 // RegOpMode
 #define SequencerOff (1 << 7)
 #define ListenAbort (1 << 5)
+#define ListenOn (1 << 6)
 //Modes moved to xcvr.h
 
 // RegDataModul
@@ -261,6 +262,17 @@ bool xcvr_set_outclk_div(XCVR_outdivs d)
 #define AfcAutoOn (1 << 2)
 #define AfcAutoclearOn (1 << 3)
 
+//RegListen1
+#define ListenResolIdle_64us (1 << 6)
+#define ListenResolIdle_4ms (1 << 7)
+#define ListenResolIdle_262ms (3 << 6)
+#define ListenResolRx_64us (1 << 4)
+#define ListenResolRx_4ms (1 << 5)
+#define ListenResolRx_262ms (3 << 4)
+#define ListenCriteria_RSSI_and_SyncAddr (1 << 3)
+#define ListenEnd_PayloadReady_ChangeMode (1 << 1)
+#define ListenEnd_PayloadReady_StayListen (1 << 2)
+
 #define FXOSC (32000000) //32MHz
 #define Fstep (FXOSC/(1<<19))
 #define FstepMul ((uint64_t)(1 << 8))
@@ -302,14 +314,36 @@ static bool setBitrate(uint32_t bitrateHz)
 	return xcvr_write_8bit_reg_burst(xcvr_addrs.RegBitrateMsb, RegBitrate, 2);
 }
 
-static bool changeMode(uint8_t mode)
+static bool getMode(uint8_t * dest){
+	uint8_t contents;
+	if(!xcvr_read_8bit_reg(xcvr_addrs.RegOpMode, &contents)) return false;
+	*dest = (contents >> 2) & 0x7;
+	if((*dest != ModeSleep) &&
+	   (*dest != ModeStdby) &&
+	   (*dest != ModeFS) &&
+	   (*dest != ModeTX) &&
+	   (*dest != ModeRX)) return false;
+	else return true;
+}
+
+bool changeMode(uint8_t mode)
 {
 	/* only accept mode constants */
-	if((mode != ModeSleep) &
-	   (mode != ModeStdby) &
-	   (mode != ModeFS) &
-	   (mode != ModeTX) &
-	   (mode != ModeRX)) return;
+	if((mode != ModeListen) &&
+	   (mode != ModeSleep) &&
+	   (mode != ModeStdby) &&
+	   (mode != ModeFS) &&
+	   (mode != ModeTX) &&
+	   (mode != ModeRX)) return false;
+
+        /* must switch into Listen Mode from Standby Mode */
+	if(mode == ModeListen){
+		uint8_t currentMode;
+		getMode(&currentMode);
+		if(currentMode != ModeStdby){
+			if(!xcvr_write_8bit_reg(xcvr_addrs.RegOpMode, ModeStdby)) return false;
+                }
+        }
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegOpMode, mode);
 }
@@ -317,12 +351,12 @@ static bool changeMode(uint8_t mode)
 static bool changeDataModulation(uint8_t dataMode, uint8_t modulationType, uint8_t modulationShaping)
 {
 	/* only accept RegDataModul constants */
-	if((dataMode != Packet) &
-	   (dataMode != Continuous) &
-	   (dataMode != ContinuousNoSync)) return;
-        if((modulationType != FSK) &
-	   (modulationType != OOK)) return;
-        if((modulationShaping != NoShaping)) return;
+	if((dataMode != Packet) &&
+	   (dataMode != Continuous) &&
+	   (dataMode != ContinuousNoSync)) return false;
+        if((modulationType != FSK) &&
+	   (modulationType != OOK)) return false;
+        if((modulationShaping != NoShaping)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegDataModul, dataMode | modulationType | modulationShaping);
 }
@@ -330,17 +364,17 @@ static bool changeDataModulation(uint8_t dataMode, uint8_t modulationType, uint8
 static bool adjustPLLBandwidth(uint8_t bandwidth)
 {
 	/* only accept bandwidth constants */
-	if((bandwidth != PLLBandwidth_75kHz) &
-           (bandwidth != PLLBandwidth_150kHz) &
-           (bandwidth != PLLBandwidth_300kHz) &
-           (bandwidth != PLLBandwidth_600kHz)) return;
+	if((bandwidth != PLLBandwidth_75kHz) &&
+           (bandwidth != PLLBandwidth_150kHz) &&
+           (bandwidth != PLLBandwidth_300kHz) &&
+           (bandwidth != PLLBandwidth_600kHz)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegTestPLL, bandwidth);
 }
 
 static bool setLNAInputImpedance(uint8_t zin)
 {
-	if((zin != LNA_Zin_50)) return;
+	if((zin != LNA_Zin_50)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegLna, zin);
 }
@@ -391,6 +425,32 @@ static bool setAfcFei(uint8_t * cfg)
 {
 	/* sets RegAfcFei and RegAfcMsb */
 	return xcvr_write_8bit_reg_burst(xcvr_addrs.RegAfcFei, cfg, 2);
+}
+
+static bool calibrateRC(void){
+	uint8_t calStatus = 0x0;
+
+	/* trigger cal */
+	if(!xcvr_write_8bit_reg(xcvr_addrs.RegOsc1, RcCalStart)) return false;
+
+	/* wait until cal is done */
+	while(calStatus != RcCalDone){
+		if(!xcvr_read_8bit_reg(xcvr_addrs.RegOsc1, &calStatus)) return false;
+        }
+
+	return true;
+}
+
+static bool configureListenMode(uint8_t ListenConfig, uint8_t idleCoef, uint8_t rxCoef){
+	if(!xcvr_write_8bit_reg(xcvr_addrs.RegListen1, ListenConfig)) return false;
+
+	/*
+		idleCoef and rxCoef set the upper bound on the idle/rx duration
+		See Table 6-2 "Range of Durations in Listen Mode"
+	*/
+	if(!xcvr_write_8bit_reg(xcvr_addrs.RegListen2, idleCoef)) return false;
+	if(!xcvr_write_8bit_reg(xcvr_addrs.RegListen3, rxCoef)) return false;
+	return true;
 }
 
 bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
@@ -449,7 +509,27 @@ bool configure_transceiver(uint8_t OpModeCfg, uint8_t RegPAOutputCfg){
 
 	if(!setAfcFei((uint8_t[]){AfcAutoOn | AfcAutoclearOn})) return 0;
 
-	if(!changeMode(OpModeCfg)) return 0;
-}
+	if(!calibrateRC()) return 0;
 
+	/* configuration for listen mode */
+	uint8_t ListenCfg = ListenResolIdle_4ms |
+			    ListenResolRx_4ms |
+			    ListenCriteria_RSSI_and_SyncAddr |
+			    ListenEnd_PayloadReady_StayListen;
+
+	/*
+		default values for upper bound on idle/rx duration
+		
+		Idle max duration = 0xf5 * 4.1ms = 1s
+		Rx max duration = 0x20 * 4.1ms = 131ms
+	*/
+	uint8_t ListenCoefIdle = 0xf5;
+	uint8_t ListenCoefRx = 0x20;
+
+	if(!configureListenMode(ListenCfg, ListenCoefIdle, ListenCoefRx)) return 0;
+
+	if(!changeMode(OpModeCfg)) return 0;
+
+	return 1;
+}
 
