@@ -230,7 +230,7 @@ int main(void)
 	initialize_uart0_init();
 	
 	//tpm init is broken ATM
-	//tpm_init();
+	tpm_init();
 	//main_loop();
 
 	return(-1);

@@ -196,7 +196,7 @@ void enable_pll_48()
 	enable_all_port_clocks();
 	enable_spi0_clock();
 	/* enable clock for TPM, RTC modules */
-	//SIM.SCGC6 |= 0x27000000;
+	SIM.SCGC6 |= 0x27000000;
 
 	return;
 }
