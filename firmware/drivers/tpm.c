@@ -10,7 +10,7 @@
 #include "ringbuffer.h"
 
 #include "tpm.h"
-#define TPM0_MOD_1uS_at_24Mhz    	23
+#define TPM0_MOD_1uS_at_24Mhz    	23 * 100
 #define TPM0_MOD_1mS_at_24Mhz    	23999
 
 static bool tpm0_count_flag = false;
@@ -20,7 +20,7 @@ void isr_tpm0(void)
 	//read TOF register, if bit in tfo is set, then proceed.
 	if ((TPM0.SC & TPM_SC_TOF) != 0)
 	{
-		led_action(TOGGLE, blue);
+		
 		reset_tof();
 		tpm0_count_flag  = true;
 	}
@@ -74,7 +74,7 @@ void tpm0_init()
 	__enable_irq();
 	enable_tpm_mcg_clock();
 	tpm0_conf_init();
-	tpm0_mod_1ms();
+	tpm0_mod_1us();
 	tpm0_sc_init();
 	tpm0_enable_int();
 	tpm0_count_flag  = false;
@@ -87,9 +87,11 @@ void    tpm0_test_loop()
 	{
 		if(tpm0_count_flag)
 		{
+			led_action(TOGGLE, blue);
 			tpm0_count++;
+			tpm0_count_flag = false;
 		}
-		if ((tpm0_count_flag % 1000) == 0)
+		if ((tpm0_count % 1000000) == 0)
 		{
 			printf("tic\t%d\r\n", tpm0_count);
 		}
