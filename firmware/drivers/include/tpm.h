@@ -13,16 +13,21 @@
 
 extern uint32_t     	tpm_clock_input;
 
-#define TPM_SC	0b1001000
-#define TPM_MOD_INIT	0b0101110111000000
-//0000001011101110
-#define TPM_MOD_1MS		1
-#define TPM_CNT_RESET	1
-#define TPM_CONF	0b00001000000000100000000011000000
+// TPM0 Status control register
+#define TPM0_PS         			(0b000 << 0)
+#define TPM0_CMOD       			(0b01  << 3)
+#define TPM0_TOIE                   (0b1   << 6)
+#define TPM0_TOIE_MASK              (~(0b1   << 6))
+#define TPM0_SC						TPM0_CMOD | TPM0_PS
 
-#define TPM_STATUS_TOF	0b11111111
-#define TPM_SC_TOF	(1 << 7)
-#define TPM_C0SC_CHF	(11 << 6) 
+// TPM0 Configuration
+#define TPM0_DBGMODE  				 (0b11    << 6)  //  Debug mode
+#define TPM0_CONF_LGR                TPM0_DBGMODE 
+
+// TPM Status
+#define TPM_STATUS_TOF				0b11111111
+#define TPM_SC_TOF					(1 << 7)
+#define TPM_C0SC_CHF				(11 << 6) 
 
 #define TPM_SC_DISABLE 0b00000000
 #define TPM_SC_SET_CMOD (01 << 3)
@@ -33,10 +38,13 @@ void reset_counter(void);
 void reset_tof(void);
 void cycle_tpm(void);
 void disable_tpm(void);
-void tpm_mod_init(void);
-void tpm_mod_1ms(void);
-void tpm_sc_init(void);
-void tpm_conf_init(void);
-void tpm_init(void);
+void tpm0_enable_int(void) ;
+void tpm0_disable_int(void) ;
+void tpm0_mod_init(void);
+void tpm0_mod_1ms(void);
+void tpm0_sc_init(void);
+void tpm0_conf_init(void);
+void tpm0_init(void);
+void tpm0_test_loop(void);
 
 #endif

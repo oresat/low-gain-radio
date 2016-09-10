@@ -2,7 +2,8 @@
 .PHONY: dev test flight clean
 
 #all: dev test flight
-all: dev test
+# all: dev test
+all: dev
 
 dev:
 	$(MAKE) -s -w -C $@ rebuild

@@ -140,6 +140,7 @@ void enable_tpm_mcg_clock()
 {
 	SIM.SOPT2 |= TPMSRC_MCG_CLK;
 }
+
 void disable_tpm_clocks()
 {
 	SIM.SOPT2 &= TPMSRC_DISABLE;

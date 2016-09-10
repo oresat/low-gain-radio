@@ -19,6 +19,7 @@
 #include "xcvr.h"
 #include "ringbuffer.h"
 #include "em-printf.h"
+#include "tpm.h"
 #include "dev.h"
 #include "xcvr.h"
 
@@ -38,6 +39,7 @@ struct spi_config spi0_config =
 
 	.SPIMODE    = EIGHTBIT,
 };
+
 
 
 /* FYI: This is the A4 wake-up pin */
@@ -230,8 +232,9 @@ int main(void)
 	initialize_uart0_init();
 	
 	//tpm init is broken ATM
-	tpm_init();
-	//main_loop();
+	printf("Start Test\r\n");
+	tpm0_init();
+	tpm0_test_loop();
 
 	return(-1);
 }
