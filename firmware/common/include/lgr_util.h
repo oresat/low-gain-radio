@@ -13,8 +13,8 @@
 extern char LGR_GITVERSION[MAX_VERSION_CHARS];
 
 /**
-  \brief   STRH (16 bit)
-  \details Executes a STRH instruction for 16 bit values.
+  \brief   STR (32 bit)
+  \details Executes a STR instruction for 32 bit values.
   \param [in]  value  Value to store
   \param [in]    ptr  Pointer to location
  */
