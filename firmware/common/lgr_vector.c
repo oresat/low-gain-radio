@@ -2,6 +2,7 @@
  */
 #include <stdint.h>
 #include "lgr_vector.h"
+#include "led.h"
 
 typedef void  (*irq_vector_t)(void);
 
@@ -91,12 +92,19 @@ __attribute__ ((used, section("vectors"))) vectors_t _vectors = {
 	}
 };
 
+__attribute__ ((naked)) void _hard_fault_exception(void) {
+	while(1){ 
+		led_action(TOGGLE, green);
+		for(int i = 0; i<1000000; i++) ;
+	};
+}
+
 __attribute__ ((naked)) void _unhandled_exception(void) {
 	while(1);
 }
 
 void NMIVector(void) __attribute__((weak, alias("_unhandled_exception")));
-void HardFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));
+void HardFaultVector(void) __attribute__((weak, alias("_hard_fault_exception")));
 void MemManageVector(void) __attribute__((weak, alias("_unhandled_exception")));
 void BusFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));
 void UsageFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));

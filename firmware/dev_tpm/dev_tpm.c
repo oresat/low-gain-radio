@@ -22,7 +22,7 @@
 #include "tpm.h"
 #include "xcvr.h"
 
-#include "dev.h"
+#include "dev_tpm.h"
 
 struct spi_config spi0_config =
 {

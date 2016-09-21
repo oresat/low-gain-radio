@@ -43,21 +43,21 @@ struct LED green =
 {
 	.gpio = &GPIOB,
 	.pin = PTB1,
-	.active_level = 1
+	.active_level = 0
 };
 
 struct LED red =
 {
 	.gpio = &GPIOB,
 	.pin = PTB2,
-	.active_level = 1
+	.active_level = 0
 };
 
 struct LED blue =
 {
 	.gpio = &GPIOB,
-	.pin = PTB17,
-	.active_level = 1
+	.pin  = PTB17,
+	.active_level = 0
 };
 
 void led_action(enum led_mode mode, struct LED led)

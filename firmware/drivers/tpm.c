@@ -4,37 +4,50 @@
 #include "lgr_vector.h"
 #include "core_cm0plus.h"
 #include "cmsis_gcc.h"
+#include "lgr_util.h"
 
 #include "led.h"
 #include "clocks.h"
 #include "ringbuffer.h"
+#include "em-printf.h"
 
 #include "tpm.h"
-#define TPM0_MOD_1uS_at_24Mhz    	23 * 100
-#define TPM0_MOD_1mS_at_24Mhz    	23999
+#define TPM0_MOD_1uS_at_24Mhz       23 * 100
+#define TPM0_MOD_1mS_at_24Mhz       23999
 
+static bool debug_isr_count = 0;
 static bool tpm0_count_flag = false;
 
 void isr_tpm0(void)
 {
+	debug_isr_count++;
+	if(debug_isr_count % 1000000)
+	{
+		led_action(TOGGLE, blue);
+	}
+
 	//read TOF register, if bit in tfo is set, then proceed.
 	if ((TPM0.SC & TPM_SC_TOF) != 0)
 	{
-		
 		reset_tof();
 		tpm0_count_flag  = true;
 	}
-	else return;
+	else
+	{
+		return;
+	}
 }
 
 void tpm0_mod_1us(void)
 {
-	TPM0.MOD = TPM0_MOD_1uS_at_24Mhz ;
+	// word or halfword access only
+	__STR(TPM0_MOD_1uS_at_24Mhz, &TPM0.MOD);
 }
 
 void tpm0_mod_1ms(void)
 {
-	TPM0.MOD = TPM0_MOD_1mS_at_24Mhz ;
+	// word or halfword access only
+	__STR(TPM0_MOD_1mS_at_24Mhz, &TPM0.MOD);
 }
 
 void reset_tof()
@@ -49,11 +62,13 @@ void disable_tpm()
 	TPM0.SC &= TPM_SC_DISABLE;
 }
 
-void tpm0_enable_int() {
+void tpm0_enable_int()
+{
 	TPM0.SC |= TPM0_TOIE;
 }
 
-void tpm0_disable_int(void) {
+void tpm0_disable_int(void)
+{
 	TPM0.SC &= TPM0_TOIE_MASK;
 }
 
@@ -74,7 +89,9 @@ void tpm0_init()
 	__enable_irq();
 	enable_tpm_mcg_clock();
 	tpm0_conf_init();
-	tpm0_mod_1us();
+	led_action(ON, red);
+	tpm0_mod_1ms();
+	led_action(OFF, red);
 	tpm0_sc_init();
 	tpm0_enable_int();
 	tpm0_count_flag  = false;
@@ -83,6 +100,9 @@ void tpm0_init()
 void    tpm0_test_loop()
 {
 	uint32_t tpm0_count = 0;
+	led_action(OFF, blue);
+	led_action(OFF, green);
+	led_action(OFF, red);
 	while(1)
 	{
 		if(tpm0_count_flag)
@@ -90,10 +110,11 @@ void    tpm0_test_loop()
 			led_action(TOGGLE, blue);
 			tpm0_count++;
 			tpm0_count_flag = false;
-		}
-		if ((tpm0_count % 1000000) == 0)
-		{
-			printf("tic\t%d\r\n", tpm0_count);
+			if ((tpm0_count != 0) && ((tpm0_count % 1000) == 0))
+			{
+				led_action(TOGGLE, red);
+				printf("tic\t%d\r\n", tpm0_count);
+			}
 		}
 	}
 }

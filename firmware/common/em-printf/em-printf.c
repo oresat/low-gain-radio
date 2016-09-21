@@ -13,7 +13,13 @@
 #include <stdint.h>
 #include <string.h>
 
+#include "v1_1.h"
 #include "ringbuffer.h"
+#include "lgr_vector.h"
+#include "core_cm0plus.h"
+#include "cmsis_gcc.h"
+
+
 #include "lgr_util.h"
 #include "uart.h"
 

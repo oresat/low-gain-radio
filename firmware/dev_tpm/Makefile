@@ -2,7 +2,7 @@ KW0X_COMMON_PATH = ../common
 
 include $(KW0X_COMMON_PATH)/kw0x_head.mk
 
-XPROJ = dev
+XPROJ = dev_tpm
 
 .SECONDARY: $(XPROJ).s
 

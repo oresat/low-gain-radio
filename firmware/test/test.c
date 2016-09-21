@@ -7,7 +7,7 @@
 
 #include <string.h>
 
-#include "v1_2.h"
+#include "v1_1.h"
 
 #include "lgr_vector.h"
 #include "core_cm0plus.h"
@@ -45,17 +45,17 @@ struct spi_config spi0_config =
 /* Boots to pullup, interrupt enabled */
 void NMIVector(void)
 {
-	led_action(TOGGLE, led6);
+	led_action(TOGGLE, red);
 }
 
 void isr_porta(void)
 {
-	led_action(TOGGLE, led7);
+	led_action(TOGGLE, green);
 };
 
 void isr_portcd(void)
 {
-	led_action(TOGGLE, led8);
+	led_action(TOGGLE, blue);
 };
 
 
@@ -82,10 +82,6 @@ void test_porta_isr(void)
 
 	__enable_irq();
 	NVIC_EnableIRQ(PORTA_IRQn);
-	led_action(ON, led5);
-	led_action(ON, led6);
-	led_action(OFF, led7);
-	led_action(ON, led8);
 	for(uint32_t j = 0; j < 10; )
 	{
 		++i;
@@ -98,10 +94,9 @@ void test_porta_isr(void)
 	}
 	__disable_irq();
 	NVIC_DisableIRQ(PORTA_IRQn);
-	led_action(OFF, led5);
-	led_action(OFF, led6);
-	led_action(OFF, led7);
-	led_action(OFF, led8);
+	led_action(OFF, red);
+	led_action(OFF, green);
+	led_action(OFF, blue);
 }
 
 /* Read version register from xcvr */
@@ -111,12 +106,12 @@ static void test_xcvr_version(void)
 
 	if(!xcvr_read_8bit_reg(xcvr_addrs.RegVersion, &vers))
 	{
-		error_spin_led(led5);
+		error_spin_led(red);
 	}
 
 	if(vers != 0x23)
 	{
-		error_spin_led(led6);
+		error_spin_led(red);
 	}
 }
 
@@ -129,12 +124,12 @@ static void test_xcvr_PaLevel(void)
 
 	if(!xcvr_read_8bit_reg(xcvr_addrs.RegPaLevel, &vers))
 	{
-		error_spin_led(led7);
+		error_spin_led(red);
 	}
 
 	if(vers != 0x9a)     // manual claims default is 0x9f
 	{
-		error_spin_led(led8);
+		error_spin_led(red);
 	}
 }
 
@@ -144,12 +139,12 @@ static void test_xcvr_RegDioMapping2(void)
 
 	if(!xcvr_read_8bit_reg(xcvr_addrs.RegDioMapping2, &val))
 	{
-		error_spin_led(led7);
+		error_spin_led(red);
 	}
 
 	if(val != XCVR_CLK_DIV16)
 	{
-		error_spin_led(led8);
+		error_spin_led(red);
 	}
 
 }
@@ -157,48 +152,40 @@ static void test_xcvr_RegDioMapping2(void)
 /* Test outclock from SPI */
 void test_xcvr_outclock(void)
 {
-	led_action(OFF, led5);
-	led_action(OFF, led6);
-	led_action(OFF, led7);
-	led_action(OFF, led8);
+	led_action(OFF, green);
+	led_action(OFF, red);
+	led_action(OFF, blue);
 
 
 	if(!xcvr_set_outclk_div(XCVR_CLK_DIV16))
 	{
-		error_spin_led(led8);
+		error_spin_led(red);
 	}
 
 	// CLOCKOUT should now be 2Mhz verify at Test Point
 
-	led_action(OFF, led5);
-	led_action(OFF, led6);
-	led_action(OFF, led7);
-	led_action(OFF, led8);
+	led_action(OFF, red);
+	led_action(OFF, red);
+	led_action(OFF, red);
+	led_action(OFF, red);
 }
 
 /* If we make it through the tests play a unique pattern of leds */
 static void test_pass_led_pattern(void)
 {
 	uint32_t i = 0;
+	led_action(ON, green);
+	led_action(OFF, red);
+	led_action(OFF, blue);
 	while(1)
 	{
 		++i;
-		if(i == 100000)
+		if(i==0) continue;
+		if((i % 300000) == 0)
 		{
-			led_action(TOGGLE, led5);
-		}
-		if(i == 200000)
-		{
-			led_action(TOGGLE, led6);
-		}
-		if(i == 300000)
-		{
-			led_action(TOGGLE, led7);
-		}
-		if(i > 400000)
-		{
-			led_action(TOGGLE, led8);
-			i = 0;
+			led_action(TOGGLE, green);
+			led_action(TOGGLE, blue);
+			led_action(TOGGLE, red);
 		}
 	}
 }
@@ -281,7 +268,7 @@ int main(void)
 
 	// testing get characters is awkward.
 
-    lgr_version(LGR_GITVERSION);	
+	lgr_version(LGR_GITVERSION);	
 	printf("Git version:\t%s\r\n", LGR_GITVERSION);
 	printf("Char 'c':\t%c\r\n", 'c');
 	printf("Decimal 10:\t%d\r\n", 10);
