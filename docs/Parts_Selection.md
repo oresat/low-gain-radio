@@ -63,18 +63,21 @@ Manufacturer: SkyWorks
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf)  
 Reasons: Brand new part from Skyworks. Would work better than what we have. Has a gain of ~21dB at desired frequency and a noise figure of 0.65dB at 25C and around 0.5dB at 40C. Seems like a slightly more complicated setup however.   
 
-#### U9 SkyWorks SKY13405_490F:    
+#### U9 Peregrine-Semiconductor  PE42723A-Z:    
 Part: RF Switch   
 Vendor: Digi-Key  
-Vendor Part No.: 863-1649-1-ND  
-[Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
-Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for this project (such as the PA). Small footprint, it has a low insertion loss and works within the desired frequency range.   
-Rad-Hard Analogue: N/A  
-**_Alternatives_**     
+Vendor Part No.: 1046-1150-1-ND    
 Part No.: PE42723A-Z      
 Manufacturer: Peregrine-Semiconductor    
 [Datasheet](http://www.psemi.com/pdf/datasheets/pe42723ds.pdf)  
-Reasons: Better footprint for the way the kw0x outputs Tx and Rx. This would get rid of the need for an inverter. Also has a better insertion loss and similar footprint. This switch is a possibility for the next revision of the LGR.  
+Reasons: Better footprint for the way the kw0x outputs Tx and Rx. This would get rid of the need for an inverter. Also has a better insertion loss and similar footprint. This switch was implemented in the stead of the SkyWorks one below.    
+**_Alternatives_**  
+Part No.: SKY13405_490F      
+Manufacturer: Skyworks  
+[Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
+Reasons: Comes from SkyWorks which has been a reliable manufacturer for RF parts for this project (such as the PA). Small footprint, it has a low insertion loss and works within the desired frequency range. However, requires reverse topology in order to reduce power usage for the kw0x. Could be used with an inverter if real-estate or complexity is no issue.     
+Rad-Hard Analogue: N/A  
+    
 
 #### U4 Texas Instruments LP5907MFX-3.3:  
 Part: LNA LDO  
