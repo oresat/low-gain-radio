@@ -3,7 +3,7 @@
  * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U1-NXP-MKW01Z128)   
  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u2-skyworks-sky65116)  
  * [LNA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U8-MAACOM-MAAL-010704)  
- * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-skyworks-sky13405_490f)  
+ * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-peregrine-semiconductor--pe42723a-z)  
  * [MCU LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u4-texas-instruments-lp5907mfx-33)  
  * [PA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u7-st-microelectronics-dm00102135)
  * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u6-texas-instruments-lp5907mfx-33)  
