@@ -123,6 +123,10 @@ void main_loop(void)
 			error_spin_led(red);
 		}
 	}
+	else if(USE_XCVR_LISTEN_MODE){
+		if(!configure_transceiver(ModeStdby, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
+		changeMode(ModeListen);
+        }
 
 	uint8_t IrqFlags[2] = {0, 0};
 	// uint8_t OldFlags[2] = {0xFF, 0xFF};
@@ -148,7 +152,7 @@ void main_loop(void)
 	{
 		++i;
 
-		if(USE_XCVR_RX_MODE)
+		if(USE_XCVR_RX_MODE || USE_XCVR_LISTEN_MODE)
 		{
 			// check transceiver irq flags
 			xcvr_read_8bit_reg_burst(xcvr_addrs.RegIrqFlags1, IrqFlags, 2);
