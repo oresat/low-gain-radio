@@ -87,7 +87,7 @@ void tpm0_init()
 	//led_action(TOGGLE, green);
 	NVIC_EnableIRQ(TPM0_IRQn);
 	__enable_irq();
-	enable_tpm_mcg_clock();
+	enable_tpm_clocks();
 	tpm0_conf_init();
 	led_action(ON, red);
 	tpm0_mod_1ms();

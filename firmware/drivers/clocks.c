@@ -136,14 +136,24 @@ void disable_port_clock_x(IO_Port port)
 }
 
 /* TPM Clocks */
-void enable_tpm_mcg_clock()
+void enable_tpm_clocks()
 {
 	SIM.SOPT2 |= TPMSRC_MCG_CLK;
+	SIM.SCGC6 |= SCGC_TPM2_CLK | SCGC_TPM1_CLK | SCGC_TPM0_CLK;
 }
 
 void disable_tpm_clocks()
 {
-	SIM.SOPT2 &= TPMSRC_DISABLE;
+	SIM.SCGC6 &= ~(SCGC_TPM2_CLK | SCGC_TPM1_CLK | SCGC_TPM0_CLK);
+	SIM.SOPT2 |= TPMSRC_DISABLE;
+}
+
+void enable_adc_clock(){
+	SIM.SCGC6 |= SCGC_ADC0_CLK;
+}
+
+void disable_adc_clock(){
+	SIM.SCGC6 &= ~(SCGC_ADC0_CLK);
 }
 
 /* PLL External Reference Divider values in MCG.C5 */
@@ -196,8 +206,8 @@ void enable_pll_48()
 
 	enable_all_port_clocks();
 	enable_spi0_clock();
-	/* enable clock for TPM, RTC modules */
-	SIM.SCGC6 |= 0x27000000;
+        //enable_tpm_clocks();
+	//enable_adc_clock();
 
 	return;
 }

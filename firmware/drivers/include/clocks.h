@@ -35,6 +35,12 @@
 #define		TPMSRC_DISABLE		(~(0b11 << 24))
 #define		TPMSRC_MCG_CLK		(0b01 << 24)
 
+#define SCGC_TPM0_CLK (1 << 24)
+#define SCGC_TPM1_CLK (1 << 25)
+#define SCGC_TPM2_CLK (1 << 26)
+#define SCGC_ADC0_CLK (1 << 27)
+#define SCGC_RTC_CLK (1 << 29)
+
 /* XCVR Clock */
 #define XCVR_REF_CLK_DIVIDE_0   (0x0)
 #define XCVR_REF_CLK_DIVIDE_16  (1  << 2)
@@ -61,8 +67,12 @@ void enable_port_clock_x(IO_Port port) ;
 void disable_port_clock_x(IO_Port port) ;
 
 /* TPM */
-void enable_tpm_mcg_clock(void);
+void enable_tpm_clocks(void);
 void disable_tpm_clocks(void);
+
+/* ADC */
+void enable_adc_clock(void);
+void disable_adc_clock(void);
 
 /* PLL */
 void enable_pll_48(void);
