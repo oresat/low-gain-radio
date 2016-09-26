@@ -145,7 +145,7 @@ void enable_tpm_clocks()
 void disable_tpm_clocks()
 {
 	SIM.SCGC6 &= ~(SCGC_TPM2_CLK | SCGC_TPM1_CLK | SCGC_TPM0_CLK);
-	SIM.SOPT2 |= TPMSRC_DISABLE;
+	SIM.SOPT2 &= TPMSRC_DISABLE;
 }
 
 void enable_adc_clock(){
