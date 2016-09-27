@@ -35,7 +35,7 @@ typedef enum xcvr_outdivs
 	XCVR_CLK_DIV16 = (0b100),
 	XCVR_CLK_DIV32 = (0b101),
 	XCVR_CLK_RC    = (0b110),
-	XCVR_CLK_OFF   = (0b110)
+	XCVR_CLK_OFF   = (0b111)
 } XCVR_outdivs;
 
 /* struct to hold transceiver register addresses*/

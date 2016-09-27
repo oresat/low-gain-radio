@@ -4,6 +4,11 @@
 
 #include <string.h>
 
+#include "v1_2.h"
+#include "lgr_vector.h"
+#include "core_cm0plus.h"
+#include "cmsis_gcc.h"
+
 #include "lgr_util.h"
 
 char LGR_GITVERSION[MAX_VERSION_CHARS];

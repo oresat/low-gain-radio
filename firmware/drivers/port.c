@@ -119,13 +119,14 @@ void initialize_gpio(void)
 	PORTE.PCR[2] |= 0b10;
 	/* ... and set pulldown (PS=0)  */
 	PORTE.PCR[2] &= ~(0b1);
-	GPIOE.PDDR |= PTE2;
+	GPIOE.PDDR   |= PTE2;
 
 	/* enable pulls (PE=1)... */
 	PORTE.PCR[30] |= 0b10;
 	/* ... and set pulldown (PS=0)  */
 	PORTE.PCR[30] &= ~(0b1);
-	GPIOE.PDDR |= PTE30;
+	GPIOE.PDDR    |= PTE30; // configure as output
+
 
 	/* Initialize to zero */
 	GPIOE.PCOR =  PTE2;

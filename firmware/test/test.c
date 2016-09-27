@@ -22,7 +22,9 @@
 #include "xcvr.h"
 
 #include "em-printf.h"
+#include "tpm.h"
 #include "test.h"
+
 
 struct spi_config spi0_config =
 {
@@ -164,6 +166,7 @@ void test_xcvr_outclock(void)
 
 
 	if(!xcvr_set_outclk_div(XCVR_CLK_DIV16))
+		// if(!xcvr_set_outclk_div(XCVR_CLK_OFF))
 	{
 		error_spin_led(led8);
 	}
@@ -183,7 +186,7 @@ static void test_pass_led_pattern(void)
 	char     c = 'x';
 	bool     gotchar = false;
 	uint32_t i = 0;
-	printf("*I* Type a char to test get char\r\n");
+	printf("*I* Type a char to test echo a char\r\n");
 	while(1)
 	{
 		n = num_uart0_rx_chars_avail();
@@ -303,11 +306,32 @@ int main(void)
 
 	lgr_version(LGR_GITVERSION);
 	printf("Built with version(Git hash):\t%s\r\n", LGR_GITVERSION);
+	printf("GCC Version: %d.%d.%d\r\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+
 	printf("Char 'c':\t%c\r\n", 'c');
 	printf("Decimal 10:\t%d\r\n", 10);
 	printf("Hex 10:\t\t0x%x\r\n", 10);
 	printf("Bin 10:\t\t0b%b\r\n", 10);
 	printf("\r\nHello\tTab\nnewline\ttab...Yay!\r\n");
+
+	/* TPM test */
+	printf("\r\n------------------\r\nTPM Test. Toggle LED8\r\n");
+	tpm0_init(true); // high res mode
+
+	led_action(OFF, led5);
+	led_action(OFF, led6);
+	led_action(OFF, led7);
+	led_action(OFF, led8);
+	uint8_t num_ms = 200;
+	for(int32_t i = 0; i < 30; )
+	{
+		wait_n_ms(num_ms);
+		led_action(TOGGLE, led8);
+		++i;
+		printf("%d ms\n\r", i * num_ms);
+	}
+
+	printf("TPM Test Done.\r\n");
 
 	/* End of tests */
 	printf("\r\nTests Passed\r\n");

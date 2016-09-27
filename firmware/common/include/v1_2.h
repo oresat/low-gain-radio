@@ -9,6 +9,7 @@
 extern const char _lgr_version[10];
 
 #define UART_INPUT_CLOCKSPEED                       24000000U
+#define TPM_INPUT_CLOCKSPEED                       	24000000U
 
 /* CMSIS For this revision */
 #define         __CM0PLUS_REV                       0x0000U

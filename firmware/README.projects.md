@@ -1,7 +1,7 @@
 
 ### Current project types for lgr 
 
-* dev
+* dev\_\*
  * Development code and experiments
 
 * test

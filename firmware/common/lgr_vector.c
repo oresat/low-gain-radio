@@ -2,6 +2,7 @@
  */
 #include <stdint.h>
 #include "lgr_vector.h"
+#include "led.h"
 
 typedef void  (*irq_vector_t)(void);
 
@@ -59,8 +60,8 @@ extern void isr_uart2(void);
 extern void isr_adc0(void);
 extern void isr_cmp0(void);
 extern void isr_tpm0(void);
-extern void isr_tmp1(void);
-extern void isr_tmp2(void);
+extern void isr_tpm1(void);
+extern void isr_tpm2(void);
 extern void isr_rtc_alarm(void);
 extern void isr_rtc_seconds(void);
 extern void isr_pit(void);
@@ -84,22 +85,40 @@ __attribute__ ((used, section("vectors"))) vectors_t _vectors = {
 	Vector20, 			isr_ftfa, 			isr_pmc, 		isr_llwu,
    	isr_i2c0, 			isr_i2c1, 			isr_spi0, 		isr_spi1,
 	isr_uart0, 			isr_uart1, 			isr_uart2, 		isr_adc0,
-	isr_cmp0, 			isr_tpm0, 			isr_tmp1, 		isr_tmp2,
+	isr_cmp0, 			isr_tpm0, 			isr_tpm1, 		isr_tpm2,
 	isr_rtc_alarm, 		isr_rtc_seconds,	isr_pit, 		Vector39,
 	Vector40, 			isr_dac0, 			isr_tsi0, 		isr_mcg,
 	isr_lptmr0, 		Vector45, 			isr_porta, 		isr_portcd
 	}
 };
 
+__attribute__ ((naked)) void _usage_fault(void) {
+	while(1);
+}
+
+
+__attribute__ ((naked)) void _bus_fault(void) {
+	while(1);
+}
+
+__attribute__ ((naked)) void _hard_fault_exception(void) {
+#ifdef TPM_TEST
+	while(1){ 
+		led_action(TOGGLE, led6);
+		for(int i = 0; i<1000000; i++) ;
+	};
+#endif
+}
+
 __attribute__ ((naked)) void _unhandled_exception(void) {
 	while(1);
 }
 
 void NMIVector(void) __attribute__((weak, alias("_unhandled_exception")));
-void HardFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));
+void HardFaultVector(void) __attribute__((weak, alias("_hard_fault_exception")));
 void MemManageVector(void) __attribute__((weak, alias("_unhandled_exception")));
-void BusFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));
-void UsageFaultVector(void) __attribute__((weak, alias("_unhandled_exception")));
+void BusFaultVector(void) __attribute__((weak, alias("_bus_fault")));
+void UsageFaultVector(void) __attribute__((weak, alias("_usage_fault")));
 void Vector7(void) __attribute__((weak, alias("_unhandled_exception")));
 void Vector8(void) __attribute__((weak, alias("_unhandled_exception")));
 void Vector9(void) __attribute__((weak, alias("_unhandled_exception")));
@@ -127,8 +146,8 @@ void isr_uart2(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_adc0(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_cmp0(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_tpm0(void) __attribute__((weak, alias("_unhandled_exception")));
-void isr_tmp1(void) __attribute__((weak, alias("_unhandled_exception")));
-void isr_tmp2(void) __attribute__((weak, alias("_unhandled_exception")));
+void isr_tpm1(void) __attribute__((weak, alias("_unhandled_exception")));
+void isr_tpm2(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_rtc_alarm(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_rtc_seconds(void) __attribute__((weak, alias("_unhandled_exception")));
 void isr_pit(void) __attribute__((weak, alias("_unhandled_exception")));
