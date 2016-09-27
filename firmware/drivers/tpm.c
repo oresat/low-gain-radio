@@ -20,19 +20,18 @@
 
 #include "tpm.h"
 
-#define TPM0_MOD_50uS_at_24Mhz        1199
-#define TPM0_MOD_100uS_at_24Mhz       2399
-#define TPM0_MOD_250uS_at_24Mhz       5999
-#define TPM0_MOD_500uS_at_24Mhz       11999
-// #define TPM0_MOD_1uS_at_24Mhz       23
-#define TPM0_MOD_1mS_at_24Mhz       23999
+#define TPM0_MOD_50uS_at_24Mhz       1199
+#define TPM0_MOD_100uS_at_24Mhz      2399
+#define TPM0_MOD_250uS_at_24Mhz      5999
+#define TPM0_MOD_500uS_at_24Mhz      11999
+#define TPM0_MOD_1mS_at_24Mhz        23999
 
-static bool debug_isr_count = 0;
-static bool tpm0_count_flag = false;
+static bool     debug_isr_count  = 0;
+static bool     tpm0_count_flag  = false;
 
 static uint32_t TPM0_MOD_PERIOD  = TPM0_MOD_1mS_at_24Mhz;
 
-void reset_tof(void)
+static void reset_tof(void)
 {
 	TPM0.C0SC |= TPM_C0SC_CHF;
 	TPM0.STATUS |= TPM_STATUS_TOF;
@@ -42,19 +41,9 @@ void reset_tof(void)
 
 void isr_tpm0(void)
 {
-
-	#ifdef TPM_TEST
-	// debug_isr_count++;
-	// if(debug_isr_count % 1000000)
-	// {
-	// led_action(TOGGLE, led5);
-	// }
-	#endif
-
 	//read TOF register, if bit in tfo is set, then proceed.
 	if ((TPM0.SC & TPM_SC_TOF) != 0)
 	{
-
 		reset_tof();
 		tpm0_count_flag  = true;
 	}
@@ -79,27 +68,27 @@ static void tpm0_mod_1ms(void)
 	// word or halfword access only
 	__STR(TPM0_MOD_1mS_at_24Mhz, &TPM0.MOD);
 }
-void disable_tpm(void)
+static void disable_tpm(void)
 {
 	TPM0.SC &= TPM_SC_DISABLE;
 }
 
-void tpm0_enable_int(void)
+static void tpm0_enable_int(void)
 {
 	TPM0.SC |= TPM0_TOIE;
 }
 
-void tpm0_disable_int(void)
+static void tpm0_disable_int(void)
 {
 	TPM0.SC &= TPM0_TOIE_MASK;
 }
 
-void tpm0_sc_init(void)
+static void tpm0_sc_init(void)
 {
 	TPM0.SC   = TPM0_SC;
 }
 
-void tpm0_conf_init(void)
+static void tpm0_conf_init(void)
 {
 	TPM0.CONF = TPM0_CONF_LGR;
 	TPM0.C0SC = (0b01 << 4); // software compare
