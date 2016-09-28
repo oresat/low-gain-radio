@@ -253,7 +253,7 @@ int main(void)
 
 	if(TEST_TPM){
 		printf("Start Test\r\n");
-		tpm0_init();
+		tpm0_init(false);
 		tpm0_test_loop();
         }
 	//else main_loop();
@@ -264,7 +264,7 @@ int main(void)
 		while(1){
 			adc_result = adc_sample();
                         if(adc_result >= 2048) led_action(TOGGLE, green);
-			for(uint16_t num = 0; num < 10000; num++);
+			//for(uint16_t num = 0; num < 10000; num++);
                 }
         }
 

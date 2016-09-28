@@ -43,11 +43,11 @@ extern uint32_t         tpm_clock_input;
 
 void isr_tpm0(void)   __attribute__((interrupt("IRQ")));
 
-void tpm0_init(bool );
-void wait_n_ms(uint32_t );
-#ifdef TPM_TEST
+void tpm0_init(bool highres);
+void wait_n_ms(uint32_t ms);
+//#ifdef TPM_TEST
 void tpm0_test_loop(void);
-#endif
+//#endif
 
 #endif
 
