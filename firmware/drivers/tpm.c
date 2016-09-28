@@ -102,7 +102,7 @@ void tpm0_init(bool highres)
 	__disable_irq();
 	NVIC_EnableIRQ(TPM0_IRQn);
 
-	enable_tpm_mcg_clock();
+	enable_tpm_clocks();
 	tpm0_conf_init();
 	if(highres)
 	{
@@ -133,7 +133,7 @@ void wait_n_ms(uint32_t n)
 		{
 			if(tpm0_count_flag)
 			{
-				led_action(TOGGLE, led7);
+				led_action(TOGGLE, blue);
 				tpm0_count++;
 				tpm0_count_flag = false;
 			}
@@ -148,7 +148,7 @@ void wait_n_ms(uint32_t n)
 		{
 			if(tpm0_count_flag)
 			{
-				led_action(TOGGLE, led7);
+				led_action(TOGGLE, blue);
 				tpm0_count++;
 				tpm0_count_flag = false;
 			}
@@ -171,14 +171,13 @@ void wait_n_ms(uint32_t n)
 #ifdef TPM_TEST
 void tpm0_test_loop()
 {
-	led_action(OFF, led5);
-	led_action(OFF, led6);
-	led_action(OFF, led7);
-	led_action(OFF, led8);
+	led_action(OFF, blue);
+	led_action(OFF, red);
+	led_action(OFF, green);
 	while(1)
 	{
 		wait_n_ms(500);
-		led_action(TOGGLE, led8);
+		led_action(TOGGLE, green);
 		printf("*");
 	}
 }

@@ -247,7 +247,7 @@ int main(void)
 	initialize_uart0_init();
 
 	printf("Start Test\r\n");
-	tpm0_init();
+	tpm0_init(false);
 	tpm0_test_loop();
 
 	return(-1);
