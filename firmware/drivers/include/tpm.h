@@ -21,8 +21,6 @@
 
 extern uint32_t         tpm_clock_input;
 
-#define TPM_TEST true
-
 // TPM0 Status control register
 #define TPM0_PS                     (0b000 << 0)
 #define TPM0_CMOD                   (0b01  << 3)

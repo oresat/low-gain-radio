@@ -7,6 +7,7 @@ XPROJ = dev_tpm
 .SECONDARY: $(XPROJ).s
 
 # CFLAGS	+= -DDEBUG_UART
+CFLAGS	+= -DTPM_TEST
 CFLAGS  += -Wa,-adhln -g
 
 # For Development
