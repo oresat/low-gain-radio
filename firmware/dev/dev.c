@@ -21,6 +21,7 @@
 #include "em-printf.h"
 #include "tpm.h"
 #include "xcvr.h"
+#include "adc.h"
 
 #include "dev.h"
 
@@ -255,7 +256,19 @@ int main(void)
 		tpm0_init();
 		tpm0_test_loop();
         }
-	else main_loop();
+	//else main_loop();
+
+	if(TEST_ADC){
+		adc_init();
+		uint16_t adc_result;
+		while(1){
+			adc_result = adc_sample();
+                        if(adc_result >= 2048) led_action(TOGGLE, green);
+			for(uint16_t num = 0; num < 10000; num++);
+                }
+        }
+
+	main_loop();
 
 	return(-1);
 }

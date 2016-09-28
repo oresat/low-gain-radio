@@ -11,8 +11,13 @@
 
 #define USE_XCVR_TX_MODE false
 #define USE_XCVR_RX_MODE false
-#define USE_XCVR_LISTEN_MODE true
+#define USE_XCVR_LISTEN_MODE false
 #define TEST_TPM false
+#define TEST_ADC true
+
+#ifndef TEST_ADC
+#define TEST_ADC false
+#endif
 
 #ifndef TEST_TPM
 #define TEST_TPM false

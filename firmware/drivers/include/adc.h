@@ -5,7 +5,7 @@
 #include <stdbool.h>
 #include "clocks.h"
 
-void adc_init(void);
+bool adc_init(void);
 uint16_t adc_sample(void);
 
 #endif
