@@ -1,9 +1,9 @@
 # Parts Selection for Low Gain Radio  
 **Table of Contents**
- * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U1-NXP-MKW01Z128)   
+ * [Microcontroller](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u1-nxp-mkw01z128)   
  * [PA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u2-skyworks-sky65116)  
- * [LNA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#U8-MAACOM-MAAL-010704)  
- * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-peregrine-semiconductor--pe42723a-z)  
+ * [LNA](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u8-maacom-maal-010704)  
+ * [RF-Switch](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u9-rfmd-rf3025tr7)  
  * [MCU LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u4-texas-instruments-lp5907mfx-33)  
  * [PA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u7-st-microelectronics-dm00102135)
  * [LNA LDO](https://github.com/oresat/low-gain-radio/blob/master/docs/Parts_Selection.md#u6-texas-instruments-lp5907mfx-33)  
@@ -63,15 +63,19 @@ Manufacturer: SkyWorks
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY67110_396LF_201792B.pdf)  
 Reasons: Brand new part from Skyworks. Would work better than what we have. Has a gain of ~21dB at desired frequency and a noise figure of 0.65dB at 25C and around 0.5dB at 40C. Seems like a slightly more complicated setup however.   
 
-#### U9 Peregrine-Semiconductor  PE42723A-Z:    
+#### U9 RFMD RF3025TR7:    
 Part: RF Switch   
 Vendor: Digi-Key  
-Vendor Part No.: 1046-1150-1-ND    
+Vendor Part No.: 689-1087-1-ND    
+Part No.: RF3025TR7    
+Manufacturer: RFMD  
+[Datasheet](http://www.rfmd.com/store/downloads/dl/file/id/28477/rf3025_data_sheet.pdf)  
+Reasons: Better footprint for the kw0x lines than the SkyWorks card. Allows for the high input power (~+32 dBm) with low insertion loss (0.45 dB). Also can be used for 50 ohm impedance matching.   
+**_Alternatives_**  
 Part No.: PE42723A-Z      
 Manufacturer: Peregrine-Semiconductor    
 [Datasheet](http://www.psemi.com/pdf/datasheets/pe42723ds.pdf)  
-Reasons: Better footprint for the way the kw0x outputs Tx and Rx. This would get rid of the need for an inverter. Also has a better insertion loss and similar footprint. This switch was implemented in the stead of the SkyWorks one below.    
-**_Alternatives_**  
+Reasons: Better footprint for the way the kw0x outputs Tx and Rx. This would get rid of the need for an inverter. Also has a better insertion loss and similar footprint. This switch was implemented in the stead of the SkyWorks one below. Matched impedance however was 75 Ohms, so not worth the hassle of reconfiguring a matching network.     
 Part No.: SKY13405_490F      
 Manufacturer: Skyworks  
 [Datasheet](http://www.skyworksinc.com/uploads/documents/SKY13405_490LF_201609I.pdf)  
