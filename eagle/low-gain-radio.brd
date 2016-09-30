@@ -4697,7 +4697,12 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="CF2" library="oresat-eagle" package="CON-MMCX-F-MOLEX-0734151001" value="CON-MMCX-F-MOLEX-0734151001" x="70.1" y="92.35"/>
 <element name="U$35" library="oresat-eagle" package="ORESAT-CARD-RF-V0.4" value="" x="0" y="0"/>
 <element name="RF-RESET" library="Tova" package="2MM-TEST-POINT" value="TEST-POINT" x="74.3" y="48.7"/>
-<element name="U$49" library="low-gain-radio" package="QFN-16_3MMX3MM" value="RF3025" x="72.2" y="81.4"/>
+<element name="U$49" library="low-gain-radio" package="QFN-16_3MMX3MM" value="RF3025" x="72.2" y="81.4">
+<attribute name="MFG" value="RFMD" x="72.2" y="81.4" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="RF3025TR7" x="72.2" y="81.4" size="1.778" layer="27" display="off"/>
+<attribute name="DIST" value="Digi-Key Inc." x="72.2" y="81.4" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="689-1087-1-ND" x="72.2" y="81.4" size="1.778" layer="27" display="off"/>
+</element>
 <element name="C58" library="low-gain-radio" package=".0402-C-NOSILK" value="100pF" x="69.4" y="80.7" smashed="yes">
 <attribute name="DPN" value="399-11246-2-ND" x="69.4" y="80.7" size="1.778" layer="27" display="off"/>
 <attribute name="MFG" value="Kemet" x="69.4" y="80.7" size="1.778" layer="27" display="off"/>

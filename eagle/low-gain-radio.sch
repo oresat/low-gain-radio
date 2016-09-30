@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="15" fill="1" visible="no" active="no"/>
@@ -26678,7 +26678,12 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 </part>
 <part name="CF2" library="oresat-eagle" deviceset="CON-MMCX-F-MOLEX-0734151001" device=""/>
 <part name="RF-RESET" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="U$49" library="low-gain-radio" deviceset="RF3025" device=""/>
+<part name="U$49" library="low-gain-radio" deviceset="RF3025" device="">
+<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DPN" value="689-1087-1-ND"/>
+<attribute name="MFG" value="RFMD"/>
+<attribute name="MPN" value="RF3025TR7"/>
+</part>
 <part name="U$50" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$51" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$9" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
@@ -27651,7 +27656,12 @@ RF_GND crossing</text>
 <instance part="RF-RESET" gate="G$1" x="49.53" y="160.02" smashed="yes">
 <attribute name="NAME" x="45.72" y="154.94" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="U$49" gate="G$1" x="487.68" y="185.42" rot="R270"/>
+<instance part="U$49" gate="G$1" x="487.68" y="185.42" rot="R270">
+<attribute name="MFG" x="487.68" y="185.42" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MPN" x="487.68" y="185.42" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DIST" x="487.68" y="185.42" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="487.68" y="185.42" size="1.778" layer="96" rot="R270" display="off"/>
+</instance>
 <instance part="U$50" gate="1" x="488.95" y="210.82"/>
 <instance part="U$51" gate="1" x="457.2" y="172.72"/>
 <instance part="U$9" gate="1" x="518.16" y="172.72"/>
