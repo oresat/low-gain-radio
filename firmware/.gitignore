@@ -1,8 +1,11 @@
-c3
-tx
-rx
-lgr
-*.hex
-*.o
-*.s
+doxydocs
+.filter.awk*
+.cscope.*
+.filter.*
+tagit.bash*
+cscope.files
+tags
+cscope.po.out
+cscope.out
+cscope.in.out
 
