@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.3.0">
+<eagle version="7.5.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -32,12 +32,12 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
-<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
-<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="yes" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="yes" active="yes"/>
 <layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
 <layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
 <layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
@@ -53,10 +53,10 @@
 <layer number="43" name="vRestrict" color="2" fill="10" visible="no" active="yes"/>
 <layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
 <layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
-<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
-<layer number="47" name="Measures" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="yes" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
 <layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
-<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
 <layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
@@ -176,7 +176,7 @@
 <text x="35" y="0.6" size="1" layer="21" font="vector" ratio="20">C2</text>
 <text x="14.2" y="0.6" size="1" layer="21" font="vector" ratio="20">GND</text>
 <text x="5.05" y="68.85" size="1.3" layer="21" font="vector" ratio="15" rot="R270">Portland State Aerospace Society
-Oresat Low-Gain-Radio v1.2
+Oresat Low-Gain-Radio v2.0
 2016/09/28
 James Heath, Will Harrington, Andrew Greenberg</text>
 <wire x1="72.5" y1="80.5" x2="72.5" y2="80.9" width="0.1" layer="41"/>
@@ -3084,15 +3084,15 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <text x="2.5" y="0" size="0.635" layer="25" font="vector" ratio="20">&gt;NAME</text>
 <text x="2.5" y="-1" size="0.635" layer="27" font="vector" ratio="20">&gt;VALUE</text>
 </package>
-<package name="ORESAT-CARD-RF-V0.4">
+<package name="ORESAT-CARD-V0.4">
 <wire x1="0" y1="10" x2="0" y2="90" width="0.1" layer="20"/>
 <wire x1="99" y1="10" x2="99" y2="90" width="0.1" layer="20"/>
 <wire x1="9.5" y1="0" x2="89.5" y2="0" width="0.1" layer="20"/>
-<wire x1="88" y1="96" x2="11" y2="96" width="0.1" layer="20"/>
-<wire x1="11" y1="96" x2="9.5" y2="97.5" width="0.1" layer="20" curve="-90"/>
-<wire x1="9.5" y1="97.5" x2="9.5" y2="98" width="0.1" layer="20"/>
-<wire x1="88" y1="96" x2="89.5" y2="97.5" width="0.1" layer="20" curve="90"/>
-<wire x1="89.5" y1="97.5" x2="89.5" y2="98" width="0.1" layer="20"/>
+<wire x1="90.5" y1="96" x2="8.5" y2="96" width="0.1" layer="20"/>
+<wire x1="8.5" y1="96" x2="7" y2="97.5" width="0.1" layer="20" curve="-90"/>
+<wire x1="7" y1="97.5" x2="7" y2="98" width="0.1" layer="20"/>
+<wire x1="90.5" y1="96" x2="92" y2="97.5" width="0.1" layer="20" curve="90"/>
+<wire x1="92" y1="97.5" x2="92" y2="98" width="0.1" layer="20"/>
 <wire x1="9.5" y1="0" x2="7.5" y2="2" width="0.1" layer="20" curve="90"/>
 <wire x1="7.5" y1="2" x2="1.5" y2="2" width="0.1" layer="20"/>
 <wire x1="1.5" y1="2" x2="1.5" y2="8.5" width="0.1" layer="20"/>
@@ -3101,72 +3101,118 @@ for trimmer refence see : &lt;u&gt;www.electrospec-inc.com/cross_references/trim
 <wire x1="91.5" y1="2" x2="97.5" y2="2" width="0.1" layer="20"/>
 <wire x1="97.5" y1="2" x2="97.5" y2="8.5" width="0.1" layer="20"/>
 <wire x1="97.5" y1="8.5" x2="99" y2="10" width="0.1" layer="20" curve="-90"/>
-<wire x1="89.5" y1="98" x2="97.5" y2="98" width="0.1" layer="20"/>
+<wire x1="92" y1="98" x2="97.5" y2="98" width="0.1" layer="20"/>
 <wire x1="97.5" y1="98" x2="97.5" y2="91.5" width="0.1" layer="20"/>
 <wire x1="97.5" y1="91.5" x2="99" y2="90" width="0.1" layer="20" curve="90"/>
-<wire x1="9.5" y1="98" x2="1.5" y2="98" width="0.1" layer="20"/>
+<wire x1="7" y1="98" x2="1.5" y2="98" width="0.1" layer="20"/>
 <wire x1="1.5" y1="98" x2="1.5" y2="91.5" width="0.1" layer="20"/>
 <wire x1="1.5" y1="91.5" x2="0" y2="90" width="0.1" layer="20" curve="-90"/>
-<polygon width="0.2" layer="39">
-<vertex x="0" y="0"/>
-<vertex x="13" y="0"/>
-<vertex x="13" y="2"/>
-<vertex x="8" y="2"/>
-<vertex x="8" y="8.5"/>
-<vertex x="7.5" y="8.5" curve="-90"/>
-<vertex x="2.5" y="13.5"/>
-<vertex x="2.5" y="86.5" curve="-90"/>
-<vertex x="7.5" y="91.5"/>
-<vertex x="8" y="91.5"/>
-<vertex x="8" y="98"/>
-<vertex x="0" y="98"/>
-</polygon>
-<polygon width="0.2" layer="40">
-<vertex x="0" y="0"/>
-<vertex x="13" y="0"/>
-<vertex x="13" y="2"/>
-<vertex x="8" y="2"/>
-<vertex x="8" y="8.5"/>
-<vertex x="7.5" y="8.5" curve="-90"/>
-<vertex x="2.5" y="13.5"/>
-<vertex x="2.5" y="86.5" curve="-90"/>
-<vertex x="7.5" y="91.5"/>
-<vertex x="8" y="91.5"/>
-<vertex x="8" y="98"/>
-<vertex x="0" y="98"/>
-</polygon>
-<polygon width="0.2" layer="40">
-<vertex x="99" y="0"/>
-<vertex x="86" y="0"/>
-<vertex x="86" y="2"/>
-<vertex x="91" y="2"/>
-<vertex x="91" y="8.5"/>
-<vertex x="91.5" y="8.5" curve="90"/>
-<vertex x="96.5" y="13.5"/>
-<vertex x="96.5" y="86.5" curve="90"/>
-<vertex x="91.5" y="91.5"/>
-<vertex x="91" y="91.5"/>
-<vertex x="91" y="98"/>
-<vertex x="99" y="98"/>
-</polygon>
-<polygon width="0.2" layer="39">
-<vertex x="99" y="0"/>
-<vertex x="86" y="0"/>
-<vertex x="86" y="2"/>
-<vertex x="91" y="2"/>
-<vertex x="91" y="8.5"/>
-<vertex x="91.5" y="8.5" curve="90"/>
-<vertex x="96.5" y="13.5"/>
-<vertex x="96.5" y="86.5" curve="90"/>
-<vertex x="91.5" y="91.5"/>
-<vertex x="91" y="91.5"/>
-<vertex x="91" y="98"/>
-<vertex x="99" y="98"/>
-</polygon>
 <hole x="3.75" y="4.25" drill="2.5"/>
 <hole x="95.25" y="4.25" drill="2.5"/>
 <hole x="3.75" y="95.75" drill="2.5"/>
 <hole x="95.25" y="95.75" drill="2.5"/>
+<polygon width="0.2" layer="39">
+<vertex x="0" y="0"/>
+<vertex x="13" y="0"/>
+<vertex x="13" y="2"/>
+<vertex x="8" y="2"/>
+<vertex x="8" y="8.5"/>
+<vertex x="7.5" y="8.5" curve="-90"/>
+<vertex x="2.5" y="13.5"/>
+<vertex x="2.5" y="86.5" curve="-90"/>
+<vertex x="7.5" y="91.5"/>
+<vertex x="8" y="91.5"/>
+<vertex x="8" y="98"/>
+<vertex x="13" y="98"/>
+<vertex x="13" y="100"/>
+<vertex x="0" y="100"/>
+</polygon>
+<polygon width="0.2" layer="40">
+<vertex x="0" y="0"/>
+<vertex x="13" y="0"/>
+<vertex x="13" y="2"/>
+<vertex x="8" y="2"/>
+<vertex x="8" y="8.5"/>
+<vertex x="7.5" y="8.5" curve="-90"/>
+<vertex x="2.5" y="13.5"/>
+<vertex x="2.5" y="86.5" curve="-90"/>
+<vertex x="7.5" y="91.5"/>
+<vertex x="8" y="91.5"/>
+<vertex x="8" y="98"/>
+<vertex x="13" y="98"/>
+<vertex x="13" y="100"/>
+<vertex x="0" y="100"/>
+</polygon>
+<polygon width="0.2" layer="40">
+<vertex x="99" y="0"/>
+<vertex x="86" y="0"/>
+<vertex x="86" y="2"/>
+<vertex x="91" y="2"/>
+<vertex x="91" y="8.5"/>
+<vertex x="91.5" y="8.5" curve="90"/>
+<vertex x="96.5" y="13.5"/>
+<vertex x="96.5" y="86.5" curve="90"/>
+<vertex x="91.5" y="91.5"/>
+<vertex x="91" y="91.5"/>
+<vertex x="91" y="98"/>
+<vertex x="86" y="98"/>
+<vertex x="86" y="100"/>
+<vertex x="99" y="100"/>
+</polygon>
+<polygon width="0.2" layer="39">
+<vertex x="99" y="0"/>
+<vertex x="86" y="0"/>
+<vertex x="86" y="2"/>
+<vertex x="91" y="2"/>
+<vertex x="91" y="8.5"/>
+<vertex x="91.5" y="8.5" curve="90"/>
+<vertex x="96.5" y="13.5"/>
+<vertex x="96.5" y="86.5" curve="90"/>
+<vertex x="91.5" y="91.5"/>
+<vertex x="91" y="91.5"/>
+<vertex x="91" y="98"/>
+<vertex x="86" y="98"/>
+<vertex x="86" y="100"/>
+<vertex x="99" y="100"/>
+</polygon>
+<wire x1="0" y1="0" x2="13" y2="0" width="0.1" layer="51"/>
+<wire x1="13" y1="0" x2="13" y2="2" width="0.1" layer="51"/>
+<wire x1="13" y1="2" x2="8" y2="2" width="0.1" layer="51"/>
+<wire x1="8" y1="2" x2="8" y2="8.5" width="0.1" layer="51"/>
+<wire x1="8" y1="8.5" x2="7.5" y2="8.5" width="0.1" layer="51"/>
+<wire x1="7.5" y1="8.5" x2="2.5" y2="13.5" width="0.1" layer="51" curve="-90"/>
+<wire x1="2.5" y1="13.5" x2="2.5" y2="86.5" width="0.1" layer="51"/>
+<wire x1="2.5" y1="86.5" x2="7.5" y2="91.5" width="0.1" layer="51" curve="-90"/>
+<wire x1="7.5" y1="91.5" x2="8" y2="91.5" width="0.1" layer="51"/>
+<wire x1="8" y1="91.5" x2="8" y2="98" width="0.1" layer="51"/>
+<wire x1="8" y1="98" x2="13" y2="98" width="0.1" layer="51"/>
+<wire x1="13" y1="98" x2="13" y2="100" width="0.1" layer="51"/>
+<wire x1="13" y1="100" x2="0" y2="100" width="0.1" layer="51"/>
+<wire x1="0" y1="100" x2="0" y2="0" width="0.1" layer="51"/>
+<wire x1="86" y1="0" x2="86" y2="2" width="0.1" layer="51"/>
+<wire x1="86" y1="2" x2="91" y2="2" width="0.1" layer="51"/>
+<wire x1="91" y1="2" x2="91" y2="8.5" width="0.1" layer="51"/>
+<wire x1="91" y1="8.5" x2="91.5" y2="8.5" width="0.1" layer="51"/>
+<wire x1="91.5" y1="8.5" x2="96.5" y2="13.5" width="0.1" layer="51" curve="90"/>
+<wire x1="96.5" y1="13.5" x2="96.5" y2="86.5" width="0.1" layer="51"/>
+<wire x1="96.5" y1="86.5" x2="91.5" y2="91.5" width="0.1" layer="51" curve="90"/>
+<wire x1="91.5" y1="91.5" x2="91" y2="91.5" width="0.1" layer="51"/>
+<wire x1="91" y1="91.5" x2="91" y2="98" width="0.1" layer="51"/>
+<wire x1="91" y1="98" x2="86" y2="98" width="0.1" layer="51"/>
+<wire x1="86" y1="98" x2="86" y2="100" width="0.1" layer="51"/>
+<wire x1="86" y1="100" x2="99" y2="100" width="0.1" layer="51"/>
+<wire x1="99" y1="100" x2="99" y2="0" width="0.1" layer="51"/>
+<wire x1="99" y1="0" x2="86" y2="0" width="0.1" layer="51"/>
+<polygon width="0.1" layer="51" spacing="0.5">
+<vertex x="8.25" y="98"/>
+<vertex x="90.75" y="98"/>
+<vertex x="90.75" y="96.4"/>
+<vertex x="8.25" y="96.4"/>
+</polygon>
+<wire x1="25.5" y1="93" x2="26.5" y2="93" width="0.1" layer="51"/>
+<wire x1="26" y1="93.5" x2="26" y2="92.5" width="0.1" layer="51"/>
+<wire x1="83.5" y1="90.6" x2="84.5" y2="90.6" width="0.1" layer="51"/>
+<wire x1="84" y1="91.1" x2="84" y2="90.1" width="0.1" layer="51"/>
 </package>
 </packages>
 </library>
@@ -4695,7 +4741,6 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="MFG" value="Taiyo Yuden" x="67" y="93.7" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="CF2" library="oresat-eagle" package="CON-MMCX-F-MOLEX-0734151001" value="CON-MMCX-F-MOLEX-0734151001" x="70.1" y="92.35"/>
-<element name="U$35" library="oresat-eagle" package="ORESAT-CARD-RF-V0.4" value="" x="0" y="0"/>
 <element name="RF-RESET" library="Tova" package="2MM-TEST-POINT" value="TEST-POINT" x="73.3" y="47.6" smashed="yes">
 <attribute name="NAME" x="66.6" y="46.5" size="0.8" layer="25" font="vector" ratio="20"/>
 </element>
@@ -4738,6 +4783,7 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="DIST" value="Digi-Key Inc." x="72" y="84.9" size="1.778" layer="27" rot="R90" display="off"/>
 <attribute name="MPN" value="CBR04C101F3GAC" x="72" y="84.9" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
+<element name="U$35" library="oresat-eagle" package="ORESAT-CARD-V0.4" value="" x="0" y="0"/>
 </elements>
 <signals>
 <signal name="GND">
@@ -6243,11 +6289,10 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <wire x1="73.5" y1="42" x2="42.1" y2="42" width="0.2" layer="1"/>
 <wire x1="42.1" y1="42" x2="42.1" y2="43.3" width="0.2" layer="1"/>
 <via x="42.1" y="43.3" extent="1-16" drill="0.254"/>
-<wire x1="42.1" y1="43.3" x2="42.1" y2="86.7" width="0.2" layer="16"/>
-<via x="42.1" y="86.7" extent="1-16" drill="0.254"/>
+<wire x1="42.1" y1="43.3" x2="42.1" y2="88.92" width="0.2" layer="16"/>
 <contactref element="CF1" pad="P$2"/>
-<wire x1="42.1" y1="86.7" x2="42.1" y2="88.92" width="0.2" layer="1"/>
 <wire x1="42.1" y1="88.92" x2="42.13" y2="88.92" width="0.2" layer="1"/>
+<via x="42.1" y="88.92" extent="1-16" drill="0.6" shape="square"/>
 </signal>
 <signal name="N$5">
 <contactref element="TP1" pad="1"/>
