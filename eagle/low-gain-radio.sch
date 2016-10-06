@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="15" fill="1" visible="no" active="no"/>
@@ -26712,6 +26712,8 @@ Source: http://www.vishay.com/docs/10129/hpc0201a.pdf</description>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
+<part name="PTB2" library="Tova" deviceset="TEST-POINT" device=""/>
+<part name="PTB17" library="Tova" deviceset="TEST-POINT" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -27688,6 +27690,12 @@ RF_GND crossing</text>
 <attribute name="DPN" x="530.86" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="530.86" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="530.86" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+</instance>
+<instance part="PTB2" gate="G$1" x="81.28" y="220.98" smashed="yes">
+<attribute name="NAME" x="73.66" y="220.98" size="1.778" layer="95" font="vector"/>
+</instance>
+<instance part="PTB17" gate="G$1" x="81.28" y="218.44" smashed="yes">
+<attribute name="NAME" x="73.66" y="218.44" size="1.778" layer="95" font="vector"/>
 </instance>
 </instances>
 <busses>
@@ -29289,6 +29297,20 @@ RF_GND crossing</text>
 <pinref part="CM2" gate="G$1" pin="8"/>
 <wire x1="165.1" y1="58.42" x2="215.9" y2="58.42" width="0.1524" layer="91"/>
 <label x="203.2" y="58.42" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="PTB2" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PTB2"/>
+<pinref part="PTB2" gate="G$1" pin="1"/>
+<wire x1="81.28" y1="220.98" x2="93.98" y2="220.98" width="0.1524" layer="91"/>
+</segment>
+</net>
+<net name="PTB17" class="0">
+<segment>
+<pinref part="U1" gate="G$1" pin="PTB17"/>
+<pinref part="PTB17" gate="G$1" pin="1"/>
+<wire x1="81.28" y1="218.44" x2="93.98" y2="218.44" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
