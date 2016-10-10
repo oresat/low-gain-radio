@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="yes"/>
@@ -32,7 +32,7 @@
 <layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
 <layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
-<layer number="25" name="tNames" color="7" fill="1" visible="no" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
 <layer number="26" name="bNames" color="7" fill="1" visible="no" active="yes"/>
 <layer number="27" name="tValues" color="7" fill="1" visible="no" active="yes"/>
 <layer number="28" name="bValues" color="7" fill="1" visible="no" active="yes"/>
@@ -176,7 +176,7 @@
 <text x="14.2" y="0.6" size="1" layer="21" font="vector" ratio="20">GND</text>
 <text x="5.05" y="68.85" size="1.3" layer="21" font="vector" ratio="15" rot="R270">Portland State Aerospace Society
 Oresat Low-Gain-Radio v2.0
-2016/09/28
+2016/10/09
 James Heath, Will Harrington, Andrew Greenberg</text>
 <wire x1="71.2" y1="81" x2="71.2" y2="81.4" width="0.1" layer="41"/>
 <wire x1="72.1" y1="82.3" x2="71.7" y2="82.3" width="0.1" layer="41"/>
@@ -4536,11 +4536,20 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="U2" library="psas_c3_team05" package="SKY65116" value="SKY65116" x="58.9" y="77.8" smashed="yes">
 <attribute name="NAME" x="63.7" y="74.2" size="0.635" layer="25" font="vector" ratio="20"/>
 <attribute name="VALUE" x="54.9" y="69.8" size="1.27" layer="27" font="vector" ratio="15"/>
+<attribute name="MFG" value="	
+Skyworks Solutions Inc." x="58.9" y="77.8" size="1.778" layer="27" display="off"/>
+<attribute name="MPN" value="SKY65116-21" x="58.9" y="77.8" size="1.778" layer="27" display="off"/>
+<attribute name="DIST" value="Digi-Key Inc." x="58.9" y="77.8" size="1.778" layer="27" display="off"/>
+<attribute name="DPN" value="863-1072-1-ND" x="58.9" y="77.8" size="1.778" layer="27" display="off"/>
 </element>
 <element name="U8" library="psas_c3_team05" package="SOT-363" value="MAAL-010704" x="81.4" y="81.4" smashed="yes" rot="R270">
 <attribute name="NAME" x="81.3" y="82" size="0.3" layer="33" rot="R270"/>
 <attribute name="NAME" x="80.9" y="83" size="0.635" layer="25" font="vector" ratio="20"/>
 <attribute name="VALUE" x="82.4" y="79.4" size="0.635" layer="27" font="vector" ratio="20" rot="R270"/>
+<attribute name="MFG" value="M/A-Com Technology Solutions" x="81.4" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="MAAL-010704-TR3000" x="81.4" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIST" value="Digi-Key Inc." x="81.4" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="1465-1261-1-ND" x="81.4" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="R13" library="rcl_custom" package=".0603-B-NOSILK@1" value="DNP/0" x="82.8" y="60.5" smashed="yes" rot="MR90">
 <attribute name="MFG_PN" value="RC0603JR-070RL" x="82.8" y="60.5" size="1.778" layer="28" rot="MR90" display="off"/>
@@ -4802,6 +4811,10 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <attribute name="NAME" x="72.1" y="2.7" size="0.635" layer="25" font="vector" ratio="20" rot="R90"/>
 <attribute name="VALUE" x="76.8" y="2.3" size="0.8" layer="27" font="vector" ratio="15" rot="R90"/>
 <attribute name="NAME" x="74" y="4" size="0.5" layer="33" ratio="15" rot="R270" align="center"/>
+<attribute name="MFG" value="Rohm Semiconductor" x="74" y="4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="MPN" value="SMLVN6RGB1W1" x="74" y="4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DIST" value="Digi-Key Inc." x="74" y="4" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="DPN" value="846-1187-1-ND" x="74" y="4" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="R12" library="rcl_custom" package=".0603-B-NOSILK@1" value="DNP/1k" x="74" y="9" smashed="yes" rot="R90">
 <attribute name="DIST" value="Digi-Key" x="74" y="9" size="1.778" layer="27" rot="R90" display="off"/>
@@ -4833,6 +4846,10 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <element name="U5" library="low-gain-radio" package="QFN-16_3MMX3MM" value="RF3025" x="72.1" y="81.4" smashed="yes" rot="R270">
 <attribute name="NAME" x="72.5" y="78.8" size="0.635" layer="25" ratio="20"/>
 <attribute name="VALUE" x="72.1" y="79.4" size="0.635" layer="27" ratio="20" rot="R270"/>
+<attribute name="MFG" value="RFMD" x="72.1" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="MPN" value="RF3025TR7" x="72.1" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DIST" value="Digi-Key Inc." x="72.1" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
+<attribute name="DPN" value="689-1087-1-ND" x="72.1" y="81.4" size="1.778" layer="27" rot="R270" display="off"/>
 </element>
 <element name="C63" library="low-gain-radio" package=".0402-C-NOSILK" value="100pF" x="69.4" y="83.4" smashed="yes" rot="R270">
 <attribute name="DIST" value="Digi-Key Inc." x="69.4" y="83.4" size="1.778" layer="27" rot="R270" display="off"/>
@@ -7119,20 +7136,20 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <approved hash="18,29,1b0eee98dfd47d10"/>
 <approved hash="18,29,22e8de451ee98560"/>
 <approved hash="18,29,8d9305f6d2f628c7"/>
-<approved hash="18,29,df40dfd28df69f65"/>
 <approved hash="18,29,961884fac0dfc03c"/>
-<approved hash="18,29,990ede9829d5d311"/>
+<approved hash="18,29,df40dfd28df69f65"/>
 <approved hash="18,29,d60e2320cab797bb"/>
-<approved hash="18,29,199583f0dcf76ec1"/>
+<approved hash="18,29,990ede9829d5d311"/>
 <approved hash="18,29,64eed04398ef1161"/>
+<approved hash="18,29,199583f0dcf76ec1"/>
 <approved hash="18,29,8c191efb40dee03c"/>
 <approved hash="18,29,ff415fd317f68564"/>
-<approved hash="18,29,380f452ffab9b5ba"/>
 <approved hash="18,29,bb01ee994fd43d1f"/>
+<approved hash="18,29,380f452ffab9b5ba"/>
 <approved hash="18,29,0994e1f0a2f7f8c0"/>
 <approved hash="18,29,f2eeae42faee0161"/>
-<approved hash="18,29,3e1908fb60dfa83d"/>
 <approved hash="18,29,b7417fd301f73765"/>
+<approved hash="18,29,3e1908fb60dfa83d"/>
 <approved hash="18,29,7508f69e4dd34f11"/>
 <approved hash="18,29,4a084726e2b77bbd"/>
 <approved hash="18,29,40ef4c43f8ec7560"/>
@@ -7143,20 +7160,20 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <approved hash="18,29,030ff666af2bfd11"/>
 <approved hash="18,29,8d96c5f242f538c1"/>
 <approved hash="18,29,32ec4e40deef8563"/>
-<approved hash="18,29,1e1a8cfbe0df403e"/>
 <approved hash="18,29,5f41ffd085f41765"/>
+<approved hash="18,29,1e1a8cfbe0df403e"/>
 <approved hash="18,29,110e9698d1d46b10"/>
 <approved hash="18,29,6e0edb2082b61fba"/>
-<approved hash="18,29,9197cbf324f7d6c3"/>
 <approved hash="18,29,dced2841d0ed9961"/>
-<approved hash="18,29,841896fac0dfc03c"/>
+<approved hash="18,29,9197cbf324f7d6c3"/>
 <approved hash="18,29,df40dfd29ff68d65"/>
+<approved hash="18,29,841896fac0dfc03c"/>
 <approved hash="18,29,280ed52102b78dbb"/>
 <approved hash="18,29,830f1698dfd52d11"/>
 <approved hash="18,29,1195f9f0d2f778c1"/>
 <approved hash="18,29,72eede43e2ef1961"/>
-<approved hash="18,29,e61898fb40dee83c"/>
 <approved hash="18,29,f7415fd291f6ef64"/>
+<approved hash="18,29,e61898fb40dee83c"/>
 <approved hash="18,29,b50dfe995dd43f13"/>
 <approved hash="18,29,3a0f5723eab5bbba"/>
 <approved hash="18,29,80eedc42e0ee0561"/>
@@ -7165,24 +7182,24 @@ These rules will work for both Sunstone Circuits and OSH Park. They have Sunston
 <approved hash="18,29,081906fb78dfa03d"/>
 <approved hash="18,29,480c5522eab775b9"/>
 <approved hash="18,29,7b0cfe9a5fd74d11"/>
-<approved hash="18,29,b2ef5e43feef756f"/>
 <approved hash="18,29,7d95e5f152f9b8c1"/>
+<approved hash="18,29,b2ef5e43feef756f"/>
 <approved hash="18,29,5f42bfd02df81f65"/>
 <approved hash="18,29,161a24f8a0df4032"/>
 <approved hash="18,29,f60ca321fab717b9"/>
 <approved hash="18,29,190fee9aa9d7f311"/>
 <approved hash="18,29,34e84044d8ef8167"/>
 <approved hash="18,29,8992c3f64cf13ec1"/>
-<approved hash="18,29,5f41dfd487f01565"/>
 <approved hash="18,29,1c1e8efbc0df403a"/>
-<approved hash="18,29,1b0e9e98efd46d10"/>
+<approved hash="18,29,5f41dfd487f01565"/>
 <approved hash="18,29,680ee5208ab615ba"/>
+<approved hash="18,29,1b0e9e98efd46d10"/>
 <approved hash="18,29,e2f12e5ddaf19161"/>
 <approved hash="18,29,998bc1ef22f7e8df"/>
 <approved hash="18,29,c740dfd291f68765"/>
 <approved hash="18,29,8e1898fac0dfd83c"/>
-<approved hash="18,29,850f1698cdd53f11"/>
 <approved hash="18,29,3a0ec72102b78bbb"/>
+<approved hash="18,29,850f1698cdd53f11"/>
 <approved hash="19,1,0598cc64cf0006fc"/>
 <approved hash="19,1,f597dc6bdf09f6f5"/>
 <approved hash="19,1,65984c644f0366ff"/>

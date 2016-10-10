@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="7.5.0">
+<eagle version="7.3.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="15" fill="1" visible="no" active="no"/>
@@ -26617,8 +26617,19 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="DIO0" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="DIO1" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="PG" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="U2" library="psas_c3_team05" deviceset="SKY65116" device=""/>
-<part name="U8" library="psas_c3_team05" deviceset="MAAL-010704" device=""/>
+<part name="U2" library="psas_c3_team05" deviceset="SKY65116" device="">
+<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DPN" value="863-1072-1-ND"/>
+<attribute name="MFG" value="	
+Skyworks Solutions Inc."/>
+<attribute name="MPN" value="SKY65116-21"/>
+</part>
+<part name="U8" library="psas_c3_team05" deviceset="MAAL-010704" device="">
+<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DPN" value="1465-1261-1-ND"/>
+<attribute name="MFG" value="M/A-Com Technology Solutions"/>
+<attribute name="MPN" value="MAAL-010704-TR3000"/>
+</part>
 <part name="R13" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="DNP/0">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0GRTR-ND"/>
@@ -26797,7 +26808,12 @@ Typical height 0.6&amp;nbsp;mm.</description>
 </part>
 <part name="GND3" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="XTAL0" library="Tova" deviceset="TEST-POINT" device=""/>
-<part name="LED9" library="apdm" deviceset="LED-RGB-SEPARATE-*" device="3528" value="SMLVN6RGB1W1"/>
+<part name="LED9" library="apdm" deviceset="LED-RGB-SEPARATE-*" device="3528" value="SMLVN6RGB1W1">
+<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DPN" value="846-1187-1-ND"/>
+<attribute name="MFG" value="Rohm Semiconductor"/>
+<attribute name="MPN" value="SMLVN6RGB1W1"/>
+</part>
 <part name="P+10" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="R12" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
@@ -26817,7 +26833,12 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MFG_PN" value="RC0603FR-071KL"/>
 </part>
-<part name="U5" library="low-gain-radio" deviceset="RF3025" device=""/>
+<part name="U5" library="low-gain-radio" deviceset="RF3025" device="">
+<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DPN" value="689-1087-1-ND"/>
+<attribute name="MFG" value="RFMD"/>
+<attribute name="MPN" value="RF3025TR7"/>
+</part>
 <part name="C63" library="low-gain-radio" deviceset="C-EU" device="0402-C-NOSILK" value="100pF">
 <attribute name="DIST" value="Digi-Key Inc."/>
 <attribute name="DPN" value="399-11246-2-ND"/>
@@ -27580,10 +27601,18 @@ RF_GND crossing</text>
 <instance part="U2" gate="G$1" x="381" y="256.54" smashed="yes">
 <attribute name="NAME" x="392.43" y="266.7" size="1.778" layer="104" ratio="15"/>
 <attribute name="VALUE" x="392.43" y="264.16" size="1.778" layer="96"/>
+<attribute name="MFG" x="381" y="256.54" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="381" y="256.54" size="1.778" layer="96" display="off"/>
+<attribute name="DIST" x="381" y="256.54" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="381" y="256.54" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="U8" gate="G$1" x="381" y="147.32" smashed="yes">
 <attribute name="NAME" x="388.62" y="163.83" size="1.778" layer="104"/>
 <attribute name="VALUE" x="382.27" y="161.29" size="1.778" layer="96"/>
+<attribute name="MFG" x="381" y="147.32" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="381" y="147.32" size="1.778" layer="96" display="off"/>
+<attribute name="DIST" x="381" y="147.32" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="381" y="147.32" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="R13" gate="R" x="454.66" y="304.8" rot="R90">
 <attribute name="DIST" x="454.66" y="304.8" size="1.778" layer="96" rot="R90" display="off"/>
@@ -27812,6 +27841,10 @@ RF_GND crossing</text>
 </instance>
 <instance part="LED9" gate="G" x="220.98" y="20.32" smashed="yes" rot="R270">
 <attribute name="PART" x="229.87" y="17.78" size="1.778" layer="95" rot="R90"/>
+<attribute name="MFG" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MPN" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DIST" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
 <instance part="LED9" gate="B" x="220.98" y="10.16" smashed="yes" rot="R270"/>
 <instance part="P+10" gate="G$1" x="226.06" y="33.02"/>
@@ -27833,7 +27866,12 @@ RF_GND crossing</text>
 <attribute name="MFG" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG_PN" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="U5" gate="G$1" x="477.52" y="190.5"/>
+<instance part="U5" gate="G$1" x="477.52" y="190.5">
+<attribute name="MFG" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="DIST" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="C63" gate="CE" x="492.76" y="203.2" rot="R180">
 <attribute name="DIST" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
