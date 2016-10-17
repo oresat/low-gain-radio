@@ -6,7 +6,7 @@
 <setting alwaysvectorfont="no"/>
 <setting verticaltext="up"/>
 </settings>
-<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<grid distance="0.05" unitdist="inch" unit="inch" style="lines" multiple="1" display="no" altdistance="0.01" altunitdist="inch" altunit="inch"/>
 <layers>
 <layer number="1" name="Top" color="4" fill="1" visible="no" active="no"/>
 <layer number="2" name="Route2" color="15" fill="1" visible="no" active="no"/>
@@ -22979,6 +22979,48 @@ Source: WE-TPC 744053220.pdf</description>
 <text x="-3.5" y="3.5" size="1.778" layer="25">&gt;NAME</text>
 <text x="-3.5" y="-5.3" size="1.778" layer="27">&gt;VALUE</text>
 </package>
+<package name="PINHEADER-2X5-0.5+POL+RA+SILK">
+<rectangle x1="-0.205" y1="0.43" x2="0.205" y2="0.84" layer="51"/>
+<rectangle x1="-0.205" y1="-0.84" x2="0.205" y2="-0.43" layer="51"/>
+<rectangle x1="-1.475" y1="-0.84" x2="-1.065" y2="-0.43" layer="51"/>
+<rectangle x1="-1.475" y1="0.43" x2="-1.065" y2="0.84" layer="51"/>
+<rectangle x1="-2.745" y1="0.43" x2="-2.335" y2="0.84" layer="51"/>
+<rectangle x1="-2.745" y1="-0.84" x2="-2.335" y2="-0.43" layer="51"/>
+<rectangle x1="1.065" y1="0.43" x2="1.475" y2="0.84" layer="51"/>
+<rectangle x1="1.065" y1="-0.84" x2="1.475" y2="-0.43" layer="51"/>
+<rectangle x1="2.335" y1="0.43" x2="2.745" y2="0.84" layer="51"/>
+<rectangle x1="2.335" y1="-0.84" x2="2.745" y2="-0.43" layer="51"/>
+<pad name="1" x="2.54" y="0.635" drill="0.635" diameter="1.04" shape="offset" rot="R90"/>
+<pad name="2" x="2.54" y="-0.635" drill="0.635" diameter="1.04" shape="offset" rot="R270"/>
+<pad name="3" x="1.27" y="0.635" drill="0.635" diameter="1.04" shape="offset" rot="R90"/>
+<pad name="4" x="1.27" y="-0.635" drill="0.635" diameter="1.04" shape="offset" rot="R270"/>
+<pad name="5" x="0" y="0.635" drill="0.635" diameter="1.04" shape="offset" rot="R90"/>
+<pad name="6" x="0" y="-0.635" drill="0.635" diameter="1.04" shape="offset" rot="R270"/>
+<pad name="7" x="-1.27" y="0.635" drill="0.635" diameter="1.04" shape="offset" rot="R90"/>
+<pad name="8" x="-1.27" y="-0.635" drill="0.635" diameter="1.04" shape="offset" rot="R270"/>
+<pad name="9" x="-2.54" y="0.635" drill="0.635" diameter="1.04" shape="offset" rot="R90"/>
+<pad name="10" x="-2.54" y="-0.635" drill="0.635" diameter="1.04" shape="offset" rot="R270"/>
+<text x="4.635" y="0.365" size="0.635" layer="25" font="vector" ratio="20">&gt;NAME</text>
+<text x="4.635" y="-0.7" size="0.635" layer="27" font="vector" ratio="20">&gt;VALUE</text>
+<wire x1="-6.3" y1="-1.5" x2="6.3" y2="-1.5" width="0.2" layer="51"/>
+<wire x1="-6.3" y1="-1.5" x2="-6.3" y2="-6.9" width="0.2" layer="51"/>
+<wire x1="-6.3" y1="-6.9" x2="6.3" y2="-6.9" width="0.2" layer="51"/>
+<wire x1="6.3" y1="-6.9" x2="6.3" y2="-1.5" width="0.2" layer="51"/>
+<wire x1="-3.4" y1="-1.5" x2="-6.3" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="-6.3" y1="-1.5" x2="-6.3" y2="-6.9" width="0.2" layer="21"/>
+<wire x1="-6.3" y1="-6.9" x2="6.3" y2="-6.9" width="0.2" layer="21"/>
+<wire x1="6.3" y1="-6.9" x2="6.3" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="6.3" y1="-1.5" x2="3.4" y2="-1.5" width="0.2" layer="21"/>
+<wire x1="0" y1="0.635" x2="0" y2="-6.35" width="0.4" layer="51"/>
+<wire x1="1.27" y1="0.635" x2="1.27" y2="-6.35" width="0.4" layer="51"/>
+<wire x1="2.54" y1="0.635" x2="2.54" y2="-6.35" width="0.4" layer="51"/>
+<wire x1="-1.27" y1="0.635" x2="-1.27" y2="-6.35" width="0.4" layer="51"/>
+<wire x1="-2.54" y1="0.635" x2="-2.54" y2="-6.35" width="0.4" layer="51"/>
+<text x="3.41" y="1.27" size="0.635" layer="21" ratio="20">1</text>
+<text x="-3.81" y="1.27" size="0.635" layer="21" ratio="20">9</text>
+<text x="3.41" y="-1.27" size="0.635" layer="21" ratio="20">2</text>
+<text x="-4.445" y="-1.27" size="0.635" layer="21" ratio="20">10</text>
+</package>
 </packages>
 <symbols>
 <symbol name="JTAG_ARM-10">
@@ -23093,13 +23135,30 @@ Source: WE-TPC 744053220.pdf</description>
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="JTAG_ARM-10-*" prefix="J" uservalue="yes">
+<deviceset name="JTAG_ARM-10-*" prefix="CM" uservalue="yes">
 <description>&lt;b&gt;JTAG PIN HEADER 2x5&lt;/b&gt; This is one of the (smaller) ARM standard JTAG connectors.&lt;p&gt;</description>
 <gates>
 <gate name="J" symbol="JTAG_ARM-10" x="0" y="0"/>
 </gates>
 <devices>
 <device name="50MIL" package="PINHEADER-2X5-0.05+POL+SILK">
+<connects>
+<connect gate="J" pin="GND3" pad="3"/>
+<connect gate="J" pin="GND5" pad="5"/>
+<connect gate="J" pin="GND9" pad="9"/>
+<connect gate="J" pin="RTCK" pad="7"/>
+<connect gate="J" pin="SRST" pad="10"/>
+<connect gate="J" pin="TCK" pad="4"/>
+<connect gate="J" pin="TDI" pad="8"/>
+<connect gate="J" pin="TDO" pad="6"/>
+<connect gate="J" pin="TMS" pad="2"/>
+<connect gate="J" pin="VDD" pad="1"/>
+</connects>
+<technologies>
+<technology name=""/>
+</technologies>
+</device>
+<device name="" package="PINHEADER-2X5-0.5+POL+RA+SILK">
 <connects>
 <connect gate="J" pin="GND3" pad="3"/>
 <connect gate="J" pin="GND5" pad="5"/>
@@ -26062,14 +26121,14 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="U1" library="psas_c3_team05" deviceset="MKW01Z128" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="MKW01Z128CHN-ND"/>
-<attribute name="MFN" value="NXP"/>
+<attribute name="MFG" value="NXP"/>
 <attribute name="MPN" value="MKW01Z128CHN"/>
 </part>
-<part name="CM1" library="low-gain-radio" deviceset="JTAG_ARM-10-*" device="50MIL" value="3220-10-0100-00">
+<part name="CM1" library="low-gain-radio" deviceset="JTAG_ARM-10-*" device="" value="3221-10-0200-00">
 <attribute name="DIST" value="Digi-Key"/>
-<attribute name="DPN" value="1175-1627-ND"/>
+<attribute name="DPN" value="1175-1734-ND"/>
 <attribute name="MFG" value="CNC Tech"/>
-<attribute name="MFG_PN" value="3220-10-0100-00"/>
+<attribute name="MPN" value="3221-10-0200-00"/>
 </part>
 <part name="GND2" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="GND4" library="psas_c3_team05" deviceset="GND" device=""/>
@@ -26077,243 +26136,243 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6874-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN22NG00D"/>
+<attribute name="MPN" value="LQW18AN22NG00D"/>
 </part>
 <part name="C1" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C2" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="12pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H120JA01D"/>
+<attribute name="MPN" value="GRM1885C1H120JA01D"/>
 </part>
 <part name="L2" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="22nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6874-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN22NG00D"/>
+<attribute name="MPN" value="LQW18AN22NG00D"/>
 </part>
 <part name="C3" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C4" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="12pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H120JA01D"/>
+<attribute name="MPN" value="GRM1885C1H120JA01D"/>
 </part>
 <part name="C5" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="15pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1407-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+<attribute name="MPN" value="GRM1885C1H150JA01D"/>
 </part>
 <part name="C6" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="15pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1407-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+<attribute name="MPN" value="GRM1885C1H150JA01D"/>
 </part>
 <part name="C7" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="2.2pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-9668-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D"/>
+<attribute name="MPN" value="GRM1885C1H2R2CA01D"/>
 </part>
 <part name="C8" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="2.2pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-9668-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H2R2CA01D"/>
+<attribute name="MPN" value="GRM1885C1H2R2CA01D"/>
 </part>
 <part name="L3" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="15nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6866-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+<attribute name="MPN" value="LQW18AN15NG00D"/>
 </part>
 <part name="L4" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="15nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6866-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+<attribute name="MPN" value="LQW18AN15NG00D"/>
 </part>
 <part name="L5" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="15nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6866-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+<attribute name="MPN" value="LQW18AN15NG00D"/>
 </part>
 <part name="L6" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="15nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6866-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN15NG00D"/>
+<attribute name="MPN" value="LQW18AN15NG00D"/>
 </part>
 <part name="C9" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="15pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1407-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+<attribute name="MPN" value="GRM1885C1H150JA01D"/>
 </part>
 <part name="C10" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="15pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1407-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM1885C1H150JA01D"/>
+<attribute name="MPN" value="GRM1885C1H150JA01D"/>
 </part>
 <part name="C11" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="8.2pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="06031U8R2BAT2A-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06031U8R2BAT2A"/>
+<attribute name="MPN" value="06031U8R2BAT2A"/>
 </part>
 <part name="C12" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="8.2pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="06031U8R2BAT2A-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06031U8R2BAT2A"/>
+<attribute name="MPN" value="06031U8R2BAT2A"/>
 </part>
-<part name="C14" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
+<part name="C14" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C15" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C16" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C17" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C18" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C19" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C20" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C21" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C22" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="R1" library="rcl_custom" deviceset="R-US_" device="0603-B-NOSILK" value="250">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="1276-4592-2-ND"/>
 <attribute name="MFG" value="Samsung"/>
-<attribute name="MFG_PN" value="RC1608F2490CS"/>
+<attribute name="MPN" value="RC1608F2490CS"/>
 </part>
 <part name="L8" library="low-gain-radio" deviceset="L-US" device="0402-B-NOSILK" value="82nH">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6912-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="LQW18AN82NG00D"/>
+<attribute name="MPN" value="LQW18AN82NG00D"/>
 </part>
 <part name="C26" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C27" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="GND25" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="C28" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="GND28" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="C29" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C30" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C31" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C32" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="C33" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="X1" library="microbuilder" deviceset="CRYSTAL" device="2.5X2.0MM" value="32MHz">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="SER4044CT-ND"/>
-<attribute name="MFN" value="EPSON"/>
+<attribute name="MFG" value="EPSON"/>
 <attribute name="MPN" value="FA20H 32.0000MF12Y-W3"/>
 </part>
 <part name="C34" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="6pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+<attribute name="MPN" value="GQM1875C2E6R0BB12D"/>
 </part>
 <part name="C35" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="6pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+<attribute name="MPN" value="GQM1875C2E6R0BB12D"/>
 </part>
 <part name="GND33" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="P+3" library="SparkFun-v5" deviceset="3.3V" device=""/>
@@ -26322,37 +26381,37 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+<attribute name="MPN" value="GRM155R71H102KA01D"/>
 </part>
-<part name="C25" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="1nF">
+<part name="C25" library="rcl_custom" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+<attribute name="MPN" value="GRM155R71H102KA01D"/>
 </part>
 <part name="C43" library="rcl" deviceset="CPOL-US" device="CT6032" value="100uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-1704-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="TAJC107K010RNJ"/>
+<attribute name="MPN" value="TAJC107K010RNJ"/>
 </part>
 <part name="U7" library="psas_c3_team05" deviceset="LD39200" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="497-15229-2-ND"/>
 <attribute name="MFG" value="STMicroelectronics"/>
-<attribute name="MFG_PN" value="LD39200PU33R"/>
+<attribute name="MPN" value="LD39200PU33R"/>
 </part>
 <part name="C13" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C46" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="3.3V2" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="GND1" library="psas_c3_team05" deviceset="GND" device=""/>
@@ -26362,22 +26421,22 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="U4" library="psas_c3_team05" deviceset="AAT3215" device="" value="LP5907MFX-3.3">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="296-38557-1-ND"/>
-<attribute name="MFN" value="Texas Instruments"/>
-<attribute name="MFN-PN" value="LP5907MFX-3.3"/>
+<attribute name="MFG" value="Texas Instruments"/>
+<attribute name="MPN" value="LP5907MFX-3.3"/>
 </part>
 <part name="GND35" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="3.3V3" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="U6" library="psas_c3_team05" deviceset="AAT3215" device="" value="LP5907MFX-3.3">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="296-38557-1-ND"/>
-<attribute name="MFN" value="Texas Instruments"/>
-<attribute name="MFN-PN" value="LP5907MFX-3.3"/>
+<attribute name="MFG" value="Texas Instruments"/>
+<attribute name="MPN" value="LP5907MFX-3.3"/>
 </part>
 <part name="U3" library="psas_c3_team05" deviceset="W25Q80DV" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="W25Q80DVSSIG-ND"/>
 <attribute name="MFG" value="Winbond Electronics"/>
-<attribute name="MFG_PN" value="W25Q80DVSSIG"/>
+<attribute name="MPN" value="W25Q80DVSSIG"/>
 </part>
 <part name="U$2" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$3" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
@@ -26411,20 +26470,25 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="GND6" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="P+1" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+2" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+5" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+6" library="SparkFun-v5" deviceset="3.3V" device=""/>
-<part name="CM2" library="pinhead" deviceset="PINHD-1X12" device="" value="DNP"/>
+<part name="CM2" library="pinhead" deviceset="PINHD-1X12" device="" value="DNP">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="609-3316-ND"/>
+<attribute name="MFN" value="Amphenol"/>
+<attribute name="MPN" value="68016-112HLF"/>
+</part>
 <part name="P+7" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="R2" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="10k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-10.0KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+<attribute name="MPN" value="RC0603FR-0710KL"/>
 </part>
 <part name="P+8" library="SparkFun-v5" deviceset="3.3V" device=""/>
 <part name="P+9" library="SparkFun-v5" deviceset="3.3V" device=""/>
@@ -26432,106 +26496,111 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-10.0KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+<attribute name="MPN" value="RC0603FR-0710KL"/>
 </part>
 <part name="LED1" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/GRN">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1446-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191KGKT"/>
+<attribute name="MPN" value="LTST-C191KGKT"/>
 </part>
 <part name="R4" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="R5" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="10k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-10.0KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-0710KL"/>
+<attribute name="MPN" value="RC0603FR-0710KL"/>
 </part>
 <part name="GND7" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED2" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/GRN">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1446-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191KGKT"/>
+<attribute name="MPN" value="LTST-C191KGKT"/>
 </part>
 <part name="R6" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND8" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED3" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/GRN">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1446-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191KGKT"/>
+<attribute name="MPN" value="LTST-C191KGKT"/>
 </part>
 <part name="R7" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND9" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED4" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/GRN">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1446-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191KGKT"/>
+<attribute name="MPN" value="LTST-C191KGKT"/>
 </part>
 <part name="R8" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND10" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED5" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/AMB">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1440-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191AKT"/>
+<attribute name="MPN" value="LTST-C191AKT"/>
 </part>
 <part name="R9" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND11" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED6" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/AMB">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1440-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191AKT"/>
+<attribute name="MPN" value="LTST-C191AKT"/>
 </part>
 <part name="R10" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND12" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="LED7" library="psas_c3_team05" deviceset="LED" device="-0603" value="DNP/AMB">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="160-1440-1-ND"/>
 <attribute name="MFG" value="Lite-On Inc."/>
-<attribute name="MFG_PN" value="LTST-C191AKT"/>
+<attribute name="MPN" value="LTST-C191AKT"/>
 </part>
 <part name="R11" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="GND13" library="psas_c3_team05" deviceset="GND" device=""/>
-<part name="CF1" library="oresat-eagle" deviceset="ORESAT-CONNECTOR-40PIN" device=""/>
+<part name="CF1" library="oresat-eagle" deviceset="ORESAT-CONNECTOR-40PIN" device="">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="952-1381-5-ND"/>
+<attribute name="MFG" value="Harwin Archer"/>
+<attribute name="MPN" value="M50-3202045"/>
+</part>
 <part name="SH1" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
 <part name="U$34" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="SH2" library="hw-laird-bmi-s-202" deviceset="BMI-S-202-SHIELD" device=""/>
@@ -26540,27 +26609,27 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-4516-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H103KA88D"/>
+<attribute name="MPN" value="GRM155R71H103KA88D"/>
 </part>
-<part name="C45" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
+<part name="C45" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="0K/100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="U$37" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="C47" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
+<part name="C47" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="0K/100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="U$38" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="C48" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="478-5778-1-ND"/>
 <attribute name="MFG" value="AVX"/>
-<attribute name="MFG_PN" value="06035C104JAT2A"/>
+<attribute name="MPN" value="06035C104JAT2A"/>
 </part>
 <part name="U$41" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$43" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
@@ -26568,37 +26637,37 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1543-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R61A105KA61D"/>
+<attribute name="MPN" value="GRM188R61A105KA61D"/>
 </part>
 <part name="C40" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C41" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C36" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="1uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1543-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R61A105KA61D"/>
+<attribute name="MPN" value="GRM188R61A105KA61D"/>
 </part>
 <part name="C37" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-1512-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R71H103KA01D"/>
+<attribute name="MPN" value="GRM188R71H103KA01D"/>
 </part>
 <part name="C38" library="rcl_custom" deviceset="C-EU" device="0603-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="DIO2" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="DIO3" library="Tova" deviceset="TEST-POINT" device=""/>
@@ -26620,59 +26689,58 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="U2" library="psas_c3_team05" deviceset="SKY65116" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="863-1072-1-ND"/>
-<attribute name="MFN" value="Skyworks"/>
+<attribute name="MFG" value="Skyworks"/>
 <attribute name="MPN" value="SKY65116-21"/>
 </part>
 <part name="U8" library="psas_c3_team05" deviceset="MAAL-010704" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="1465-1261-1-ND"/>
-<attribute name="MFN" value="M/A-Com"/>
+<attribute name="MFG" value="M/A-Com"/>
 <attribute name="MPN" value="MAAL-010704-TR3000"/>
 </part>
 <part name="R13" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/0">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0GRTR-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603JR-070RL"/>
+<attribute name="MPN" value="RC0603JR-070RL"/>
 </part>
-<part name="C50" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
+<part name="C50" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="0K/10nF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+<attribute name="MPN" value="GRM155R71H102KA01D"/>
 </part>
 <part name="U$1" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="R14" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/0">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0GRTR-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603JR-070RL"/>
+<attribute name="MPN" value="RC0603JR-070RL"/>
 </part>
-<part name="C51" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
+<part name="C51" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="0K/10nF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+<attribute name="MPN" value="GRM155R71H102KA01D"/>
 </part>
 <part name="U$7" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
-<part name="C52" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10 uF"/>
-<part name="C53" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10 uF">
+<part name="C53" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10uF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="490-6405-2-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM188R60J106ME47J"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
 </part>
 <part name="C54" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="10nF">
 <attribute name="DIST" value="Digi-key"/>
 <attribute name="DPN" value="490-1303-1-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GRM155R71H102KA01D"/>
+<attribute name="MPN" value="GRM155R71H102KA01D"/>
 </part>
 <part name="3.3V6" library="psas_c3_team05" deviceset="V+" device=""/>
 <part name="U$8" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="TP1" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="R16" library="low-gain-radio" deviceset="R-US_" device="0805-C-NOSILK" value="0">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0ARCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RC0805JR-070RL"/>
@@ -26684,25 +26752,25 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="U$33" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$39" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="D1" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N5711WS">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="1N5711WS-FDICT-ND"/>
 <attribute name="MFG" value="Diodes Incorporated"/>
 <attribute name="MPN" value="1N5711WS"/>
 </part>
 <part name="R18" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="51">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-51.0LRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RC0402FR-0751RL"/>
 </part>
 <part name="C49" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="47nF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="587-1068-1-ND"/>
 <attribute name="MFG" value="Taiyo Yuden"/>
 <attribute name="MPN" value="LMK105SD472KV-F"/>
 </part>
-<part name="R20" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="20k">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<part name="R20" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="4.7k">
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="YAG1389CT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RT0402BRD0721KL"/>
@@ -26714,49 +26782,49 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="U$46" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="U$47" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
 <part name="R17" library="low-gain-radio" deviceset="R-US_" device="0805-C-NOSILK" value="0">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0ARCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RC0805JR-070RL"/>
 </part>
 <part name="R15" library="low-gain-radio" deviceset="R-US_" device="0805-C-NOSILK" value="0">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-0.0ARCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RC0805JR-070RL"/>
 </part>
 <part name="D2" library="microbuilder" deviceset="DIODE" device="SOD-323" value="1N5711WS">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="1N5711WS-FDICT-ND"/>
 <attribute name="MFG" value="Diodes Incorporated"/>
 <attribute name="MPN" value="1N5711WS"/>
 </part>
 <part name="R19" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="51">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-51.0LRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RC0402FR-0751RL"/>
 </part>
-<part name="R21" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="20k">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<part name="R21" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="4.7k">
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="YAG1389CT-ND"/>
 <attribute name="MFG" value="Yageo"/>
 <attribute name="MPN" value="RT0402BRD0721KL"/>
 </part>
 <part name="C55" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="47nF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="587-1068-1-ND"/>
 <attribute name="MFG" value="Taiyo Yuden"/>
 <attribute name="MPN" value="LMK105SD472KV-F"/>
 </part>
 <part name="C56" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="47nF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="587-1068-1-ND"/>
 <attribute name="MFG" value="Taiyo Yuden"/>
 <attribute name="MPN" value="LMK105SD472KV-F"/>
 </part>
 <part name="C57" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="47nF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="587-1068-1-ND"/>
 <attribute name="MFG" value="Taiyo Yuden"/>
 <attribute name="MPN" value="LMK105SD472KV-F"/>
@@ -26764,58 +26832,58 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <part name="CF2" library="oresat-eagle" deviceset="CON-MMCX-F-MOLEX-0734151001" device="" value="073415-1001">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="WM5552-ND"/>
-<attribute name="MFN" value="Molex"/>
+<attribute name="MFG" value="Molex"/>
 <attribute name="MPN" value="073415-1001"/>
 </part>
 <part name="RF-RESET" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="C58" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="399-11246-2-ND"/>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
 <part name="C23" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="399-11246-2-ND"/>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
 <part name="C60" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="399-11246-2-ND"/>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
 <part name="C61" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="399-11246-2-ND"/>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
-<part name="X0" library="microbuilder" deviceset="CRYSTAL" device="2.5X2.0MM" value="DNP">
+<part name="X0" library="microbuilder" deviceset="CRYSTAL" device="2.5X2.0MM" value="DNP/16 MHz">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="SER4044CT-ND"/>
-<attribute name="MFN" value="EPSON"/>
+<attribute name="MFG" value="EPSON"/>
 <attribute name="MPN" value="FA20H 32.0000MF12Y-W3"/>
 </part>
-<part name="C59" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="DNP">
+<part name="C59" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="DNP/6pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+<attribute name="MPN" value="GQM1875C2E6R0BB12D"/>
 </part>
-<part name="C62" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="DNP">
+<part name="C62" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="DNP/6pF">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="GQM1875C2E6R0BB12D-ND"/>
 <attribute name="MFG" value="Murata"/>
-<attribute name="MFG_PN" value="GQM1875C2E6R0BB12D"/>
+<attribute name="MPN" value="GQM1875C2E6R0BB12D"/>
 </part>
 <part name="GND3" library="psas_c3_team05" deviceset="GND" device=""/>
 <part name="XTAL0" library="Tova" deviceset="TEST-POINT" device=""/>
 <part name="LED9" library="apdm" deviceset="LED-RGB-SEPARATE-*" device="3528" value="SMLVN6RGB1W1">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="846-1187-1-ND"/>
-<attribute name="MFN" value="Rohm"/>
+<attribute name="MFG" value="Rohm"/>
 <attribute name="MPN" value="SMLVN6RGB1W1"/>
 </part>
 <part name="P+10" library="SparkFun-v5" deviceset="3.3V" device=""/>
@@ -26823,105 +26891,111 @@ Typical height 0.6&amp;nbsp;mm.</description>
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="R22" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="R23" library="low-gain-radio" deviceset="R-US_" device="0402-B-NOSILK" value="DNP/1k">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="311-1.00KHRCT-ND"/>
 <attribute name="MFG" value="Yageo"/>
-<attribute name="MFG_PN" value="RC0603FR-071KL"/>
+<attribute name="MPN" value="RC0603FR-071KL"/>
 </part>
 <part name="U5" library="low-gain-radio" deviceset="RF3025" device="">
 <attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="689-1087-1-ND"/>
-<attribute name="MFN" value="RFMD"/>
+<attribute name="MFG" value="RFMD"/>
 <attribute name="MPN" value="RF3025TR7"/>
 </part>
 <part name="C63" library="low-gain-radio" deviceset="C-EU" device="0402-B-NOSILK" value="100pF">
-<attribute name="DIST" value="Digi-Key Inc."/>
+<attribute name="DIST" value="Digi-Key"/>
 <attribute name="DPN" value="399-11246-2-ND"/>
 <attribute name="MFG" value="Kemet"/>
 <attribute name="MPN" value="CBR04C101F3GAC"/>
 </part>
 <part name="U$9" library="supply-rf_gnd" deviceset="RF_GND" device=""/>
+<part name="C64" library="rcl_custom" deviceset="C-EU" device="0805-B-NOSILK" value="10uF">
+<attribute name="DIST" value="Digi-Key"/>
+<attribute name="DPN" value="490-6405-2-ND"/>
+<attribute name="MFG" value="Murata"/>
+<attribute name="MPN" value="GRM188R60J106ME47J"/>
+</part>
 </parts>
 <sheets>
 <sheet>
 <plain>
 <text x="457.2" y="27.94" size="2.54" layer="94">William Harrington, James Heath</text>
-<wire x1="195.58" y1="289.56" x2="195.58" y2="182.88" width="0.1524" layer="97" style="longdash"/>
+<wire x1="195.58" y1="303.53" x2="195.58" y2="182.88" width="0.1524" layer="97" style="longdash"/>
 <wire x1="195.58" y1="182.88" x2="233.68" y2="182.88" width="0.1524" layer="97" style="longdash"/>
-<wire x1="233.68" y1="182.88" x2="233.68" y2="289.56" width="0.1524" layer="97" style="longdash"/>
-<wire x1="233.68" y1="289.56" x2="195.58" y2="289.56" width="0.1524" layer="97" style="longdash"/>
-<wire x1="314.96" y1="124.46" x2="417.83" y2="124.46" width="0.1524" layer="97" style="longdash"/>
-<wire x1="417.83" y1="124.46" x2="417.83" y2="219.71" width="0.1524" layer="97" style="longdash"/>
+<wire x1="233.68" y1="182.88" x2="233.68" y2="303.53" width="0.1524" layer="97" style="longdash"/>
+<wire x1="233.68" y1="303.53" x2="195.58" y2="303.53" width="0.1524" layer="97" style="longdash"/>
+<wire x1="314.96" y1="124.46" x2="419.1" y2="124.46" width="0.1524" layer="97" style="longdash"/>
+<wire x1="419.1" y1="124.46" x2="419.1" y2="219.71" width="0.1524" layer="97" style="longdash"/>
 <wire x1="314.96" y1="219.71" x2="314.96" y2="124.46" width="0.1524" layer="97" style="longdash"/>
-<wire x1="238.76" y1="274.32" x2="312.42" y2="274.32" width="0.1524" layer="97" style="longdash"/>
-<wire x1="312.42" y1="274.32" x2="312.42" y2="231.14" width="0.1524" layer="97" style="longdash"/>
-<wire x1="238.76" y1="231.14" x2="238.76" y2="274.32" width="0.1524" layer="97" style="longdash"/>
+<wire x1="238.76" y1="288.29" x2="312.42" y2="288.29" width="0.1524" layer="97" style="longdash"/>
+<wire x1="312.42" y1="288.29" x2="312.42" y2="245.11" width="0.1524" layer="97" style="longdash"/>
+<wire x1="238.76" y1="245.11" x2="238.76" y2="288.29" width="0.1524" layer="97" style="longdash"/>
 <wire x1="241.3" y1="210.82" x2="309.88" y2="210.82" width="0.1524" layer="97" style="longdash"/>
 <wire x1="309.88" y1="210.82" x2="309.88" y2="167.64" width="0.1524" layer="97" style="longdash"/>
 <wire x1="309.88" y1="167.64" x2="241.3" y2="167.64" width="0.1524" layer="97" style="longdash"/>
 <wire x1="241.3" y1="167.64" x2="241.3" y2="210.82" width="0.1524" layer="97" style="longdash"/>
-<wire x1="317.5" y1="349.25" x2="439.42" y2="349.25" width="0.1524" layer="97" style="longdash"/>
-<wire x1="439.42" y1="349.25" x2="439.42" y2="228.6" width="0.1524" layer="97" style="longdash"/>
-<wire x1="439.42" y1="228.6" x2="317.5" y2="228.6" width="0.1524" layer="97" style="longdash"/>
-<wire x1="317.5" y1="228.6" x2="317.5" y2="349.25" width="0.1524" layer="97" style="longdash"/>
-<wire x1="452.12" y1="226.06" x2="504.19" y2="226.06" width="0.1524" layer="97" style="longdash"/>
-<wire x1="504.19" y1="226.06" x2="504.19" y2="166.37" width="0.1524" layer="97" style="longdash"/>
-<wire x1="504.19" y1="166.37" x2="452.12" y2="166.37" width="0.1524" layer="97" style="longdash"/>
-<wire x1="452.12" y1="166.37" x2="452.12" y2="226.06" width="0.1524" layer="97" style="longdash"/>
-<text x="218.44" y="287.02" size="1.778" layer="97">Feed Network</text>
-<text x="290.83" y="270.51" size="1.778" layer="97">Tx Front End Filter</text>
-<text x="320.04" y="340.36" size="5.08" layer="97">PA</text>
-<text x="287.02" y="208.28" size="1.778" layer="97">Rx Front End Filter</text>
+<wire x1="317.5" y1="363.22" x2="430.53" y2="363.22" width="0.1524" layer="97" style="longdash"/>
+<wire x1="430.53" y1="363.22" x2="430.53" y2="242.57" width="0.1524" layer="97" style="longdash"/>
+<wire x1="430.53" y1="242.57" x2="317.5" y2="242.57" width="0.1524" layer="97" style="longdash"/>
+<wire x1="317.5" y1="242.57" x2="317.5" y2="363.22" width="0.1524" layer="97" style="longdash"/>
+<wire x1="452.12" y1="212.09" x2="510.54" y2="212.09" width="0.1524" layer="97" style="longdash"/>
+<wire x1="510.54" y1="212.09" x2="510.54" y2="152.4" width="0.1524" layer="97" style="longdash"/>
+<wire x1="510.54" y1="152.4" x2="452.12" y2="152.4" width="0.1524" layer="97" style="longdash"/>
+<wire x1="452.12" y1="152.4" x2="452.12" y2="212.09" width="0.1524" layer="97" style="longdash"/>
+<text x="201.93" y="299.72" size="2.54" layer="97">Feed Network</text>
+<text x="271.78" y="283.21" size="2.54" layer="97">Tx Front End Filter</text>
+<text x="320.04" y="356.87" size="5.08" layer="97">PA</text>
+<text x="269.24" y="207.01" size="2.54" layer="97">Rx Front End Filter</text>
 <text x="316.23" y="212.09" size="5.08" layer="97">LNA</text>
-<text x="454.66" y="219.71" size="5.08" layer="97">RX/TX</text>
-<text x="527.05" y="196.85" size="1.778" layer="97">MMCX to Antenna</text>
-<text x="127" y="334.01" size="1.778" layer="97">SPI Cache</text>
-<wire x1="314.96" y1="219.71" x2="417.83" y2="219.71" width="0.1524" layer="97" style="longdash"/>
+<text x="453.39" y="205.74" size="5.08" layer="97">RX/TX</text>
+<text x="518.16" y="179.07" size="1.778" layer="97">MMCX to Antenna</text>
+<text x="123.19" y="341.63" size="2.54" layer="97">SPI Cache</text>
+<wire x1="314.96" y1="219.71" x2="419.1" y2="219.71" width="0.1524" layer="97" style="longdash"/>
 <wire x1="144.78" y1="345.44" x2="83.82" y2="345.44" width="0.1524" layer="97" style="longdash"/>
 <wire x1="83.82" y1="345.44" x2="83.82" y2="294.64" width="0.1524" layer="97" style="longdash"/>
 <wire x1="83.82" y1="294.64" x2="144.78" y2="294.64" width="0.1524" layer="97" style="longdash"/>
 <wire x1="144.78" y1="294.64" x2="144.78" y2="345.44" width="0.1524" layer="97" style="longdash"/>
-<wire x1="312.42" y1="231.14" x2="238.76" y2="231.14" width="0.1524" layer="97" style="longdash"/>
-<text x="241.3" y="97.79" size="1.778" layer="97">Debug interface</text>
+<wire x1="312.42" y1="245.11" x2="238.76" y2="245.11" width="0.1524" layer="97" style="longdash"/>
+<text x="228.6" y="97.79" size="2.54" layer="97">Debug interface</text>
 <wire x1="261.62" y1="7.62" x2="157.48" y2="7.62" width="0.1524" layer="97" style="longdash"/>
 <wire x1="261.62" y1="101.6" x2="157.48" y2="101.6" width="0.1524" layer="97" style="longdash"/>
 <wire x1="261.62" y1="101.6" x2="261.62" y2="7.62" width="0.1524" layer="97" style="longdash"/>
 <wire x1="157.48" y1="101.6" x2="157.48" y2="7.62" width="0.1524" layer="97" style="longdash"/>
-<text x="223.52" y="49.53" size="1.778" layer="97" rot="R90">Placed by access edge</text>
+<text x="222.25" y="45.72" size="1.778" layer="97" rot="R90">Placed by access edge</text>
 <text x="7.62" y="154.94" size="1.778" layer="97" rot="R90">ORESAT BACKPLANE</text>
 <text x="140.97" y="257.81" size="1.778" layer="97">DIO0 pin controls 
 transceiver RESET
 if needed</text>
-<text x="410.21" y="199.39" size="1.778" layer="97">= 3.0V</text>
-<text x="415.29" y="326.39" size="1.778" layer="97">= 3.0V</text>
+<text x="405.13" y="199.39" size="1.778" layer="97">= 3.3V</text>
+<text x="415.29" y="340.36" size="1.778" layer="97">= 3.3V</text>
 <text x="384.81" y="128.27" size="1.778" layer="97">Datasheet 
 shows NC
 to GND</text>
 <text x="101.6" y="125.73" size="1.778" layer="97">NOTE: GND and RF_GND 
 connected at KW0x pads.</text>
-<text x="459.74" y="317.5" size="1.778" layer="97">Power LED with filtering.
+<text x="467.36" y="336.55" size="1.778" layer="97">Power LED with filtering.
 DNP for flight.</text>
-<text x="265.43" y="140.97" size="1.778" layer="97">Filter on V+ @ 
+<text x="259.08" y="149.86" size="1.778" layer="97">Filter on V+ @ 
 RF_GND crossing</text>
 <text x="90.17" y="169.545" size="1.778" layer="97">NC</text>
 <text x="90.17" y="167.005" size="1.778" layer="97">NC</text>
 <text x="90.17" y="197.485" size="1.778" layer="97">NC</text>
 <text x="90.17" y="194.945" size="1.778" layer="97">NC</text>
 <text x="90.17" y="187.325" size="1.778" layer="97">NC</text>
-<wire x1="322.58" y1="93.98" x2="422.91" y2="93.98" width="0.1524" layer="97" style="longdash"/>
-<wire x1="422.91" y1="93.98" x2="422.91" y2="17.78" width="0.1524" layer="97" style="longdash"/>
-<wire x1="422.91" y1="17.78" x2="322.58" y2="17.78" width="0.1524" layer="97" style="longdash"/>
-<wire x1="322.58" y1="17.78" x2="322.58" y2="93.98" width="0.1524" layer="97" style="longdash"/>
-<text x="326.39" y="87.63" size="5.08" layer="97">Reflectometer</text>
+<wire x1="528.32" y1="288.29" x2="528.32" y2="223.52" width="0.1524" layer="97" style="longdash"/>
+<wire x1="528.32" y1="223.52" x2="450.85" y2="223.52" width="0.1524" layer="97" style="longdash"/>
+<wire x1="450.85" y1="223.52" x2="450.85" y2="288.29" width="0.1524" layer="97" style="longdash"/>
+<wire x1="450.85" y1="288.29" x2="528.32" y2="288.29" width="0.1524" layer="97" style="longdash"/>
+<text x="453.39" y="280.67" size="5.08" layer="97">Reflectometer</text>
 <text x="90.17" y="200.025" size="1.778" layer="97">NC</text>
 <wire x1="33.02" y1="78.74" x2="35.56" y2="78.74" width="0.1524" layer="97"/>
 <wire x1="35.56" y1="78.74" x2="35.56" y2="71.12" width="0.1524" layer="97"/>
@@ -26931,6 +27005,21 @@ RF_GND crossing</text>
 <wire x1="35.56" y1="60.96" x2="33.02" y2="60.96" width="0.1524" layer="97"/>
 <text x="36.83" y="73.66" size="1.778" layer="97">CAN</text>
 <text x="36.83" y="63.5" size="1.778" layer="97">Vpv</text>
+<text x="417.83" y="261.62" size="1.778" layer="97">SHIELD</text>
+<text x="351.79" y="138.43" size="1.778" layer="97">SHIELD</text>
+<text x="270.51" y="11.43" size="3.81" layer="97">All resistors are 1% 0402 unless noted.</text>
+<text x="87.63" y="387.35" size="1.778" layer="97">0805</text>
+<text x="363.22" y="344.17" size="1.778" layer="97">0805</text>
+<text x="356.87" y="201.93" size="1.778" layer="97">0805</text>
+<text x="270.51" y="7.62" size="3.81" layer="97">All capacitors are X5R 10% Vw&gt;=10V 0402 unless noted.</text>
+<text x="546.1" y="7.62" size="2.54" layer="97">2.0</text>
+<text x="467.36" y="330.2" size="1.778" layer="97">Replace Caps with 0 ohm 0402
+resistors for flight.</text>
+<text x="434.34" y="92.71" size="1.778" layer="97">Power LED with filtering.
+DNP for flight.</text>
+<text x="434.34" y="86.36" size="1.778" layer="97">Replace Caps with 0 ohm 0402
+resistors for flight.</text>
+<text x="270.51" y="25.4" size="3.81" layer="100">WARNING: RLC ATTRIBUTES ARE NOT CORRECT</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -26938,7 +27027,7 @@ RF_GND crossing</text>
 <instance part="U1" gate="G$1" x="114.3" y="195.58" smashed="yes">
 <attribute name="NAME" x="113.03" y="199.39" size="1.778" layer="95" ratio="5"/>
 <attribute name="VALUE" x="107.95" y="191.77" size="1.778" layer="96" ratio="5"/>
-<attribute name="MFN" x="114.3" y="195.58" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="114.3" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="MPN" x="114.3" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="DIST" x="114.3" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="114.3" y="195.58" size="1.778" layer="96" display="off"/>
@@ -26947,27 +27036,27 @@ RF_GND crossing</text>
 <attribute name="DIST" x="182.88" y="162.56" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="DPN" x="182.88" y="162.56" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="MFG" x="182.88" y="162.56" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="MFG_PN" x="182.88" y="162.56" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="182.88" y="162.56" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
 <instance part="GND2" gate="1" x="195.58" y="154.94"/>
 <instance part="GND4" gate="1" x="114.3" y="134.62"/>
-<instance part="L1" gate="L" x="226.06" y="276.86">
-<attribute name="DIST" x="226.06" y="276.86" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="226.06" y="276.86" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="226.06" y="276.86" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="226.06" y="276.86" size="1.778" layer="96" display="off"/>
+<instance part="L1" gate="L" x="226.06" y="290.83">
+<attribute name="DIST" x="226.06" y="290.83" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="226.06" y="290.83" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="226.06" y="290.83" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="226.06" y="290.83" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C1" gate="CE" x="210.82" y="271.78" rot="R180">
-<attribute name="DIST" x="210.82" y="271.78" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="210.82" y="271.78" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="210.82" y="271.78" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="210.82" y="271.78" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C1" gate="CE" x="210.82" y="285.75" rot="R180">
+<attribute name="DIST" x="210.82" y="285.75" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="210.82" y="285.75" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="210.82" y="285.75" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="210.82" y="285.75" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="C2" gate="CE" x="243.84" y="248.92">
-<attribute name="DIST" x="243.84" y="248.92" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="243.84" y="248.92" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="243.84" y="248.92" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="243.84" y="248.92" size="1.778" layer="96" display="off"/>
+<instance part="C2" gate="CE" x="243.84" y="262.89">
+<attribute name="DIST" x="243.84" y="262.89" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="243.84" y="262.89" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="243.84" y="262.89" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="243.84" y="262.89" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="L2" gate="L" x="226.06" y="213.36" smashed="yes">
 <attribute name="NAME" x="219.71" y="215.9" size="1.778" layer="95"/>
@@ -26975,7 +27064,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="226.06" y="213.36" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="226.06" y="213.36" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="226.06" y="213.36" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="226.06" y="213.36" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="226.06" y="213.36" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C3" gate="CE" x="215.9" y="208.28" smashed="yes">
 <attribute name="NAME" x="217.424" y="208.661" size="1.778" layer="95"/>
@@ -26983,85 +27072,85 @@ RF_GND crossing</text>
 <attribute name="DIST" x="215.9" y="208.28" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="215.9" y="208.28" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="215.9" y="208.28" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="215.9" y="208.28" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="215.9" y="208.28" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C4" gate="CE" x="246.38" y="185.42">
 <attribute name="DIST" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="246.38" y="185.42" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C5" gate="CE" x="248.92" y="254" rot="R90">
-<attribute name="DIST" x="248.92" y="254" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="248.92" y="254" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="248.92" y="254" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="248.92" y="254" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="C5" gate="CE" x="248.92" y="267.97" rot="R90">
+<attribute name="DIST" x="248.92" y="267.97" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="248.92" y="267.97" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="248.92" y="267.97" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="248.92" y="267.97" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="C6" gate="CE" x="251.46" y="190.5" rot="R90">
 <attribute name="DIST" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="251.46" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="C7" gate="CE" x="261.62" y="261.62" rot="R90">
-<attribute name="DIST" x="261.62" y="261.62" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="261.62" y="261.62" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="261.62" y="261.62" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="261.62" y="261.62" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="C7" gate="CE" x="261.62" y="275.59" rot="R90">
+<attribute name="DIST" x="261.62" y="275.59" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="261.62" y="275.59" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="261.62" y="275.59" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="261.62" y="275.59" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="C8" gate="CE" x="266.7" y="198.12" rot="R90">
 <attribute name="DIST" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="266.7" y="198.12" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="L3" gate="L" x="266.7" y="254" smashed="yes">
-<attribute name="NAME" x="260.35" y="256.54" size="1.778" layer="95"/>
-<attribute name="VALUE" x="265.43" y="256.54" size="1.778" layer="96" rot="MR180" align="top-left"/>
-<attribute name="DIST" x="266.7" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="266.7" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="266.7" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="266.7" y="254" size="1.778" layer="96" display="off"/>
+<instance part="L3" gate="L" x="266.7" y="267.97" smashed="yes">
+<attribute name="NAME" x="260.35" y="270.51" size="1.778" layer="95"/>
+<attribute name="VALUE" x="265.43" y="270.51" size="1.778" layer="96" rot="MR180" align="top-left"/>
+<attribute name="DIST" x="266.7" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="266.7" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="266.7" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="266.7" y="267.97" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="L4" gate="L" x="269.24" y="190.5">
 <attribute name="DIST" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="269.24" y="190.5" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="L5" gate="L" x="287.02" y="254" smashed="yes">
-<attribute name="NAME" x="280.67" y="256.54" size="1.778" layer="95"/>
-<attribute name="VALUE" x="285.75" y="256.54" size="1.778" layer="96" rot="MR180" align="top-left"/>
-<attribute name="DIST" x="287.02" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="287.02" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="287.02" y="254" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="287.02" y="254" size="1.778" layer="96" display="off"/>
+<instance part="L5" gate="L" x="287.02" y="267.97" smashed="yes">
+<attribute name="NAME" x="280.67" y="270.51" size="1.778" layer="95"/>
+<attribute name="VALUE" x="285.75" y="270.51" size="1.778" layer="96" rot="MR180" align="top-left"/>
+<attribute name="DIST" x="287.02" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="287.02" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="287.02" y="267.97" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="287.02" y="267.97" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="L6" gate="L" x="292.1" y="190.5">
 <attribute name="DIST" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="292.1" y="190.5" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C9" gate="CE" x="276.86" y="246.38" rot="R180">
-<attribute name="DIST" x="276.86" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="276.86" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="276.86" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="276.86" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C9" gate="CE" x="276.86" y="260.35" rot="R180">
+<attribute name="DIST" x="276.86" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="276.86" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="276.86" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="276.86" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C10" gate="CE" x="281.94" y="182.88" rot="R180">
 <attribute name="DIST" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="281.94" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="C11" gate="CE" x="294.64" y="246.38" smashed="yes" rot="R180">
-<attribute name="NAME" x="288.544" y="244.221" size="1.778" layer="95"/>
-<attribute name="VALUE" x="293.116" y="251.079" size="1.778" layer="96" rot="R180"/>
-<attribute name="DIST" x="294.64" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="294.64" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="294.64" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="294.64" y="246.38" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C11" gate="CE" x="294.64" y="260.35" smashed="yes" rot="R180">
+<attribute name="NAME" x="288.544" y="258.191" size="1.778" layer="95"/>
+<attribute name="VALUE" x="293.116" y="265.049" size="1.778" layer="96" rot="R180"/>
+<attribute name="DIST" x="294.64" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="294.64" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="294.64" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="294.64" y="260.35" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C12" gate="CE" x="299.72" y="182.88" smashed="yes" rot="R180">
 <attribute name="NAME" x="305.816" y="182.499" size="1.778" layer="95" rot="R180"/>
@@ -27069,69 +27158,69 @@ RF_GND crossing</text>
 <attribute name="DIST" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="299.72" y="182.88" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="C14" gate="CE" x="302.26" y="254" smashed="yes" rot="R270">
-<attribute name="NAME" x="303.784" y="255.651" size="1.778" layer="95"/>
-<attribute name="VALUE" x="303.784" y="251.841" size="1.778" layer="96"/>
-<attribute name="DIST" x="302.26" y="254" size="1.778" layer="96" rot="R270" display="off"/>
-<attribute name="DPN" x="302.26" y="254" size="1.778" layer="96" rot="R270" display="off"/>
-<attribute name="MFG" x="302.26" y="254" size="1.778" layer="96" rot="R270" display="off"/>
-<attribute name="MFG_PN" x="302.26" y="254" size="1.778" layer="96" rot="R270" display="off"/>
+<instance part="C14" gate="CE" x="304.8" y="267.97" smashed="yes" rot="R270">
+<attribute name="NAME" x="306.324" y="269.621" size="1.778" layer="95"/>
+<attribute name="VALUE" x="306.324" y="265.811" size="1.778" layer="96"/>
+<attribute name="DIST" x="304.8" y="267.97" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="DPN" x="304.8" y="267.97" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="304.8" y="267.97" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MPN" x="304.8" y="267.97" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
-<instance part="C15" gate="CE" x="391.16" y="284.48" rot="MR180">
-<attribute name="DIST" x="391.16" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="391.16" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="391.16" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="391.16" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C15" gate="CE" x="391.16" y="298.45" rot="MR180">
+<attribute name="DIST" x="391.16" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="391.16" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="391.16" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="391.16" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C16" gate="CE" x="378.46" y="284.48" rot="MR180">
-<attribute name="DIST" x="378.46" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="378.46" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="378.46" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="378.46" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C16" gate="CE" x="378.46" y="298.45" rot="MR180">
+<attribute name="DIST" x="378.46" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="378.46" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="378.46" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="378.46" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C17" gate="CE" x="406.4" y="284.48" rot="MR180">
-<attribute name="DIST" x="406.4" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="406.4" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="406.4" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="406.4" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C17" gate="CE" x="406.4" y="298.45" rot="MR180">
+<attribute name="DIST" x="406.4" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="406.4" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="406.4" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="406.4" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C18" gate="CE" x="419.1" y="284.48" rot="MR180">
-<attribute name="DIST" x="419.1" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="419.1" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="419.1" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="419.1" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C18" gate="CE" x="419.1" y="298.45" rot="MR180">
+<attribute name="DIST" x="419.1" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="419.1" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="419.1" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="419.1" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C19" gate="CE" x="332.74" y="284.48" rot="MR180">
-<attribute name="DIST" x="332.74" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="332.74" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="332.74" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="332.74" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C19" gate="CE" x="332.74" y="298.45" rot="MR180">
+<attribute name="DIST" x="332.74" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="332.74" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="332.74" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="332.74" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C20" gate="CE" x="322.58" y="284.48" rot="MR180">
-<attribute name="DIST" x="322.58" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="322.58" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="322.58" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="322.58" y="284.48" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C20" gate="CE" x="322.58" y="298.45" rot="MR180">
+<attribute name="DIST" x="322.58" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="322.58" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="322.58" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="322.58" y="298.45" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C21" gate="CE" x="350.52" y="284.48" rot="R180">
-<attribute name="DIST" x="350.52" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="350.52" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="350.52" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="350.52" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C21" gate="CE" x="350.52" y="298.45" rot="R180">
+<attribute name="DIST" x="350.52" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="350.52" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="350.52" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="350.52" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="C22" gate="CE" x="360.68" y="284.48" rot="R180">
-<attribute name="DIST" x="360.68" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="360.68" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="360.68" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="360.68" y="284.48" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C22" gate="CE" x="360.68" y="298.45" rot="R180">
+<attribute name="DIST" x="360.68" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="360.68" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="360.68" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="360.68" y="298.45" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="R1" gate="R" x="373.38" y="162.56" smashed="yes" rot="R180">
 <attribute name="DIST" x="373.38" y="162.56" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="373.38" y="162.56" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="373.38" y="162.56" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="373.38" y="162.56" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="373.38" y="162.56" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="NAME" x="377.19" y="166.1414" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="370.84" y="165.862" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -27139,7 +27228,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="331.47" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="331.47" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="331.47" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="331.47" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="331.47" y="160.02" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="C26" gate="CE" x="127" y="264.16" smashed="yes">
 <attribute name="NAME" x="128.524" y="264.541" size="1.778" layer="95"/>
@@ -27147,7 +27236,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="127" y="264.16" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="127" y="264.16" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="127" y="264.16" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="127" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="127" y="264.16" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C27" gate="CE" x="116.84" y="264.16" smashed="yes">
 <attribute name="NAME" x="118.364" y="264.541" size="1.778" layer="95"/>
@@ -27155,7 +27244,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="116.84" y="264.16" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND25" gate="1" x="121.92" y="254"/>
 <instance part="C28" gate="CE" x="73.66" y="238.76" smashed="yes" rot="R180">
@@ -27164,7 +27253,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="73.66" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="GND28" gate="1" x="78.74" y="231.14"/>
 <instance part="C29" gate="CE" x="83.82" y="238.76" smashed="yes" rot="R180">
@@ -27173,7 +27262,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="83.82" y="238.76" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C30" gate="CE" x="144.78" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="143.256" y="223.139" size="1.778" layer="95" rot="R180"/>
@@ -27181,7 +27270,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="144.78" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C31" gate="CE" x="160.02" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="158.496" y="218.059" size="1.778" layer="95" rot="R180"/>
@@ -27189,7 +27278,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="160.02" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C32" gate="CE" x="170.18" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="168.656" y="218.059" size="1.778" layer="95" rot="R180"/>
@@ -27197,7 +27286,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="170.18" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="C33" gate="CE" x="180.34" y="218.44" smashed="yes" rot="R180">
 <attribute name="NAME" x="178.816" y="218.059" size="1.778" layer="95" rot="R180"/>
@@ -27205,12 +27294,12 @@ RF_GND crossing</text>
 <attribute name="DIST" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="180.34" y="218.44" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="X1" gate="G$1" x="162.56" y="198.12" smashed="yes" rot="MR270">
 <attribute name="DIST" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="DPN" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
-<attribute name="MFN" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="MFG" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="MPN" x="162.56" y="198.12" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="NAME" x="157.48" y="200.66" size="1.27" layer="95" rot="MR180"/>
 <attribute name="VALUE" x="154.94" y="198.12" size="1.27" layer="96" rot="MR180"/>
@@ -27221,7 +27310,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="DPN" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
-<attribute name="MFG_PN" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="172.72" y="203.2" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C35" gate="CE" x="172.72" y="193.04" smashed="yes" rot="MR90">
 <attribute name="NAME" x="165.354" y="195.199" size="1.778" layer="95" rot="MR180"/>
@@ -27229,7 +27318,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="DPN" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
-<attribute name="MFG_PN" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="172.72" y="193.04" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND33" gate="1" x="175.26" y="187.96" rot="MR0"/>
 <instance part="P+3" gate="G$1" x="160.02" y="243.84"/>
@@ -27238,50 +27327,50 @@ RF_GND crossing</text>
 <attribute name="DIST" x="336.55" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="336.55" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="336.55" y="162.56" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="336.55" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="336.55" y="162.56" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="C25" gate="CE" x="325.12" y="147.32" rot="MR270">
 <attribute name="DIST" x="325.12" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="DPN" x="325.12" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="MFG" x="325.12" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
-<attribute name="MFG_PN" x="325.12" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="MPN" x="325.12" y="147.32" size="1.778" layer="96" rot="MR270" display="off"/>
 </instance>
 <instance part="C43" gate="G$1" x="346.71" y="162.56">
 <attribute name="DIST" x="346.71" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="346.71" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="346.71" y="162.56" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="346.71" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="346.71" y="162.56" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="U7" gate="G$1" x="381" y="320.04" smashed="yes">
-<attribute name="DIST" x="381" y="320.04" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="381" y="320.04" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="381" y="320.04" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="381" y="320.04" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="386.08" y="331.47" size="1.778" layer="104"/>
-<attribute name="VALUE" x="378.46" y="328.93" size="1.778" layer="96"/>
+<instance part="U7" gate="G$1" x="381" y="334.01" smashed="yes">
+<attribute name="DIST" x="381" y="334.01" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="381" y="334.01" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="381" y="334.01" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="381" y="334.01" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="386.08" y="345.44" size="1.778" layer="104"/>
+<attribute name="VALUE" x="378.46" y="342.9" size="1.778" layer="96"/>
 </instance>
-<instance part="C13" gate="CE" x="360.68" y="320.04" smashed="yes" rot="MR180">
-<attribute name="NAME" x="354.584" y="324.739" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="354.584" y="318.389" size="1.778" layer="96" rot="MR180"/>
-<attribute name="DIST" x="360.68" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="360.68" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="360.68" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="360.68" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C13" gate="CE" x="360.68" y="334.01" smashed="yes" rot="MR180">
+<attribute name="NAME" x="354.584" y="338.709" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="354.584" y="332.359" size="1.778" layer="96" rot="MR180"/>
+<attribute name="DIST" x="360.68" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="360.68" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="360.68" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="360.68" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="C46" gate="CE" x="412.75" y="320.04" rot="MR180">
-<attribute name="DIST" x="412.75" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="412.75" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="412.75" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="412.75" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C46" gate="CE" x="412.75" y="334.01" rot="MR180">
+<attribute name="DIST" x="412.75" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="412.75" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="412.75" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="412.75" y="334.01" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
-<instance part="3.3V2" gate="1" x="360.68" y="342.9" rot="MR0"/>
+<instance part="3.3V2" gate="1" x="360.68" y="356.87" rot="MR0"/>
 <instance part="GND1" gate="1" x="208.28" y="43.18"/>
 <instance part="SUPPLY1" gate="1" x="208.28" y="88.9"/>
 <instance part="3.3V1" gate="1" x="355.6" y="215.9" rot="MR0"/>
 <instance part="GND34" gate="1" x="129.54" y="312.42"/>
 <instance part="U4" gate="G$1" x="115.57" y="381" smashed="yes">
-<attribute name="MFN" x="115.57" y="381" size="1.778" layer="96" display="off"/>
-<attribute name="MFN-PN" x="115.57" y="381" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="115.57" y="381" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="115.57" y="381" size="1.778" layer="96" display="off"/>
 <attribute name="DIST" x="115.57" y="381" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="115.57" y="381" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="123.19" y="389.89" size="1.778" layer="104"/>
@@ -27290,8 +27379,8 @@ RF_GND crossing</text>
 <instance part="GND35" gate="1" x="115.57" y="360.68"/>
 <instance part="3.3V3" gate="1" x="83.82" y="401.32" rot="MR0"/>
 <instance part="U6" gate="G$1" x="378.46" y="195.58" smashed="yes">
-<attribute name="MFN" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
-<attribute name="MFN-PN" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="DIST" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="378.46" y="195.58" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="369.57" y="204.47" size="1.778" layer="104"/>
@@ -27301,7 +27390,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="109.22" y="317.5" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="DPN" x="109.22" y="317.5" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="MFG" x="109.22" y="317.5" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="MFG_PN" x="109.22" y="317.5" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="109.22" y="317.5" size="1.778" layer="96" rot="MR0" display="off"/>
 <attribute name="NAME" x="114.3" y="331.47" size="1.778" layer="104"/>
 <attribute name="VALUE" x="104.14" y="328.93" size="1.778" layer="96"/>
 </instance>
@@ -27310,26 +27399,26 @@ RF_GND crossing</text>
 <instance part="U$4" gate="1" x="281.94" y="175.26"/>
 <instance part="U$5" gate="1" x="246.38" y="175.26"/>
 <instance part="U$6" gate="1" x="215.9" y="198.12"/>
-<instance part="U$10" gate="1" x="243.84" y="238.76"/>
-<instance part="U$11" gate="1" x="276.86" y="238.76"/>
-<instance part="U$12" gate="1" x="294.64" y="238.76"/>
-<instance part="U$13" gate="1" x="381" y="236.22"/>
-<instance part="U$15" gate="1" x="391.16" y="276.86"/>
-<instance part="U$16" gate="1" x="419.1" y="276.86" rot="MR0"/>
-<instance part="U$17" gate="1" x="406.4" y="276.86" rot="MR0"/>
-<instance part="U$18" gate="1" x="350.52" y="276.86"/>
-<instance part="U$19" gate="1" x="360.68" y="276.86"/>
-<instance part="U$20" gate="1" x="322.58" y="276.86"/>
-<instance part="U$21" gate="1" x="332.74" y="276.86"/>
+<instance part="U$10" gate="1" x="243.84" y="252.73"/>
+<instance part="U$11" gate="1" x="276.86" y="252.73"/>
+<instance part="U$12" gate="1" x="294.64" y="252.73"/>
+<instance part="U$13" gate="1" x="381" y="250.19"/>
+<instance part="U$15" gate="1" x="391.16" y="290.83"/>
+<instance part="U$16" gate="1" x="419.1" y="290.83" rot="MR0"/>
+<instance part="U$17" gate="1" x="406.4" y="290.83" rot="MR0"/>
+<instance part="U$18" gate="1" x="350.52" y="290.83"/>
+<instance part="U$19" gate="1" x="360.68" y="290.83"/>
+<instance part="U$20" gate="1" x="322.58" y="290.83"/>
+<instance part="U$21" gate="1" x="332.74" y="290.83"/>
 <instance part="U$23" gate="1" x="346.71" y="152.4"/>
-<instance part="U$25" gate="1" x="210.82" y="264.16"/>
-<instance part="U$14" gate="1" x="378.46" y="276.86"/>
-<instance part="U$26" gate="1" x="381" y="302.26"/>
-<instance part="U$27" gate="1" x="412.75" y="312.42"/>
-<instance part="U$28" gate="1" x="360.68" y="312.42"/>
-<instance part="U$29" gate="1" x="457.2" y="101.6"/>
-<instance part="U$30" gate="1" x="538.48" y="179.07"/>
-<instance part="U$31" gate="1" x="477.52" y="172.72"/>
+<instance part="U$25" gate="1" x="210.82" y="278.13"/>
+<instance part="U$14" gate="1" x="378.46" y="290.83"/>
+<instance part="U$26" gate="1" x="381" y="316.23"/>
+<instance part="U$27" gate="1" x="412.75" y="326.39"/>
+<instance part="U$28" gate="1" x="360.68" y="326.39"/>
+<instance part="U$29" gate="1" x="467.36" y="101.6"/>
+<instance part="U$30" gate="1" x="529.59" y="163.83"/>
+<instance part="U$31" gate="1" x="482.6" y="157.48"/>
 <instance part="U$32" gate="1" x="378.46" y="177.8"/>
 <instance part="3.3V5" gate="1" x="45.72" y="63.5" rot="MR0"/>
 <instance part="GND5" gate="1" x="38.1" y="35.56"/>
@@ -27339,20 +27428,25 @@ RF_GND crossing</text>
 <attribute name="DIST" x="129.54" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="129.54" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="129.54" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="129.54" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="129.54" y="320.04" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="GND6" gate="1" x="91.44" y="231.14"/>
 <instance part="P+1" gate="G$1" x="88.9" y="246.38"/>
 <instance part="P+2" gate="G$1" x="143.51" y="387.35"/>
 <instance part="P+5" gate="G$1" x="111.76" y="269.24"/>
 <instance part="P+6" gate="G$1" x="129.54" y="327.66" rot="MR0"/>
-<instance part="CM2" gate="G$1" x="218.44" y="63.5"/>
+<instance part="CM2" gate="G$1" x="218.44" y="63.5">
+<attribute name="DIST" x="218.44" y="63.5" size="2.54" layer="96" display="off"/>
+<attribute name="DPN" x="218.44" y="63.5" size="2.54" layer="96" display="off"/>
+<attribute name="MFN" x="218.44" y="63.5" size="2.54" layer="96" display="off"/>
+<attribute name="MPN" x="218.44" y="63.5" size="2.54" layer="96" display="off"/>
+</instance>
 <instance part="P+7" gate="G$1" x="203.2" y="93.98"/>
 <instance part="R2" gate="R" x="88.9" y="330.2" rot="R90">
 <attribute name="DIST" x="88.9" y="330.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="88.9" y="330.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="88.9" y="330.2" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="88.9" y="330.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="88.9" y="330.2" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="P+8" gate="G$1" x="88.9" y="337.82" rot="MR0"/>
 <instance part="P+9" gate="G$1" x="139.7" y="314.96"/>
@@ -27362,79 +27456,81 @@ RF_GND crossing</text>
 <attribute name="DIST" x="139.7" y="307.34" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="DPN" x="139.7" y="307.34" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG" x="139.7" y="307.34" size="1.778" layer="96" rot="MR90" display="off"/>
-<attribute name="MFG_PN" x="139.7" y="307.34" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="139.7" y="307.34" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="LED1" gate="LED" x="238.76" y="63.5" smashed="yes">
 <attribute name="DIST" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="233.68" y="68.58" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="233.68" y="60.96" size="1.778" layer="96" rot="R180"/>
+<attribute name="MPN" x="238.76" y="63.5" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="236.22" y="68.58" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="236.22" y="60.96" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="R4" gate="R" x="238.76" y="76.2" rot="R90">
 <attribute name="DIST" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="238.76" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="R5" gate="R" x="91.44" y="378.46" rot="R180">
 <attribute name="DIST" x="91.44" y="378.46" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="91.44" y="378.46" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="91.44" y="378.46" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="91.44" y="378.46" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="91.44" y="378.46" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="GND7" gate="1" x="238.76" y="55.88"/>
-<instance part="LED2" gate="LED" x="424.18" y="165.1" smashed="yes">
-<attribute name="DIST" x="424.18" y="165.1" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="424.18" y="165.1" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="424.18" y="165.1" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="424.18" y="165.1" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="426.72" y="165.1" size="1.778" layer="95"/>
-<attribute name="VALUE" x="426.72" y="162.56" size="1.778" layer="96"/>
+<instance part="LED2" gate="LED" x="426.72" y="62.23" smashed="yes">
+<attribute name="DIST" x="426.72" y="62.23" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="426.72" y="62.23" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="426.72" y="62.23" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="426.72" y="62.23" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="429.26" y="62.23" size="1.778" layer="95"/>
+<attribute name="VALUE" x="429.26" y="59.69" size="1.778" layer="96"/>
 </instance>
-<instance part="R6" gate="R" x="424.18" y="190.5" rot="R90">
-<attribute name="DIST" x="424.18" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="424.18" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="424.18" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="424.18" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R6" gate="R" x="426.72" y="87.63" smashed="yes" rot="R90">
+<attribute name="DIST" x="426.72" y="87.63" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="426.72" y="87.63" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="426.72" y="87.63" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="426.72" y="87.63" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="NAME" x="425.2214" y="83.82" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="430.022" y="83.82" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="GND8" gate="1" x="424.18" y="157.48"/>
-<instance part="LED3" gate="LED" x="454.66" y="294.64" smashed="yes">
-<attribute name="DIST" x="454.66" y="294.64" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="454.66" y="294.64" size="1.778" layer="96" display="off"/>
-<attribute name="MFG" x="454.66" y="294.64" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="454.66" y="294.64" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="457.2" y="292.1" size="1.778" layer="95"/>
-<attribute name="VALUE" x="457.2" y="289.56" size="1.778" layer="96"/>
+<instance part="GND8" gate="1" x="426.72" y="54.61"/>
+<instance part="LED3" gate="LED" x="454.66" y="308.61" smashed="yes">
+<attribute name="DIST" x="454.66" y="308.61" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="454.66" y="308.61" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="454.66" y="308.61" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="454.66" y="308.61" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="457.2" y="306.07" size="1.778" layer="95"/>
+<attribute name="VALUE" x="457.2" y="303.53" size="1.778" layer="96"/>
 </instance>
-<instance part="R7" gate="R" x="454.66" y="317.5" rot="R90">
-<attribute name="DIST" x="454.66" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="454.66" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="454.66" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="454.66" y="317.5" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R7" gate="R" x="454.66" y="331.47" rot="R90">
+<attribute name="DIST" x="454.66" y="331.47" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="454.66" y="331.47" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="454.66" y="331.47" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="454.66" y="331.47" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="GND9" gate="1" x="454.66" y="287.02"/>
+<instance part="GND9" gate="1" x="454.66" y="300.99"/>
 <instance part="LED4" gate="LED" x="254" y="63.5" smashed="yes">
 <attribute name="DIST" x="254" y="63.5" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="254" y="63.5" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="254" y="63.5" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="254" y="63.5" size="1.778" layer="96" display="off"/>
-<attribute name="NAME" x="248.92" y="68.58" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="248.92" y="60.96" size="1.778" layer="96" rot="R180"/>
+<attribute name="MPN" x="254" y="63.5" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="252.73" y="68.58" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="252.73" y="60.96" size="1.778" layer="96" rot="R180"/>
 </instance>
 <instance part="R8" gate="R" x="254" y="76.2" rot="R90">
 <attribute name="DIST" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="254" y="76.2" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND10" gate="1" x="254" y="55.88"/>
 <instance part="LED5" gate="LED" x="170.18" y="20.32" smashed="yes">
 <attribute name="DIST" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="170.18" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="167.64" y="25.4" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="168.91" y="17.78" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -27442,14 +27538,14 @@ RF_GND crossing</text>
 <attribute name="DIST" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="170.18" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND11" gate="1" x="170.18" y="12.7"/>
 <instance part="LED6" gate="LED" x="180.34" y="20.32" smashed="yes">
 <attribute name="DIST" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="180.34" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="177.8" y="25.4" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="184.15" y="17.78" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -27457,14 +27553,14 @@ RF_GND crossing</text>
 <attribute name="DIST" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="180.34" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND12" gate="1" x="180.34" y="12.7"/>
 <instance part="LED7" gate="LED" x="190.5" y="20.32" smashed="yes">
 <attribute name="DIST" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="190.5" y="20.32" size="1.778" layer="96" display="off"/>
 <attribute name="NAME" x="187.96" y="25.4" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="195.58" y="17.78" size="1.778" layer="96" rot="R180"/>
 </instance>
@@ -27472,42 +27568,50 @@ RF_GND crossing</text>
 <attribute name="DIST" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 <attribute name="MFG" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="190.5" y="33.02" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="GND13" gate="1" x="190.5" y="12.7"/>
 <instance part="CF1" gate="G$1" x="30.48" y="90.17" smashed="yes">
 <attribute name="NAME" x="24.13" y="142.875" size="1.778" layer="95"/>
 <attribute name="VALUE" x="20.32" y="76.2" size="1.778" layer="96" rot="R90"/>
+<attribute name="DIST" x="30.48" y="90.17" size="2.54" layer="96" display="off"/>
+<attribute name="DPN" x="30.48" y="90.17" size="2.54" layer="96" display="off"/>
+<attribute name="MFG" x="30.48" y="90.17" size="2.54" layer="96" display="off"/>
+<attribute name="MPN" x="30.48" y="90.17" size="2.54" layer="96" display="off"/>
 </instance>
 <instance part="SH1" gate="G$1" x="347.98" y="139.7"/>
 <instance part="U$34" gate="1" x="347.98" y="129.54"/>
-<instance part="SH2" gate="G$1" x="414.02" y="248.92"/>
-<instance part="U$36" gate="1" x="414.02" y="238.76"/>
+<instance part="SH2" gate="G$1" x="414.02" y="262.89"/>
+<instance part="U$36" gate="1" x="414.02" y="252.73"/>
 <instance part="C44" gate="CE" x="356.87" y="162.56">
 <attribute name="DIST" x="356.87" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="356.87" y="162.56" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="356.87" y="162.56" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="356.87" y="162.56" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="356.87" y="162.56" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C45" gate="CE" x="462.28" y="304.8" rot="MR180">
-<attribute name="DIST" x="462.28" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="462.28" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="462.28" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="462.28" y="304.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="C45" gate="CE" x="462.28" y="318.77" smashed="yes" rot="MR180">
+<attribute name="DIST" x="462.28" y="318.77" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="462.28" y="318.77" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="462.28" y="318.77" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="462.28" y="318.77" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="NAME" x="463.804" y="321.691" size="1.778" layer="95"/>
+<attribute name="VALUE" x="463.804" y="316.611" size="1.778" layer="96"/>
 </instance>
-<instance part="U$37" gate="1" x="462.28" y="297.18"/>
-<instance part="C47" gate="CE" x="431.8" y="177.8" rot="MR180">
-<attribute name="DIST" x="431.8" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="DPN" x="431.8" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG" x="431.8" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="431.8" y="177.8" size="1.778" layer="96" rot="MR180" display="off"/>
+<instance part="U$37" gate="1" x="462.28" y="311.15"/>
+<instance part="C47" gate="CE" x="434.34" y="74.93" smashed="yes" rot="MR180">
+<attribute name="DIST" x="434.34" y="74.93" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="434.34" y="74.93" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="434.34" y="74.93" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="434.34" y="74.93" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="NAME" x="435.864" y="77.851" size="1.778" layer="95"/>
+<attribute name="VALUE" x="439.039" y="63.754" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$38" gate="1" x="431.8" y="170.18"/>
+<instance part="U$38" gate="1" x="434.34" y="67.31"/>
 <instance part="C48" gate="CE" x="342.9" y="179.07" rot="MR180">
 <attribute name="DIST" x="342.9" y="179.07" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="342.9" y="179.07" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="342.9" y="179.07" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="342.9" y="179.07" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="342.9" y="179.07" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="U$41" gate="1" x="342.9" y="172.72"/>
 <instance part="U$43" gate="1" x="144.78" y="208.28"/>
@@ -27517,7 +27621,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="83.82" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="83.82" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="83.82" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="83.82" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="83.82" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C40" gate="CE" x="133.35" y="370.84" smashed="yes" rot="MR180">
 <attribute name="NAME" x="134.62" y="375.92" size="1.778" layer="95" rot="MR180"/>
@@ -27525,7 +27629,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="133.35" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="133.35" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="133.35" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="133.35" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="133.35" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C41" gate="CE" x="143.51" y="370.84" smashed="yes" rot="MR180">
 <attribute name="NAME" x="146.304" y="375.539" size="1.778" layer="95" rot="MR180"/>
@@ -27533,25 +27637,25 @@ RF_GND crossing</text>
 <attribute name="DIST" x="143.51" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="143.51" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="143.51" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="143.51" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="143.51" y="370.84" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C36" gate="CE" x="355.6" y="190.5" rot="MR180">
 <attribute name="DIST" x="355.6" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="355.6" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="355.6" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="355.6" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="355.6" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C37" gate="CE" x="393.7" y="187.96" rot="MR180">
 <attribute name="DIST" x="393.7" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="393.7" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="393.7" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="393.7" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="393.7" y="187.96" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="C38" gate="CE" x="403.86" y="190.5" rot="MR180">
 <attribute name="DIST" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="DPN" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 <attribute name="MFG" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
-<attribute name="MFG_PN" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
+<attribute name="MPN" x="403.86" y="190.5" size="1.778" layer="96" rot="MR180" display="off"/>
 </instance>
 <instance part="DIO2" gate="G$1" x="137.16" y="190.5" smashed="yes">
 <attribute name="NAME" x="134.62" y="193.04" size="1.778" layer="95" font="vector"/>
@@ -27599,130 +27703,133 @@ RF_GND crossing</text>
 <instance part="DIO1" gate="G$1" x="66.04" y="162.56" smashed="yes">
 <attribute name="NAME" x="58.42" y="161.29" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="PG" gate="G$1" x="396.24" y="312.42" smashed="yes">
-<attribute name="NAME" x="396.24" y="314.96" size="1.778" layer="95" font="vector"/>
+<instance part="PG" gate="G$1" x="396.24" y="326.39" smashed="yes">
+<attribute name="NAME" x="396.24" y="328.93" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="U2" gate="G$1" x="381" y="256.54" smashed="yes">
-<attribute name="NAME" x="392.43" y="266.7" size="1.778" layer="104" ratio="15"/>
-<attribute name="VALUE" x="392.43" y="264.16" size="1.778" layer="96"/>
-<attribute name="DIST" x="381" y="256.54" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="381" y="256.54" size="1.778" layer="96" display="off"/>
-<attribute name="MFN" x="381" y="256.54" size="1.778" layer="96" display="off"/>
-<attribute name="MPN" x="381" y="256.54" size="1.778" layer="96" display="off"/>
+<instance part="U2" gate="G$1" x="381" y="270.51" smashed="yes">
+<attribute name="NAME" x="392.43" y="280.67" size="1.778" layer="104" ratio="15"/>
+<attribute name="VALUE" x="392.43" y="278.13" size="1.778" layer="96"/>
+<attribute name="DIST" x="381" y="270.51" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="381" y="270.51" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="381" y="270.51" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="381" y="270.51" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="U8" gate="G$1" x="381" y="147.32" smashed="yes">
 <attribute name="NAME" x="388.62" y="163.83" size="1.778" layer="104"/>
 <attribute name="VALUE" x="382.27" y="161.29" size="1.778" layer="96"/>
 <attribute name="DIST" x="381" y="147.32" size="1.778" layer="96" display="off"/>
 <attribute name="DPN" x="381" y="147.32" size="1.778" layer="96" display="off"/>
-<attribute name="MFN" x="381" y="147.32" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="381" y="147.32" size="1.778" layer="96" display="off"/>
 <attribute name="MPN" x="381" y="147.32" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="R13" gate="R" x="454.66" y="304.8" rot="R90">
-<attribute name="DIST" x="454.66" y="304.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="454.66" y="304.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="454.66" y="304.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="454.66" y="304.8" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="R13" gate="R" x="454.66" y="318.77" rot="R90">
+<attribute name="DIST" x="454.66" y="318.77" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="454.66" y="318.77" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="454.66" y="318.77" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="454.66" y="318.77" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="C50" gate="CE" x="477.52" y="304.8" smashed="yes" rot="R180">
-<attribute name="DIST" x="477.52" y="304.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="477.52" y="304.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="477.52" y="304.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="477.52" y="304.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="NAME" x="483.616" y="304.419" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="483.616" y="309.499" size="1.778" layer="96" rot="R180"/>
+<instance part="C50" gate="CE" x="477.52" y="318.77" smashed="yes" rot="R180">
+<attribute name="DIST" x="477.52" y="318.77" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="477.52" y="318.77" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="477.52" y="318.77" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="477.52" y="318.77" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="NAME" x="479.044" y="321.691" size="1.778" layer="95"/>
+<attribute name="VALUE" x="479.044" y="316.611" size="1.778" layer="96"/>
 </instance>
-<instance part="U$1" gate="1" x="477.52" y="297.18"/>
-<instance part="R14" gate="R" x="424.18" y="177.8" rot="R90">
-<attribute name="DIST" x="424.18" y="177.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="424.18" y="177.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="424.18" y="177.8" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG_PN" x="424.18" y="177.8" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="U$1" gate="1" x="477.52" y="311.15"/>
+<instance part="R14" gate="R" x="426.72" y="74.93" smashed="yes" rot="R90">
+<attribute name="DIST" x="426.72" y="74.93" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="426.72" y="74.93" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="426.72" y="74.93" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="426.72" y="74.93" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="NAME" x="425.2214" y="71.12" size="1.778" layer="95" rot="R90"/>
+<attribute name="VALUE" x="430.022" y="71.12" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="C51" gate="CE" x="441.96" y="177.8" smashed="yes" rot="R180">
-<attribute name="DIST" x="441.96" y="177.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="441.96" y="177.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="441.96" y="177.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="441.96" y="177.8" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="NAME" x="448.056" y="177.419" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="448.056" y="182.499" size="1.778" layer="96" rot="R180"/>
+<instance part="C51" gate="CE" x="444.5" y="74.93" smashed="yes" rot="R180">
+<attribute name="DIST" x="444.5" y="74.93" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="444.5" y="74.93" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="444.5" y="74.93" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="444.5" y="74.93" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="NAME" x="446.024" y="77.851" size="1.778" layer="95"/>
+<attribute name="VALUE" x="449.58" y="64.77" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$7" gate="1" x="441.96" y="170.18"/>
-<instance part="C52" gate="CE" x="45.72" y="50.8"/>
+<instance part="U$7" gate="1" x="444.5" y="67.31"/>
 <instance part="C53" gate="CE" x="153.67" y="373.38">
 <attribute name="DPN" x="153.67" y="373.38" size="1.778" layer="96" display="off"/>
-<attribute name="MFG_PN" x="153.67" y="373.38" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="153.67" y="373.38" size="1.778" layer="96" display="off"/>
 <attribute name="DIST" x="153.67" y="373.38" size="1.778" layer="96" display="off"/>
 <attribute name="MFG" x="153.67" y="373.38" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C54" gate="CE" x="256.54" y="142.24" smashed="yes" rot="R180">
-<attribute name="DIST" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="256.54" y="142.24" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="NAME" x="262.636" y="141.859" size="1.778" layer="95" rot="R180"/>
-<attribute name="VALUE" x="262.636" y="146.939" size="1.778" layer="96" rot="R180"/>
+<instance part="C54" gate="CE" x="285.75" y="151.13" smashed="yes" rot="R180">
+<attribute name="DIST" x="285.75" y="151.13" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="285.75" y="151.13" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="285.75" y="151.13" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="285.75" y="151.13" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="NAME" x="288.544" y="151.511" size="1.778" layer="95"/>
+<attribute name="VALUE" x="287.274" y="148.971" size="1.778" layer="96"/>
 </instance>
-<instance part="3.3V6" gate="1" x="256.54" y="151.13" rot="MR0"/>
-<instance part="U$8" gate="1" x="256.54" y="135.89"/>
+<instance part="3.3V6" gate="1" x="285.75" y="160.02" rot="MR0"/>
+<instance part="U$8" gate="1" x="285.75" y="144.78"/>
 <instance part="TP1" gate="G$1" x="208.28" y="55.88" smashed="yes">
 <attribute name="NAME" x="201.93" y="55.88" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="R16" gate="R" x="360.68" y="332.74" smashed="yes" rot="R90">
-<attribute name="NAME" x="356.87" y="334.01" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="359.41" y="336.55" size="1.778" layer="96" rot="R90"/>
-<attribute name="MFG" x="360.68" y="332.74" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DIST" x="360.68" y="332.74" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="360.68" y="332.74" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="360.68" y="332.74" size="1.27" layer="96" rot="R90" display="off"/>
+<instance part="R16" gate="R" x="360.68" y="346.71" smashed="yes" rot="R90">
+<attribute name="NAME" x="363.22" y="349.25" size="1.778" layer="95"/>
+<attribute name="VALUE" x="363.22" y="346.71" size="1.778" layer="96"/>
+<attribute name="MFG" x="360.68" y="346.71" size="1.27" layer="96" rot="R90" display="off"/>
+<attribute name="DIST" x="360.68" y="346.71" size="1.27" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="360.68" y="346.71" size="1.27" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="360.68" y="346.71" size="1.27" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="U9" gate="G$1" x="389.89" y="72.39">
-<attribute name="MFG" x="389.89" y="72.39" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="389.89" y="72.39" size="1.27" layer="96" display="off"/>
+<instance part="U9" gate="G$1" x="466.09" y="255.27" smashed="yes" rot="MR270">
+<attribute name="MFG" x="466.09" y="255.27" size="1.27" layer="96" rot="MR270" display="off"/>
+<attribute name="MPN" x="466.09" y="255.27" size="1.27" layer="96" rot="MR270" display="off"/>
+<attribute name="NAME" x="453.39" y="246.38" size="1.778" layer="95"/>
+<attribute name="VALUE" x="458.47" y="246.38" size="1.778" layer="96" rot="R90"/>
 </instance>
-<instance part="U$33" gate="1" x="416.56" y="66.04"/>
-<instance part="U$39" gate="1" x="363.22" y="66.04"/>
-<instance part="D1" gate="G$1" x="363.22" y="54.61" smashed="yes" rot="R180">
-<attribute name="NAME" x="365.76" y="60.96" size="1.27" layer="95" rot="R180"/>
-<attribute name="VALUE" x="368.3" y="58.42" size="1.27" layer="96" rot="R180"/>
-<attribute name="MPN" x="363.22" y="54.61" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="363.22" y="54.61" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="DIST" x="363.22" y="54.61" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="363.22" y="54.61" size="1.27" layer="96" rot="R180" display="off"/>
+<instance part="U$33" gate="1" x="466.09" y="238.76"/>
+<instance part="U$39" gate="1" x="471.17" y="271.78"/>
+<instance part="D1" gate="G$1" x="486.41" y="267.97" smashed="yes" rot="MR180">
+<attribute name="MPN" x="486.41" y="267.97" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="486.41" y="267.97" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="DIST" x="486.41" y="267.97" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="486.41" y="267.97" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="NAME" x="485.14" y="270.51" size="1.27" layer="95"/>
+<attribute name="VALUE" x="481.33" y="264.16" size="1.27" layer="96"/>
 </instance>
-<instance part="R18" gate="R" x="370.84" y="49.53" smashed="yes" rot="R90">
-<attribute name="NAME" x="369.3414" y="45.72" size="1.27" layer="95" rot="R90"/>
-<attribute name="VALUE" x="374.142" y="45.72" size="1.27" layer="96" rot="R90"/>
-<attribute name="MFG" x="370.84" y="49.53" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="370.84" y="49.53" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DIST" x="370.84" y="49.53" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="370.84" y="49.53" size="1.27" layer="96" rot="R90" display="off"/>
+<instance part="R18" gate="R" x="478.79" y="260.35" smashed="yes" rot="MR90">
+<attribute name="MFG" x="478.79" y="260.35" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="DPN" x="478.79" y="260.35" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="DIST" x="478.79" y="260.35" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="478.79" y="260.35" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="NAME" x="480.06" y="260.35" size="1.778" layer="95"/>
+<attribute name="VALUE" x="480.06" y="257.81" size="1.778" layer="96"/>
 </instance>
-<instance part="C49" gate="CE" x="356.87" y="49.53" smashed="yes">
-<attribute name="NAME" x="358.394" y="49.911" size="1.27" layer="95"/>
-<attribute name="VALUE" x="358.394" y="44.831" size="1.27" layer="96"/>
-<attribute name="DIST" x="356.87" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="356.87" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="MFG" x="356.87" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="356.87" y="49.53" size="1.27" layer="96" display="off"/>
+<instance part="C49" gate="CE" x="492.76" y="262.89" smashed="yes" rot="MR0">
+<attribute name="DIST" x="492.76" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="492.76" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MFG" x="492.76" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="492.76" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="495.3" y="260.35" size="1.778" layer="95"/>
+<attribute name="VALUE" x="494.03" y="257.81" size="1.778" layer="96"/>
 </instance>
-<instance part="R20" gate="R" x="349.25" y="54.61" smashed="yes">
-<attribute name="NAME" x="345.44" y="56.1086" size="1.27" layer="95"/>
-<attribute name="VALUE" x="345.44" y="51.308" size="1.27" layer="96"/>
-<attribute name="MFG" x="349.25" y="54.61" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="349.25" y="54.61" size="1.27" layer="96" display="off"/>
-<attribute name="DIST" x="349.25" y="54.61" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="349.25" y="54.61" size="1.27" layer="96" display="off"/>
+<instance part="R20" gate="R" x="500.38" y="267.97" smashed="yes" rot="MR0">
+<attribute name="MFG" x="500.38" y="267.97" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="500.38" y="267.97" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DIST" x="500.38" y="267.97" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="500.38" y="267.97" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="499.11" y="269.4686" size="1.778" layer="95"/>
+<attribute name="VALUE" x="499.11" y="264.668" size="1.778" layer="96"/>
 </instance>
-<instance part="U$40" gate="1" x="339.09" y="41.91"/>
-<instance part="U$42" gate="1" x="356.87" y="41.91"/>
-<instance part="U$44" gate="1" x="356.87" y="22.86"/>
-<instance part="U$45" gate="1" x="339.09" y="22.86"/>
-<instance part="U$46" gate="1" x="370.84" y="22.86"/>
-<instance part="U$47" gate="1" x="370.84" y="41.91"/>
+<instance part="U$40" gate="1" x="510.54" y="252.73" rot="MR0"/>
+<instance part="U$42" gate="1" x="492.76" y="252.73" rot="MR0"/>
+<instance part="U$44" gate="1" x="492.76" y="226.06" rot="MR0"/>
+<instance part="U$45" gate="1" x="510.54" y="226.06" rot="MR0"/>
+<instance part="U$46" gate="1" x="478.79" y="224.79" rot="MR0"/>
+<instance part="U$47" gate="1" x="478.79" y="251.46" rot="MR0"/>
 <instance part="R17" gate="R" x="355.6" y="205.74" smashed="yes" rot="R90">
-<attribute name="NAME" x="351.79" y="203.2" size="1.778" layer="95" rot="R90"/>
-<attribute name="VALUE" x="354.33" y="203.2" size="1.778" layer="96" rot="R90"/>
+<attribute name="NAME" x="356.87" y="207.01" size="1.778" layer="95"/>
+<attribute name="VALUE" x="356.87" y="204.47" size="1.778" layer="96"/>
 <attribute name="MFG" x="355.6" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="DIST" x="355.6" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="DPN" x="355.6" y="205.74" size="1.27" layer="96" rot="R90" display="off"/>
@@ -27736,102 +27843,108 @@ RF_GND crossing</text>
 <attribute name="DPN" x="83.82" y="391.16" size="1.27" layer="96" rot="R90" display="off"/>
 <attribute name="MPN" x="83.82" y="391.16" size="1.27" layer="96" rot="R90" display="off"/>
 </instance>
-<instance part="D2" gate="G$1" x="363.22" y="36.83" smashed="yes" rot="R180">
-<attribute name="NAME" x="365.76" y="40.64" size="1.27" layer="95" rot="R180"/>
-<attribute name="VALUE" x="368.3" y="34.29" size="1.27" layer="96" rot="R180"/>
-<attribute name="MPN" x="363.22" y="36.83" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="363.22" y="36.83" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="DIST" x="363.22" y="36.83" size="1.27" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="363.22" y="36.83" size="1.27" layer="96" rot="R180" display="off"/>
+<instance part="D2" gate="G$1" x="486.41" y="242.57" smashed="yes" rot="MR180">
+<attribute name="MPN" x="486.41" y="242.57" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="DPN" x="486.41" y="242.57" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="DIST" x="486.41" y="242.57" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="MFG" x="486.41" y="242.57" size="1.27" layer="96" rot="MR180" display="off"/>
+<attribute name="NAME" x="485.14" y="245.11" size="1.27" layer="95"/>
+<attribute name="VALUE" x="481.33" y="238.76" size="1.27" layer="96"/>
 </instance>
-<instance part="R19" gate="R" x="370.84" y="30.48" smashed="yes" rot="R90">
-<attribute name="NAME" x="369.3414" y="26.67" size="1.27" layer="95" rot="R90"/>
-<attribute name="VALUE" x="374.142" y="26.67" size="1.27" layer="96" rot="R90"/>
-<attribute name="MFG" x="370.84" y="30.48" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="370.84" y="30.48" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="DIST" x="370.84" y="30.48" size="1.27" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="370.84" y="30.48" size="1.27" layer="96" rot="R90" display="off"/>
+<instance part="R19" gate="R" x="478.79" y="234.95" smashed="yes" rot="MR90">
+<attribute name="MFG" x="478.79" y="234.95" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="DPN" x="478.79" y="234.95" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="DIST" x="478.79" y="234.95" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="478.79" y="234.95" size="1.27" layer="96" rot="MR90" display="off"/>
+<attribute name="NAME" x="480.06" y="233.68" size="1.778" layer="95"/>
+<attribute name="VALUE" x="480.06" y="231.14" size="1.778" layer="96"/>
 </instance>
-<instance part="R21" gate="R" x="349.25" y="36.83" smashed="yes">
-<attribute name="NAME" x="345.44" y="38.3286" size="1.27" layer="95"/>
-<attribute name="VALUE" x="345.44" y="33.528" size="1.27" layer="96"/>
-<attribute name="MFG" x="349.25" y="36.83" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="349.25" y="36.83" size="1.27" layer="96" display="off"/>
-<attribute name="DIST" x="349.25" y="36.83" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="349.25" y="36.83" size="1.27" layer="96" display="off"/>
+<instance part="R21" gate="R" x="500.38" y="242.57" smashed="yes" rot="MR0">
+<attribute name="MFG" x="500.38" y="242.57" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="500.38" y="242.57" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DIST" x="500.38" y="242.57" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="500.38" y="242.57" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="497.84" y="243.84" size="1.778" layer="95"/>
+<attribute name="VALUE" x="497.84" y="238.76" size="1.778" layer="96"/>
 </instance>
-<instance part="C55" gate="CE" x="339.09" y="49.53" smashed="yes">
-<attribute name="NAME" x="340.614" y="49.911" size="1.27" layer="95"/>
-<attribute name="VALUE" x="340.614" y="44.831" size="1.27" layer="96"/>
-<attribute name="DIST" x="339.09" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="339.09" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="MFG" x="339.09" y="49.53" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="339.09" y="49.53" size="1.27" layer="96" display="off"/>
+<instance part="C55" gate="CE" x="510.54" y="262.89" smashed="yes" rot="MR0">
+<attribute name="DIST" x="510.54" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="510.54" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MFG" x="510.54" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="510.54" y="262.89" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="513.08" y="260.35" size="1.778" layer="95"/>
+<attribute name="VALUE" x="511.81" y="257.81" size="1.778" layer="96"/>
 </instance>
-<instance part="C56" gate="CE" x="339.09" y="30.48" smashed="yes">
-<attribute name="NAME" x="340.614" y="30.861" size="1.27" layer="95"/>
-<attribute name="VALUE" x="340.614" y="25.781" size="1.27" layer="96"/>
-<attribute name="DIST" x="339.09" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="339.09" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="MFG" x="339.09" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="339.09" y="30.48" size="1.27" layer="96" display="off"/>
+<instance part="C56" gate="CE" x="510.54" y="236.22" smashed="yes" rot="MR0">
+<attribute name="DIST" x="510.54" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="510.54" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MFG" x="510.54" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="510.54" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="513.08" y="233.68" size="1.778" layer="95"/>
+<attribute name="VALUE" x="513.08" y="231.14" size="1.778" layer="96"/>
 </instance>
-<instance part="C57" gate="CE" x="356.87" y="30.48" smashed="yes">
-<attribute name="NAME" x="358.394" y="30.861" size="1.27" layer="95"/>
-<attribute name="VALUE" x="358.394" y="25.781" size="1.27" layer="96"/>
-<attribute name="DIST" x="356.87" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="DPN" x="356.87" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="MFG" x="356.87" y="30.48" size="1.27" layer="96" display="off"/>
-<attribute name="MPN" x="356.87" y="30.48" size="1.27" layer="96" display="off"/>
+<instance part="C57" gate="CE" x="492.76" y="236.22" smashed="yes" rot="MR0">
+<attribute name="DIST" x="492.76" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="492.76" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MFG" x="492.76" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="492.76" y="236.22" size="1.27" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="495.3" y="233.68" size="1.778" layer="95"/>
+<attribute name="VALUE" x="495.3" y="231.14" size="1.778" layer="96"/>
 </instance>
-<instance part="CF2" gate="G$1" x="538.48" y="190.5" rot="MR0">
-<attribute name="DIST" x="538.48" y="190.5" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="DPN" x="538.48" y="190.5" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="MFN" x="538.48" y="190.5" size="1.778" layer="96" rot="MR0" display="off"/>
-<attribute name="MPN" x="538.48" y="190.5" size="1.778" layer="96" rot="MR0" display="off"/>
+<instance part="CF2" gate="G$1" x="529.59" y="175.26" smashed="yes" rot="MR0">
+<attribute name="DIST" x="529.59" y="175.26" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="DPN" x="529.59" y="175.26" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="MFG" x="529.59" y="175.26" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="MPN" x="529.59" y="175.26" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="NAME" x="527.05" y="171.45" size="1.27" layer="95" rot="MR0"/>
+<attribute name="VALUE" x="527.05" y="168.91" size="1.27" layer="95" rot="MR0"/>
 </instance>
 <instance part="RF-RESET" gate="G$1" x="49.53" y="160.02" smashed="yes">
 <attribute name="NAME" x="44.45" y="156.21" size="1.778" layer="95" font="vector"/>
 </instance>
-<instance part="C58" gate="CE" x="412.75" y="256.54" rot="R90">
-<attribute name="DIST" x="412.75" y="256.54" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="412.75" y="256.54" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="412.75" y="256.54" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="412.75" y="256.54" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="C58" gate="CE" x="462.28" y="191.77" smashed="yes">
+<attribute name="DIST" x="462.28" y="191.77" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="462.28" y="191.77" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="462.28" y="191.77" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="462.28" y="191.77" size="1.778" layer="96" display="off"/>
+<attribute name="NAME" x="463.804" y="192.151" size="1.778" layer="95"/>
+<attribute name="VALUE" x="463.804" y="187.071" size="1.778" layer="96"/>
 </instance>
-<instance part="C23" gate="CE" x="401.32" y="147.32" rot="R90">
-<attribute name="DIST" x="401.32" y="147.32" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="401.32" y="147.32" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="401.32" y="147.32" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="401.32" y="147.32" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="C23" gate="CE" x="462.28" y="161.29" smashed="yes" rot="R180">
+<attribute name="DIST" x="462.28" y="161.29" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="462.28" y="161.29" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="462.28" y="161.29" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="462.28" y="161.29" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="NAME" x="457.454" y="164.211" size="1.778" layer="95"/>
+<attribute name="VALUE" x="453.644" y="159.131" size="1.778" layer="96"/>
 </instance>
-<instance part="C60" gate="CE" x="457.2" y="106.68" rot="R180">
-<attribute name="DIST" x="457.2" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="457.2" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="457.2" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MPN" x="457.2" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C60" gate="CE" x="467.36" y="106.68" rot="R180">
+<attribute name="DIST" x="467.36" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="467.36" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="467.36" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="467.36" y="106.68" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="C61" gate="CE" x="497.84" y="190.5" rot="R90">
-<attribute name="DIST" x="497.84" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="DPN" x="497.84" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MFG" x="497.84" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
-<attribute name="MPN" x="497.84" y="190.5" size="1.778" layer="96" rot="R90" display="off"/>
+<instance part="C61" gate="CE" x="502.92" y="175.26" rot="R90">
+<attribute name="DIST" x="502.92" y="175.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DPN" x="502.92" y="175.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MFG" x="502.92" y="175.26" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MPN" x="502.92" y="175.26" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="X0" gate="G$1" x="165.1" y="142.24" smashed="yes" rot="MR270">
 <attribute name="DIST" x="165.1" y="142.24" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="DPN" x="165.1" y="142.24" size="1.778" layer="96" rot="MR270" display="off"/>
-<attribute name="MFN" x="165.1" y="142.24" size="1.778" layer="96" rot="MR270" display="off"/>
+<attribute name="MFG" x="165.1" y="142.24" size="1.778" layer="96" rot="MR270" display="off"/>
 <attribute name="MPN" x="165.1" y="142.24" size="1.778" layer="96" rot="MR270" display="off"/>
-<attribute name="NAME" x="160.02" y="144.78" size="1.27" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="158.75" y="142.24" size="1.27" layer="96" rot="MR180"/>
+<attribute name="NAME" x="160.02" y="142.24" size="1.27" layer="95"/>
+<attribute name="VALUE" x="152.4" y="140.97" size="1.27" layer="96" rot="MR180"/>
 </instance>
 <instance part="C59" gate="CE" x="172.72" y="137.16" smashed="yes" rot="MR90">
-<attribute name="NAME" x="165.354" y="135.509" size="1.778" layer="95" rot="MR180"/>
-<attribute name="VALUE" x="165.354" y="132.969" size="1.778" layer="96" rot="MR180"/>
+<attribute name="NAME" x="167.894" y="141.859" size="1.778" layer="95" rot="MR180"/>
+<attribute name="VALUE" x="159.004" y="134.239" size="1.778" layer="96" rot="MR180"/>
 <attribute name="DIST" x="172.72" y="137.16" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="DPN" x="172.72" y="137.16" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG" x="172.72" y="137.16" size="1.778" layer="96" rot="MR90" display="off"/>
-<attribute name="MFG_PN" x="172.72" y="137.16" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="172.72" y="137.16" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="C62" gate="CE" x="172.72" y="147.32" smashed="yes" rot="MR90">
 <attribute name="NAME" x="165.354" y="150.749" size="1.778" layer="95" rot="MR180"/>
@@ -27839,7 +27952,7 @@ RF_GND crossing</text>
 <attribute name="DIST" x="172.72" y="147.32" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="DPN" x="172.72" y="147.32" size="1.778" layer="96" rot="MR90" display="off"/>
 <attribute name="MFG" x="172.72" y="147.32" size="1.778" layer="96" rot="MR90" display="off"/>
-<attribute name="MFG_PN" x="172.72" y="147.32" size="1.778" layer="96" rot="MR90" display="off"/>
+<attribute name="MPN" x="172.72" y="147.32" size="1.778" layer="96" rot="MR90" display="off"/>
 </instance>
 <instance part="GND3" gate="1" x="175.26" y="132.08" rot="MR0"/>
 <instance part="XTAL0" gate="G$1" x="137.16" y="137.16" smashed="yes">
@@ -27852,7 +27965,7 @@ RF_GND crossing</text>
 <attribute name="PART" x="229.87" y="17.78" size="1.778" layer="95" rot="R90"/>
 <attribute name="DIST" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="DPN" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
-<attribute name="MFN" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
+<attribute name="MFG" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
 <attribute name="MPN" x="220.98" y="20.32" size="1.778" layer="96" rot="R270" display="off"/>
 </instance>
 <instance part="LED9" gate="B" x="220.98" y="10.16" smashed="yes" rot="R270"/>
@@ -27861,33 +27974,41 @@ RF_GND crossing</text>
 <attribute name="DIST" x="208.28" y="30.48" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="208.28" y="30.48" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="208.28" y="30.48" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="208.28" y="30.48" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="208.28" y="30.48" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="R22" gate="R" x="208.28" y="20.32" rot="R180">
 <attribute name="DIST" x="208.28" y="20.32" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="208.28" y="20.32" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="208.28" y="20.32" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="208.28" y="20.32" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="208.28" y="20.32" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
 <instance part="R23" gate="R" x="208.28" y="10.16" rot="R180">
 <attribute name="DIST" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="DPN" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
 <attribute name="MFG" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG_PN" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="208.28" y="10.16" size="1.778" layer="96" rot="R180" display="off"/>
 </instance>
-<instance part="U5" gate="G$1" x="477.52" y="190.5">
-<attribute name="DIST" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="DPN" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="MFN" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
-<attribute name="MPN" x="477.52" y="190.5" size="1.778" layer="96" display="off"/>
+<instance part="U5" gate="G$1" x="482.6" y="175.26">
+<attribute name="DIST" x="482.6" y="175.26" size="1.778" layer="96" display="off"/>
+<attribute name="DPN" x="482.6" y="175.26" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="482.6" y="175.26" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="482.6" y="175.26" size="1.778" layer="96" display="off"/>
 </instance>
-<instance part="C63" gate="CE" x="492.76" y="203.2" rot="R180">
-<attribute name="DIST" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="DPN" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MFG" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
-<attribute name="MPN" x="492.76" y="203.2" size="1.778" layer="96" rot="R180" display="off"/>
+<instance part="C63" gate="CE" x="497.84" y="187.96" smashed="yes" rot="R180">
+<attribute name="DIST" x="497.84" y="187.96" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="DPN" x="497.84" y="187.96" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MFG" x="497.84" y="187.96" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="MPN" x="497.84" y="187.96" size="1.778" layer="96" rot="R180" display="off"/>
+<attribute name="NAME" x="496.316" y="187.579" size="1.778" layer="95" rot="R180"/>
+<attribute name="VALUE" x="496.316" y="192.659" size="1.778" layer="96" rot="R180"/>
 </instance>
-<instance part="U$9" gate="1" x="492.76" y="195.58"/>
+<instance part="U$9" gate="1" x="497.84" y="180.34"/>
+<instance part="C64" gate="CE" x="45.72" y="50.8">
+<attribute name="DPN" x="45.72" y="50.8" size="1.778" layer="96" display="off"/>
+<attribute name="MPN" x="45.72" y="50.8" size="1.778" layer="96" display="off"/>
+<attribute name="DIST" x="45.72" y="50.8" size="1.778" layer="96" display="off"/>
+<attribute name="MFG" x="45.72" y="50.8" size="1.778" layer="96" display="off"/>
+</instance>
 </instances>
 <busses>
 <bus name="PTB2,PTB17,PTC[1..7],PTD0,PTE[16..19],PTE30">
@@ -27994,8 +28115,8 @@ RF_GND crossing</text>
 <wire x1="30.48" y1="48.26" x2="38.1" y2="48.26" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="48.26" x2="38.1" y2="45.72" width="0.1524" layer="91"/>
 <junction x="38.1" y="45.72"/>
-<pinref part="C52" gate="CE" pin="2"/>
 <wire x1="45.72" y1="45.72" x2="38.1" y2="45.72" width="0.1524" layer="91"/>
+<pinref part="C64" gate="CE" pin="2"/>
 </segment>
 <segment>
 <pinref part="U1" gate="G$1" pin="VSSA"/>
@@ -28026,7 +28147,7 @@ RF_GND crossing</text>
 <segment>
 <pinref part="LED2" gate="LED" pin="K"/>
 <pinref part="GND8" gate="1" pin="GND"/>
-<wire x1="424.18" y1="162.56" x2="424.18" y2="160.02" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="59.69" x2="426.72" y2="57.15" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="LED1" gate="LED" pin="K"/>
@@ -28056,7 +28177,7 @@ RF_GND crossing</text>
 <segment>
 <pinref part="GND9" gate="1" pin="GND"/>
 <pinref part="LED3" gate="LED" pin="K"/>
-<wire x1="454.66" y1="289.56" x2="454.66" y2="292.1" width="0.1524" layer="91"/>
+<wire x1="454.66" y1="303.53" x2="454.66" y2="306.07" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="GND3" gate="1" pin="GND"/>
@@ -28089,16 +28210,16 @@ RF_GND crossing</text>
 <segment>
 <pinref part="U1" gate="G$1" pin="PA_BOOST"/>
 <wire x1="134.62" y1="231.14" x2="208.28" y2="231.14" width="0.1524" layer="91"/>
-<wire x1="208.28" y1="231.14" x2="208.28" y2="254" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="231.14" x2="208.28" y2="267.97" width="0.1524" layer="91"/>
 <pinref part="C2" gate="CE" pin="1"/>
-<wire x1="208.28" y1="254" x2="243.84" y2="254" width="0.1524" layer="91"/>
-<wire x1="243.84" y1="254" x2="243.84" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="208.28" y1="267.97" x2="243.84" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="267.97" x2="243.84" y2="265.43" width="0.1524" layer="91"/>
 <pinref part="L1" gate="L" pin="2"/>
-<wire x1="231.14" y1="276.86" x2="243.84" y2="276.86" width="0.1524" layer="91"/>
-<wire x1="243.84" y1="276.86" x2="243.84" y2="254" width="0.1524" layer="91"/>
-<junction x="243.84" y="254"/>
+<wire x1="231.14" y1="290.83" x2="243.84" y2="290.83" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="290.83" x2="243.84" y2="267.97" width="0.1524" layer="91"/>
+<junction x="243.84" y="267.97"/>
 <pinref part="C5" gate="CE" pin="1"/>
-<wire x1="243.84" y1="254" x2="246.38" y2="254" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="267.97" x2="246.38" y2="267.97" width="0.1524" layer="91"/>
 <label x="181.61" y="231.14" size="1.778" layer="95"/>
 </segment>
 </net>
@@ -28106,39 +28227,39 @@ RF_GND crossing</text>
 <segment>
 <pinref part="C5" gate="CE" pin="2"/>
 <pinref part="L3" gate="L" pin="1"/>
-<wire x1="254" y1="254" x2="256.54" y2="254" width="0.1524" layer="91"/>
+<wire x1="254" y1="267.97" x2="256.54" y2="267.97" width="0.1524" layer="91"/>
 <pinref part="C7" gate="CE" pin="1"/>
-<wire x1="256.54" y1="254" x2="259.08" y2="254" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="254" x2="256.54" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="256.54" y1="261.62" x2="259.08" y2="261.62" width="0.1524" layer="91"/>
-<junction x="256.54" y="254"/>
+<wire x1="256.54" y1="267.97" x2="259.08" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="267.97" x2="256.54" y2="275.59" width="0.1524" layer="91"/>
+<wire x1="256.54" y1="275.59" x2="259.08" y2="275.59" width="0.1524" layer="91"/>
+<junction x="256.54" y="267.97"/>
 </segment>
 </net>
 <net name="N$16" class="1">
 <segment>
 <pinref part="L3" gate="L" pin="2"/>
 <pinref part="L5" gate="L" pin="1"/>
-<wire x1="271.78" y1="254" x2="274.32" y2="254" width="0.1524" layer="91"/>
+<wire x1="271.78" y1="267.97" x2="274.32" y2="267.97" width="0.1524" layer="91"/>
 <pinref part="C7" gate="CE" pin="2"/>
-<wire x1="274.32" y1="254" x2="276.86" y2="254" width="0.1524" layer="91"/>
-<wire x1="276.86" y1="254" x2="279.4" y2="254" width="0.1524" layer="91"/>
-<wire x1="266.7" y1="261.62" x2="274.32" y2="261.62" width="0.1524" layer="91"/>
-<wire x1="274.32" y1="261.62" x2="274.32" y2="254" width="0.1524" layer="91"/>
-<junction x="274.32" y="254"/>
+<wire x1="274.32" y1="267.97" x2="276.86" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="267.97" x2="279.4" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="266.7" y1="275.59" x2="274.32" y2="275.59" width="0.1524" layer="91"/>
+<wire x1="274.32" y1="275.59" x2="274.32" y2="267.97" width="0.1524" layer="91"/>
+<junction x="274.32" y="267.97"/>
 <pinref part="C9" gate="CE" pin="2"/>
-<wire x1="276.86" y1="251.46" x2="276.86" y2="254" width="0.1524" layer="91"/>
-<junction x="276.86" y="254"/>
+<wire x1="276.86" y1="265.43" x2="276.86" y2="267.97" width="0.1524" layer="91"/>
+<junction x="276.86" y="267.97"/>
 </segment>
 </net>
 <net name="N$17" class="1">
 <segment>
 <pinref part="L5" gate="L" pin="2"/>
 <pinref part="C11" gate="CE" pin="2"/>
-<wire x1="292.1" y1="254" x2="294.64" y2="254" width="0.1524" layer="91"/>
-<wire x1="294.64" y1="254" x2="294.64" y2="251.46" width="0.1524" layer="91"/>
+<wire x1="292.1" y1="267.97" x2="294.64" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="267.97" x2="294.64" y2="265.43" width="0.1524" layer="91"/>
 <pinref part="C14" gate="CE" pin="2"/>
-<wire x1="294.64" y1="254" x2="297.18" y2="254" width="0.1524" layer="91"/>
-<junction x="294.64" y="254"/>
+<wire x1="294.64" y1="267.97" x2="299.72" y2="267.97" width="0.1524" layer="91"/>
+<junction x="294.64" y="267.97"/>
 </segment>
 </net>
 <net name="N$18" class="1">
@@ -28183,21 +28304,21 @@ RF_GND crossing</text>
 <label x="314.96" y="191.77" size="1.778" layer="95"/>
 </segment>
 </net>
-<net name="LNA_IN" class="1">
+<net name="LNA_IN_DC" class="1">
 <segment>
-<label x="439.42" y="148.59" size="1.778" layer="95"/>
-<wire x1="406.4" y1="147.32" x2="462.28" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="C23" gate="CE" pin="2"/>
 <pinref part="U5" gate="G$1" pin="RF2"/>
-<wire x1="464.82" y1="185.42" x2="462.28" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="462.28" y1="185.42" x2="462.28" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="170.18" x2="462.28" y2="170.18" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="170.18" x2="462.28" y2="166.37" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="N$25" class="1">
+<net name="LNA_IN" class="1">
 <segment>
-<wire x1="398.78" y1="147.32" x2="393.7" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="158.75" x2="462.28" y2="147.32" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="147.32" x2="393.7" y2="147.32" width="0.1524" layer="91"/>
 <pinref part="U8" gate="G$1" pin="RFIN"/>
 <pinref part="C23" gate="CE" pin="1"/>
+<label x="400.05" y="147.32" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="RFIO" class="1">
@@ -28225,13 +28346,14 @@ RF_GND crossing</text>
 <wire x1="205.74" y1="226.06" x2="205.74" y2="114.3" width="0.1524" layer="91"/>
 <label x="181.61" y="226.06" size="1.778" layer="95"/>
 <label x="210.82" y="114.3" size="1.778" layer="95"/>
-<wire x1="457.2" y1="111.76" x2="457.2" y2="114.3" width="0.1524" layer="91"/>
-<wire x1="457.2" y1="114.3" x2="205.74" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="111.76" x2="467.36" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="114.3" x2="205.74" y2="114.3" width="0.1524" layer="91"/>
 <pinref part="C60" gate="CE" pin="2"/>
 <pinref part="U5" gate="G$1" pin="VC"/>
-<wire x1="464.82" y1="190.5" x2="457.2" y2="190.5" width="0.1524" layer="91"/>
-<wire x1="457.2" y1="190.5" x2="457.2" y2="114.3" width="0.1524" layer="91"/>
-<junction x="457.2" y="114.3"/>
+<wire x1="469.9" y1="175.26" x2="467.36" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="467.36" y1="175.26" x2="467.36" y2="114.3" width="0.1524" layer="91"/>
+<junction x="467.36" y="114.3"/>
+<label x="458.47" y="114.3" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="VR_PA" class="0">
@@ -28240,11 +28362,11 @@ RF_GND crossing</text>
 <pinref part="U1" gate="G$1" pin="VR_PA"/>
 <pinref part="C1" gate="CE" pin="2"/>
 <wire x1="134.62" y1="233.68" x2="215.9" y2="233.68" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="233.68" x2="215.9" y2="276.86" width="0.1524" layer="91"/>
-<wire x1="215.9" y1="276.86" x2="210.82" y2="276.86" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="233.68" x2="215.9" y2="290.83" width="0.1524" layer="91"/>
+<wire x1="215.9" y1="290.83" x2="210.82" y2="290.83" width="0.1524" layer="91"/>
 <pinref part="L1" gate="L" pin="1"/>
-<wire x1="215.9" y1="276.86" x2="218.44" y2="276.86" width="0.1524" layer="91"/>
-<junction x="215.9" y="276.86"/>
+<wire x1="215.9" y1="290.83" x2="218.44" y2="290.83" width="0.1524" layer="91"/>
+<junction x="215.9" y="290.83"/>
 <pinref part="L2" gate="L" pin="1"/>
 <wire x1="215.9" y1="233.68" x2="215.9" y2="213.36" width="0.1524" layer="91"/>
 <wire x1="215.9" y1="213.36" x2="218.44" y2="213.36" width="0.1524" layer="91"/>
@@ -28477,69 +28599,69 @@ RF_GND crossing</text>
 </net>
 <net name="VPA" class="0">
 <segment>
-<wire x1="378.46" y1="271.78" x2="370.84" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="271.78" x2="370.84" y2="289.56" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="289.56" x2="378.46" y2="289.56" width="0.1524" layer="91"/>
-<wire x1="378.46" y1="289.56" x2="391.16" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="285.75" x2="370.84" y2="285.75" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="285.75" x2="370.84" y2="303.53" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="303.53" x2="378.46" y2="303.53" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="303.53" x2="391.16" y2="303.53" width="0.1524" layer="91"/>
 <pinref part="C15" gate="CE" pin="2"/>
 <pinref part="C16" gate="CE" pin="2"/>
-<junction x="378.46" y="289.56"/>
+<junction x="378.46" y="303.53"/>
 <pinref part="U7" gate="G$1" pin="ADJ"/>
-<wire x1="391.16" y1="320.04" x2="392.43" y2="320.04" width="0.1524" layer="91"/>
-<wire x1="392.43" y1="320.04" x2="392.43" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="392.43" y1="325.12" x2="412.75" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="334.01" x2="392.43" y2="334.01" width="0.1524" layer="91"/>
+<wire x1="392.43" y1="334.01" x2="392.43" y2="339.09" width="0.1524" layer="91"/>
+<wire x1="392.43" y1="339.09" x2="412.75" y2="339.09" width="0.1524" layer="91"/>
 <pinref part="C46" gate="CE" pin="2"/>
-<wire x1="412.75" y1="325.12" x2="424.18" y2="325.12" width="0.1524" layer="91"/>
-<wire x1="424.18" y1="325.12" x2="424.18" y2="294.64" width="0.1524" layer="91"/>
-<junction x="412.75" y="325.12"/>
-<wire x1="424.18" y1="294.64" x2="406.4" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="294.64" x2="391.16" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="391.16" y1="294.64" x2="391.16" y2="289.56" width="0.1524" layer="91"/>
-<junction x="391.16" y="289.56"/>
+<wire x1="412.75" y1="339.09" x2="424.18" y2="339.09" width="0.1524" layer="91"/>
+<wire x1="424.18" y1="339.09" x2="424.18" y2="308.61" width="0.1524" layer="91"/>
+<junction x="412.75" y="339.09"/>
+<wire x1="424.18" y1="308.61" x2="406.4" y2="308.61" width="0.1524" layer="91"/>
+<wire x1="406.4" y1="308.61" x2="391.16" y2="308.61" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="308.61" x2="391.16" y2="303.53" width="0.1524" layer="91"/>
+<junction x="391.16" y="303.53"/>
 <pinref part="C22" gate="CE" pin="2"/>
-<wire x1="350.52" y1="289.56" x2="360.68" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="350.52" y1="303.53" x2="360.68" y2="303.53" width="0.1524" layer="91"/>
 <pinref part="C21" gate="CE" pin="2"/>
-<wire x1="368.3" y1="259.08" x2="368.3" y2="289.56" width="0.1524" layer="91"/>
-<wire x1="368.3" y1="289.56" x2="360.68" y2="289.56" width="0.1524" layer="91"/>
-<junction x="360.68" y="289.56"/>
-<wire x1="391.16" y1="294.64" x2="350.52" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="350.52" y1="294.64" x2="350.52" y2="289.56" width="0.1524" layer="91"/>
-<junction x="391.16" y="294.64"/>
-<junction x="350.52" y="289.56"/>
+<wire x1="368.3" y1="273.05" x2="368.3" y2="303.53" width="0.1524" layer="91"/>
+<wire x1="368.3" y1="303.53" x2="360.68" y2="303.53" width="0.1524" layer="91"/>
+<junction x="360.68" y="303.53"/>
+<wire x1="391.16" y1="308.61" x2="350.52" y2="308.61" width="0.1524" layer="91"/>
+<wire x1="350.52" y1="308.61" x2="350.52" y2="303.53" width="0.1524" layer="91"/>
+<junction x="391.16" y="308.61"/>
+<junction x="350.52" y="303.53"/>
 <pinref part="C19" gate="CE" pin="2"/>
-<wire x1="322.58" y1="289.56" x2="332.74" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="303.53" x2="332.74" y2="303.53" width="0.1524" layer="91"/>
 <pinref part="C20" gate="CE" pin="2"/>
-<wire x1="368.3" y1="256.54" x2="340.36" y2="256.54" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="256.54" x2="340.36" y2="289.56" width="0.1524" layer="91"/>
-<wire x1="340.36" y1="289.56" x2="332.74" y2="289.56" width="0.1524" layer="91"/>
-<junction x="332.74" y="289.56"/>
-<wire x1="350.52" y1="294.64" x2="322.58" y2="294.64" width="0.1524" layer="91"/>
-<wire x1="322.58" y1="294.64" x2="322.58" y2="289.56" width="0.1524" layer="91"/>
-<junction x="350.52" y="294.64"/>
-<junction x="322.58" y="289.56"/>
+<wire x1="368.3" y1="270.51" x2="340.36" y2="270.51" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="270.51" x2="340.36" y2="303.53" width="0.1524" layer="91"/>
+<wire x1="340.36" y1="303.53" x2="332.74" y2="303.53" width="0.1524" layer="91"/>
+<junction x="332.74" y="303.53"/>
+<wire x1="350.52" y1="308.61" x2="322.58" y2="308.61" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="308.61" x2="322.58" y2="303.53" width="0.1524" layer="91"/>
+<junction x="350.52" y="308.61"/>
+<junction x="322.58" y="303.53"/>
 <pinref part="C17" gate="CE" pin="2"/>
-<wire x1="419.1" y1="289.56" x2="406.4" y2="289.56" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="303.53" x2="406.4" y2="303.53" width="0.1524" layer="91"/>
 <pinref part="C18" gate="CE" pin="2"/>
-<junction x="419.1" y="289.56"/>
-<wire x1="419.1" y1="289.56" x2="426.72" y2="289.56" width="0.1524" layer="91"/>
-<wire x1="426.72" y1="289.56" x2="426.72" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="426.72" y1="271.78" x2="386.08" y2="271.78" width="0.1524" layer="91"/>
-<wire x1="406.4" y1="289.56" x2="406.4" y2="294.64" width="0.1524" layer="91"/>
-<junction x="406.4" y="289.56"/>
-<junction x="406.4" y="294.64"/>
-<label x="372.11" y="294.64" size="1.778" layer="95"/>
-<label x="408.94" y="326.39" size="1.778" layer="95"/>
-<wire x1="424.18" y1="325.12" x2="454.66" y2="325.12" width="0.1524" layer="91"/>
-<junction x="424.18" y="325.12"/>
+<junction x="419.1" y="303.53"/>
+<wire x1="419.1" y1="303.53" x2="426.72" y2="303.53" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="303.53" x2="426.72" y2="285.75" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="285.75" x2="386.08" y2="285.75" width="0.1524" layer="91"/>
+<wire x1="406.4" y1="303.53" x2="406.4" y2="308.61" width="0.1524" layer="91"/>
+<junction x="406.4" y="303.53"/>
+<junction x="406.4" y="308.61"/>
+<label x="372.11" y="308.61" size="1.778" layer="95"/>
+<label x="408.94" y="340.36" size="1.778" layer="95"/>
+<wire x1="424.18" y1="339.09" x2="454.66" y2="339.09" width="0.1524" layer="91"/>
+<junction x="424.18" y="339.09"/>
 <pinref part="R7" gate="R" pin="2"/>
-<wire x1="454.66" y1="322.58" x2="454.66" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="454.66" y1="336.55" x2="454.66" y2="339.09" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="VCC1"/>
 <pinref part="U2" gate="G$1" pin="VREF"/>
 <pinref part="U2" gate="G$1" pin="VCNT"/>
 <pinref part="U2" gate="G$1" pin="VCC2"/>
 <pinref part="U7" gate="G$1" pin="OUT"/>
-<wire x1="391.16" y1="325.12" x2="392.43" y2="325.12" width="0.1524" layer="91"/>
-<junction x="392.43" y="325.12"/>
+<wire x1="391.16" y1="339.09" x2="392.43" y2="339.09" width="0.1524" layer="91"/>
+<junction x="392.43" y="339.09"/>
 </segment>
 </net>
 <net name="BYPASS" class="0">
@@ -28559,9 +28681,9 @@ RF_GND crossing</text>
 </segment>
 <segment>
 <pinref part="U7" gate="G$1" pin="EN"/>
-<label x="365.76" y="304.8" size="1.778" layer="95" rot="R180" xref="yes"/>
-<wire x1="370.84" y1="320.04" x2="370.84" y2="304.8" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="304.8" x2="365.76" y2="304.8" width="0.1524" layer="91"/>
+<label x="365.76" y="318.77" size="1.778" layer="95" rot="R180" xref="yes"/>
+<wire x1="370.84" y1="334.01" x2="370.84" y2="318.77" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="318.77" x2="365.76" y2="318.77" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LNA_EN" class="0">
@@ -28585,15 +28707,8 @@ RF_GND crossing</text>
 <net name="N$43" class="1">
 <segment>
 <pinref part="C14" gate="CE" pin="1"/>
-<wire x1="304.8" y1="254" x2="368.3" y2="254" width="0.1524" layer="91"/>
+<wire x1="307.34" y1="267.97" x2="368.3" y2="267.97" width="0.1524" layer="91"/>
 <pinref part="U2" gate="G$1" pin="RFIN"/>
-</segment>
-</net>
-<net name="RFOUT" class="1">
-<segment>
-<wire x1="393.7" y1="256.54" x2="410.21" y2="256.54" width="0.1524" layer="91"/>
-<pinref part="U2" gate="G$1" pin="RFOUT"/>
-<pinref part="C58" gate="CE" pin="1"/>
 </segment>
 </net>
 <net name="PTC1" class="0">
@@ -28674,9 +28789,9 @@ RF_GND crossing</text>
 </net>
 <net name="N$4" class="0">
 <segment>
-<wire x1="391.16" y1="317.5" x2="391.16" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="331.47" x2="391.16" y2="326.39" width="0.1524" layer="91"/>
 <pinref part="U7" gate="G$1" pin="PG"/>
-<wire x1="391.16" y1="312.42" x2="396.24" y2="312.42" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="326.39" x2="396.24" y2="326.39" width="0.1524" layer="91"/>
 <pinref part="PG" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -28821,7 +28936,7 @@ RF_GND crossing</text>
 <net name="VBIAS" class="0">
 <segment>
 <wire x1="403.86" y1="198.12" x2="403.86" y2="195.58" width="0.1524" layer="91"/>
-<label x="401.32" y="199.39" size="1.778" layer="95"/>
+<label x="396.24" y="199.39" size="1.778" layer="95"/>
 <wire x1="414.02" y1="198.12" x2="403.86" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="L8" gate="L" pin="2"/>
 <wire x1="331.47" y1="167.64" x2="331.47" y2="165.1" width="0.1524" layer="91"/>
@@ -28841,10 +28956,10 @@ RF_GND crossing</text>
 <wire x1="365.76" y1="167.64" x2="414.02" y2="167.64" width="0.1524" layer="91"/>
 <junction x="365.76" y="167.64"/>
 <wire x1="414.02" y1="167.64" x2="414.02" y2="198.12" width="0.1524" layer="91"/>
-<wire x1="414.02" y1="198.12" x2="424.18" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="198.12" x2="426.72" y2="198.12" width="0.1524" layer="91"/>
 <junction x="414.02" y="198.12"/>
 <pinref part="R6" gate="R" pin="2"/>
-<wire x1="424.18" y1="195.58" x2="424.18" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="92.71" x2="426.72" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="C44" gate="CE" pin="1"/>
 <wire x1="356.87" y1="165.1" x2="356.87" y2="167.64" width="0.1524" layer="91"/>
 <junction x="356.87" y="167.64"/>
@@ -28853,31 +28968,29 @@ RF_GND crossing</text>
 <pinref part="U6" gate="G$1" pin="VOUT"/>
 <wire x1="391.16" y1="198.12" x2="403.86" y2="198.12" width="0.1524" layer="91"/>
 <junction x="403.86" y="198.12"/>
-<wire x1="424.18" y1="198.12" x2="439.42" y2="198.12" width="0.1524" layer="91"/>
-<junction x="424.18" y="198.12"/>
-<wire x1="439.42" y1="198.12" x2="439.42" y2="213.36" width="0.1524" layer="91"/>
-<wire x1="439.42" y1="213.36" x2="477.52" y2="213.36" width="0.1524" layer="91"/>
+<junction x="426.72" y="198.12"/>
+<wire x1="426.72" y1="198.12" x2="482.6" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="U5" gate="G$1" pin="VDD"/>
-<wire x1="477.52" y1="203.2" x2="477.52" y2="213.36" width="0.1524" layer="91"/>
+<wire x1="482.6" y1="187.96" x2="482.6" y2="198.12" width="0.1524" layer="91"/>
 <pinref part="C63" gate="CE" pin="2"/>
-<wire x1="477.52" y1="213.36" x2="492.76" y2="213.36" width="0.1524" layer="91"/>
-<wire x1="492.76" y1="213.36" x2="492.76" y2="208.28" width="0.1524" layer="91"/>
-<junction x="477.52" y="213.36"/>
+<wire x1="482.6" y1="198.12" x2="497.84" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="198.12" x2="497.84" y2="193.04" width="0.1524" layer="91"/>
+<junction x="482.6" y="198.12"/>
 </segment>
 </net>
 <net name="V_PA_FILTERED" class="0">
 <segment>
 <pinref part="R7" gate="R" pin="1"/>
 <pinref part="C45" gate="CE" pin="2"/>
-<wire x1="454.66" y1="309.88" x2="454.66" y2="312.42" width="0.1524" layer="91"/>
-<wire x1="454.66" y1="312.42" x2="462.28" y2="312.42" width="0.1524" layer="91"/>
-<wire x1="462.28" y1="312.42" x2="462.28" y2="309.88" width="0.1524" layer="91"/>
-<junction x="454.66" y="312.42"/>
+<wire x1="454.66" y1="323.85" x2="454.66" y2="326.39" width="0.1524" layer="91"/>
+<wire x1="454.66" y1="326.39" x2="462.28" y2="326.39" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="326.39" x2="462.28" y2="323.85" width="0.1524" layer="91"/>
+<junction x="454.66" y="326.39"/>
 <pinref part="R13" gate="R" pin="2"/>
 <pinref part="C50" gate="CE" pin="2"/>
-<wire x1="462.28" y1="312.42" x2="477.52" y2="312.42" width="0.1524" layer="91"/>
-<wire x1="477.52" y1="312.42" x2="477.52" y2="309.88" width="0.1524" layer="91"/>
-<junction x="462.28" y="312.42"/>
+<wire x1="462.28" y1="326.39" x2="477.52" y2="326.39" width="0.1524" layer="91"/>
+<wire x1="477.52" y1="326.39" x2="477.52" y2="323.85" width="0.1524" layer="91"/>
+<junction x="462.28" y="326.39"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -28918,16 +29031,16 @@ RF_GND crossing</text>
 <net name="V_LNA_FILTERED" class="0">
 <segment>
 <pinref part="C47" gate="CE" pin="2"/>
-<wire x1="431.8" y1="185.42" x2="431.8" y2="182.88" width="0.1524" layer="91"/>
+<wire x1="434.34" y1="82.55" x2="434.34" y2="80.01" width="0.1524" layer="91"/>
 <pinref part="R6" gate="R" pin="1"/>
-<wire x1="431.8" y1="185.42" x2="424.18" y2="185.42" width="0.1524" layer="91"/>
+<wire x1="434.34" y1="82.55" x2="426.72" y2="82.55" width="0.1524" layer="91"/>
 <pinref part="R14" gate="R" pin="2"/>
-<wire x1="424.18" y1="182.88" x2="424.18" y2="185.42" width="0.1524" layer="91"/>
-<junction x="424.18" y="185.42"/>
+<wire x1="426.72" y1="80.01" x2="426.72" y2="82.55" width="0.1524" layer="91"/>
+<junction x="426.72" y="82.55"/>
 <pinref part="C51" gate="CE" pin="2"/>
-<wire x1="431.8" y1="185.42" x2="441.96" y2="185.42" width="0.1524" layer="91"/>
-<wire x1="441.96" y1="185.42" x2="441.96" y2="182.88" width="0.1524" layer="91"/>
-<junction x="431.8" y="185.42"/>
+<wire x1="434.34" y1="82.55" x2="444.5" y2="82.55" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="82.55" x2="444.5" y2="80.01" width="0.1524" layer="91"/>
+<junction x="434.34" y="82.55"/>
 </segment>
 </net>
 <net name="RF_GND" class="0">
@@ -28938,7 +29051,7 @@ RF_GND crossing</text>
 </segment>
 <segment>
 <pinref part="U$30" gate="1" pin="RF_GND"/>
-<wire x1="538.48" y1="185.42" x2="538.48" y2="181.61" width="0.1524" layer="91"/>
+<wire x1="529.59" y1="170.18" x2="529.59" y2="166.37" width="0.1524" layer="91"/>
 <pinref part="CF2" gate="G$1" pin="SHIELD"/>
 </segment>
 <segment>
@@ -28971,92 +29084,92 @@ RF_GND crossing</text>
 </segment>
 <segment>
 <pinref part="C1" gate="CE" pin="1"/>
-<wire x1="210.82" y1="269.24" x2="210.82" y2="266.7" width="0.1524" layer="91"/>
+<wire x1="210.82" y1="283.21" x2="210.82" y2="280.67" width="0.1524" layer="91"/>
 <pinref part="U$25" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C2" gate="CE" pin="2"/>
-<wire x1="243.84" y1="243.84" x2="243.84" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="243.84" y1="257.81" x2="243.84" y2="255.27" width="0.1524" layer="91"/>
 <pinref part="U$10" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C9" gate="CE" pin="1"/>
-<wire x1="276.86" y1="243.84" x2="276.86" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="276.86" y1="257.81" x2="276.86" y2="255.27" width="0.1524" layer="91"/>
 <pinref part="U$11" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C11" gate="CE" pin="1"/>
-<wire x1="294.64" y1="243.84" x2="294.64" y2="241.3" width="0.1524" layer="91"/>
+<wire x1="294.64" y1="257.81" x2="294.64" y2="255.27" width="0.1524" layer="91"/>
 <pinref part="U$12" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
-<wire x1="381" y1="241.3" x2="381" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="381" y1="255.27" x2="381" y2="252.73" width="0.1524" layer="91"/>
 <pinref part="U$13" gate="1" pin="RF_GND"/>
 <pinref part="U2" gate="G$1" pin="GND"/>
 </segment>
 <segment>
 <pinref part="SH2" gate="G$1" pin="P$1"/>
 <pinref part="U$36" gate="1" pin="RF_GND"/>
-<wire x1="414.02" y1="241.3" x2="414.02" y2="243.84" width="0.1524" layer="91"/>
+<wire x1="414.02" y1="255.27" x2="414.02" y2="257.81" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C20" gate="CE" pin="1"/>
-<wire x1="322.58" y1="279.4" x2="322.58" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="322.58" y1="293.37" x2="322.58" y2="295.91" width="0.1524" layer="91"/>
 <pinref part="U$20" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C19" gate="CE" pin="1"/>
-<wire x1="332.74" y1="279.4" x2="332.74" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="332.74" y1="293.37" x2="332.74" y2="295.91" width="0.1524" layer="91"/>
 <pinref part="U$21" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C21" gate="CE" pin="1"/>
-<wire x1="350.52" y1="279.4" x2="350.52" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="350.52" y1="293.37" x2="350.52" y2="295.91" width="0.1524" layer="91"/>
 <pinref part="U$18" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C22" gate="CE" pin="1"/>
-<wire x1="360.68" y1="279.4" x2="360.68" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="293.37" x2="360.68" y2="295.91" width="0.1524" layer="91"/>
 <pinref part="U$19" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C16" gate="CE" pin="1"/>
-<wire x1="378.46" y1="279.4" x2="378.46" y2="281.94" width="0.1524" layer="91"/>
+<wire x1="378.46" y1="293.37" x2="378.46" y2="295.91" width="0.1524" layer="91"/>
 <pinref part="U$14" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C15" gate="CE" pin="1"/>
-<wire x1="391.16" y1="281.94" x2="391.16" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="391.16" y1="295.91" x2="391.16" y2="293.37" width="0.1524" layer="91"/>
 <pinref part="U$15" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C17" gate="CE" pin="1"/>
-<wire x1="406.4" y1="281.94" x2="406.4" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="406.4" y1="295.91" x2="406.4" y2="293.37" width="0.1524" layer="91"/>
 <pinref part="U$17" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C18" gate="CE" pin="1"/>
-<wire x1="419.1" y1="281.94" x2="419.1" y2="279.4" width="0.1524" layer="91"/>
+<wire x1="419.1" y1="295.91" x2="419.1" y2="293.37" width="0.1524" layer="91"/>
 <pinref part="U$16" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="U$26" gate="1" pin="RF_GND"/>
 <pinref part="U7" gate="G$1" pin="GND"/>
-<wire x1="381" y1="309.88" x2="381" y2="304.8" width="0.1524" layer="91"/>
+<wire x1="381" y1="323.85" x2="381" y2="318.77" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C46" gate="CE" pin="1"/>
-<wire x1="412.75" y1="314.96" x2="412.75" y2="317.5" width="0.1524" layer="91"/>
+<wire x1="412.75" y1="328.93" x2="412.75" y2="331.47" width="0.1524" layer="91"/>
 <pinref part="U$27" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C13" gate="CE" pin="1"/>
-<wire x1="360.68" y1="314.96" x2="360.68" y2="317.5" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="328.93" x2="360.68" y2="331.47" width="0.1524" layer="91"/>
 <pinref part="U$28" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C45" gate="CE" pin="1"/>
-<wire x1="462.28" y1="302.26" x2="462.28" y2="299.72" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="316.23" x2="462.28" y2="313.69" width="0.1524" layer="91"/>
 <pinref part="U$37" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
@@ -29084,7 +29197,7 @@ RF_GND crossing</text>
 </segment>
 <segment>
 <pinref part="C47" gate="CE" pin="1"/>
-<wire x1="431.8" y1="175.26" x2="431.8" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="434.34" y1="72.39" x2="434.34" y2="69.85" width="0.1524" layer="91"/>
 <pinref part="U$38" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
@@ -29133,53 +29246,58 @@ RF_GND crossing</text>
 <segment>
 <pinref part="C50" gate="CE" pin="1"/>
 <pinref part="U$1" gate="1" pin="RF_GND"/>
-<wire x1="477.52" y1="299.72" x2="477.52" y2="302.26" width="0.1524" layer="91"/>
+<wire x1="477.52" y1="313.69" x2="477.52" y2="316.23" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$7" gate="1" pin="RF_GND"/>
 <pinref part="C51" gate="CE" pin="1"/>
-<wire x1="441.96" y1="172.72" x2="441.96" y2="175.26" width="0.1524" layer="91"/>
+<wire x1="444.5" y1="69.85" x2="444.5" y2="72.39" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$8" gate="1" pin="RF_GND"/>
 <pinref part="C54" gate="CE" pin="1"/>
-<wire x1="256.54" y1="138.43" x2="256.54" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="285.75" y1="147.32" x2="285.75" y2="148.59" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U9" gate="G$1" pin="GND2"/>
-<wire x1="402.59" y1="72.39" x2="416.56" y2="72.39" width="0.1524" layer="91"/>
-<wire x1="416.56" y1="72.39" x2="416.56" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="466.09" y1="242.57" x2="466.09" y2="241.3" width="0.1524" layer="91"/>
 <pinref part="U$33" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="U9" gate="G$1" pin="GND"/>
-<wire x1="377.19" y1="72.39" x2="363.22" y2="72.39" width="0.1524" layer="91"/>
-<wire x1="363.22" y1="72.39" x2="363.22" y2="68.58" width="0.1524" layer="91"/>
+<wire x1="466.09" y1="267.97" x2="466.09" y2="274.32" width="0.1524" layer="91"/>
+<wire x1="466.09" y1="274.32" x2="471.17" y2="274.32" width="0.1524" layer="91"/>
 <pinref part="U$39" gate="1" pin="RF_GND"/>
 </segment>
 <segment>
 <pinref part="C49" gate="CE" pin="2"/>
 <pinref part="U$42" gate="1" pin="RF_GND"/>
+<wire x1="492.76" y1="255.27" x2="492.76" y2="257.81" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R18" gate="R" pin="1"/>
 <pinref part="U$47" gate="1" pin="RF_GND"/>
+<wire x1="478.79" y1="254" x2="478.79" y2="255.27" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$46" gate="1" pin="RF_GND"/>
 <pinref part="R19" gate="R" pin="1"/>
+<wire x1="478.79" y1="229.87" x2="478.79" y2="227.33" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$40" gate="1" pin="RF_GND"/>
 <pinref part="C55" gate="CE" pin="2"/>
+<wire x1="510.54" y1="255.27" x2="510.54" y2="257.81" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$45" gate="1" pin="RF_GND"/>
 <pinref part="C56" gate="CE" pin="2"/>
+<wire x1="510.54" y1="228.6" x2="510.54" y2="231.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$44" gate="1" pin="RF_GND"/>
 <pinref part="C57" gate="CE" pin="2"/>
+<wire x1="492.76" y1="228.6" x2="492.76" y2="231.14" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$29" gate="1" pin="RF_GND"/>
@@ -29188,12 +29306,12 @@ RF_GND crossing</text>
 <segment>
 <pinref part="U5" gate="G$1" pin="GND"/>
 <pinref part="U$31" gate="1" pin="RF_GND"/>
-<wire x1="477.52" y1="175.26" x2="477.52" y2="177.8" width="0.1524" layer="91"/>
+<wire x1="482.6" y1="160.02" x2="482.6" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="C63" gate="CE" pin="1"/>
 <pinref part="U$9" gate="1" pin="RF_GND"/>
-<wire x1="492.76" y1="200.66" x2="492.76" y2="198.12" width="0.1524" layer="91"/>
+<wire x1="497.84" y1="185.42" x2="497.84" y2="182.88" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="N$2" class="0">
@@ -29214,14 +29332,14 @@ RF_GND crossing</text>
 <segment>
 <pinref part="LED2" gate="LED" pin="A"/>
 <pinref part="R14" gate="R" pin="1"/>
-<wire x1="424.18" y1="170.18" x2="424.18" y2="172.72" width="0.1524" layer="91"/>
+<wire x1="426.72" y1="67.31" x2="426.72" y2="69.85" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="V+" class="0">
 <segment>
 <pinref part="C54" gate="CE" pin="2"/>
 <pinref part="3.3V6" gate="1" pin="V+"/>
-<wire x1="256.54" y1="147.32" x2="256.54" y2="148.59" width="0.1524" layer="91"/>
+<wire x1="285.75" y1="156.21" x2="285.75" y2="157.48" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="3.3V5" gate="1" pin="V+"/>
@@ -29241,8 +29359,8 @@ RF_GND crossing</text>
 <wire x1="30.48" y1="50.8" x2="38.1" y2="50.8" width="0.1524" layer="91"/>
 <wire x1="38.1" y1="50.8" x2="38.1" y2="53.34" width="0.1524" layer="91"/>
 <junction x="38.1" y="53.34"/>
-<pinref part="C52" gate="CE" pin="1"/>
 <wire x1="38.1" y1="53.34" x2="45.72" y2="53.34" width="0.1524" layer="91"/>
+<pinref part="C64" gate="CE" pin="1"/>
 </segment>
 <segment>
 <pinref part="SUPPLY1" gate="1" pin="V+"/>
@@ -29263,7 +29381,7 @@ RF_GND crossing</text>
 <segment>
 <pinref part="3.3V2" gate="1" pin="V+"/>
 <pinref part="R16" gate="R" pin="2"/>
-<wire x1="360.68" y1="340.36" x2="360.68" y2="337.82" width="0.1524" layer="91"/>
+<wire x1="360.68" y1="354.33" x2="360.68" y2="351.79" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="R17" gate="R" pin="2"/>
@@ -29305,61 +29423,37 @@ RF_GND crossing</text>
 <wire x1="208.28" y1="55.88" x2="215.9" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 </net>
-<net name="RFC" class="1">
-<segment>
-<pinref part="U9" gate="G$1" pin="IN"/>
-<wire x1="377.19" y1="76.2" x2="370.84" y2="76.2" width="0.1524" layer="91"/>
-<label x="370.84" y="76.2" size="1.27" layer="95" rot="R180" xref="yes"/>
-</segment>
-<segment>
-<wire x1="502.92" y1="190.5" x2="509.27" y2="190.5" width="0.1524" layer="91"/>
-<label x="509.27" y="190.5" size="1.778" layer="95" xref="yes"/>
-<pinref part="C61" gate="CE" pin="2"/>
-</segment>
-</net>
-<net name="DC_OUT" class="1">
-<segment>
-<pinref part="U9" gate="G$1" pin="OUT"/>
-<wire x1="402.59" y1="76.2" x2="410.21" y2="76.2" width="0.1524" layer="91"/>
-<label x="410.21" y="76.2" size="1.27" layer="95" xref="yes"/>
-</segment>
-<segment>
-<wire x1="533.4" y1="190.5" x2="529.59" y2="190.5" width="0.1524" layer="91"/>
-<label x="529.59" y="190.5" size="1.27" layer="95" rot="R180" xref="yes"/>
-<pinref part="CF2" gate="G$1" pin="CENTER"/>
-</segment>
-</net>
 <net name="REV" class="0">
 <segment>
 <pinref part="U9" gate="G$1" pin="REV"/>
-<wire x1="377.19" y1="68.58" x2="377.19" y2="54.61" width="0.1524" layer="91"/>
 <pinref part="D1" gate="G$1" pin="A"/>
-<wire x1="377.19" y1="54.61" x2="370.84" y2="54.61" width="0.1524" layer="91"/>
 <pinref part="R18" gate="R" pin="2"/>
-<wire x1="370.84" y1="54.61" x2="365.76" y2="54.61" width="0.1524" layer="91"/>
-<junction x="370.84" y="54.61"/>
-<label x="373.38" y="62.23" size="1.27" layer="95" rot="R270"/>
+<label x="473.71" y="267.97" size="1.27" layer="95"/>
+<wire x1="469.9" y1="267.97" x2="478.79" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="478.79" y1="267.97" x2="483.87" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="478.79" y1="265.43" x2="478.79" y2="267.97" width="0.1524" layer="91"/>
+<junction x="478.79" y="267.97"/>
 </segment>
 </net>
 <net name="N$24" class="0">
 <segment>
 <pinref part="D1" gate="G$1" pin="C"/>
 <pinref part="R20" gate="R" pin="2"/>
-<wire x1="360.68" y1="54.61" x2="356.87" y2="54.61" width="0.1524" layer="91"/>
+<wire x1="488.95" y1="267.97" x2="492.76" y2="267.97" width="0.1524" layer="91"/>
 <pinref part="C49" gate="CE" pin="1"/>
-<wire x1="356.87" y1="54.61" x2="354.33" y2="54.61" width="0.1524" layer="91"/>
-<wire x1="356.87" y1="52.07" x2="356.87" y2="54.61" width="0.1524" layer="91"/>
-<junction x="356.87" y="54.61"/>
+<wire x1="492.76" y1="267.97" x2="495.3" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="265.43" x2="492.76" y2="267.97" width="0.1524" layer="91"/>
+<junction x="492.76" y="267.97"/>
 </segment>
 </net>
 <net name="VREV" class="0">
 <segment>
 <pinref part="R20" gate="R" pin="1"/>
-<wire x1="344.17" y1="54.61" x2="339.09" y2="54.61" width="0.1524" layer="91"/>
-<wire x1="339.09" y1="54.61" x2="339.09" y2="52.07" width="0.1524" layer="91"/>
-<wire x1="339.09" y1="54.61" x2="331.47" y2="54.61" width="0.1524" layer="91"/>
-<junction x="339.09" y="54.61"/>
-<label x="331.47" y="54.61" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="505.46" y1="267.97" x2="510.54" y2="267.97" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="267.97" x2="510.54" y2="265.43" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="267.97" x2="518.16" y2="267.97" width="0.1524" layer="91"/>
+<junction x="510.54" y="267.97"/>
+<label x="518.16" y="267.97" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="C55" gate="CE" pin="1"/>
 </segment>
 <segment>
@@ -29371,22 +29465,21 @@ RF_GND crossing</text>
 <net name="FWD" class="0">
 <segment>
 <pinref part="U9" gate="G$1" pin="FWD"/>
-<wire x1="402.59" y1="68.58" x2="402.59" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="402.59" y1="36.83" x2="370.84" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="36.83" x2="365.76" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="370.84" y1="35.56" x2="370.84" y2="36.83" width="0.1524" layer="91"/>
-<junction x="370.84" y="36.83"/>
-<label x="403.86" y="62.23" size="1.27" layer="95" rot="R270"/>
+<wire x1="469.9" y1="242.57" x2="478.79" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="478.79" y1="242.57" x2="483.87" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="478.79" y1="240.03" x2="478.79" y2="242.57" width="0.1524" layer="91"/>
+<junction x="478.79" y="242.57"/>
+<label x="473.71" y="242.57" size="1.27" layer="95"/>
 <pinref part="D2" gate="G$1" pin="A"/>
 <pinref part="R19" gate="R" pin="2"/>
 </segment>
 </net>
 <net name="N$28" class="0">
 <segment>
-<wire x1="360.68" y1="36.83" x2="356.87" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="356.87" y1="36.83" x2="354.33" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="356.87" y1="33.02" x2="356.87" y2="36.83" width="0.1524" layer="91"/>
-<junction x="356.87" y="36.83"/>
+<wire x1="488.95" y1="242.57" x2="492.76" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="242.57" x2="495.3" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="492.76" y1="238.76" x2="492.76" y2="242.57" width="0.1524" layer="91"/>
+<junction x="492.76" y="242.57"/>
 <pinref part="D2" gate="G$1" pin="C"/>
 <pinref part="R21" gate="R" pin="2"/>
 <pinref part="C57" gate="CE" pin="1"/>
@@ -29394,11 +29487,11 @@ RF_GND crossing</text>
 </net>
 <net name="VFWD" class="0">
 <segment>
-<wire x1="344.17" y1="36.83" x2="339.09" y2="36.83" width="0.1524" layer="91"/>
-<wire x1="339.09" y1="36.83" x2="339.09" y2="33.02" width="0.1524" layer="91"/>
-<wire x1="339.09" y1="36.83" x2="331.47" y2="36.83" width="0.1524" layer="91"/>
-<junction x="339.09" y="36.83"/>
-<label x="331.47" y="36.83" size="1.27" layer="95" rot="R180" xref="yes"/>
+<wire x1="505.46" y1="242.57" x2="510.54" y2="242.57" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="242.57" x2="510.54" y2="238.76" width="0.1524" layer="91"/>
+<wire x1="510.54" y1="242.57" x2="518.16" y2="242.57" width="0.1524" layer="91"/>
+<junction x="510.54" y="242.57"/>
+<label x="518.16" y="242.57" size="1.27" layer="95" rot="MR180" xref="yes"/>
 <pinref part="R21" gate="R" pin="1"/>
 <pinref part="C56" gate="CE" pin="1"/>
 </segment>
@@ -29441,11 +29534,11 @@ RF_GND crossing</text>
 <net name="N$6" class="0">
 <segment>
 <pinref part="U7" gate="G$1" pin="IN"/>
-<wire x1="370.84" y1="325.12" x2="360.68" y2="325.12" width="0.1524" layer="91"/>
+<wire x1="370.84" y1="339.09" x2="360.68" y2="339.09" width="0.1524" layer="91"/>
 <pinref part="C13" gate="CE" pin="2"/>
 <pinref part="R16" gate="R" pin="1"/>
-<wire x1="360.68" y1="327.66" x2="360.68" y2="325.12" width="0.1524" layer="91"/>
-<junction x="360.68" y="325.12"/>
+<wire x1="360.68" y1="341.63" x2="360.68" y2="339.09" width="0.1524" layer="91"/>
+<junction x="360.68" y="339.09"/>
 </segment>
 </net>
 <net name="N$9" class="0">
@@ -29461,19 +29554,17 @@ RF_GND crossing</text>
 </net>
 <net name="PA_IN" class="1">
 <segment>
-<wire x1="417.83" y1="256.54" x2="462.28" y2="256.54" width="0.1524" layer="91"/>
-<wire x1="462.28" y1="195.58" x2="462.28" y2="256.54" width="0.1524" layer="91"/>
-<label x="459.74" y="237.49" size="1.778" layer="95" rot="R270"/>
+<wire x1="462.28" y1="180.34" x2="462.28" y2="186.69" width="0.1524" layer="91"/>
 <pinref part="C58" gate="CE" pin="2"/>
 <pinref part="U5" gate="G$1" pin="RF1"/>
-<wire x1="464.82" y1="195.58" x2="462.28" y2="195.58" width="0.1524" layer="91"/>
+<wire x1="469.9" y1="180.34" x2="462.28" y2="180.34" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="RXTX_OUT" class="1">
 <segment>
 <pinref part="C61" gate="CE" pin="1"/>
 <pinref part="U5" gate="G$1" pin="RFC"/>
-<wire x1="490.22" y1="190.5" x2="495.3" y2="190.5" width="0.1524" layer="91"/>
+<wire x1="495.3" y1="175.26" x2="500.38" y2="175.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PTE19" class="0">
@@ -29552,6 +29643,29 @@ RF_GND crossing</text>
 <wire x1="215.9" y1="30.48" x2="213.36" y2="30.48" width="0.1524" layer="91"/>
 </segment>
 </net>
+<net name="PA-OUT" class="0">
+<segment>
+<pinref part="U2" gate="G$1" pin="RFOUT"/>
+<wire x1="393.7" y1="270.51" x2="462.28" y2="270.51" width="0.1524" layer="91"/>
+<wire x1="462.28" y1="270.51" x2="462.28" y2="267.97" width="0.1524" layer="91"/>
+<pinref part="U9" gate="G$1" pin="IN"/>
+<label x="401.32" y="270.51" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$29" class="0">
+<segment>
+<pinref part="U9" gate="G$1" pin="OUT"/>
+<wire x1="462.28" y1="242.57" x2="462.28" y2="194.31" width="0.1524" layer="91"/>
+<pinref part="C58" gate="CE" pin="1"/>
+</segment>
+</net>
+<net name="N$30" class="0">
+<segment>
+<pinref part="CF2" gate="G$1" pin="CENTER"/>
+<pinref part="C61" gate="CE" pin="2"/>
+<wire x1="524.51" y1="175.26" x2="508" y2="175.26" width="0.1524" layer="91"/>
+</segment>
+</net>
 </nets>
 </sheet>
 </sheets>
@@ -29569,9 +29683,9 @@ RF_GND crossing</text>
 <approved hash="104,1,109.22,144.78,U1,VSS,GND,,,"/>
 <approved hash="104,1,114.3,144.78,U1,VSS2,GND,,,"/>
 <approved hash="104,1,93.98,241.3,U1,VSSA,GND,,,"/>
-<approved hash="104,1,391.16,325.12,U7,OUT,VPA,,,"/>
-<approved hash="104,1,381,309.88,U7,GND,RF_GND,,,"/>
-<approved hash="104,1,370.84,325.12,U7,IN,N$6,,,"/>
+<approved hash="104,1,391.16,339.09,U7,OUT,VPA,,,"/>
+<approved hash="104,1,381,323.85,U7,GND,RF_GND,,,"/>
+<approved hash="104,1,370.84,339.09,U7,IN,N$6,,,"/>
 <approved hash="104,1,102.87,383.54,U4,VIN,N$12,,,"/>
 <approved hash="104,1,128.27,383.54,U4,VOUT,3.3V,,,"/>
 <approved hash="104,1,365.76,198.12,U6,VIN,N$9,,,"/>
@@ -29579,18 +29693,18 @@ RF_GND crossing</text>
 <approved hash="104,1,391.16,198.12,U6,VOUT,VBIAS,,,"/>
 <approved hash="104,1,119.38,325.12,U3,VDD,3.3V,,,"/>
 <approved hash="104,1,347.98,134.62,SH1,P$1,RF_GND,,,"/>
-<approved hash="104,1,414.02,243.84,SH2,P$1,RF_GND,,,"/>
-<approved hash="104,1,381,241.3,U2,GND,RF_GND,,,"/>
-<approved hash="104,1,378.46,271.78,U2,VCC1,VPA,,,"/>
-<approved hash="104,1,368.3,256.54,U2,VREF,VPA,,,"/>
-<approved hash="104,1,368.3,259.08,U2,VCNT,VPA,,,"/>
-<approved hash="104,1,386.08,271.78,U2,VCC2,VPA,,,"/>
+<approved hash="104,1,414.02,257.81,SH2,P$1,RF_GND,,,"/>
+<approved hash="104,1,381,255.27,U2,GND,RF_GND,,,"/>
+<approved hash="104,1,378.46,285.75,U2,VCC1,VPA,,,"/>
+<approved hash="104,1,368.3,270.51,U2,VREF,VPA,,,"/>
+<approved hash="104,1,368.3,273.05,U2,VCNT,VPA,,,"/>
+<approved hash="104,1,386.08,285.75,U2,VCC2,VPA,,,"/>
 <approved hash="104,1,381,160.02,U8,VBIAS,N$2,,,"/>
 <approved hash="104,1,381,134.62,U8,GND,RF_GND,,,"/>
-<approved hash="104,1,377.19,72.39,U9,GND,RF_GND,,,"/>
-<approved hash="104,1,402.59,72.39,U9,GND2,RF_GND,,,"/>
-<approved hash="104,1,477.52,177.8,U5,GND,RF_GND,,,"/>
-<approved hash="104,1,477.52,203.2,U5,VDD,VBIAS,,,"/>
+<approved hash="104,1,466.09,267.97,U9,GND,RF_GND,,,"/>
+<approved hash="104,1,466.09,242.57,U9,GND2,RF_GND,,,"/>
+<approved hash="104,1,482.6,162.56,U5,GND,RF_GND,,,"/>
+<approved hash="104,1,482.6,187.96,U5,VDD,VBIAS,,,"/>
 <approved hash="113,1,279.296,215.796,FRAME1,,,,,"/>
 </errors>
 </schematic>
