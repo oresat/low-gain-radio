@@ -11,9 +11,14 @@
 
 #define USE_XCVR_TX_MODE false
 #define USE_XCVR_RX_MODE false
-#define USE_XCVR_LISTEN_MODE false
+#define USE_XCVR_LISTEN_MODE false //DO NOT USE, BUG WITH CLOCK LOSS DURING IDLE PERIOD CAUSES MAJOR ISSUES
 #define TEST_TPM false
 #define TEST_ADC true
+#define DEBUG_UART false
+
+#ifndef DEBUG_UART
+#define DEBUG_UART false
+#endif
 
 #ifndef TEST_ADC
 #define TEST_ADC false

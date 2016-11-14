@@ -124,10 +124,14 @@ void main_loop(void)
 			error_spin_led(red);
 		}
 	}
+        //DO NOT USE LISTEN MODE, BUG: CLOCK LOSS DURING IDLE PERIOD CAUSES MAJOR ISSUES
+        //FIXING THIS IS ON THE TODO LIST, SEE ISSUE #17
+        /*
 	else if(USE_XCVR_LISTEN_MODE){
 		if(!configure_transceiver(ModeStdby, PAOutputCfg(PA0, 0x1F))) error_spin_led(red);
 		changeMode(ModeListen);
         }
+        */
 
 	uint8_t IrqFlags[2] = {0, 0};
 	// uint8_t OldFlags[2] = {0xFF, 0xFF};
@@ -144,11 +148,12 @@ void main_loop(void)
 	volatile size_t len ;
 	char teststr[24] = "\r\nDevelopment...\r\n";
 	len  = strlen(teststr);
-	uint32_t i = 0;
+	uint32_t i,k= 0;
 	uart_write_poll(&UART0, len, (uint8_t *)teststr);
 
 	char n;
 	char ch[20];
+	uint8_t data[3] = {0, 0, ' '};
 	while(1)
 	{
 		++i;
@@ -161,17 +166,18 @@ void main_loop(void)
 			// packet received, spit it out on UART0
 			if(IrqFlags[1] & PayloadReady)
 			{
-				led_action(TOGGLE, green);
+				uart_write_poll(&UART0, 19, "Packet Received!\r\n");
+				uart_write_poll(&UART0, 9, "Payload: ");
 
 				// read until fifo empty
 				while(IrqFlags[1] & FifoNotEmpty)
 				{
 					xcvr_read_8bit_reg(xcvr_addrs.RegFifo, &rxbyte);
-					uint8_t data[3] = {0, 0, ' '};
 					toHex(data, rxbyte);
 					uart_write_poll(&UART0, sizeof(data), data);
 					xcvr_read_8bit_reg(xcvr_addrs.RegIrqFlags2, &IrqFlags[1]);
 				}
+                                uart_write_poll(&UART0, 2, "\r\n");
 				led_action(TOGGLE, green);
 			}
 		}
@@ -180,39 +186,51 @@ void main_loop(void)
 		{
 			if(USE_XCVR_TX_MODE)
 			{
+				k++;
+				printf("Transmitting packet %d\r\n", k);
 				for(uint8_t j = 0; j < PACKET_LENGTH; j++)
 				{
 					xcvr_write_8bit_reg(xcvr_addrs.RegFifo, *(txbytes + j));
 				}
+				led_action(TOGGLE, green);
 			}
-			if(uart0_intr_flag_g)
-			{
-				uart0_intr_flag_g = false;
-			}
-			led_action(TOGGLE, red);
-			NVIC_SetPendingIRQ(PORTA_IRQn);
-			if(!uart0_writestr_intr("NUM CHARS: "))
-			{
-				uart_write_poll(&UART0, len, (uint8_t *) " ouch\n");
-			}
-
-			n = num_uart0_rx_chars_avail();
-			util_itoa(n, ch, 10);
-			if(!uart0_writestr_intr( ch))
-			{
-				uart_write_poll(&UART0, len, (uint8_t *) " OUCH\n");
-			}
-			if(!uart0_writestr_intr( "\r\n"))
-			{
-				uart_write_poll(&UART0, len, (uint8_t *) " OUCH\n");
-			}
-			printf("Char 'c':\t%c\r\n", 'c');
-			printf("Decimal 10:\t%d\r\n", 10);
-			printf("Hex 10:\t\t0x%x\r\n", 10);
-			printf("Bin 10:\t\t0b%b\r\n", 10);
-			printf("\r\nHello\tTab\nnewline\ttab...Yay!\r\n");
-			// uart0_writechar_intr('x');
-			// uart0_writechar_intr(' ');
+                        if(DEBUG_UART){
+				if(uart0_intr_flag_g)
+				{
+					uart0_intr_flag_g = false;
+				}
+				led_action(TOGGLE, red);
+				NVIC_SetPendingIRQ(PORTA_IRQn);
+				if(!uart0_writestr_intr("NUM CHARS: "))
+				{
+					uart_write_poll(&UART0, len, (uint8_t *) " ouch\n");
+				}
+				n = num_uart0_rx_chars_avail();
+				util_itoa(n, ch, 10);
+				if(!uart0_writestr_intr( ch))
+				{
+					uart_write_poll(&UART0, len, (uint8_t *) " OUCH\n");
+				}
+				if(!uart0_writestr_intr( "\r\n"))
+				{
+					uart_write_poll(&UART0, len, (uint8_t *) " OUCH\n");
+				}
+				printf("Char 'c':\t%c\r\n", 'c');
+				printf("Decimal 10:\t%d\r\n", 10);
+				printf("Hex 10:\t\t0x%x\r\n", 10);
+				printf("Bin 10:\t\t0b%b\r\n", 10);
+				printf("\r\nHello\tTab\nnewline\ttab...Yay!\r\n");
+				// uart0_writechar_intr('x');
+				// uart0_writechar_intr(' ');
+                        }
+			if(!USE_XCVR_TX_MODE &&
+			   !USE_XCVR_RX_MODE &&
+			   !USE_XCVR_LISTEN_MODE &&
+			   !TEST_TPM &&
+			   !TEST_ADC &&
+			   !DEBUG_UART){
+				printf("uh...I'm alive but you didn't program me to do anything!\r\n");
+                        }
 			i = 0;
 		}
 	}
@@ -260,11 +278,20 @@ int main(void)
 
 	if(TEST_ADC){
 		adc_init();
+		tpm0_init(false);
 		uint16_t adc_result;
+
+		/* 3.3/(2^16-1) = ~50uV */
+		uint16_t adc_expected = 65535;
+		uint16_t adc_diff;
+
 		while(1){
 			adc_result = adc_sample();
+			printf("ADC sample = %d\r\n", adc_result);
+			adc_diff = (adc_expected - adc_result)*50;
+			printf("%d uV error\r\n", adc_diff);
                         if(adc_result >= 2048) led_action(TOGGLE, green);
-			//for(uint16_t num = 0; num < 10000; num++);
+			wait_n_ms(500);
                 }
         }
 

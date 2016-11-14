@@ -328,15 +328,18 @@ static bool getMode(uint8_t * dest){
 
 bool changeMode(uint8_t mode)
 {
-	/* only accept mode constants */
+        //DO NOT USE LISTEN MODE, BUG: CLOCK LOSS DURING IDLE PERIOD CAUSES MAJOR ISSUES
+        //FIXING THIS IS ON THE TODO LIST, SEE ISSUE #17
+	/*
 	if((mode != ModeListen) &&
 	   (mode != ModeSleep) &&
 	   (mode != ModeStdby) &&
 	   (mode != ModeFS) &&
 	   (mode != ModeTX) &&
 	   (mode != ModeRX)) return false;
-
+	*/
         /* must switch into Listen Mode from Standby Mode */
+	/*
 	if(mode == ModeListen){
 		uint8_t currentMode;
 		getMode(&currentMode);
@@ -344,6 +347,15 @@ bool changeMode(uint8_t mode)
 			if(!xcvr_write_8bit_reg(xcvr_addrs.RegOpMode, ModeStdby)) return false;
                 }
         }
+        */
+
+	/* only accept mode constants */
+	if((mode != ModeListen) &&
+	   (mode != ModeSleep) &&
+	   (mode != ModeStdby) &&
+	   (mode != ModeFS) &&
+	   (mode != ModeTX) &&
+	   (mode != ModeRX)) return false;
 
 	return xcvr_write_8bit_reg(xcvr_addrs.RegOpMode, mode);
 }
