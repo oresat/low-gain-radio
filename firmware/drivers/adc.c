@@ -40,15 +40,18 @@ bool adc_init(void){
 }
 
 uint16_t adc_sample(void){
-	/* select ADC channel, starts conversion */
-	ADC.SC1A &= (0xFFE0 | ADC0_DM1);
+	if(adc_calibrate()){
+		/* select ADC channel, starts conversion */
+		ADC.SC1A &= (0xFFE0 | ADC0_DM1);
 
-	/* conversion in progress */
-	if(ADC.SC2 & ADC0_SC2_ADACT_MASK){
-		/* wait for it to finish */
-		while(!(ADC.SC1A & ADC0_SC1A_COCO_MASK));
-		ADC.SC1A |= 0x1F;
-		return ADC.RA;
-        }
+		/* conversion in progress */
+		if(ADC.SC2 & ADC0_SC2_ADACT_MASK){
+			/* wait for it to finish */
+			while(!(ADC.SC1A & ADC0_SC1A_COCO_MASK));
+			ADC.SC1A |= 0x1F;
+			return ADC.RA;
+        	}
+		else return 0;
+	}
 	else return 0;
 }

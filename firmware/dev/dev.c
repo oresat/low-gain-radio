@@ -282,16 +282,16 @@ int main(void)
 		uint16_t adc_result;
 
 		/* 3.3/(2^16-1) = ~50uV */
-		uint16_t adc_expected = 65535;
+		//uint16_t adc_expected = 65535;
 		uint16_t adc_diff;
 
 		while(1){
 			adc_result = adc_sample();
 			printf("ADC sample = %d\r\n", adc_result);
-			adc_diff = (adc_expected - adc_result)*50;
-			printf("%d uV error\r\n", adc_diff);
+			//adc_diff = (adc_expected - adc_result)*50;
+			//printf("%d uV error\r\n", adc_diff);
                         if(adc_result >= 2048) led_action(TOGGLE, green);
-			wait_n_ms(500);
+			wait_n_ms(15000);
                 }
         }
 
